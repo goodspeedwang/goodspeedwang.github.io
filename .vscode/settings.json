@@ -1,0 +1,11 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.media": true,
+        "**/.unotes": true,
+        ".gitignore": true,
+        "git.sh": true
+    },
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+}

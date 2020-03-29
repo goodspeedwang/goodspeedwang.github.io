@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE  导航 [
+        <!ELEMENT 导航 (组)>
+        <!ELEMENT 组 (网址)>
+        <!ELEMENT 网址 (名称,地址)>
+        <!ELEMENT 名称 ( #PCDATA)>
+        <!ELEMENT 地址 ( #PCDATA)>
+
+        ]>
+<?xml-stylesheet type="text/xsl" href="/static/xslt/nav.xsl" ?>
+<导航>
+    <组 组名="常用链接">
+        <网址><名称>Gmail</名称><地址>https://mail.google.com/</地址></网址>
+        <网址><名称>Youtube</名称><地址>https://www.youtube.com/</地址></网址>
+        <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
+        <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
+        <网址><名称>有道词典</名称><地址>http://dict.youdao.com/</地址></网址>
+        <网址><名称>Docs</名称><地址>https://goodspeed.coding.net/p/docs/d/docs/git</地址></网址>
+    </组>
+
+    <组 组名="ISP">
+        <网址><名称>联通</名称><地址>http://www.10010.com/</地址></网址>
+        <网址><名称>北京电信</名称><地址>http://www.189.cn/bj/</地址></网址>
+    </组>
+
+    <组 组名="Media">
+        <网址><名称>新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
+        <网址><名称>汉网</名称><地址>http://www.cnhan.com</地址></网址>
+        <网址><名称>得意生活</名称><地址>http://www.deyi.com/</地址></网址>
+        <网址><名称>55bbs</名称><地址>http://bbs.55bbs.com/forum-33-1.html</地址></网址>
+        <网址><名称>空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
+    </组>
+
+    <组 组名="Computer">
+        <网址><名称>电脑之家</名称><地址>http://www.pchome.net/</地址></网址>
+        <网址><地址>http://www.zol.com.cn/</地址><名称>中关村</名称></网址>
+        <网址><地址>http://www.pcpop.com/</地址><名称>pcpop</名称></网址>
+        <网址><地址>http://www.cnbeta.com/</地址><名称>cnbeta</名称></网址>
+        <网址><地址>http://web.archive.org/collections/web.html</地址><名称>时光倒传</名称></网址>
+    </组>
+
+    <组 组名="English">
+        <网址><地址>http://www.chinadaily.com.cn/</地址><名称>中国日报</名称></网址>
+        <网址><地址>http://www.jukuu.com/</地址><名称>句库</名称></网址>
+        <网址><地址>http://www.dict.cn/</地址><名称>在线词典</名称></网址>
+        <网址><地址>http://www.iciba.com/</地址><名称>爱词霸</名称></网址>
+        <网址><地址>http://www.oup.com/elt/catalogue/teachersites/oald7/?cc=global</地址><名称>Oxford</名称></网址>
+        <网址><地址>https://www.voicetube.com/</地址><名称>VoiceTube</名称></网址>
+        <网址><地址>https://dictionary.cambridge.org/dictionary/</地址><名称>Cambridge</名称></网址>
+        <网址><地址>http://www.thefreedictionary.com/</地址><名称>thefreedictionary</名称></网址>
+    </组>
+
+    <组 组名="Coding">
+        <网址><地址>http://www.csdn.net/</地址><名称>程序员大本营</名称></网址>
+        <网址><地址>http://forums.asp.net/</地址><名称>ASP.NET</名称></网址>
+        <网址><地址>http://msdn.microsoft.com/library/default.asp</地址><名称>MSDN</名称></网址>
+        <网址><地址>http://www.regexlib.com/Search.aspx</地址><名称>正则表达式</名称></网址>
+        <网址><地址>http://www.cnblogs.com/</地址><名称>博客园</名称></网址>
+        <网址><地址>http://www.tutorialspoint.com</地址><名称>tutorialspoint</名称></网址>
+        <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
+    </组>
+
+    <组 组名="Geeker">
+        <网址><地址>http://msdn.microsoft.com/zh-cn/magazine/ee310108.aspx</地址><名称>msdn杂志</名称></网址>
+        <网址><地址>http://blog.joycode.com/saucer/</地址><名称>思归呓语</名称></网址>
+        <网址><地址>http://blog.csdn.net/zjcxc/</地址><名称>邹建</名称></网址>
+        <网址><地址>http://weblogs.asp.net/scottgu/</地址><名称>ScottGu's</名称></网址>
+        <网址><地址>http://blog.zhaojie.me/</地址><名称>老赵</名称></网址>
+        <网址><地址>http://haacked.com/</地址><名称>haacked</名称></网址>
+        <网址><地址>http://c7sky.com/</地址><名称>小影志</名称></网址>
+        <网址><地址>https://shudu.one/sudoku/printable-hard-sudoku.php</地址><名称>Sudoku</名称></网址>
+        
+    </组>
+
+    <组 组名="网络测试">
+        <网址><地址>http://www.dnsstuff.com/</地址><名称>DNS Stuff</名称></网址>
+        <网址><地址>http://www.thedonkeynetwork.com/connection_test</地址><名称>端口测试</名称></网址>
+        <网址><地址>http://eventid.net/search.asp</地址><名称>EventID.Net</名称></网址>
+    </组>
+
+    <组 组名="Book">
+        <网址><地址>http://kindleren.com/forum.php?mod=forumdisplay&amp;fid=50</地址><名称>kindleren</名称></网址>
+        <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
+        <网址><地址>https://www.skebooks.com/</地址><名称>so-kindle</名称></网址>
+        <网址><地址>http://mebook.cc/</地址><名称>我的小书屋</名称></网址>
+        <网址><地址>http://neikuw.com/</地址><名称>內酷网</名称></网址>
+
+        
+        <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称>首都图书馆</名称></网址>
+        <网址><地址>http://www.childlib.org</地址><名称>少儿图书馆</名称></网址>
+        <网址><地址>http://redis.readthedocs.org/en/latest/</地址><名称>Redis</名称></网址>
+        <网址><地址>http://dormousehole.readthedocs.org/en/latest/</地址><名称>Flask</名称></网址>
+        <网址><地址>http://www.css88.com/jqapi-1.9/</地址><名称>JQuery</名称></网址>
+        <网址><地址>http://overapi.com/</地址><名称>overapi</名称></网址>
+    </组>
+
+    <组 组名="Stock">
+        <网址><地址>https://www.bj.cmbchina.com/bjtransweb/wsgzd_employ/login.jsp</地址><名称>工资查询</名称></网址>
+        <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>
+        <网址><地址>https://grwsyw.bjgjj.gov.cn/ish/</地址><名称>公积金</名称></网址>
+        <网址><地址>http://data.eastmoney.com/xg/xg/default.html</地址><名称>新股</名称></网址>
+        <网址><地址>http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml</地址><名称>上证</名称></网址>
+        <网址><地址>http://www.bjld.gov.cn/csibiz/indinfo/login.jsp</地址><名称>社保查询</名称></网址>
+        <网址><地址>https://www.mycoreinfo.com/MTDP</地址><名称>行权</名称></网址>
+        <网址><地址>https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx</地址><名称>招商银行</名称></网址>
+        <网址><地址>https://cardsonline.spdbccc.com.cn/icard/icardlogin.do?_locale=zh_CN</地址><名称>浦发银行</名称></网址>
+        <网址><地址>https://pbank.95559.com.cn/personbank/logon.jsp</地址><名称>交通银行</名称></网址>
+        <网址><地址>http://www.hxb.com.cn/home/cn/</地址><名称>华夏银行</名称></网址>
+        <网址><地址>https://ebsnew.boc.cn/boc15/login.html</地址><名称>中国银行</名称></网址>
+        <网址><地址>https://simplywall.st/</地址><名称>SimplyWall</名称></网址>
+    </组>
+    <组 组名="Bond">
+        <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
+        <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
+        <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
+        <网址><地址>http://xueqiu.com/S/WUBA</地址><名称>WUBA</名称></网址>
+        <网址><地址>https://xueqiu.com/S/03690</地址><名称>美团</名称></网址>
+        <网址><地址>https://xueqiu.com/S/SH122071</地址><名称>11海航债</名称></网址>
+        <网址><地址>https://xueqiu.com/S/SH513050</地址><名称>中概互联</名称></网址>
+        <网址><地址>https://xueqiu.com/S/SH512880</地址><名称>证券ETF</名称></网址>
+        <网址><地址>https://xueqiu.com/S/SH511990</地址><名称>华宝添益</名称></网址>
+        <网址><地址>https://xueqiu.com/S/SH511010</地址><名称>国债ETF</名称></网址>
+        <网址>
+            <地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称>国债收益率曲线</名称>
+        </网址>
+    </组>
+    <组 组名="Document">
+        <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
+        <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
+        <网址><地址>https://doc.weiyun.com/5bb06dfa767945595ce7479ee3aff995</地址><名称>Finance</名称></网址>
+        <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec5</地址><名称>刷卡</名称></网址>
+        <网址>
+            <名称>Health</名称>
+            <地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址>
+        </网址>
+
+        <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
+        <网址><地址>https://note.youdao.com/web/</地址><名称>云笔记</名称></网址>
+        <网址>
+            <名称>Garmin</名称>
+            <地址>https://connect.garmin.cn/modern/activities</地址>
+        </网址>
+
+        <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
+    </组>
+    <组 组名="Corp">
+        <网址><地址>https://123.sankuai.com/</地址><名称>公司门户</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/124468160</地址><名称>产品周报</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/128104965</地址><名称>业务周报</名称></网址>
+        <网址><地址>http://hr.dper.com/interview</地址><名称>HR系统</名称></网址>
+        <网址><地址>https://123.sankuai.com/huiyi/</地址><名称>会议室</名称></网址>
+        <网址><地址>http://expense.dper.com/pc/expense/mainpage</地址><名称>报销系统</名称></网址>
+        <网址><名称>大象</名称><地址>https://neixin.cn/chat/14670?type=chat</地址></网址>
+        <网址><名称>学城</名称><地址>https://km.sankuai.com/</地址></网址>
+    </组>
+    <组 组名="Movie">
+        <网址><地址>http://www.bitebt.com/portal.php</地址><名称>BT首发站</名称></网址>
+        <网址><地址>http://www.dytt8.net/</地址><名称>电影天堂</名称></网址>
+        <网址><地址>http://www.beiwo.tv/</地址><名称>被窝电影网</名称></网址>
+        <网址><地址>http://www.dysfz.cc/</地址><名称>电影首发站</名称></网址>
+        <网址><地址>http://www.dianyingbar.com/</地址><名称>电影吧</名称></网址>
+        <网址><地址>https://www.bilibili.com/</地址><名称>Bilibili</名称></网址>
+        <网址><地址>https://www.iqiyi.com/</地址><名称>爱奇艺</名称></网址>
+    </组>
+    <组 组名="Travel">
+        <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
+        <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
+        <网址><地址>http://www.daoduoduo.com/forum-25-1.html</地址><名称>岛多多</名称></网址>
+        <网址><地址>http://www.mafengwo.cn/travel-scenic-spot/mafengwo/10118.html</地址><名称>玛蜂窝</名称></网址>
+        <网址><地址>http://www.fumubang.com/hd/pc40_c40/</地址><名称>父母邦</名称></网址>
+        <网址><地址>https://mp.weixin.qq.com/s/5X0qfT7VjqsYq163EWrq3g</地址><名称>旅游年票</名称></网址>
+
+    </组>
+</导航>
