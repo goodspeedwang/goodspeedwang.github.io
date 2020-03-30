@@ -3,10 +3,10 @@
     "files.exclude": {
         "**/.media": true,
         "**/.unotes": true,
-        "wiki/**/*.html": true,
-        //".gitignore": true,
+        //"wiki/**/*.html": true,
+        ".gitignore": true,
         "git.sh": true,
-        "__pycache__":true
+        "**/__pycache__":true
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
@@ -14,7 +14,7 @@
 		{
 			"match": "\\.md",
 			"isAsync": true,
-			"cmd": "python ${workspaceRoot}/build/test.py ${file}",
+			"cmd": "python ${workspaceRoot}/build/build.py ${file}",
 			"event": "onFileChange"
 		}		
 	]
