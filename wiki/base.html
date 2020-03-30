@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static//css/style.css">
 </head>
+
 <body>
-<div id="app">
-    {{markdown}}
-</div>
+    <header class="site-header">
+        <div class="wrapper"><a class="site-title" rel="author" href="/">Goodspeed</a>
+        </div>
+    </header>
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            {{markdown}}
+        </div>
+    </main>
+    <footer class="site-footer">
+    </footer>
 </body>
+
 </html>
