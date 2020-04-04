@@ -1,3 +1,3 @@
 * [首页](/)
 * [指南](/guide)
-* [english](wiki/English/studioclass)
+* [english](/wiki/English/studioclass)
