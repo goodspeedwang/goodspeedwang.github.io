@@ -52,7 +52,9 @@
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
   <script>
     jQuery.ready(function () {
-        jQuery(".sidebar ul li ul").toggle();
+        jQuery(".sidebar ul li ul").click(function(e){
+            $(e).toggle();
+        });
     });
     </script>
 </body>
