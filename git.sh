@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-git commit -a -m "`date +%Y%m%e%H%M%S`"
 git pull
+git add .
+git commit -a -m "`date +%Y%m%e%H%M%S`"
 git push

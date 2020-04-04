@@ -5,7 +5,7 @@
         "**/.unotes": true,
         //"wiki/**/*.html": true,
         ".gitignore": true,
-        "git.sh": true,
+        // "git.sh": true,
         "**/__pycache__":true
     },
     "git.enableSmartCommit": true,
