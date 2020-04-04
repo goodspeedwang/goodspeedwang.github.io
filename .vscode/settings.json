@@ -10,12 +10,4 @@
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
-    "filewatcher.commands": [
-		{
-			"match": "\\.md",
-			"isAsync": true,
-			"cmd": "python ${workspaceRoot}/build/build.py ${file}",
-			"event": "onFileChange"
-		}		
-	]
 }
