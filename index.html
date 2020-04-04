@@ -49,10 +49,16 @@
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/3.4.1/core.js"></script>
-  cript>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
+  <script>
     jQuery.ready(function () {
-        jQuery(".sidebar ul li ul").toggle;
+        jQuery(".sidebar ul li ul").click(function (e) {
+            if (e.style.display === "none") {
+                e.style.display = "block";
+            } else {
+                e.style.display = "none";
+            }
+        });
 </script>
 </body>
 </html>>
