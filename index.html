@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
   <style>
       .sidebar li {6px 0px 6px 0px}
-      .sidebar ul li ul{display:none}
+      .sidebar-nav>ul>li>ul{display:none}
   </style>
 </head>
 <body>
@@ -40,22 +40,22 @@
 
                 hook.doneEach(function () {
                     console.log("doneEach");
+                    jQuery(".sidebar-nav>ul").on("click","li",function (e) {
+                        console.log("click")
+                        $(this).children("ul").toggle();
+                    });
                 })
 
                 hook.ready(function () {
+                    console.log("ready")
+                    
                 })
             }
         ]
     }
+    console.log("ready")
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
-  <script>
-    jQuery.ready(function () {
-        jQuery(".sidebar ul li").click(function(e){
-            $(e).find("ul").toggle();
-        });
-    });
-    </script>
+  <script src="//cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 </body>
 </html>>
