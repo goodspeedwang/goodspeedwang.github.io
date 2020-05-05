@@ -3,7 +3,6 @@
     "files.exclude": {
         ".gitignore": true,
         "git.sh": true,
-        "**/__pycache__":true
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
