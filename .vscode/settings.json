@@ -1,9 +1,6 @@
 {
     "files.autoSave": "afterDelay",
     "files.exclude": {
-        "**/.media": true,
-        "**/.unotes": true,
-        //"wiki/**/*.html": true,
         ".gitignore": true,
         "git.sh": true,
         "**/__pycache__":true
