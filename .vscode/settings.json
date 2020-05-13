@@ -2,7 +2,7 @@
     "files.autoSave": "afterDelay",
     "files.exclude": {
         ".gitignore": true,
-        //"git.sh": true,
+        "push.sh": true,
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
