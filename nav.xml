@@ -107,6 +107,8 @@
         <网址><地址>http://www.hxb.com.cn/home/cn/</地址><名称>华夏银行</名称></网址>
         <网址><地址>https://ebsnew.boc.cn/boc15/login.html</地址><名称>中国银行</名称></网址>
         <网址><地址>https://simplywall.st/</地址><名称>SimplyWall</名称></网址>
+        <网址><地址>http://www.xinguyufu.cn/</地址><名称>打新</名称></网址>
+        
     </组>
     <组 组名="Bond">
         <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
