@@ -1,7 +1,6 @@
 {
     "files.autoSave": "afterDelay",
     "files.exclude": {
-        "**/.media": true,
         "**/.unotes": true,
         ".gitignore": true,
         "push.sh": true,"push.bat": true,
