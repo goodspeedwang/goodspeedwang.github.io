@@ -1,16 +1,10 @@
 {
     "files.autoSave": "afterDelay",
     "files.exclude": {
-<<<<<<< HEAD
         "**/.media": true,
         "**/.unotes": true,
         ".gitignore": true,
         "push.sh": true,"push.bat": true,
-        "**/__pycache__":true
-=======
-        ".gitignore": true,
-        "push.sh": true,
->>>>>>> 9093ab51129018166603604351fe7a183f763afe
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
