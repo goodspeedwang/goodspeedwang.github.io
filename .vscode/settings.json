@@ -3,9 +3,8 @@
     "files.exclude": {
         "**/.media": true,
         "**/.unotes": true,
-        //"wiki/**/*.html": true,
         ".gitignore": true,
-        "git.sh": true,
+        "push.sh": true,"push.bat": true,
         "**/__pycache__":true
     },
     "git.enableSmartCommit": true,
