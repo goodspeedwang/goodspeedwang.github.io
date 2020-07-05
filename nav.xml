@@ -143,6 +143,9 @@
         </网址>
 
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
+        <网址><名称>Code(内网）</名称><地址>http://ubuntu.vm:8080/</地址></网址>
+        <网址><名称>Code(外网）</名称><地址>https://goodspeed.asia/code/</地址></网址>
+        
     </组>
     <组 组名="Corp">
         <网址><地址>https://123.sankuai.com/</地址><名称>公司门户</名称></网址>
