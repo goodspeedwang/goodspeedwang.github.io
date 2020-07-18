@@ -141,14 +141,14 @@
             <名称>Garmin</名称>
             <地址>https://connect.garmin.cn/modern/activities</地址>
         </网址>
-
+        <网址><名称>Code Studio</名称><地址>https://goodspeed.cloudstudio.net/</地址></网址>
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
-        <网址><名称>Code</名称><地址>https://code.goodspeed.asia/</地址></网址>        
+        <网址><名称>Code</名称><地址>https://code.goodspeed.asia/</地址></网址>
     </组>
     <组 组名="Corp">
         <网址><地址>https://123.sankuai.com/</地址><名称>公司门户</名称></网址>
-        <网址><地址>https://km.sankuai.com/page/124468160</地址><名称>产品周报</名称></网址>
-        <网址><地址>https://km.sankuai.com/page/128104965</地址><名称>业务周报</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/242129751</地址><名称>产品周报</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/243126907</地址><名称>业务周报</名称></网址>
         <网址><地址>http://hr.dper.com/interview</地址><名称>HR系统</名称></网址>
         <网址><地址>https://123.sankuai.com/huiyi/</地址><名称>会议室</名称></网址>
         <网址><地址>http://expense.dper.com/pc/expense/mainpage</地址><名称>报销系统</名称></网址>
