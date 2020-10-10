@@ -1,8 +1,9 @@
 {
     "files.autoSave": "afterDelay",
     "files.exclude": {
+        "**/.unotes": true,
         ".gitignore": true,
-        "push.sh": true,
+        "push.sh": true,"push.bat": true,
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
