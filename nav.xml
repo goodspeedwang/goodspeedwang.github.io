@@ -71,12 +71,6 @@
         
     </组>
 
-    <组 组名="网络测试">
-        <网址><地址>http://www.dnsstuff.com/</地址><名称>DNS Stuff</名称></网址>
-        <网址><地址>http://www.thedonkeynetwork.com/connection_test</地址><名称>端口测试</名称></网址>
-        <网址><地址>http://eventid.net/search.asp</地址><名称>EventID.Net</名称></网址>
-    </组>
-
     <组 组名="Book">
         <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
         <网址><地址>http://www.kudubook.com/</地址><名称>酷读</名称></网址>
