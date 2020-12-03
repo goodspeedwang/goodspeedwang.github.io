@@ -14,7 +14,7 @@
         <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
         <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
         <网址><名称>有道词典</名称><地址>http://dict.youdao.com/</地址></网址>
-        <网址><名称>Wiki</名称><地址>https://dev.azure.com/goodspeedwang/Wiki/_wiki/wikis/</地址></网址>
+        <网址><名称>Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
     </组>
 
     <组 组名="ISP">
@@ -93,7 +93,6 @@
         <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
         <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
         <网址><地址>https://xueqiu.com/</地址><名称>雪球</名称></网址>
-        <网址><地址>https://xueqiu.com/S/WUBA</地址><名称>WUBA</名称></网址>
         <网址><地址>https://xueqiu.com/S/03690</地址><名称>美团</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH513050</地址><名称>中概互联</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH512880</地址><名称>证券ETF</名称></网址>
