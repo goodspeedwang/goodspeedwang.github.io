@@ -35,7 +35,8 @@
         <网址><地址>http://www.zol.com.cn/</地址><名称>中关村</名称></网址>
         <网址><地址>http://www.pcpop.com/</地址><名称>pcpop</名称></网址>
         <网址><地址>http://www.cnbeta.com/</地址><名称>cnbeta</名称></网址>
-        <网址><地址>http://web.archive.org/collections/web.html</地址><名称>时光倒传</名称></网址>
+        <网址><地址>http://web.archive.org/</地址><名称>时光倒传</名称></网址>
+        <网址><地址>https://shudu.one/sudoku/printable-hard-sudoku.php</地址><名称>Sudoku</名称></网址>
     </组>
 
     <组 组名="English">
@@ -58,19 +59,6 @@
         <网址><地址>http://www.tutorialspoint.com</地址><名称>tutorialspoint</名称></网址>
         <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
     </组>
-
-    <组 组名="Geeker">
-        <网址><地址>http://msdn.microsoft.com/zh-cn/magazine/ee310108.aspx</地址><名称>msdn杂志</名称></网址>
-        <网址><地址>http://blog.joycode.com/saucer/</地址><名称>思归呓语</名称></网址>
-        <网址><地址>http://blog.csdn.net/zjcxc/</地址><名称>邹建</名称></网址>
-        <网址><地址>http://weblogs.asp.net/scottgu/</地址><名称>ScottGu's</名称></网址>
-        <网址><地址>http://blog.zhaojie.me/</地址><名称>老赵</名称></网址>
-        <网址><地址>http://haacked.com/</地址><名称>haacked</名称></网址>
-        <网址><地址>http://c7sky.com/</地址><名称>小影志</名称></网址>
-        <网址><地址>https://shudu.one/sudoku/printable-hard-sudoku.php</地址><名称>Sudoku</名称></网址>
-        
-    </组>
-
     <组 组名="Book">
         <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
         <网址><地址>http://www.kudubook.com/</地址><名称>酷读</名称></网址>
@@ -83,7 +71,6 @@
         <网址><地址>http://www.css88.com/jqapi-1.9/</地址><名称>JQuery</名称></网址>
         <网址><地址>http://overapi.com/</地址><名称>overapi</名称></网址>
     </组>
-
     <组 组名="Stock">
         <网址><地址>https://www.bj.cmbchina.com/bjtransweb/wsgzd_employ/login.jsp</地址><名称>工资查询</名称></网址>
         <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>
@@ -162,7 +149,5 @@
         <网址><地址>http://www.daoduoduo.com/forum-25-1.html</地址><名称>岛多多</名称></网址>
         <网址><地址>http://www.mafengwo.cn/travel-scenic-spot/mafengwo/10118.html</地址><名称>玛蜂窝</名称></网址>
         <网址><地址>http://www.fumubang.com/hd/pc40_c40/</地址><名称>父母邦</名称></网址>
-        <网址><地址>https://mp.weixin.qq.com/s/5X0qfT7VjqsYq163EWrq3g</地址><名称>旅游年票</名称></网址>
-
     </组>
 </导航>
