@@ -88,7 +88,7 @@
         <网址><地址>http://www.xinguyufu.cn/</地址><名称>打新</名称></网址>
         
     </组>
-    <组 组名="Bond">
+    <组 组名="Investment">
         <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
         <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
         <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
@@ -101,12 +101,14 @@
         <网址>
             <地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称>国债收益率曲线</名称>
         </网址>
+        <网址><地址>https://mis.fortunebill.com/</地址><名称>招钱进宝</名称><卡号>848102659696877</卡号></网址>
+         
     </组>
     <组 组名="Document">
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
         <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
         <网址><地址>https://doc.weiyun.com/5bb06dfa767945595ce7479ee3aff995</地址><名称>Finance</名称></网址>
-        <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec5</地址><名称>刷卡</名称></网址>
+        <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec></地址><名称>刷卡</名称></网址>
         <网址>
             <名称>Health</名称>
             <地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址>
