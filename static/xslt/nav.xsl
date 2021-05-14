@@ -7,19 +7,21 @@
               doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 
 <xsl:template match="导航">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航</title>
+<base target="_blank"/>
 <style>
 	body{background-color:#C0C0C0; margin:0px;}
 	a{color:blue;text-decoration:none;font-size:10pt;padding:3px 3px;}
 	div{letter-spacing:0.02em; line-height:1.3;COLOR: "#666666"; padding:2px 0px;}
 	.title{background-color: #4455aa;color: white;font-size: 12px;font-weight:bold;height:20;text-align: left;}
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>导航</title>
-<base target="_blank"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="/favicon.ico" rel="icon"/>
 </head>
 
 <body>		
