@@ -7,7 +7,6 @@
               doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 
 <xsl:template match="导航">
-<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 <meta charset="UTF-8" />
