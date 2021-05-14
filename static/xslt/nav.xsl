@@ -8,24 +8,24 @@
 
 <xsl:template match="导航">
 	<html lang="zh-cn">
-	<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>导航</title>
-	<base target="_blank"/>
-	<style>
-		body{background-color:#C0C0C0; margin:0px;}
-		a{color:blue;text-decoration:none;font-size:10pt;padding:3px 3px;}
-		div{letter-spacing:0.02em; line-height:1.3;COLOR: "#666666"; padding:2px 0px;}
-		.title{background-color: #4455aa;color: white;font-size: 12px;font-weight:bold;height:20;text-align: left;}
-	</style>
-	<link href="/favicon.ico" rel="icon"/>
-	</head>
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width" />
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>导航</title>
+			<base target="_blank"/>
+			<style>
+				body{background-color:#C0C0C0; margin:0px;}
+				a{color:blue;text-decoration:none;font-size:10pt;padding:3px 3px;}
+				div{letter-spacing:0.02em; line-height:1.3;COLOR: "#666666"; padding:2px 0px;}
+				.title{background-color: #4455aa;color: white;font-size: 12px;font-weight:bold;height:20;text-align: left;}
+			</style>
+			<link href="/favicon.ico" rel="icon"/>
+		</head>
 
-	<body>		
-	<xsl:apply-templates select="组" />
-	</body>
+		<body>		
+			<xsl:apply-templates select="组" />
+		</body>
 	</html>
 </xsl:template>
 
