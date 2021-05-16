@@ -17,16 +17,15 @@
         <网址><名称>Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
     </组>
 
-    <组 组名="ISP">
+    <组 组名="Life">
         <网址><名称>联通</名称><地址>http://www.10010.com/</地址></网址>
         <网址><名称>北京电信</名称><地址>http://www.189.cn/bj/</地址></网址>
+        <网址><名称>中国石化</名称><地址>https://www.sinopecsales.com/</地址></网址>
     </组>
 
     <组 组名="Media">
         <网址><名称>新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
-        <网址><名称>汉网</名称><地址>http://www.cnhan.com</地址></网址>
         <网址><名称>得意生活</名称><地址>http://www.deyi.com/</地址></网址>
-        <网址><名称>55bbs</名称><地址>http://bbs.55bbs.com/forum-33-1.html</地址></网址>
         <网址><名称>空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
     </组>
 
@@ -51,7 +50,7 @@
     </组>
 
     <组 组名="Coding">
-        <网址><地址>http://www.csdn.net/</地址><名称>程序员大本营</名称></网址>
+        <网址><地址>http://www.csdn.net/</地址><名称>CSDN</名称></网址>
         <网址><地址>http://forums.asp.net/</地址><名称>ASP.NET</名称></网址>
         <网址><地址>http://msdn.microsoft.com/library/default.asp</地址><名称>MSDN</名称></网址>
         <网址><地址>http://www.regexlib.com/Search.aspx</地址><名称>正则表达式</名称></网址>
@@ -135,16 +134,19 @@
         <网址><名称>大象</名称><地址>https://neixin.cn/chat/14670?type=chat</地址></网址>
         <网址><名称>学城</名称><地址>https://km.sankuai.com/</地址></网址>
     </组>
+    <组 组名="周报">
+        <网址><地址>https://km.sankuai.com/page/591101831</地址><名称>服务体验</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/570201471</地址><名称>研发中心</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/572117298</地址><名称>产品头目</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/572117280</地址><名称>产品中心</名称></网址>
+        <网址><地址>https://km.sankuai.com/page/682736642</地址><名称>NLP</名称></网址>
+    </组>
     <组 组名="Movie">
-        <网址><地址>http://www.bitebt.com/portal.php</地址><名称>BT首发站</名称></网址>
         <网址><地址>http://www.dytt8.net/</地址><名称>电影天堂</名称></网址>
-        <网址><地址>http://www.beiwo.tv/</地址><名称>被窝电影网</名称></网址>
-        <网址><地址>http://www.dysfz.cc/</地址><名称>电影首发站</名称></网址>
-        <网址><地址>http://www.dianyingbar.com/</地址><名称>电影吧</名称></网址>
         <网址><地址>https://www.domp4.com/</地址><名称>MP4电影</名称></网址>
+        <网址><地址>https://www.80s.tw/</地址><名称>80s手机电影网</名称></网址>
         <网址><地址>https://www.bilibili.com/</地址><名称>Bilibili</名称></网址>
         <网址><地址>https://www.iqiyi.com/</地址><名称>爱奇艺</名称></网址>
-        <网址><地址>http://www.y80s.org/</地址><名称>80s手机电影网</名称></网址>
     </组>
     <组 组名="Travel">
         <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
