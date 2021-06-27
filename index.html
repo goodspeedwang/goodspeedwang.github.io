@@ -1,61 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
-  <style>
-      .sidebar li {6px 0px 6px 0px}
-      .sidebar-nav>ul>li>ul{display:none}
-  </style>
+  <title>Hello</title>
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-        loadSidebar: true,
-        plugins: [
-            function (hook, vm) {
-                hook.init(function () {
-                    console.log("init");
-                })
-
-                hook.mounted(function () {
-                    // 初始化完成后调用，只调用一次，没有参数。
-                })
-
-                hook.beforeEach(function (content) {
-                    // 每次开始解析 Markdown 内容时调用
-                    // ...
-                    return content
-                })
-
-                hook.afterEach(function (html, next) {
-                    // 解析成 html 后调用。beforeEach 和 afterEach 支持处理异步逻辑
-                    // ...
-                    // 异步处理完成后调用 next(html) 返回结果
-                    next(html)
-                })
-
-                hook.doneEach(function () {
-                    console.log("doneEach");
-                    jQuery(".sidebar-nav>ul").on("click","li",function (e) {
-                        console.log("click")
-                        $(this).children("ul").toggle();
-                    });
-                })
-
-                hook.ready(function () {
-                    console.log("ready")
-                    
-                })
-            }
-        ]
-    }
-    console.log("ready")
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="//cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
+  Hello Page
 </body>
 </html>>
