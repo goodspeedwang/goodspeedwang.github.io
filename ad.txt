@@ -16,4 +16,5 @@ blog.csdn.net##DIV[class="toolbar-advert"]
 www.forbes.com##DIV[class="tp-modal"]
 www.forbes.com##DIV[class="tp-backdrop tp-active"]
 www.jzb.com##DIV[id="xd_popbox"]
+idioms.thefreedictionary.com##IMG[src="//img.tfd.com/wn/kwdqjtcmkdxhjfwdwfdnymjfgguo79"]
 @@||www.ruanyifeng.com/$document
