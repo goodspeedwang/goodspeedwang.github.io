@@ -1,3 +1,4 @@
+[Adblock Plus 2.0]
 www.zhihu.com##DIV[class="AdblockBanner"]
 rep.ciming.com##IMG[src="http://rep.ciming.com/images/ad_100x300.png"]
 www.liepin.com##DIV[class="guider"]
