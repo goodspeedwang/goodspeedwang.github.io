@@ -18,4 +18,7 @@ www.mandatory.com##DIV[class="f-NJD1R8-1- "]
 www.quora.com##DIV[class="outer_content_box question_page_ad top_slot"]
 www.zhihu.com##DIV[class="AdblockBanner"]
 @@||www.ruanyifeng.com/$document
-idioms.thefreedictionary.com#$script
+img.tfd.com/*.js
+pagead2.googlesyndication.com/pagead/js/
+img.tfd.com/wn/
+pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
