@@ -18,3 +18,4 @@ www.mandatory.com##DIV[class="f-NJD1R8-1- "]
 www.quora.com##DIV[class="outer_content_box question_page_ad top_slot"]
 www.zhihu.com##DIV[class="AdblockBanner"]
 @@||www.ruanyifeng.com/$document
+idioms.thefreedictionary.com#$script
