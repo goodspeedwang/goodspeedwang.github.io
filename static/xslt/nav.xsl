@@ -11,7 +11,7 @@
 				<base target="_blank"/>
 				<style>
 					body{background-color:#C0C0C0; margin:0px;}
-					a{color:gray;text-decoration:none;font-size:10pt;padding:3px 3px;}
+					a{color:black;text-decoration:none;font-size:10pt;padding:3px 3px;}
 					div{letter-spacing:0.02em; line-height:1.3;COLOR: "#666666"; padding:2px 0px;}
 					.title{background-color: #4455aa;color: white;font-size: 12px;font-weight:bold;height:20;text-align: left;}
 				</style>
