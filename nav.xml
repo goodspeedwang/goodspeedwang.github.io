@@ -15,8 +15,6 @@
         <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
         <网址><名称>有道词典</名称><地址>http://dict.youdao.com/</地址></网址>
         <网址><名称>Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
-        <网址><名称>什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
-        <网址><名称>微博</名称><地址>https://www.weibo.com/</地址></网址>
     </组>
 
     <组 组名="Life">
@@ -27,6 +25,7 @@
         <网址><名称>A姐分享</名称><地址>https://www.abskoop.com/</地址></网址>
         <网址><名称>京东</名称><地址>https://www.jd.com/</地址></网址>
         <网址><名称>淘宝</名称><地址>https://www.taobao.com/</地址></网址>
+        <网址><名称>什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
     </组>
 
     <组 组名="Media">
@@ -36,6 +35,7 @@
         <网址><名称>v2ex</名称><地址>https://v2ex.com/</地址></网址>
         <网址><名称>少数派</名称><地址>https://sspai.com/</地址></网址>
         <网址><名称>网易</名称><地址>https://www.163.com/</地址></网址>
+        <网址><名称>微博</名称><地址>https://www.weibo.com/</地址></网址>
     </组>
 
     <组 组名="Computer">
@@ -73,19 +73,17 @@
         <网址><地址>http://neikuw.com/</地址><名称>內酷网</名称></网址>
         <网址><地址>http://www.fast8.com/list/6_1.html</地址><名称>快吧</名称></网址>
         <网址><地址>https://www.xiaolipan.com//</地址><名称>小力盘</名称></网址>
-        
         <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称>首都图书馆</名称></网址>
         <网址><地址>http://www.childlib.org</地址><名称>少儿图书馆</名称></网址>
         <网址><地址>http://redis.readthedocs.org/en/latest/</地址><名称>Redis</名称></网址>
         <网址><地址>http://dormousehole.readthedocs.org/en/latest/</地址><名称>Flask</名称></网址>
         <网址><地址>http://www.css88.com/jqapi-1.9/</地址><名称>JQuery</名称></网址>
         <网址><地址>http://overapi.com/</地址><名称>overapi</名称></网址>
-        
-
         <网址><地址>https://diyizazhi.com/</地址><名称>第一杂志网</名称></网址>
         <网址><地址>https://ch.downmagaz.net/</地址><名称>下载PDF杂志</名称></网址>
         <网址><地址>https://www.zazhipdf.com/</地址><名称>致趣杂志馆</名称></网址>
     </组>
+
     <组 组名="Stock">
         <网址><地址>https://www.bj.cmbchina.com/bjtransweb/wsgzd_employ/login.jsp</地址><名称>工资查询</名称></网址>
         <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>
@@ -100,8 +98,8 @@
         <网址><地址>https://ebsnew.boc.cn/boc15/login.html</地址><名称>中国银行</名称></网址>
         <网址><地址>https://simplywall.st/</地址><名称>SimplyWall</名称></网址>
         <网址><地址>http://www.xinguyufu.cn/</地址><名称>打新</名称></网址>
-        
     </组>
+
     <组 组名="Investment">
         <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
         <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
@@ -112,34 +110,27 @@
         <网址><地址>https://xueqiu.com/S/SH512880</地址><名称>证券ETF</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH511990</地址><名称>华宝添益</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH511010</地址><名称>国债ETF</名称></网址>
-        <网址>
-            <地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称>国债收益率曲线</名称>
-        </网址>
+        <网址><地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称>国债收益率曲线</名称></网址>
         <网址><地址>https://mis.fortunebill.com/</地址><名称>招钱进宝</名称><卡号>848102659696877</卡号></网址>
-         
     </组>
+
     <组 组名="Document">
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
         <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
         <网址><地址>https://doc.weiyun.com/5bb06dfa767945595ce7479ee3aff995</地址><名称>Finance</名称></网址>
         <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec></地址><名称>刷卡</名称></网址>
-        <网址>
-            <名称>Health</名称>
-            <地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址>
-        </网址>
+        <网址><名称>Health</名称><地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址></网址>
 
         <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
         <网址><地址>https://note.youdao.com/web/</地址><名称>云笔记</名称></网址>
-        <网址>
-            <名称>Garmin</名称>
-            <地址>https://connect.garmin.cn/modern/activities</地址>
-        </网址>
+        <网址><名称>Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
         <网址><名称>CodeStudio</名称><地址>https://goodspeed.cloudstudio.net/</地址></网址>
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
         <网址><名称>Code</名称><地址>https://code.goodspeed.tk/</地址></网址>
         <网址><名称>写作猫</名称><地址>https://xiezuocat.com/</地址></网址> 
         <网址><名称>云盘</名称><地址>https://goodspeed.coding.net/p/goodspeed.coding.me/files/all</地址></网址> 
     </组>
+
     <组 组名="Corp">
         <网址><地址>https://123.sankuai.com/</地址><名称>公司门户</名称></网址>
         <网址><地址>https://hr.sankuai.com/</地址><名称>HR系统</名称></网址>
@@ -148,12 +139,14 @@
         <网址><名称>大象</名称><地址>https://x.sankuai.com/</地址></网址>
         <网址><名称>学城</名称><地址>https://km.sankuai.com/</地址></网址>
     </组>
+
     <组 组名="周报">
         <网址><地址>https://km.sankuai.com/page/1271371337</地址><名称>服务体验</名称></网址>
         <网址><地址>https://km.sankuai.com/page/1268227156</地址><名称>研发中心</名称></网址>
         <网址><地址>https://km.sankuai.com/page/572117298</地址><名称>产品头目</名称></网址>
         <网址><地址>https://km.sankuai.com/page/572117280</地址><名称>产品中心</名称></网址>
     </组>
+
     <组 组名="Movie">
         <网址><地址>http://www.dytt8.net/</地址><名称>电影天堂</名称></网址>
         <网址><地址>https://www.domp4.cc/</地址><名称>MP4电影</名称></网址>
@@ -162,6 +155,7 @@
         <网址><地址>https://www.iqiyi.com/</地址><名称>爱奇艺</名称></网址>
         <网址><地址>https://www.ixigua.com/</地址><名称>西瓜</名称></网址>
     </组>
+    
     <组 组名="Travel">
         <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
         <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
