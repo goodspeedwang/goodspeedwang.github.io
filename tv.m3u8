@@ -24,6 +24,8 @@ https://live.funhillrm.com/5/sd/live.m3u8
 http://live.gq.miguvideo.com:8088/migu/kailu/shan3xiws/57/20220809/index.m3u8?&encrypt=1
 #EXTINF:-1,FOX新闻
 https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
+#EXTINF:-1,Global News
+https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/live-audio_1=96000-video=2499968.m3u8
 #EXTINF:-1,NHK World
 https://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/sycc-live/zh/playlist.m3u8
 #EXTINF:-1,KBS
