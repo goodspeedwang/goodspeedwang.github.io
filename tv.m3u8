@@ -5,6 +5,10 @@ https://playtv-live.ifeng.com/live/06OLEGEGM4G_tv1.m3u8
 https://playtv-live.ifeng.com/live/06OLEEWQKN4_tv2.m3u8
 #EXTINF:-1,凤凰香港台
 http://stream.guihet.com/t/ifeng2.php?id=3
+#EXTINF:-1,香港卫视
+http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8
+#EXTINF:-1,澳门奥视
+http://61.244.22.5/ch1/ch1.live/playelist.m3u8
 #EXTINF:-1,CCTV1
 https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv1_2/index.m3u8
 #http://live.gq.miguvideo.com:8080/migu/kailu/cctv1hd265/57/20191230/index.m3u8?&encrypt=1
@@ -22,13 +26,21 @@ http://live.cgtn.com/1000/prog_index.m3u8
 https://live.funhillrm.com/5/sd/live.m3u8
 #EXTINF:-1,陕西卫视
 http://live.gq.miguvideo.com:8088/migu/kailu/shan3xiws/57/20220809/index.m3u8?&encrypt=1
-#EXTINF:-1,FOX新闻
+#EXTINF:-1,FOX News
 https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
-#EXTINF:-1,Global News
-https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/live-audio_1=96000-video=2499968.m3u8
 #EXTINF:-1,NHK World
 https://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/sycc-live/zh/playlist.m3u8
 #EXTINF:-1,KBS
 http://220.95.92.160:9981/stream/channelid/660474352 
 #EXTINF:-1,KBS2
 http://220.95.92.160:9981/stream/channelid/280136412
+#EXTINF:-1,ABC Australia News
+https://abc-iview-mediapackagestreams-2.akamaized.net/out/v1/6e1cc6d25ec0480ea099a5399d73bc4b/index.m3u8
+#EXTINF:-1,CBC News BC
+https://live.corusdigitaldev.com/groupa/live/48a5882b-a1ec-42d7-bfd7-6c2739e737da/live.isml/.m3u8
+#EXTINF:-1,CBC Global News
+https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/master.m3u8
+#EXTINF:-1,CNN
+https://cnn-cnninternational-1-de.samsung.wurl.com/manifest/playlist.m3u8
+#EXTINF:-1,ABC News Live
+https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8
