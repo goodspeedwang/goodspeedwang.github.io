@@ -38,26 +38,7 @@ https://live.funhillrm.com/5/sd/live.m3u8
 http://live.gq.miguvideo.com:8088/migu/kailu/shan3xiws/57/20220809/index.m3u8?&encrypt=1
 #EXTINF:-1,美国中文
 https://cdnts.sinovision.net/livestream.m3u8
-#EXTINF:-1,FOX News
-https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
-#EXTINF:-1,NHK World
-https://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/sycc-live/zh/playlist.m3u8
-#EXTINF:-1,KBS1
-http://220.95.92.160:9981/stream/channelid/660474352 
-#EXTINF:-1,KBS2
-http://220.95.92.160:9981/stream/channelid/280136412
-#EXTINF:-1,SBS
-http://220.95.92.160:9981/stream/channelid/1445999617
-#EXTINF:-1,ABC Australia News
-https://abc-iview-mediapackagestreams-2.akamaized.net/out/v1/6e1cc6d25ec0480ea099a5399d73bc4b/index.m3u8
-#EXTINF:-1,CBC News BC
-https://live.corusdigitaldev.com/groupa/live/48a5882b-a1ec-42d7-bfd7-6c2739e737da/live.isml/.m3u8
-#EXTINF:-1,CBC Global News
-https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/master.m3u8
-#EXTINF:-1,CNN
-https://cnn-cnninternational-1-de.samsung.wurl.com/manifest/playlist.m3u8
-#EXTINF:-1,ABC News Live
-https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8
+
 
 #http://tonkiang.us/
 #http://iptv.everydaytv.top/
