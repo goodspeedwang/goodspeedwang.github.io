@@ -36,6 +36,8 @@ http://live.cgtn.com/1000/prog_index.m3u8
 https://live.funhillrm.com/5/sd/live.m3u8
 #EXTINF:-1,陕西卫视
 http://live.gq.miguvideo.com:8088/migu/kailu/shan3xiws/57/20220809/index.m3u8?&encrypt=1
+#EXTINF:-1,美国中文
+https://cdnts.sinovision.net/livestream.m3u8
 #EXTINF:-1,FOX News
 https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
 #EXTINF:-1,NHK World
