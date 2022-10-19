@@ -30,6 +30,8 @@ https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv5_2/index.m3u8
 http://39.134.32.102:6610/270000001111/1110000307/index.m3u8?IASHttpSessionId=OTT
 #EXTINF:-1,CCTV-13新闻
 https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv13_2/index.m3u8
+#EXTINF:-1,CCTV16奥林匹克
+http://liveop.cctv.cn/hls/CCTV16HD/playlist.m3u8
 #EXTINF:-1,CGTN News
 http://live.cgtn.com/1000/prog_index.m3u8
 #EXTINF:-1,北京新闻
@@ -38,6 +40,8 @@ https://live.funhillrm.com/5/sd/live.m3u8
 http://live.gq.miguvideo.com:8088/migu/kailu/shan3xiws/57/20220809/index.m3u8?&encrypt=1
 #EXTINF:-1,福州影视
 http://live.zohi.tv/video/s10001-yspd-2/index.m3u8
+#EXTINF:-1,东方卫视
+http://mmitv.top/test/bestv.php?id=22
 #EXTINF:-1,美国中文
 https://cdnts.sinovision.net/livestream.m3u8
 #EXTINF:-1,CNC中文
