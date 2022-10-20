@@ -61,3 +61,6 @@ http://103.233.191.132:1935/ch3/ch3.live/playlist.m3u8
 http://103.233.191.132:1935/ch4/sport_ch4.live/playlist.m3u8
 #EXTINF:-1,澳门莲花
 http://anren.live/HK/BiIOU11uLA.m3u8
+#EXTINF:-1,澳门奥视
+http://61.244.22.5/ch1/ch1.live/playelist.m3u8
+
