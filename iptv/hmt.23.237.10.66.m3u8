@@ -7,6 +7,8 @@ http://23.237.10.66:16013
 http://23.237.10.66:16032
 #EXTINF:-1 ,印度电影
 http://23.237.10.66:16054
+#EXTINF:-1 ,RPC电影
+http://23.237.10.66:16082
 #EXTINF:-1 ,翡翠台
 http://23.237.10.66:16106
 #EXTINF:-1 ,凤凰资讯台
@@ -17,12 +19,18 @@ http://23.237.10.66:16110
 http://23.237.10.66:16124
 #EXTINF:-1 ,mediacorp 8
 http://23.237.10.66:16150
+#EXTINF:-1 ,unknown
+http://23.237.10.66:16180
+#EXTINF:-1 ,unknown
+http://23.237.10.66:16195
 #EXTINF:-1 ,民视HD
 http://23.237.10.66:16334
 #EXTINF:-1 ,三立新闻
 http://23.237.10.66:16342
 #EXTINF:-1 ,台视HD
 http://23.237.10.66:16344
+#EXTINF:-1 ,unknown
+http://23.237.10.66:16372
 #EXTINF:-1 ,Siaran Langsung TV2
 http://23.237.10.66:16403
 #EXTINF:-1 ,TV3
@@ -33,6 +41,8 @@ http://23.237.10.66:16405
 http://23.237.10.66:16410
 #EXTINF:-1 ,astro AOD
 http://23.237.10.66:16419
+#EXTINF:-1 ,BOO
+http://23.237.10.66:16420
 #EXTINF:-1 ,astro WARNA
 http://23.237.10.66:16424
 #EXTINF:-1 ,Go shop
@@ -45,7 +55,5 @@ http://23.237.10.66:16473
 http://23.237.10.66:16476
 #EXTINF:-1 ,mediacorp S
 http://23.237.10.66:16492
-#EXTINF:-1 ,RPC电影
-http://23.237.10.66:16082
-#EXTINF:-1 ,BOO
-http://23.237.10.66:16420
+#EXTINF:-1 ,unknown
+http://23.237.10.66:16495
