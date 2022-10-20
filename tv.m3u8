@@ -7,10 +7,14 @@ https://playtv-live.ifeng.com/live/06OLEEWQKN4_tv2.m3u8
 http://stream.guihet.com/t/ifeng2.php?id=3
 #EXTINF:-1,香港卫视
 http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8
+#EXTINF:-1,香港有線新聞
+http://61.10.2.140:80/live_freedirect/freehd209_h.live/chunklist_w135209556.m3u8
 #EXTINF:-1,澳门奥视
 http://61.244.22.5/ch1/ch1.live/playelist.m3u8
 #EXTINF:-1,TVBS新闻台
 http://38.64.72.148:80/hls/modn/list/4006/chunklist1.m3u8
+#EXTINF:-1 ,无线资讯台
+http://23.237.10.66:16110
 #EXTINF:-1,东森美洲
 http://38.64.72.148:80/hls/modn/list/2015/chunklist0.m3u8
 #EXTINF:-1,民视新闻台
@@ -50,3 +54,4 @@ http://source07.v.news.cn/live/CNC_CN/playlist.m3u8
 
 #http://tonkiang.us/
 #http://iptv.everydaytv.top/
+#http://ntnas.top:83/typecho/archives/799/
