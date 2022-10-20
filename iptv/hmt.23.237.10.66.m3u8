@@ -19,9 +19,9 @@ http://23.237.10.66:16110
 http://23.237.10.66:16124
 #EXTINF:-1 ,mediacorp 8
 http://23.237.10.66:16150
-#EXTINF:-1 ,unknown
+#EXTINF:-1 ,Sportv2
 http://23.237.10.66:16180
-#EXTINF:-1 ,unknown
+#EXTINF:-1 ,Tele Cine
 http://23.237.10.66:16195
 #EXTINF:-1 ,民视HD
 http://23.237.10.66:16334
@@ -29,7 +29,7 @@ http://23.237.10.66:16334
 http://23.237.10.66:16342
 #EXTINF:-1 ,台视HD
 http://23.237.10.66:16344
-#EXTINF:-1 ,unknown
+#EXTINF:-1 ,中天综合HD
 http://23.237.10.66:16372
 #EXTINF:-1 ,Siaran Langsung TV2
 http://23.237.10.66:16403
@@ -37,8 +37,6 @@ http://23.237.10.66:16403
 http://23.237.10.66:16404
 #EXTINF:-1 ,儿童频道
 http://23.237.10.66:16405
-#EXTINF:-1 ,翡翠华丽
-http://23.237.10.66:16410
 #EXTINF:-1 ,astro AOD
 http://23.237.10.66:16419
 #EXTINF:-1 ,BOO
@@ -51,9 +49,7 @@ http://23.237.10.66:16426
 http://23.237.10.66:16428
 #EXTINF:-1 ,CGTN
 http://23.237.10.66:16473
-#EXTINF:-1 ,Siaran Langsung SUKAN
-http://23.237.10.66:16476
 #EXTINF:-1 ,mediacorp S
 http://23.237.10.66:16492
-#EXTINF:-1 ,unknown
+#EXTINF:-1 ,astro AEC
 http://23.237.10.66:16495
