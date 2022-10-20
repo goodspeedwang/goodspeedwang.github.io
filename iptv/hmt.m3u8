@@ -1,4 +1,7 @@
 #EXTM3U
+#EXTINF:-1,无线J2
+https://p2.weizan.cn/1646497941/269664979080385265/live.m3u8
+
 #EXTINF:-1,TVB无线财经
 http://120.84.96.62:808/hls/86/index.m3u8
 #EXTINF:-1,天映经典
