@@ -1,0 +1,8 @@
+#EXTINF:-1 tvg-id="" tvg-name="北京IPTV4K超清" tvg-logo="" group-title="IPTV",北京IPTV4K超清
+http://111.13.42.231/PLTV/88888888/224/3221226550/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="北京IPTV淘电影" tvg-logo="" group-title="IPTV",北京IPTV淘电影
+http://111.13.42.231/PLTV/88888888/224/3221226552/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="BRTV文艺" tvg-logo="" group-title="IPTV",BRTV文艺
+http://111.13.42.238/PLTV/88888888/224/3221226440/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="BRTV影视" tvg-logo="" group-title="IPTV",BRTV影视
+http://111.13.42.234/PLTV/88888888/224/3221226486/1.m3u8
