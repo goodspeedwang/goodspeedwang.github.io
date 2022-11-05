@@ -4,6 +4,8 @@
         "**/.unotes": true,
         ".gitignore": true,
         "push.sh": true,"push.bat": true,
+        "iptv/mom.m3u8":true,
+        "iptv/me.m3u8":true,
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
