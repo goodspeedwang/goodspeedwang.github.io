@@ -7,4 +7,5 @@ cat iptv/_includes/beijing.m3u >> $filename; echo -e '\n' >> $filename
 cat iptv/_includes/provinces.stable.m3u >> $filename; echo -e '\n' >> $filename
 cat iptv/_includes/provinces.m3u >> $filename; echo -e '\n' >> $filename
 cat iptv/_includes/besttv.m3u >> $filename; echo -e '\n' >> $filename
+cat iptv/_includes/malaysia.m3u >> $filename; echo -e '\n' >> $filename
 cat iptv/_includes/english.m3u >> $filename; echo -e '\n' >> $filename

@@ -169,6 +169,63 @@ http://mmitv.top/test/bestv.php?id=134
 #EXTINF:-1  group-title="bestTV",带娃小妙招
 http://mmitv.top/test/bestv.php?id=52
 
+#EXTM3U
+#EXTINF:-1 ,天映频道
+http://51.79.82.208:16024
+#EXTINF:-1 ,Gteat Times 大时代
+http://51.79.82.208:16005
+#EXTINF:-1 ,SportV
+http://51.79.82.208:16461
+#EXTINF:-1 ,SportV2
+http://51.79.82.208:16462
+#EXTINF:-1 ,SportV2
+http://51.79.82.208:16463
+#EXTINF:-1 ,SportV3
+http://51.79.82.208:16464
+#EXTINF:-1 ,TV1
+http://51.79.82.208:16001
+#EXTINF:-1 ,TV2
+http://51.79.82.208:16002
+#EXTINF:-1 ,TV3
+http://51.79.82.208:16003
+#EXTINF:-1 ,DIDIK TV
+http://51.79.82.208:16004
+#EXTINF:-1 ,9
+http://51.79.82.208:16006
+#EXTINF:-1 ,astro RIA
+http://51.79.82.208:16007
+#EXTINF:-1 ,astro PRIMA
+http://51.79.82.208:16008
+#EXTINF:-1 ,astro OASIS
+http://51.79.82.208:16009
+#EXTINF:-1 ,astro WARNA
+http://51.79.82.208:16010
+#EXTINF:-1 ,astro BOX OFFICE
+http://51.79.82.208:16013
+#EXTINF:-1 ,astro AEC(中文)
+http://51.79.82.208:16021
+#EXTINF:-1 ,Unknown_16040
+http://51.79.82.208:16040
+#EXTINF:-1 ,HGTV
+http://51.79.82.208:16057
+#EXTINF:-1 ,astro ARENA
+http://51.79.82.208:16058
+#EXTINF:-1 ,astro SUPERSPORT 3
+http://51.79.82.208:16062
+#EXTINF:-1 ,beIN sports
+http://51.79.82.208:16064
+#EXTINF:-1 ,beIN sports 3
+http://51.79.82.208:16065
+#EXTINF:-1 ,ESPN
+http://51.79.82.208:16417
+#EXTINF:-1 ,PREMIERE
+http://51.79.82.208:16450
+#EXTINF:-1 ,PREMIERE
+http://51.79.82.208:16455
+#EXTINF:-1 ,PREMIERE
+http://51.79.82.208:16456
+
+
 #EXTINF:-1,CGTN News
 http://live.cgtn.com/1000/prog_index.m3u8
 #EXTINF:-1,CNC中文
