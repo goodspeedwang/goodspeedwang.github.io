@@ -7,14 +7,6 @@ https://playtv-live.ifeng.com/live/06OLEEWQKN4_tv2.m3u8
 http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8
 #EXTINF:-1 tvg-id="7122" tvg-name="有线新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/youxianxinwen.png" group-title="港澳台",香港有线新闻
 http://61.10.2.140:80/live_freedirect/freehd209_h.live/chunklist_w135209556.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="北京IPTV4K超清" tvg-logo="" group-title="IPTV",北京IPTV4K超清
-http://111.13.42.231/PLTV/88888888/224/3221226550/1.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="北京IPTV淘电影" tvg-logo="" group-title="IPTV",北京IPTV淘电影
-http://111.13.42.234/PLTV/88888888/224/3221226552/1.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="BRTV文艺" tvg-logo="" group-title="IPTV",BRTV文艺
-http://111.13.42.238/PLTV/88888888/224/3221226440/1.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="BRTV影视" tvg-logo="" group-title="IPTV",BRTV影视
-http://111.13.42.234/PLTV/88888888/224/3221226486/1.m3u8
 #EXTINF:-1 tvg-id="6073" tvg-name="TVBS新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png" group-title="港澳台",TVBS新闻台
 http://38.64.72.148:80/hls/modn/list/4006/chunklist1.m3u8
 #EXTINF:-1 tvg-id="6071" tvg-name="民视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/FTVNews.png" group-title="港澳台",民视新闻台
@@ -22,80 +14,71 @@ http://38.64.72.148:80/hls/modn/list/4012/chunklist1.m3u8
 #EXTINF:-1 tvg-id="6143" tvg-name="台视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/台视新闻.png" group-title="港澳台",台视新闻
 http://38.64.72.148:80/hls/modn/list/4013/chunklist1.m3u8
 
-
-#EXTINF:-1,CCTV1综合
-http://219.142.151.179:9901/tsfile/live/0001_1.m3u8
-#EXTINF:-1,CCTV2财经
-http://219.142.151.179:9901/tsfile/live/0002_1.m3u8
-#EXTINF:-1,CCTV3综艺
-http://219.142.151.179:9901/tsfile/live/0003_1.m3u8
-#EXTINF:-1,CCTV4中文国际
-http://219.142.151.179:9901/tsfile/live/0004_1.m3u8
-#EXTINF:-1,CCTV5体育
-http://219.142.151.179:9901/tsfile/live/0005_1.m3u8
-#EXTINF:-1,CCTV6电影
-http://219.142.151.179:9901/tsfile/live/0006_1.m3u8
-#EXTINF:-1,CCTV7国防军事
-http://219.142.151.179:9901/tsfile/live/0007_1.m3u8
-#EXTINF:-1,CCTV8电视剧
-http://219.142.151.179:9901/tsfile/live/0008_1.m3u8
-#EXTINF:-1,CCTV9纪录
-http://219.142.151.179:9901/tsfile/live/0009_1.m3u8
-#EXTINF:-1,CCTV10
-http://219.142.151.179:9901/tsfile/live/0010_1.m3u8
-#EXTINF:-1,CCTV11戏曲
-http://219.142.151.179:9901/tsfile/live/0011_1.m3u8
-#EXTINF:-1,CCTV12社会与法
-http://219.142.151.179:9901/tsfile/live/0012_1.m3u8
-#EXTINF:-1,CCTV13新闻
-http://219.142.151.179:9901/tsfile/live/0013_1.m3u8
-#EXTINF:-1,CCTV14少儿
-http://219.142.151.179:9901/tsfile/live/0014_1.m3u8
-#EXTINF:-1,CCTV15音乐
-http://219.142.151.179:9901/tsfile/live/0015_1.m3u8
-
 #EXTINF:-1 tvg-id="7249" tvg-name="CCTV16" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png" group-title="央视",CCTV16奥林匹克
 http://liveop.cctv.cn/hls/CCTV16HD/playlist.m3u8
-#EXTINF:-1,CCTV-17农业农村
-http://111.21.22.148/PLTV/88888893/224/3221226198/index.m3u8
 #EXTINF:-1 tvg-id="106" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="央视",CCTV-4K
 http://liveop.cctv.cn/hls/4KHD/playlist.m3u8
 
 
-#EXTINF:-1,湖南卫视高清
-http://219.142.151.179:9901/tsfile/live/0128_1.m3u8
-#EXTINF:-1,江西卫视高清
-http://219.142.151.179:9901/tsfile/live/1024_1.m3u8
-#EXTINF:-1,每日影院
-http://219.142.151.179:9901/tsfile/live/1021_1.m3u8
-#EXTINF:-1,淘电影
-http://219.142.151.179:9901/tsfile/live/1010_1.m3u8
-#EXTINF:-1,淘剧场
-http://219.142.151.179:9901/tsfile/live/1014_1.m3u8
-#EXTINF:-1,淘娱乐
-http://219.142.151.179:9901/tsfile/live/1013_1.m3u8
-#EXTINF:-1,淘BABY
-http://219.142.151.179:9901/tsfile/live/1012_1.m3u8
-#EXTINF:-1,4K超清
-http://219.142.151.179:9901/tsfile/live/1011_1.m3u8
-#EXTINF:-1,爱上4K
-http://219.142.151.179:9901/tsfile/live/1027_1.m3u8
-#EXTINF:-1,BTV北京卫视
-http://219.142.151.179:9901/tsfile/live/1000_1.m3u8
-#EXTINF:-1,BTV财经
-http://219.142.151.179:9901/tsfile/live/1004_1.m3u8
-#EXTINF:-1,BTV科教
-http://219.142.151.179:9901/tsfile/live/1002_1.m3u8
-#EXTINF:-1,BTV青年
-http://219.142.151.179:9901/tsfile/live/1007_1.m3u8
-#EXTINF:-1,BTV生活
-http://219.142.151.179:9901/tsfile/live/1006_1.m3u8
-#EXTINF:-1,BTV文艺
-http://219.142.151.179:9901/tsfile/live/1001_1.m3u8
-#EXTINF:-1,BTV新闻
-http://219.142.151.179:9901/tsfile/live/1008_1.m3u8
-#EXTINF:-1,BTV影视
-http://219.142.151.179:9901/tsfile/live/1003_1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="北京IPTV4K超清" tvg-logo="" group-title="IPTV",北京IPTV4K超清
+http://111.13.42.231/PLTV/88888888/224/3221226550/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="北京IPTV淘电影" tvg-logo="" group-title="IPTV",北京IPTV淘电影
+http://111.13.42.231/PLTV/88888888/224/3221226552/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="BRTV文艺" tvg-logo="" group-title="IPTV",BRTV文艺
+http://111.13.42.238/PLTV/88888888/224/3221226440/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="BRTV影视" tvg-logo="" group-title="IPTV",BRTV影视
+http://111.13.42.234/PLTV/88888888/224/3221226486/1.m3u8
+
+#EXTINF:-1,CCTV1HD
+http://111.13.42.231/PLTV/88888888/224/3221226564/1.m3u8
+#EXTINF:-1,CCTV6HD
+http://111.13.42.231/PLTV/88888888/224/3221226468/1.m3u8
+#EXTINF:-1,CCTV7
+http://111.13.42.231/PLTV/88888888/224/3221226452/1.m3u8
+#EXTINF:-1,CCTV12HD
+http://111.13.42.231/PLTV/88888888/224/3221226942/1.m3u8
+#EXTINF:-1,CCTV13HD
+http://111.13.42.231/PLTV/88888888/224/3221226568/1.m3u8
+#EXTINF:-1,CCTV17HD
+http://111.13.42.231/PLTV/88888888/224/3221226459/1.m3u8
+#EXTINF:-1,北京卫视HD
+http://111.13.42.231/PLTV/88888888/224/3221226900/1.m3u8
+#EXTINF:-1,重庆卫视HD
+http://111.13.42.231/PLTV/88888888/224/3221226569/1.m3u8
+#EXTINF:-1,宁夏卫视
+http://111.13.42.231/PLTV/88888888/224/3221226528/1.m3u8
+#EXTINF:-1,陕西卫视
+http://111.13.42.231/PLTV/88888888/224/3221226926/1.m3u8
+#EXTINF:-1,山西卫视
+http://111.13.42.231/PLTV/88888888/224/3221226920/1.m3u8
+#EXTINF:-1,江西卫视HD
+http://111.13.42.231/PLTV/88888888/224/3221226570/1.m3u8
+#EXTINF:-1,深圳卫视
+http://111.13.42.231/PLTV/88888888/224/3221226573/1.m3u8
+#EXTINF:-1,广西卫视
+http://111.13.42.231/PLTV/88888888/224/3221226534/1.m3u8
+#EXTINF:-1,云南卫视
+http://111.13.42.231/PLTV/88888888/224/3221226543/1.m3u8
+#EXTINF:-1,新疆卫视
+http://111.13.42.231/PLTV/88888888/224/3221226923/1.m3u8
+#EXTINF:-1,海南卫视
+http://111.13.42.231/PLTV/88888888/224/3221226574/1.m3u8
+#EXTINF:-1,北京文艺
+http://111.13.42.231/PLTV/88888888/224/3221226440/1.m3u8
+#EXTINF:-1,北京青年
+http://111.13.42.231/PLTV/88888888/224/3221226513/1.m3u8
+#EXTINF:-1,纪实人文HD
+http://111.13.42.231/PLTV/88888888/224/3221226571/1.m3u8
+#EXTINF:-1,优购物
+http://111.13.42.231/PLTV/88888888/224/3221226386/1.m3u8
+#EXTINF:-1,金鹰卡通
+http://111.13.42.231/PLTV/88888888/224/3221226576/1.m3u8
+#EXTINF:-1,财富天下
+http://111.13.42.231/PLTV/88888888/224/3221226575/1.m3u8
+#EXTINF:-1,超级综艺
+http://111.13.42.231/PLTV/88888888/224/3221226940/1.m3u8
+#EXTINF:-1,哒啵赛事
+http://111.13.42.231/PLTV/88888888/224/3221226889/1.m3u8
 
 #EXTINF:-1 group-title="bestTV",东方卫视
 http://mmitv.top/test/bestv.php?id=22
