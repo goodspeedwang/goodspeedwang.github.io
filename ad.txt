@@ -27,3 +27,7 @@ dict.youdao.com##DIV[class="dialog-guide-download win-download"]
 @@||ffp.airchina.com.cn/*^$document
 /pan/pre/bgw/img/web
 /api-wm/image
+dictionary.cambridge.org##iframe
+dictionary.cambridge.org##DIV[class="tz0 topslot-container"]
+dictionary.cambridge.org##DIV[amp-access="1=1"]
+dictionary.cambridge.org##DIV[id*=ad_]
