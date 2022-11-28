@@ -23,6 +23,12 @@ http://liveop.cctv.cn/hls/CCTV16HD/playlist.m3u8
 #EXTINF:-1 tvg-id="106" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="央视",CCTV-4K
 http://liveop.cctv.cn/hls/4KHD/playlist.m3u8
 
+#EXTINF:-1,抖音世界杯4K
+http://mmitv.top/test/douyin-x.php?id=rand
+#EXTINF:-1,抖音世界杯4K.备用
+http://r.jdshipin.com/thuYX
+
+
 #EXTINF:-1, CCTV1综合
 http://39.134.67.108/PLTV/88888888/224/3221225816/1.m3u8
 #EXTINF:-1, CCTV2财经
