@@ -14,6 +14,10 @@
         <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
         <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
         <网址><名称>Cambridge</名称><地址>https://dictionary.cambridge.org/</地址></网址>
+        <网址><名称>Dictionary</名称><地址>https://www.dictionary.com/</地址></网址>
+        <网址><名称>有道词典</名称><地址>https://dict.youdao.com/</地址></网址>
+        <网址><名称>有道写作</名称><地址>https://write.youdao.com/#/home</地址></网址>
+        <网址><名称>Translate</名称><地址>https://translate.google.com/</地址></网址>
         <网址><名称>Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
         <网址><名称>Gitpod</名称><地址>https://gitpod.io/workspaces</地址></网址>
     </组>
@@ -37,7 +41,7 @@
         <网址><名称>少数派</名称><地址>https://sspai.com/</地址></网址>
         <网址><名称>Twitter</名称><地址>http://twitter.com/home</地址></网址>
         <网址><名称>网易</名称><地址>https://www.163.com/</地址></网址>
-        <网址><名称>微博</名称><地址>https://www.weibo.com/</地址></网址>
+        <网址><名称>微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
         
     </组>
 
@@ -48,6 +52,7 @@
         <网址><地址>http://www.cnbeta.com/</地址><名称>cnbeta</名称></网址>
         <网址><地址>http://web.archive.org/</地址><名称>时光倒转</名称></网址>
         <网址><地址>https://shudu.one/sudoku/printable-hard-sudoku.php</地址><名称>Sudoku</名称></网址>
+        <网址><地址>password.html</地址><名称>密码生成</名称></网址>
     </组>
 
     <组 组名="English">
@@ -124,7 +129,7 @@
     <组 组名="Document">
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
         <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
-        <网址><地址>https://doc.weiyun.com/5bb06dfa767945595ce7479ee3aff995</地址><名称>Finance</名称></网址>
+        <网址><地址>https://acsqiyvl6y.feishu.cn/sheets/shtcnMAhWTbRqsFeFCGVeeI4XMh?sheet=1aLJQt</地址><名称>Finance</名称></网址>
         <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec></地址><名称>刷卡</名称></网址>
         <网址><名称>Health</名称><地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址></网址>
 
