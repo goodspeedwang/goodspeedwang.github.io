@@ -62,12 +62,14 @@
         <网址><地址>http://www.iciba.com/</地址><名称>爱词霸</名称></网址>
         <网址><地址>https://www.oxfordlearnersdictionaries.com/</地址><名称>Oxford</名称></网址>
         <网址><地址>https://www.voicetube.com/</地址><名称>VoiceTube</名称></网址>
-        <网址><地址>https://dictionary.cambridge.org/dictionary/</地址><名称>Cambridge</名称></网址>
         <网址><地址>http://www.thefreedictionary.com/</地址><名称>thefreedictionary</名称></网址>
         <网址><地址>https://dict.youdao.com/webwordbook/wordlist</地址><名称>单词本</名称></网址>
         <网址><地址>https://www.quodb.com/</地址><名称>Quodb</名称></网址>
         <网址><地址>https://globalnews.ca/</地址><名称>GlobalNews</名称></网址>
+<<<<<<< HEAD
         
+=======
+>>>>>>> 498a18fc3fcc8aec578ba39db283373e870874bc
     </组>
 
     <组 组名="Coding">
@@ -175,6 +177,7 @@
         <网址><地址>https://www.bilibili.com/</地址><名称>Bilibili</名称></网址>
         <网址><地址>https://www.iqiyi.com/</地址><名称>爱奇艺</名称></网址>
         <网址><地址>https://www.ixigua.com/</地址><名称>西瓜</名称></网址>
+        <网址><地址>https://h5login.qqchess.qq.com/</地址><名称>天天象棋</名称></网址>
     </组>
     
     <组 组名="Travel">
