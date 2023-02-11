@@ -77,6 +77,8 @@
         <网址><地址>http://www.cnblogs.com/</地址><名称>博客园</名称></网址>
         <网址><地址>http://www.tutorialspoint.com</地址><名称>tutorialspoint</名称></网址>
         <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
+        <网址><地址>https://chat.forchange.cn/</地址><名称>ChatGPT</名称></网址>
+        
     </组>
     <组 组名="Book">
         <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
