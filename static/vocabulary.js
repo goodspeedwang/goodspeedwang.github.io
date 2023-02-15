@@ -1,4 +1,4 @@
-const dictionary = [
+const DATA = [
     {
         "explanation": "to praise something or someone very much",
         "test": [
