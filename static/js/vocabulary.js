@@ -16,7 +16,7 @@ let word = data = null;
 window.onload = init;
 document.getElementById("test").onkeyup = function (e) {
     let input = document.getElementById("word").value.trim();
-    if (e.key === 'Enter' || e.keyCode === 13) {
+    if (e.key === 'Enter') {
         if (input === word) {
             new storage(word).increase();
             exam();
@@ -26,14 +26,15 @@ document.getElementById("test").onkeyup = function (e) {
         }
     }
     
-    for (let index = 0; index < input.length; index++) {
-        const m = input.substring(0,index+1), n = word.substring(0,index+1)
-        if(m != n){
-            //document.getElementById("word").setSelectionRange(0, index);
-            break;
-        }
+    if (e.key > 'a' && e.key < 'z'){
+        for (let index = 0; index < input.length; index++) {
+            const m = input.substring(0,index+1), n = word.substring(0,index+1)
+            if(m != n){
+                //document.getElementById("word").setSelectionRange(0, index);
+                break;
+            }
+        }    
     }
-    
 }
 
 function init() {
@@ -54,8 +55,9 @@ function exam() {
     let sentence = test.sentence;
     sentence = sentence.replace(word, "<input id='word' />")
     document.getElementById("test").innerHTML = sentence;
-    console.log(word);
+    //console.log(word);
     document.getElementById("number").innerHTML = new storage(word).get();
+    document.getElementById("word").focus();
 }
 
 
