@@ -49,6 +49,68 @@ const DATA = [
             sentence: "Perhaps it is the desire for solitude or the chance of making an unexpected discovery that lures people down to the depths of the earth."
         }]
     },
+    {
+        explanation: "to allow yourself or another person to have something enjoyable, especially more than is good for you",
+        test: [{
+            word: "indulge",
+            sentence: "Inviting the fire brigade to put out a nonexistent fire is a crude form of deception which no self-respecting student would ever indulge in"
+        }]
+    },
+
+    {
+        explanation: "in a frightening, violent, or powerful way",
+        test: [{
+            word: "fiercely",
+            sentence: "the workmen struggled fiercely."
+        }]
+    },
+
+    {
+        explanation: "to take using sudden force",
+        test: [{
+            word: "seize",
+            sentence: "the police attempted to seize the pneumatic drill."
+        }]
+    },
+    {
+
+        explanation: "a very large rock",
+        test: [{
+            word: "boulders",
+            sentence: "the road was littered with boulders."
+        }]
+    }, {
+        explanation: "to change direction, especially suddenly",
+        test: [{
+            word: "swerved",
+            sentence: "we swerved to avoid large boulders."
+        }]
+    }, {
+        explanation: "in a way that suggests that something unpleasant is likely to happen",
+        test: [{
+            word: "ominously",
+            sentence: "The wheels scooped up stones that hammered ominously under the car."
+        }]
+    }, {
+        explanation: "to move something with a scoop or with something used as a scoop",
+        test: [{
+            word: "scooped",
+            sentence: "The wheels scooped up stones that hammered ominously under the car."
+        }]
+    }, {
+        explanation: "a line or pattern that looks like a Z or a row of Zs joined together",
+        test: [{
+            word: "zigzag",
+            sentence: "He followed its zigzag course."
+        }]
+    },
+    {
+        explanation: "to look at or consider a person or thing carefully and in detail in order to discover something about them",
+        test: [{
+            word: "examine",
+            sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure."
+        }]
+    },
 ]
 
 /*
