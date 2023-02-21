@@ -162,12 +162,120 @@ const DATA = [
             sentence: "However, my enthusiasm waned."
         }
     },
+    {
+        explanation: "to try to do or continue doing something in a determined but often unreasonable way",
+        test: {
+            word: "persisted",
+            sentence: "she persisted in living long after her husband's death."
+        }
+    },
+    {
+        explanation: "in a way that is expensive or impressive",
+        test: {
+            word: "lavishly",
+            sentence: "Before she grew old, Aunt Harriet used to entertain lavishly."
+        }
+    },
+    {
+        explanation: "perfectly clean or tidy",
+        test: {
+            word: "immaculate",
+            sentence: "No matter how many guests were present, the great house was always immaculate."
+        }
+    },
+    {
+        explanation: "in a way that is very surprising or difficult to believe",
+        test: {
+            word: "miraculously",
+            sentence: "Even my uncle's huge collection of books was kept miraculously free from dust."
+        }
+    },
+    {
+        explanation: "to try to achieve",
+        test: {
+            word: "pursued",
+            sentence: "Though my aunt pursued what was, in those days, an enlightened policy, in that she never allowed her domestic staff to work more than eight hours a day, she was extremely difficult to please."
+        }
+    },
+    {
+        explanation: "the quality of being likely to change suddenly and without warning",
+        test: {
+            word: "fickleness",
+            sentence: "While she always criticized the fickleness of human nature, "
+        }
+    },
+    {
+        explanation: "laughter, humor, or happiness",
+        test: {
+            word: "mirth",
+            sentence: "Though this caused great mirth among the guests, Aunt Harriet was horrified."
+        }
+    },
+    {
+        explanation: "to be in charge of a formal meeting, ceremony, or trial",
+        test: {
+            word: "presided",
+            sentence: "Aunt Harriet presided over an invisible army of servants that continuously scrubbed, cleaned, and polished."
+        }
+    },
+    {
+        explanation: "not in the place where you are expected to be, especially at school or work",
+        test: {
+            word: "absent",
+            sentence: "After being absent from The Gables for a week, my aunt unexpectedly returned one afternoon with a party of guests and instructed Bessie to prepare dinner."
+        }
+    },
+    {
+        explanation: "an ability, characteristic, or experience that makes you suitable for a particular job or activity",
+        test: {
+            word: "qualifications",
+            sentence: "In addition to all her other qualifications, Bessie was an expert cook."
+        }
+    },
+    {
+        explanation: "a tall cupboard in which you hang your clothes",
+        test: {
+            word: "wardrobe",
+            sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe"
+        }
+    },
+    {
+        explanation: "relating to the design of buildings",
+        test: {
+            word: "architectural",
+            sentence: "These attracted many tourists, for they were not only of great architectural interest, but contained a large number of beautifully preserved frescoes as well."
+        }
+    },
+    {
+        explanation: "to cause people to do or believe something, esp. by explaining why they should",
+        test: {
+            word: "persuaded",
+            sentence: "Though he was reluctant to do so at first, we eventually persuaded him to take us"
+        }
+    },
+    {
+        explanation: "unfriendly and likely to be unpleasant or harmful",
+        test: {
+            word: "forbidding",
+            sentence: "Even under a clear blue sky, the village looked forbidding, as all the houses were built of grey mud bricks."
+        }
+    },
+    {
+        explanation: "old and in poor condition",
+        test: {
+            word: "dilapidated",
+            sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch."
+        }
+    },
 ]
 
 /*
 {
 explanation: "",
-test: {word: "",
-sentence: ""}
+test: 
+{
+word: "",
+sentence: ""
+}
 },
 */
