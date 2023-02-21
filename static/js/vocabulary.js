@@ -38,7 +38,11 @@ document.getElementById("test").onkeyup = function (e) {
 }
 
 function init() {
-    data = JSON.parse(JSON.stringify(DATA));
+    data = JSON.parse(JSON.stringify(DATA)).filter(x=> {
+        console.log(x.test)
+        return 1 == 1;
+    });
+    console.log(data.constructor.name)
     data.shuffle();
     exam();
 }
@@ -50,7 +54,7 @@ function exam() {
     }
     let item = data.pop();
     document.getElementById("explanation").innerHTML = item.explanation;
-    let test = item.test.shuffle().pop();
+    let test = item.test;
     word = test.word;
     let sentence = test.sentence;
     sentence = sentence.replace(word, "<input id='word' />")
