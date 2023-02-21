@@ -21,7 +21,7 @@ document.getElementById("test").onkeyup = function (e) {
             new storage(word).increase();
             exam();
         } else {
-            console.log("wrong")
+            console.log("wrong");
             new storage(word).del();
         }
     }
@@ -42,6 +42,10 @@ function init() {
         let item = new storage(x.test.word);
         return item.number < 5
     });
+    if(data.length === 0){
+        console.log("FINISH");
+        return;
+    }
     data.shuffle();
     exam();
 }
