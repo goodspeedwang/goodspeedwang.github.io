@@ -111,6 +111,57 @@ const DATA = [
             sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure."
         }
     },
+    {
+        explanation: "causing you to have fear or respect for something or someone because that thing or person is large, powerful, or difficult",
+        test: {
+            word: "formidable",
+            sentence: "most of us could compile formidable lists of dos and don'ts"
+        }
+    },
+    {
+        explanation: "someone who does something very often and cannot stop doing it",
+        test: {
+            word: "inveterate",
+            sentence: "if we remain inveterate smokers, it is only because we have so often experienced the frustration that results from failure."
+        }
+    }, {
+        explanation: "in a way that involves great care and attention to detail",
+        test: {
+            word: "assiduously",
+            sentence: "On the second, I applied myself assiduously to the task."
+        }
+    }, {
+        explanation: "the ability to control yourself or other people, even in difficult situations",
+        test: {
+            word: "discipline",
+            sentence: "The self-discipline required to drag myself out of bed eleven minutes earlier than usual was considerable."
+        }
+    }, {
+        explanation: "unkind remarks made to intentionally annoy and upset someone",
+        test: {
+            word: "taunts",
+            sentence: "I fended off the taunts and jibes of the family good-humouredly."
+        }
+    }, {
+        explanation: "to keep your attention so strongly that you feel unable to move or look away",
+        test: {
+            word: "hypnotizing",
+            sentence: "Resisting the hypnotizing effect of television, I sat in my room for a few evenings with my eyes glued to a book."
+        }
+    }, {
+        explanation: "you start to sleep, especially during the day",
+        test: {
+            word: "dozing",
+            sentence: "I soon got back to my old bad habit of dozing off in front of the television."
+        }
+    },
+    {
+        explanation: "a subject or activity that interests you very much",
+        test: {
+            word: "enthusiasm",
+            sentence: "However, my enthusiasm waned."
+        }
+    },
 ]
 
 /*
