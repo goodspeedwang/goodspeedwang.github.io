@@ -39,10 +39,9 @@ document.getElementById("test").onkeyup = function (e) {
 
 function init() {
     data = JSON.parse(JSON.stringify(DATA)).filter(x=> {
-        console.log(x.test)
-        return 1 == 1;
+        let item = new storage(x.test.word);
+        return item.number < 5
     });
-    console.log(data.constructor.name)
     data.shuffle();
     exam();
 }
@@ -60,7 +59,7 @@ function exam() {
     sentence = sentence.replace(word, "<input id='word' />")
     document.getElementById("test").innerHTML = sentence;
     //console.log(word);
-    document.getElementById("number").innerHTML = new storage(word).get();
+    document.getElementById("number").innerHTML = new storage(word).number;
     document.getElementById("word").focus();
 }
 
@@ -73,17 +72,24 @@ function tips() {
 class storage {
     constructor(key) {
         this.key = key;
-    }
-    get() {
+        this.number = 0;
+        this.updateTime = Date.now();
         if (localStorage.getItem(this.key)) {
-            return JSON.parse(localStorage.getItem(this.key)).number;
+            let obj = JSON.parse(localStorage.getItem(this.key));
+            let now = new Date();
+            let updateTime = obj.updateTime;
+            if(updateTime < now.setDate(now.getDate()- 5)){
+                this.del();
+                return;
+            }
+            this.number = obj.number;
+            this.updateTime = updateTime;
         }
-        return 0;
     }
     increase() {
         var object = {
             updateTime: Date.now(),
-            number: this.get() + 1
+            number: this.number + 1
         }
         localStorage.setItem(this.key, JSON.stringify(object));
     }
