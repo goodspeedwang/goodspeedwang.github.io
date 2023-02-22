@@ -267,6 +267,200 @@ const DATA = [
             sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch."
         }
     },
+    {
+        explanation: "the amount or number of something, especially that can be measured",
+        test:
+        {
+            word: "quantites",
+            sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution."
+        }
+    },
+    {
+        explanation: "(of something unpleasant or dangerous) gradually and secretly causing harm",
+        test:
+        {
+            word: "insidious",
+            sentence: "There is an even more insidious kind of pollution that particularly affects urban areas and invades our daily lives, and that is noise."
+        }
+    },
+    {
+        explanation: "农药",
+        test:
+        {
+            word: "pesticides",
+            sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables."
+        }
+    },
+    {
+        explanation: "肥料",
+        test:
+        {
+            word: "fertilizers",
+            sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables."
+        }
+    },
+    {
+        explanation: "沙门氏菌",
+        test:
+        {
+            word: "salmonella",
+            sentence: "salmonella in chicken and eggs"
+        }
+    },
+    {
+        explanation: "in bad condition and therefore weak and likely to break",
+        test:
+        {
+            word: "rickety",
+            sentence: "the furniture gets rickety"
+        }
+    },
+    {
+        explanation: "to take a machine apart or to come apart into separate pieces",
+        test:
+        {
+            word: "dismantle",
+            sentence: "the mower firmly refused to mow, so I decided to dismantle it."
+        }
+    },
+    {
+        explanation: "(especially of a problem or a difficulty) so great that it cannot be dealt with successfully",
+        test:
+        {
+            word: "insurmountable",
+            sentence: "After buying a new chain I was faced with the insurmountable task of putting the confusing jigsaw puzzle together again."
+        }
+    },
+    {
+        explanation: "电工",
+        test:
+        {
+            word: "electrician",
+            sentence: "electrician"
+        }
+    },
+    {
+        explanation: "木匠",
+        test:
+        {
+            word: "carpenter",
+            sentence: "carpenter"
+        }
+    },
+    {
+        explanation: "水电工",
+        test:
+        {
+            word: "plumber",
+            sentence: "plumber"
+        }
+    },
+    {
+        explanation: "机修工",
+        test:
+        {
+            word: "mechanic",
+            sentence: "mechanic"
+        }
+    },
+    {
+        explanation: "吸尘器",
+        test:
+        {
+            word: "vacumm",
+            sentence: "vacuum cleaners fail to operate"
+        }
+    },
+    {
+        explanation: "拼图",
+        test:
+        {
+            word: "jigsaw",
+            sentence: "putting the confusing jigsaw puzzle together again."
+        }
+    },
+    {
+        explanation: "in a way that cannot be avoided",
+        test:
+        {
+            word: "inevitably",
+            sentence: "inevitably you arrive at your destination almost exhausted."
+        }
+    },
+    /*
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    },
+*/
 ]
 
 /*
