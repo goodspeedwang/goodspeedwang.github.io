@@ -65,6 +65,7 @@ function exam() {
     //console.log(word);
     document.getElementById("number").innerHTML = new storage(word).number;
     document.getElementById("word").focus();
+    playvoice();
 }
 
 
