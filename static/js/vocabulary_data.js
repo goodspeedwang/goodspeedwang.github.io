@@ -387,80 +387,102 @@ const DATA = [
             sentence: "inevitably you arrive at your destination almost exhausted."
         }
     },
-    /*
     {
-        explanation: "",
+        explanation: "to criticize something or someone strongly, usually for moral reasons.",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "condemned",
+            sentence: "In democratic countries, any efforts to restrict the freedom of the press are rightly condemned."
         }
     },
     {
-        explanation: "",
+        explanation: "considered too important to be changed",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "sacred",
+            sentence: "acting on the contention that facts are sacred."
         }
     },
     {
-        explanation: "",
+        explanation: "any of five children born at the same time to the same mother",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "quintuplets",
+            sentence: "they suddenly became the parents of quintuplets."
         }
     },
     {
-        explanation: "",
+        explanation: "摄像机",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "cameras",
+            sentence: "Television cameras and newspapers carried the news to everyone in the country."
         }
     },
     {
-        explanation: "",
+        explanation: "a substance or product that can be traded, bought, or sold",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "commodity",
+            sentence: "Instead of being five new family members, these children had become a commodity."
         }
     },
     {
-        explanation: "",
+        explanation: "not having enough space or time",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "cramped",
+            sentence: "Train compartments soon get cramped and stuffy."
         }
     },
     {
-        explanation: "",
+        explanation: "to do something awkwardly, especially when using your hands",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "fumbling",
+            sentence: "or fumbling to find your ticket for inspection."
         }
     },
     {
-        explanation: "",
+        explanation: "巡游船",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "cruises",
+            sentence: "Ferry trips or cruises offer a great variety of civilized comforts."
         }
     },
     {
-        explanation: "",
+        explanation: "making you feel very excited and happy",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "exhilarating",
+            sentence: "Traveling at a height of 30000 feet and over 500 miles an hour is an exhilarating experience."
         }
     },
-*/
+    {
+        explanation: "a small change that improves something",
+        test:
+        {
+            word: "refinements",
+            sentence: "But even when the refinements are not available, there is plenty to keep you occupied."
+        }
+    },
+    {
+        explanation: "not full of folds",
+        test:
+        {
+            word: "uncrumpled",
+            sentence: "You will arrive at your destination fresh and uncrumpled."
+        }
+    },
+    {
+        explanation: "difficult, needing a lot of effort and energy",
+        test:
+        {
+            word: "arduous",
+            sentence: "You will not have to spend the next few days recovering from a long and arduous journey."
+        }
+    },
 ]
 
 /*
