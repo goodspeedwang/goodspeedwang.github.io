@@ -12,40 +12,43 @@ Array.prototype.shuffle = function () {
 }
 
 let word = data = null;
-
+const stats = { right: 0, wrong: 0 };
 window.onload = init;
 document.getElementById("test").onkeyup = function (e) {
     let input = document.getElementById("word").value.trim();
     if (e.key === 'Enter') {
         if (input === word) {
             new storage(word).increase();
+            stats.right++;
             exam();
         } else {
-            console.log("wrong");
+            stats.wrong++;
             new storage(word).del();
         }
     }
-    
-    if (e.key > 'a' && e.key < 'z'){
+
+    if (e.key > 'a' && e.key < 'z') {
         for (let index = 0; index < input.length; index++) {
-            const m = input.substring(0,index+1), n = word.substring(0,index+1)
-            if(m != n){
+            const m = input.substring(0, index + 1), n = word.substring(0, index + 1)
+            if (m != n) {
                 //document.getElementById("word").setSelectionRange(0, index);
                 break;
             }
-        }    
+        }
     }
 }
 
 function init() {
-    data = JSON.parse(JSON.stringify(DATA)).filter(x=> {
+    data = JSON.parse(JSON.stringify(DATA)).filter(x => {
         let item = new storage(x.test.word);
         return item.number < 5
     });
-    if(data.length === 0){
+    if (data.length === 0) {
         console.log("FINISH");
         return;
     }
+    console.log(data.length);
+    stats.wrong = stats.right = 0;
     data.shuffle();
     exam();
 }
@@ -64,6 +67,7 @@ function exam() {
     document.getElementById("test").innerHTML = sentence;
     //console.log(word);
     document.getElementById("number").innerHTML = new storage(word).number;
+    document.getElementById("stats").innerHTML = stats.right + " vs " + stats.wrong;
     document.getElementById("word").focus();
     playvoice();
 }
@@ -76,14 +80,14 @@ function tips() {
 
 class storage {
     constructor(key) {
-        this.key = key;
+        this.key = key + "";
         this.number = 0;
         this.updateTime = Date.now();
         if (localStorage.getItem(this.key)) {
             let obj = JSON.parse(localStorage.getItem(this.key));
             let now = new Date();
             let updateTime = obj.updateTime;
-            if(updateTime < now.setDate(now.getDate()- 5)){
+            if (updateTime < now.setDate(now.getDate() - 5)) {
                 this.del();
                 return;
             }
