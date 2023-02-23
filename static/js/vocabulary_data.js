@@ -271,7 +271,7 @@ const DATA = [
         explanation: "the amount or number of something, especially that can be measured",
         test:
         {
-            word: "quantites",
+            word: "quantities",
             sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution."
         }
     },
@@ -367,7 +367,7 @@ const DATA = [
         explanation: "吸尘器",
         test:
         {
-            word: "vacumm",
+            word: "vacuum",
             sentence: "vacuum cleaners fail to operate"
         }
     },
