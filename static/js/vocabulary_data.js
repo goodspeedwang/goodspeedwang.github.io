@@ -483,6 +483,115 @@ const DATA = [
             sentence: "You will not have to spend the next few days recovering from a long and arduous journey."
         }
     },
+
+    {
+        explanation: "good or good enough for a particular need or purpose",
+        test:
+        {
+            word: "satisfactory",
+            sentence: "It is impossible to give a satisfactory explanation for a pot-holer’s motives."
+        }
+    },
+    {
+        explanation: "a very deep, narrow opening in rock, ice, or the ground",
+        test:
+        {
+            word: "chasm",
+            sentence: "This immense chasm has been formed by an underground stream which has tunneled a course through a flaw in the rocks."
+        }
+    }, {
+        explanation: "used to describe a respected and admired person or their work",
+        test:
+        {
+            word: "distinguished",
+            sentence: "The distinguished French pot-holer, Berger"
+        }
+    }, {
+        explanation: "a tornado filled with water that forms over the sea",
+        test:
+        {
+            word: "waterspout",
+            sentence: "they could hear an insistent booming sound which they found was caused by a small waterspout shooting down into a pool from the roof of the cave."
+        }
+    }, {
+        explanation: "happening once every year",
+        test:
+        {
+            word: "annual",
+            sentence: "It had been purchased by a local authority so that an enormous pie could be baked for an annual fair."
+        }
+    }, {
+        explanation: "in a way that is likely to fall, be damaged, fail, etc",
+        test:
+        {
+            word: "precariously",
+            sentence: "the dish was perched precariously on the bank of the canal."
+        }
+    }, {
+        explanation: "dropping suddenly or having a shape that drops a long way down",
+        test:
+        {
+            word: "plunging",
+            sentence: "There was a danger that the wave would rebound off the other side of the bank and send the dish plunging into the water again."
+        }
+    },
+    {
+        explanation: "better than average or better than other people or things of the same type",
+        test:
+        {
+            word: "superior",
+            sentence: "county life is somehow superior to town life."
+        }
+    }, {
+        explanation: "an opportunity to do something special or enjoyable",
+        test:
+        {
+            word: "privilege",
+            sentence: "Why people are prepared to tolerate the unhealthy lifestyle for the dubious privilege of living in the city is beyond me."
+        }
+    }, {
+        explanation: "always",
+        test:
+        {
+            word: "invariably",
+            sentence: " They invariably live nearby "
+        }
+    }, {
+        explanation: "a person that you have met but do not know well",
+        test:
+        {
+            word: "acquaintances",
+            sentence: "Some of my acquaintances in the country come up to town once or twice a year to visit the theatre as a special treat."
+        }
+    }, {
+        explanation: "to be in a place that is hidden or where few people go",
+        test:
+        {
+            word: "tucked",
+            sentence: "The thousands that travel to work every day are tucked away in their homes in the country."
+        }
+    }, {
+        explanation: "to do something very often, so that you are known for doing it",
+        test:
+        {
+            word: "specialize",
+            sentence: "Students specialize in a particular type of practical joke."
+        }
+    }, {
+        explanation: "in a way that suggests you mean the opposite of what you are saying, or are not serious",
+        test:
+        {
+            word: "ironically",
+            sentence: "the police pointed out ironically that this would hardly be necessary as the men were already under arrest."
+        }
+    }, {
+        explanation: "the act of allowing someone to do something, or of allowing something to happen",
+        test:
+        {
+            word: "permission",
+            sentence: "permission was granted"
+        }
+    },
 ]
 
 /*
