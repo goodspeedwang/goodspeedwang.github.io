@@ -776,16 +776,24 @@ const DATA = [
             word: "dawdled",
             sentence: "the train dawdled at station after station"
         }
-    }, 
+    },
     {
         explanation: "农业",
-        test: 
+        test:
         {
-        word: "agriculture",
-        sentence: "agriculture"
+            word: "agriculture",
+            sentence: "agriculture"
         }
-        },
-    
+    },
+    {
+        explanation: "烟囱",
+        test:
+        {
+            word: "chimney",
+            sentence: "chimney"
+        }
+    },
+
 ]
 
 /*
