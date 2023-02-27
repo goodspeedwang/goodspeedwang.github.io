@@ -592,6 +592,191 @@ const DATA = [
             sentence: "permission was granted"
         }
     },
+    {
+        explanation: "to worry someone",
+        test:
+        {
+            word: "perturbed",
+            sentence: "Bruch was not in the least perturbed."
+        }
+    },
+    {
+        explanation: "to hit or kick something with a lot of force",
+        test:
+        {
+            word: "hammered",
+            sentence: "The wheels scooped up stones that hammered ominously under the car."
+        }
+    },
+    {
+        explanation: "with one leg on either side (of something)",
+        test:
+        {
+            word: "astride",
+            sentence: "keeping the front wheels astride the crack as he followed its zigzag course."
+        }
+    },
+    {
+        explanation: "very frightening",
+        test:
+        {
+            word: "terrifying",
+            sentence: "Bruce went into a low gear and drove at a terrifying speed"
+        }
+    },
+    {
+        explanation: "having only a short distance from the top to the bottom",
+        test:
+        {
+            word: "shallow",
+            sentence: "Our next obstacle was a shallow pool of water."
+        }
+    },
+    {
+        explanation: "to rub something against a hard surface, in order to make it sharper or smoother",
+        test:
+        {
+            word: "grinding",
+            sentence: "the car came to a grinding halt."
+        }
+    },
+    {
+        explanation: "gradually",
+        test:
+        {
+            word: "steadily",
+            sentence: "They will have hardly found the facts to select from a great mass of evidence that steadily accumulates."
+        }
+    },
+    {
+        explanation: "to reach an answer or a decision by thinking carefully about the known facts:",
+        test:
+        {
+            word: "deduce",
+            sentence: "He has to deduce what he can from the few scanty clues available."
+        }
+    },
+    {
+        explanation: "smaller in size or amount than is considered necessary or is hoped for",
+        test:
+        {
+            word: "scanty",
+            sentence: "He has to deduce what he can from the few scanty clues available."
+        }
+    },
+    {
+        explanation: "small or not noticeable, and therefore not considered important",
+        test:
+        {
+            word: "insignificant",
+            sentence: "seemingly insignificant remains can shed interesting light ……"
+        }
+    },
+    {
+        explanation: "獠牙",
+        test:
+        {
+            word: "tusk",
+            sentence: "ivory tusk"
+        }
+    },
+    {
+        explanation: "猛犸",
+        test:
+        {
+            word: "mammoth",
+            sentence: "mammoth"
+        }
+    },
+    {
+        explanation: "If two or more facts, numbers, etc. there is a relationship between them:",
+        test:
+        {
+            word: "correlating",
+            sentence: "By correlating markings made in various parts of the world."
+        }
+    },
+    {
+        explanation: "any stage in a series of events or in a process of development",
+        test:
+        {
+            word: "phases",
+            sentence: "the phases of the moon"
+        }
+    },
+    {
+        explanation: "to represent or show something in a picture or story",
+        test:
+        {
+            word: "depicted",
+            sentence: "The hunting scenes depicted on walls were not simply a form of artistic expression."
+        }
+    },
+
+    {
+        explanation: "too willing to believe what you are told and so easily deceived",
+        test:
+        {
+            word: "credulous",
+            sentence: "We are less credulous than we used to be."
+        }
+    }, {
+        explanation: "not known to many people",
+        test:
+        {
+            word: "obscure",
+            sentence: "Readers happily accepted the fact that an obscure maidservant was really the hero’s mother."
+        }
+    }, {
+        explanation: "to plan secretly with other people to do something bad, illegal, or against someone's wishes",
+        test:
+        {
+            word: "conspire",
+            sentence: "circumstances do sometimes conspire to bring about coincidences"
+        }
+    }, {
+        explanation: "to (cause to) flow quickly and in large amounts",
+        test:
+        {
+            word: "poured",
+            sentence: "Franz poured scorn on the idea"
+        }
+    }, {
+        explanation: "a very strong feeling of no respect for someone or something that you think is stupid or has no value",
+        test:
+        {
+            word: "scorn",
+            sentence: "Franz poured scorn on the idea"
+        }
+    }, {
+        explanation: "to know or be familiar with something, because you have studied it or have experienced it before",
+        test:
+        {
+            word: "acquainted",
+            sentence: "Bussman was fully acquainted with this story"
+        }
+    }, {
+        explanation: "on time",
+        test:
+        {
+            word: "punctual",
+            sentence: "We have learnt to expect that trains will be punctual."
+        }
+    }, {
+        explanation: "in a way that does not last for long or for ever",
+        test:
+        {
+            word: "temporarily",
+            sentence: "Only an exceptionally heavy snowfall might temporarily dislocate railway services."
+        }
+    }, {
+        explanation: "to do something or go somewhere very slowly, taking more time than is necessary",
+        test:
+        {
+            word: "dawdled",
+            sentence: "the train dawdled at station after station"
+        }
+    }, 
 ]
 
 /*
