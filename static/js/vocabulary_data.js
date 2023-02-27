@@ -777,6 +777,15 @@ const DATA = [
             sentence: "the train dawdled at station after station"
         }
     }, 
+    {
+        explanation: "农业",
+        test: 
+        {
+        word: "agriculture",
+        sentence: "agriculture"
+        }
+        },
+    
 ]
 
 /*
