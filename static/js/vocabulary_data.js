@@ -793,7 +793,14 @@ const DATA = [
             sentence: "chimney"
         }
     },
-
+    {
+        explanation: "the person who had a particular job or position before someone else",
+        test:
+        {
+            word: "predecessor",
+            sentence: "We have our party at the boathouse, which a predecessor of ours at farm built in the meadow hard by the deepest pool for swimming and diving."
+        }
+    },
 ]
 
 /*
