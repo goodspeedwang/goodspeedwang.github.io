@@ -793,7 +793,14 @@ const DATA = [
             sentence: "chimney"
         }
     },
-
+    {
+        explanation: "the land and buildings owned by someone, especially by a company or organization",
+        test:
+        {
+            word: "premises",
+            sentence: "When a thief was caught on the premises of a large jewellery store one morning"
+        }
+    },
 ]
 
 /*
