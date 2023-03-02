@@ -67,6 +67,7 @@
         <网址><地址>https://www.quodb.com/</地址><名称>Quodb</名称></网址>
         <网址><地址>https://globalnews.ca/</地址><名称>GlobalNews</名称></网址>
         <网址><地址>https://www.tjxz.cc/</地址><名称>田间小站</名称></网址>
+        <网址><地址>https://www.ieltsbro.com/</地址><名称>雅思哥</名称></网址>
     </组>
 
     <组 组名="Coding">
@@ -144,6 +145,8 @@
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
         <网址><名称>写作猫</名称><地址>https://xiezuocat.com/</地址></网址> 
         <网址><名称>云盘</名称><地址>https://goodspeed.coding.net/p/goodspeed.coding.me/files/all</地址></网址> 
+        <网址><名称>AIWriting</名称><地址>https://rytr.me/</地址></网址> 
+        
     </组>
 
     <组 组名="Corp">
@@ -160,14 +163,8 @@
         <网址><名称>电话会话分析</名称><地址>https://h5.dianping.com/app/kingfisher-portal/index.html#/ivr/visualization/search</地址></网址>
         <网址><名称>峰值 COE</名称><地址>https://h5.dianping.com/app/kingfisher-portal/index.html#/strategyCenter/caseOverview</地址></网址>
         <网址><名称>石家庄大屏</名称><地址>http://wallboard.sankuai.com/dashboard/service/service_all</地址></网址>
-        
-    </组>
-
-    <组 组名="周报">
         <网址><地址>https://km.sankuai.com/page/1271371337</地址><名称>服务体验</名称></网址>
-        <网址><地址>https://km.sankuai.com/page/1268227156</地址><名称>研发中心</名称></网址>
-        <网址><地址>https://km.sankuai.com/page/572117298</地址><名称>产品头目</名称></网址>
-        <网址><地址>https://km.sankuai.com/page/572117280</地址><名称>产品中心</名称></网址>
+        <网址><地址>https://km.sankuai.com/collabpage/1500097680</地址><名称>研发中心</名称></网址>
     </组>
 
     <组 组名="Movie">
