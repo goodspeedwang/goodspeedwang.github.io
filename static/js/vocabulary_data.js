@@ -794,19 +794,90 @@ const DATA = [
         }
     },
     {
-<<<<<<< HEAD
         explanation: "the land and buildings owned by someone, especially by a company or organization",
         test:
         {
             word: "premises",
             sentence: "When a thief was caught on the premises of a large jewellery store one morning"
-=======
+        }
+    },
+    {
         explanation: "the person who had a particular job or position before someone else",
         test:
         {
             word: "predecessor",
             sentence: "We have our party at the boathouse, which a predecessor of ours at farm built in the meadow hard by the deepest pool for swimming and diving."
->>>>>>> eb783df83f37f75253219818cf7c358160370abb
+        }
+    },
+    {
+        explanation: "not needed or wanted, or more than is needed or wanted",
+        test:
+        {
+            word: "unnecessary",
+            sentence: "We regard them as unnecessary creatures that do more harm than good."
+        }
+    }, {
+        explanation: "a strong, often sudden, feeling that something is extremely unpleasant",
+        test:
+        {
+            word: "revulsion",
+            sentence: "Knowing that the industrious ant lives in a highly organized society does nothing to prevent us from being filled with revulsion"
+        }
+    }, {
+        explanation: "protected from wind, rain, or other bad weather",
+        test:
+        {
+            word: "sheltered",
+            sentence: "The tree has grown against a warm wall on a sheltered side of the house."
+        }
+    }, {
+        explanation: "having a pleasant sweet taste or containing a lot of juice",
+        test:
+        {
+            word: "luscious",
+            sentence: "because it occasionally produces luscious peaches."
+        }
+    }, {
+        explanation: "a group of animals, insects, or plants of the same type that live together",
+        test:
+        {
+            word: "colony",
+            sentence: "They were visited by a large colony of ants"
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: ""
         }
     },
 ]
