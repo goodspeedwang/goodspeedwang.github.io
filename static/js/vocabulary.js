@@ -59,20 +59,26 @@ function exam() {
         return;
     }
     let item = data.pop();
-    document.getElementById("explanation").innerHTML = item.explanation;
+    if(document.getElementById("explanation_show").checked){
+        document.getElementById("explanation").innerHTML = item.explanation;
+    }else{
+        document.getElementById("explanation").innerHTML = "";
+    }
     let test = item.test;
     word = test.word;
-    let sentence = test.sentence;
-    sentence = sentence.replace(word, "<input id='word' />")
+    let sentence = "<input id='word' />";
+    if(document.getElementById("sentence_show").checked){
+        sentence = test.sentence.replace(word, "<input id='word' />")
+    }
     document.getElementById("test").innerHTML = sentence;
     //console.log(word);
     document.getElementById("number").innerHTML = new storage(word).number;
     document.getElementById("stats").innerHTML = stats.right + " vs " + stats.wrong;
     document.getElementById("word").focus();
-    playvoice();
+    if(document.getElementById("autoplay_show").checked){
+        playvoice();
+    }   
 }
-
-
 
 function tips() {
     document.getElementById("word").value = word;
