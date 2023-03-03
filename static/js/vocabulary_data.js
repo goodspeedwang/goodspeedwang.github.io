@@ -845,41 +845,64 @@ const DATA = [
             sentence: "They were visited by a large colony of ants"
         }
     }, {
-        explanation: "",
+        explanation: "to protect something from harm",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "safeguard",
+            sentence: "the Swedish Parliament introduced a scheme to safeguard the interest of the individual."
         }
     }, {
-        explanation: "",
+        explanation: "to speak, act, or be present officially for a person or group",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "representing",
+            sentence: "A parliamentary committee representing all political parties appoints a person"
         }
     }, {
-        explanation: "",
+        explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "prosecuted",
+            sentence: "The policeman was informed that if any further complaints were lodged against him, he would be prosecuted."
         }
     }, {
-        explanation: "",
+        explanation: "the process of getting something",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "acquisition",
+            sentence: "the acquisition of this bottle cured him of a bad habit he had been developing for years."
         }
     }, {
-        explanation: "",
+        explanation: "to express a thought, feeling, or idea so that it is understood by other people",
         test:
         {
-            word: "",
-            sentence: ""
+            word: "conveyed",
+            sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf."
         }
     },
+    {
+        explanation: "雀斑",
+        test:
+        {
+            word: "freckles",
+            sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles"
+        }
+    }, {
+        explanation: "very strange and unusual, unexpected, or not natural",
+        test:
+        {
+            word: "weird",
+            sentence: "She produced all sorts of weird concoctions"
+        }
+    }, {
+        explanation: "in a way that is careful not to cause embarrassment or attract too much attention, especially by keeping something secret",
+        test:
+        {
+            word: "discreetly",
+            sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price."
+        }
+    },
+
 ]
 
 /*
