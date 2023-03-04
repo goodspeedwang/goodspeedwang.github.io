@@ -844,42 +844,7 @@ const DATA = [
             word: "colony",
             sentence: "They were visited by a large colony of ants"
         }
-    }, {
-        explanation: "",
-        test:
-        {
-            word: "",
-            sentence: ""
-        }
-    }, {
-        explanation: "",
-        test:
-        {
-            word: "",
-            sentence: ""
-        }
-    }, {
-        explanation: "",
-        test:
-        {
-            word: "",
-            sentence: ""
-        }
-    }, {
-        explanation: "",
-        test:
-        {
-            word: "",
-            sentence: ""
-        }
-    }, {
-        explanation: "",
-        test:
-        {
-            word: "",
-            sentence: ""
-        }
-    },
+    }, 
 ]
 
 /*
