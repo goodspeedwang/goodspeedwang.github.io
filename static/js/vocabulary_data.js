@@ -844,7 +844,101 @@ const DATA = [
             word: "colony",
             sentence: "They were visited by a large colony of ants"
         }
+<<<<<<< HEAD
     }, 
+=======
+    }, {
+        explanation: "to protect something from harm",
+        test:
+        {
+            word: "safeguard",
+            sentence: "the Swedish Parliament introduced a scheme to safeguard the interest of the individual."
+        }
+    }, {
+        explanation: "to speak, act, or be present officially for a person or group",
+        test:
+        {
+            word: "representing",
+            sentence: "A parliamentary committee representing all political parties appoints a person"
+        }
+    }, {
+        explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
+        test:
+        {
+            word: "prosecuted",
+            sentence: "The policeman was informed that if any further complaints were lodged against him, he would be prosecuted."
+        }
+    }, {
+        explanation: "the process of getting something",
+        test:
+        {
+            word: "acquisition",
+            sentence: "the acquisition of this bottle cured him of a bad habit he had been developing for years."
+        }
+    }, {
+        explanation: "to express a thought, feeling, or idea so that it is understood by other people",
+        test:
+        {
+            word: "conveyed",
+            sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf."
+        }
+    },
+    {
+        explanation: "雀斑",
+        test:
+        {
+            word: "freckles",
+            sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles"
+        }
+    }, {
+        explanation: "very strange and unusual, unexpected, or not natural",
+        test:
+        {
+            word: "weird",
+            sentence: "She produced all sorts of weird concoctions"
+        }
+    }, {
+        explanation: "in a way that is careful not to cause embarrassment or attract too much attention, especially by keeping something secret",
+        test:
+        {
+            word: "discreetly",
+            sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price."
+        }
+    },
+    {
+        explanation: "relating to work done in an office",
+        test:
+        {
+            word: "clerical",
+            sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work."
+        }
+    },
+    {
+        explanation: "the fact of something happening or being done often",
+        test:
+        {
+            word: "regularity",
+            sentence: "the same old favorites recur year in year out with monotonous regularity"
+        }
+    },
+    {
+        explanation: "the act of achieving something",
+        test:
+        {
+            word: "attainment",
+            sentence: "certain accomplishments are beyond attainment"
+        }
+    },
+    {
+        explanation: "to walk somewhere in a large group, usually with one person behind another",
+        test:
+        {
+            word: "trooped",
+            sentence: "The next morning the whole family trooped in to watch the performance."
+        }
+    },
+
+>>>>>>> 088505eb4ad1b726b8d04c40333fe623641bf3a4
 ]
 
 /*
