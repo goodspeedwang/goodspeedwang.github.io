@@ -902,6 +902,38 @@ const DATA = [
             sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price."
         }
     },
+    {
+        explanation: "relating to work done in an office",
+        test:
+        {
+            word: "clerical",
+            sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work."
+        }
+    },
+    {
+        explanation: "the fact of something happening or being done often",
+        test:
+        {
+            word: "regularity",
+            sentence: "the same old favorites recur year in year out with monotonous regularity"
+        }
+    },
+    {
+        explanation: "the act of achieving something",
+        test:
+        {
+            word: "attainment",
+            sentence: "certain accomplishments are beyond attainment"
+        }
+    },
+    {
+        explanation: "to walk somewhere in a large group, usually with one person behind another",
+        test:
+        {
+            word: "trooped",
+            sentence: "The next morning the whole family trooped in to watch the performance."
+        }
+    },
 
 ]
 
