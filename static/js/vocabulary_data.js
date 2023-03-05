@@ -844,10 +844,8 @@ const DATA = [
             word: "colony",
             sentence: "They were visited by a large colony of ants"
         }
-<<<<<<< HEAD
-    }, 
-=======
-    }, {
+    },
+    {
         explanation: "to protect something from harm",
         test:
         {
@@ -938,7 +936,6 @@ const DATA = [
         }
     },
 
->>>>>>> 088505eb4ad1b726b8d04c40333fe623641bf3a4
 ]
 
 /*
