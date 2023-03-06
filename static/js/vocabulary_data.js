@@ -844,8 +844,7 @@ const DATA = [
             word: "colony",
             sentence: "They were visited by a large colony of ants"
         }
-    },
-    {
+    }, {
         explanation: "to protect something from harm",
         test:
         {
@@ -935,8 +934,40 @@ const DATA = [
             sentence: "The next morning the whole family trooped in to watch the performance."
         }
     },
+    {
+        explanation: "the quality of working well in an organized way, without wasting time or energy",
+        test:
+        {
+            word: "efficiency",
+            sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency."
+        }
+    }, {
+        explanation: "in a way that shows that you are not willing to do something and are therefore slow to do it",
+        test:
+        {
+            word: "reluctantly",
+            sentence: "She reluctantly came to the conclusion that Bessie was drunk."
+        }
+    },
+    {
+        explanation: "disaster",
+        test:
+        {
+            word: "catastrophe",
+            sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe"
+        }
+    },
+    {
+        explanation: "to move or spread untidily and in small numbers or amounts",
+        test:
+        {
+            word: "straggling",
+            sentence: "The place consisted of a straggling unmade road which was lined on either side by small houses."
+        }
+    },
 
     {
+<<<<<<< HEAD
         explanation: "",
         test:
         {
@@ -993,6 +1024,71 @@ const DATA = [
         }
         },
 
+=======
+        explanation: "沙丁鱼",
+        test:
+        {
+            word: "sardine",
+            sentence: "sardine"
+        }
+    },
+    {
+        explanation: "（女用）披巾",
+        test:
+        {
+            word: "shawl",
+            sentence: "shawl"
+        }
+    },
+    {
+        explanation: "an opinion expressed in an argument",
+        test:
+        {
+            word: "contention",
+            sentence: "acting on the contention that facts are sacred."
+        }
+    },
+    {
+        explanation: "to use something such as authority, power, influence, etc. in order to make something happen",
+        test:
+        {
+            word: "exert",
+            sentence: "Newspapers exert such tremendous influence"
+        }
+    },
+    {
+        explanation: "completely or extremely",
+        test:
+        {
+            word: "radically",
+            sentence: "an event that radically changed their lives."
+        }
+    },
+    {
+        explanation: "a company that produces goods in large numbers",
+        test:
+        {
+            word: "manufacturers",
+            sentence: "Gifts poured in not only from unknown people, but from body food and soap manufacturers."
+        }
+    },
+    {
+        explanation: "a person who is very interested in and involved with a particular subject or activity",
+        test:
+        {
+            word: "enthusiasts",
+            sentence: "Some really keen enthusiasts go so far as to build their own computers."
+        }
+    },
+    {
+        explanation: "to be willing to do something that is extreme",
+        test:
+        {
+            word: "go so far to",
+            sentence: "Some really keen enthusiasts go so far as to build their own computers."
+        }
+    },
+>>>>>>> b818a0cff82ed53d976e457974b7518ba3bb4f4c
 ]
 
 /*
