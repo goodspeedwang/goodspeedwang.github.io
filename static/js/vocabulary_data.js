@@ -936,6 +936,63 @@ const DATA = [
         }
     },
 
+    {
+        explanation: "",
+        test:
+        {
+            word: "incessantly",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "enthusiats",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "go so far as",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "contention",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "exert",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "radically",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test: 
+        {
+        word: "manufacturers",
+        sentence: ""
+        }
+        },
+
 ]
 
 /*
