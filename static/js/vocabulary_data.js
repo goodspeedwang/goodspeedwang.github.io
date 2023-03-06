@@ -934,7 +934,54 @@ const DATA = [
             sentence: "The next morning the whole family trooped in to watch the performance."
         }
     },
+    {
+        explanation: "the quality of working well in an organized way, without wasting time or energy",
+        test:
+        {
+            word: "efficiency",
+            sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency."
+        }
+    }, {
+        explanation: "in a way that shows that you are not willing to do something and are therefore slow to do it",
+        test:
+        {
+            word: "reluctantly",
+            sentence: "She reluctantly came to the conclusion that Bessie was drunk."
+        }
+    },
+    {
+        explanation: "disaster",
+        test:
+        {
+            word: "catastrophe",
+            sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe"
+        }
+    },
+    {
+        explanation: "to move or spread untidily and in small numbers or amounts",
+        test:
+        {
+            word: "straggling",
+            sentence: "The place consisted of a straggling unmade road which was lined on either side by small houses."
+        }
+    },
 
+    {
+        explanation: "沙丁鱼",
+        test:
+        {
+            word: "sardine",
+            sentence: "sardine"
+        }
+    },
+    {
+        explanation: "（女用）披巾",
+        test:
+        {
+            word: "shawl",
+            sentence: "shawl"
+        }
+    },
 ]
 
 /*
