@@ -967,64 +967,6 @@ const DATA = [
     },
 
     {
-<<<<<<< HEAD
-        explanation: "",
-        test:
-        {
-            word: "incessantly",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test:
-        {
-            word: "enthusiats",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test:
-        {
-            word: "go so far as",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test:
-        {
-            word: "contention",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test:
-        {
-            word: "exert",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test:
-        {
-            word: "radically",
-            sentence: ""
-        }
-    },
-    {
-        explanation: "",
-        test: 
-        {
-        word: "manufacturers",
-        sentence: ""
-        }
-        },
-
-=======
         explanation: "沙丁鱼",
         test:
         {
@@ -1088,7 +1030,6 @@ const DATA = [
             sentence: "Some really keen enthusiasts go so far as to build their own computers."
         }
     },
->>>>>>> b818a0cff82ed53d976e457974b7518ba3bb4f4c
 ]
 
 /*
