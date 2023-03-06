@@ -844,8 +844,7 @@ const DATA = [
             word: "colony",
             sentence: "They were visited by a large colony of ants"
         }
-    },
-    {
+    }, {
         explanation: "to protect something from harm",
         test:
         {
@@ -981,6 +980,54 @@ const DATA = [
         {
             word: "shawl",
             sentence: "shawl"
+        }
+    },
+    {
+        explanation: "an opinion expressed in an argument",
+        test:
+        {
+            word: "contention",
+            sentence: "acting on the contention that facts are sacred."
+        }
+    },
+    {
+        explanation: "to use something such as authority, power, influence, etc. in order to make something happen",
+        test:
+        {
+            word: "exert",
+            sentence: "Newspapers exert such tremendous influence"
+        }
+    },
+    {
+        explanation: "completely or extremely",
+        test:
+        {
+            word: "radically",
+            sentence: "an event that radically changed their lives."
+        }
+    },
+    {
+        explanation: "a company that produces goods in large numbers",
+        test:
+        {
+            word: "manufacturers",
+            sentence: "Gifts poured in not only from unknown people, but from body food and soap manufacturers."
+        }
+    },
+    {
+        explanation: "a person who is very interested in and involved with a particular subject or activity",
+        test:
+        {
+            word: "enthusiasts",
+            sentence: "Some really keen enthusiasts go so far as to build their own computers."
+        }
+    },
+    {
+        explanation: "to be willing to do something that is extreme",
+        test:
+        {
+            word: "go so far to",
+            sentence: "Some really keen enthusiasts go so far as to build their own computers."
         }
     },
 ]
