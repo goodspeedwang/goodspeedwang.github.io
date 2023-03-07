@@ -1031,47 +1031,47 @@ const DATA = [
         }
     },
     {
-        explanation: "",
+        explanation: "able or likely to cause harm or death, or unpleasant problems",
         test:
         {
             word: "dangerous",
-            sentence: ""
+            sentence: "Aeroplanes have the reputation of being dangerous and even hardened travelers are intimidated by them."
         }
     }, {
-        explanation: "",
+        explanation: "to invent a plan, system, object, etc., usually using your intelligence or imagination.",
         test:
         {
             word: "devise",
-            sentence: ""
+            sentence: "You do not have to devise ways of taking your mind off the journey."
         }
     }, {
-        explanation: "",
+        explanation: "运河",
         test:
         {
             word: "canal",
-            sentence: ""
+            sentence: "canal"
         }
     }, {
-        explanation: "",
+        explanation: "causing extreme physical or mental pain",
         test:
         {
             word: "agonizing",
-            sentence: ""
+            sentence: "For one agonizing moment, the dish was perched precariously on the bank of the canal"
         }
     }, {
-        explanation: "",
+        explanation: "exact and accurate",
         test:
         {
             word: "precise",
-            sentence: ""
+            sentence: "Such undertakings require the precise planning and foresight of military operations."
         }
     },
     {
-        explanation: "",
+        explanation: "relating to or belonging to the armed forces",
         test:
         {
             word: "military",
-            sentence: ""
+            sentence: "Such undertakings require the precise planning and foresight of military operations."
         }
     },
 ]

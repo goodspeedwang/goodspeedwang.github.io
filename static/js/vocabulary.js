@@ -45,7 +45,7 @@ function init() {
         //return true;
         return item.number < 5
     });
-    //console.log(data.map(x=>"\""+x.test.word+"\"").join(","))
+    console.log(data.map(x=>"\""+x.test.word+"\"").join(","))
     
     if (data.length === 0) {
         console.log("FINISH");
