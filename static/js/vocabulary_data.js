@@ -1243,56 +1243,153 @@ const DATA = [
         test:
         {
             word: "obscure",
-            sentence: "Readers happily accepted the fact that an obscure maidservant was really the hero’s mother."
+            sentence: "Readers happily accepted the fact that an obscure maidservant was really the hero’s mother.",
+            sentences = [
+                "The ancient text's meaning was obscure, requiring a specialized translator to decipher it.",
+                "The artist enjoyed using obscure references in their work, challenging the viewer to interpret it.",
+                "The small town was so obscure that even locals couldn't find it on a map.",
+                "The details of the crime were obscured by conflicting witness statements.",
+                "His identity was so obscure that nobody knew his real name or where he came from.",
+                "The professor's lecture on obscure philosophical concepts left the students feeling bewildered.",
+                "The mist obscured the view of the mountain peak.",
+                "The obscure cult practiced unconventional rituals that were kept secret from outsiders.",
+                "The writer's novel was criticized for its obscure plot and convoluted narrative.",
+                "Her memories of the accident were obscured by the trauma of the experience."
+              ]
         }
     }, {
         explanation: "to plan secretly with other people to do something bad, illegal, or against someone's wishes",
         test:
         {
             word: "conspire",
-            sentence: "circumstances do sometimes conspire to bring about coincidences"
+            sentence: "circumstances do sometimes conspire to bring about coincidences",
+            sentences: [
+                "The two friends conspired to surprise their third friend with a birthday party.",
+                "The employees conspired to undermine the new manager's authority.",
+                "She felt like the universe was conspiring against her, as everything seemed to go wrong.",
+                "The villains conspired to overthrow the king and take over the kingdom.",
+                "They conspired to steal the valuable artifact from the museum.",
+                "The siblings conspired to convince their parents to get a puppy.",
+                "The government officials were accused of conspiring to cover up the scandal.",
+                "The burglars conspired to break into the bank and steal the money.",
+                "The group of friends conspired to play a prank on the unsuspecting roommate.",
+                "The detectives discovered a plot to conspire against the mayor."
+              ]
         }
     }, {
         explanation: "to (cause to) flow quickly and in large amounts",
         test:
         {
             word: "poured",
-            sentence: "Franz poured scorn on the idea"
+            sentence: "Franz poured scorn on the idea",
+            sentences :[
+                "She poured the hot coffee into the mug.",
+                "The rain poured down from the sky, drenching everything in its path.",
+                "The chef poured the sauce over the chicken before serving it.",
+                "He poured his heart out to her, confessing his deepest feelings.",
+                "The pitcher poured the ball right over the plate, striking out the batter.",
+                "She poured herself a glass of wine and settled in for the evening.",
+                "The company poured millions of dollars into the new project.",
+                "He poured the cleaning solution onto the stains and let it soak in.",
+                "The sun poured its bright rays through the window, warming the room.",
+                "She poured all her energy into finishing the marathon."
+              ]
         }
     }, {
         explanation: "a very strong feeling of no respect for someone or something that you think is stupid or has no value",
         test:
         {
             word: "scorn",
-            sentence: "Franz poured scorn on the idea"
+            sentence: "Franz poured scorn on the idea",
+            sentences: [
+                "She spoke with open scorn for her rival's achievements.",
+                "It was clear from his tone that he held her in utter scorn.",
+                "I have nothing but scorn for people who cheat at games.",
+                "He faced the crowd with a look of haughty scorn.",
+                "Her husband's abuse had turned her love into bitter scorn.",
+                "He answered the reporter's question with a note of scorn in his voice.",
+                "The idea of eating that revolting food filled her with scorn.",
+                "His lazy attitude towards work had earned him the scorn of his colleagues.",
+                "The politician was met with loud scorn as he lied about his accomplishments.",
+                "The teacher's reaction to the student's shoddy work was one of cold scorn."
+              ];
         }
     }, {
         explanation: "to know or be familiar with something, because you have studied it or have experienced it before",
         test:
         {
             word: "acquainted",
-            sentence: "Bussman was fully acquainted with this story"
+            sentence: "Bussman was fully acquainted with this story",
+            sentences:sentences = [
+                "I am not acquainted with the new employee yet.",
+                "He became acquainted with the city during his visit last summer.",
+                "It's important to become acquainted with the company's policies and procedures.",
+                "They were acquainted through mutual friends.",
+                "The purpose of the meeting was to become acquainted with the new project.",
+                "His speech made us all more acquainted with the issue at hand.",
+                "The new hire quickly became acquainted with the team and their roles.",
+                "She is well-acquainted with the history of the company.",
+                "The police officer was acquainted with the suspect and questioned him accordingly.",
+                "Becoming acquainted with a language takes time and practice."
+              ];
         }
     }, {
         explanation: "on time",
         test:
         {
             word: "punctual",
-            sentence: "We have learnt to expect that trains will be punctual."
+            sentence: "We have learnt to expect that trains will be punctual.",
+            sentences : [
+                "My boss expects us to be punctual for our morning meetings.",
+                "The train is always punctual, so I can rely on it to arrive on time.",
+                "It's important to be punctual when meeting with clients.",
+                "He's always punctual, never arriving late to work.",
+                "The teacher expects students to be punctual to class.",
+                "Punctual attendance at the conference is mandatory for all attendees.",
+                "The wedding ceremony began promptly at the punctual time of 2 pm.",
+                "As a pilot, it's crucial that he's punctual and arrives on time for his flights.",
+                "Being punctual is a sign of respect for other people's time.",
+                "The trains in Japan are famous for being punctual to the minute."
+              ]
+
         }
     }, {
         explanation: "in a way that does not last for long or for ever",
         test:
         {
             word: "temporarily",
-            sentence: "Only an exceptionally heavy snowfall might temporarily dislocate railway services."
+            sentence: "Only an exceptionally heavy snowfall might temporarily dislocate railway services.",
+            sentences : [
+                "I am temporarily staying in a hotel until I find a permanent place.",
+                "The company has temporarily shut down production due to the pandemic.",
+                "Sarah's car is temporarily out of gas, so she had to walk to work.",
+                "The restaurant is temporarily closed for renovations.",
+                "The power outage was only temporarily, and it came back after an hour.",
+                "The team has temporarily suspended their training sessions due to a player's injury.",
+                "My phone was temporarily lost, but I found it under the couch.",
+                "The road has been temporarily closed for repairs.",
+                "The store is temporarily out of stock for that item.",
+                "The government has temporarily frozen all immigration visas."
+              ]
         }
     }, {
         explanation: "to do something or go somewhere very slowly, taking more time than is necessary",
         test:
         {
             word: "dawdled",
-            sentence: "the train dawdled at station after station"
+            sentence: "the train dawdled at station after station",
+            sentences: [
+                "Jack dawdled in the park, enjoying the warm sun.",
+                "Sarah always dawdled when it came to getting ready for school.",
+                "The children dawdled along the beach, collecting shells.",
+                "Tom dawdled at work, procrastinating on his tasks.",
+                "The tourists dawdled around the main square, taking pictures.",
+                "Susan dawdled at the grocery store, unsure of what to buy.",
+                "The cat dawdled in the garden, chasing butterflies.",
+                "John dawdled on his phone, scrolling through social media.",
+                "Pauline dawdled in bed, not wanting to get up.",
+                "The guests dawdled at the party, savoring their drinks and conversations."
+              ]
         }
     },
     {
@@ -1300,7 +1397,8 @@ const DATA = [
         test:
         {
             word: "agriculture",
-            sentence: "agriculture"
+            sentence: "agriculture",
+            sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "Agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
         }
     },
     {
@@ -1308,7 +1406,8 @@ const DATA = [
         test:
         {
             word: "chimney",
-            sentence: "chimney"
+            sentence: "chimney",
+            sentences:["The chimney was clogged with soot and needed to be cleaned.", "Smoke billowed out of the chimney on a cold winter morning.", "The chimney sweep used a long brush to clean the inside of the chimney.", "The new house featured a modern chimney design that added a sleek look to the exterior.", "The old chimney was made of brick and had been standing since the house was built in the 1800s.", "The rain came down the chimney and into the fireplace, causing a small flood.", "The children were excited to see Santa Claus descend down the chimney on Christmas Eve.", "The chimney stack stood tall and proud above the rooftop of the house.", "The chimney repairman inspected the chimney and found that it needed new mortar and bricks.", "The bird flew into the chimney and got stuck, requiring a rescue from the chimney sweep."]
         }
     },
     {
@@ -1316,7 +1415,8 @@ const DATA = [
         test:
         {
             word: "premises",
-            sentence: "When a thief was caught on the premises of a large jewellery store one morning"
+            sentence: "When a thief was caught on the premises of a large jewellery store one morning",
+            sentences:["The company has recently moved to new premises to accommodate their growing team.", "I wasn't allowed to enter the premises without a valid ID card.", "The landlord is responsible for maintaining the safety of the premises.", "The premises were searched by the police after a tip-off led to a drug bust.", "The restaurant offers a beautiful view of the surrounding premises.", "The premises are closed for renovation until further notice.", "The lease agreement specifies that no smoking is allowed on the premises.", "The company's premises are located in the heart of the city.", "The security guard patrols the premises to ensure no unauthorized access.", "The premises are equipped with state-of-the-art technology to enhance productivity."]
         }
     },
     {
@@ -1324,7 +1424,8 @@ const DATA = [
         test:
         {
             word: "predecessor",
-            sentence: "We have our party at the boathouse, which a predecessor of ours at farm built in the meadow hard by the deepest pool for swimming and diving."
+            sentence: "We have our party at the boathouse, which a predecessor of ours at farm built in the meadow hard by the deepest pool for swimming and diving.",
+            sentences:["The new CEO has big shoes to fill after the success of his predecessor.", "The latest version of the app is an improvement over its predecessor.", "The scientist built upon the research of his predecessor to make groundbreaking discoveries.", "The current president's policies are a stark contrast to those of his predecessor.", "The team struggled to live up to the high standards set by their predecessor.", "The theatre company decided to revive a play performed by their predecessor.", "The new coach had a different approach to training compared to his predecessor.", "The restaurant changed their menu to include popular dishes from their predecessor.", "The author wrote a sequel to the book written by his predecessor.", "The artist was inspired by the works of his predecessor when creating his own art."]
         }
     },
     {
@@ -1332,70 +1433,80 @@ const DATA = [
         test:
         {
             word: "unnecessary",
-            sentence: "We regard them as unnecessary creatures that do more harm than good."
+            sentence: "We regard them as unnecessary creatures that do more harm than good.",
+            sentences:["The manager scolded the employee for making an unnecessary mistake.", "Her constant nagging about the issue was deemed unnecessary by her colleagues.", "The doctor prescribed an unnecessary medication to the patient, causing harm.", "The teacher found the use of swear words in the student's essay to be unnecessary.", "He was fired from his job for adding unnecessary expenses to the company's budget.", "The extra features on the product were deemed unnecessary by most consumers.", "The politician made an unnecessary remark, causing backlash from the public.", "The additional security measures were seen as unnecessary by some people.", "Her constant need for attention was deemed unnecessary by her friends.", "The artist felt that adding more paint to the canvas would be unnecessary."]
         }
     }, {
         explanation: "a strong, often sudden, feeling that something is extremely unpleasant",
         test:
         {
             word: "revulsion",
-            sentence: "Knowing that the industrious ant lives in a highly organized society does nothing to prevent us from being filled with revulsion"
+            sentence: "Knowing that the industrious ant lives in a highly organized society does nothing to prevent us from being filled with revulsion",
+            sentences:["The sight of the dead animal caused revulsion among the group.", "He felt a sense of revulsion towards the idea of eating raw meat.", "The disgusting smell coming from the dumpster caused revulsion in the people passing by.", "Her revulsion for spiders made her freeze when one crawled next to her.", "The child's face turned white with revulsion after tasting the spoiled milk.", "The revulsion seen in his eyes made her regret saying such cruel words.", "The graphic images in the movie sparked revulsion in some of the audience members.", "The idea of touching another person's used tissues filled her with revulsion.", "The revulsion towards the dictator led to a successful revolution.", "The revulsion of the idea of harming an innocent person made him refuse the mission."]
         }
     }, {
         explanation: "protected from wind, rain, or other bad weather",
         test:
         {
             word: "sheltered",
-            sentence: "The tree has grown against a warm wall on a sheltered side of the house."
+            sentence: "The tree has grown against a warm wall on a sheltered side of the house.",
+            sentences: ["The small town was sheltered from the harsh winter winds.", "The shy child was sheltered by her parents.", "The old oak tree provided sheltered for the animals in the forest.", "The beach was sheltered from the strong waves by the large cliff.", "The new building was sheltered from the sun by the tall trees.", "The birds huddled together in the sheltered corner of the nest.", "The elderly lady lived a sheltered life in her small cottage in the countryside.", "The treasure was sheltered from the world in the hidden cave.", "The homeless man found sheltered under the bridge during the storm.", "The locals knew where to find sheltered spots during the hurricane season."]
         }
     }, {
         explanation: "having a pleasant sweet taste or containing a lot of juice",
         test:
         {
             word: "luscious",
-            sentence: "because it occasionally produces luscious peaches."
+            sentence: "because it occasionally produces luscious peaches.",
+            sentences:["The luscious fruits in the market caught my attention.", "Her luscious hair was the envy of all her friends.", "The chef prepared a luscious steak with mushrooms and red wine sauce.", "The garden was filled with luscious blooms and greenery.", "The chocolate cake was so luscious that I couldn't resist having another slice.", "The tropical island was known for its luscious beaches and crystal-clear waters.", "The model's luscious lips were her trademark feature.", "During the summer, we enjoyed luscious salads made from fresh garden vegetables.", "The rich and luscious velvet curtains added a touch of elegance to the room.", "The fragrance of the luscious roses filled the air."]
         }
     }, {
         explanation: "a group of animals, insects, or plants of the same type that live together",
         test:
         {
             word: "colony",
-            sentence: "They were visited by a large colony of ants"
+            sentence: "They were visited by a large colony of ants",
+            sentences:["The ants worked together to build their colony.", "Many European countries have a colonial history.", "The United States was once a British colony.", "The beekeeper inspected the honeycomb in the colony.", "Penguins huddle together to keep warm in their colonies.", "Some species of termites can create massive colonies that stretch for miles underground.", "The early settlers struggled to establish a successful colony in the New World.", "Queen Elizabeth II is the head of the British Commonwealth of former colonies.", "The Space Race between the United States and the Soviet Union included plans for colonies on the moon and other planets.", "The colony of bacteria grew rapidly in the petri dish."]
         }
     }, {
         explanation: "to protect something from harm",
         test:
         {
             word: "safeguard",
-            sentence: "the Swedish Parliament introduced a scheme to safeguard the interest of the individual."
+            sentence: "the Swedish Parliament introduced a scheme to safeguard the interest of the individual.",
+            sentences:["It is important to safeguard your personal information online.", "Security personnel were put in place to safeguard the premises.", "The new law is designed to safeguard workers' rights and protect them from exploitation.", "The insurance policy was put in place to safeguard against any unexpected damages or losses.", "The government has pledged to safeguard the environment and protect natural habitats.", "Parents often take steps to safeguard their children's wellbeing and safety.", "The company has implemented measures to safeguard against cyber attacks and data breaches.", "The security system is in place to safeguard the valuable artifacts on display at the museum.", "A strong password is one of the easiest ways to safeguard against identity theft.", "Firefighters work tirelessly to safeguard the lives and property of people in their communities."]
         }
     }, {
         explanation: "to speak, act, or be present officially for a person or group",
         test:
         {
             word: "representing",
-            sentence: "A parliamentary committee representing all political parties appoints a person"
+            sentence: "A parliamentary committee representing all political parties appoints a person",
+            sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."]
         }
     }, {
         explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
         test:
         {
             word: "prosecuted",
-            sentence: "The policeman was informed that if any further complaints were lodged against him, he would be prosecuted."
+            sentence: "The policeman was informed that if any further complaints were lodged against him, he would be prosecuted.",
+            sentences: ["The suspect will be prosecuted to the full extent of the law.", "The company will be prosecuted for violating environmental regulations.", "The prosecutor is confident they have enough evidence to secure a conviction.", "The accused has hired a team of top lawyers to defend them against prosecution.", "The case was dropped due to lack of evidence to prosecute.", "The victims are requesting the assailant be prosecuted for their crimes.", "The government is prosecuting the company for tax fraud.", "The prosecutor is seeking a life sentence for the murder suspect.", "The defendant will be prosecuted in a federal court.", "The witness was granted immunity in exchange for testifying against the person being prosecuted."]
         }
     }, {
         explanation: "the process of getting something",
         test:
         {
             word: "acquisition",
-            sentence: "the acquisition of this bottle cured him of a bad habit he had been developing for years."
+            sentence: "the acquisition of this bottle cured him of a bad habit he had been developing for years.",
+            sentences: ["The company's most recent acquisition has increased its market share significantly.", "The acquisition of the new technology will revolutionize our industry.", "After the acquisition, the two companies will merge to form a bigger, stronger entity.", "The acquisition process can be lengthy and complex.", "We need to research the company thoroughly before making an acquisition offer.", "The acquisition of the competitor's top talent was a strategic move.", "The acquisition of new customers is crucial for our business to grow.", "The acquisition of the land was a smart investment for future development.", "The acquisition of the rare artifact was a coup for the museum.", "The acquisition of knowledge and skills is a lifelong process."]
         }
     }, {
         explanation: "to express a thought, feeling, or idea so that it is understood by other people",
         test:
         {
             word: "conveyed",
-            sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf."
+            sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf.",
+            sentences: ["The tone of her voice conveyed excitement and enthusiasm.", "The painting conveyed a sense of sadness and loneliness.", "His body language conveyed his discomfort and unease.", "The message was conveyed through the use of images and symbols.", "The news article conveyed a sense of urgency and seriousness.", "His words conveyed a message of hope and inspiration.", "The song conveyed a feeling of nostalgia and longing.", "The artist conveyed his emotions through his music.", "Her eyes conveyed a mix of anger and disappointment.", "The text message conveyed the details of the plan."]
         }
     },
     {
@@ -1403,21 +1514,24 @@ const DATA = [
         test:
         {
             word: "freckles",
-            sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles"
+            sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles",
+            sentences: ["She has so many freckles on her nose and cheeks.", "I always loved the freckles on my grandma's hands.", "He has a few freckles on his arms from spending so much time outdoors.", "The sunlight brought out the freckles on her shoulders.", "Some people believe that freckles are a sign of good luck.", "I wish I had freckles like hers - they're so cute!", "The little girl had a constellation of freckles across her forehead.", "My brother used to tease me about the freckles on my legs.", "I don't mind my freckles, but I wish they would fade a little.", "He smiled and brushed his thumb over the freckles on her cheek."]
         }
     }, {
         explanation: "very strange and unusual, unexpected, or not natural",
         test:
         {
             word: "weird",
-            sentence: "She produced all sorts of weird concoctions"
+            sentence: "She produced all sorts of weird concoctions",
+            sentences: ["That's a weird looking bug crawling on your shoulder!", "I had a weird dream last night about talking animals.", "He has a weird habit of humming to himself when he's nervous.", "The house had a weird smell that we couldn't identify.", "It's weird to think that we've known each other for so long.", "She made a weird noise when she saw the spider crawling on the wall.", "The movie had a weird plot twist that caught everyone off guard.", "He always wears weird combinations of clothing that clash with each other.", "The car made a weird noise when we turned the key in the ignition.", "It's weird that he hasn't responded to any of our messages."]
         }
     }, {
         explanation: "in a way that is careful not to cause embarrassment or attract too much attention, especially by keeping something secret",
         test:
         {
             word: "discreetly",
-            sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price."
+            sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price.",
+            sentences: ["He discreetly slipped the envelope into her hand as they passed in the hallway.", "The detective tried to discreetly gather information without drawing attention to himself.", "She discreetly adjusted her clothing to hide a stain.", "The couple discreetly left the party early to avoid any drama.", "The secret agent discreetly observed the suspects from a distance.", "The waiter discreetly signaled to the manager that a customer was causing trouble.", "They discreetly whispered their plans to each other to avoid being overheard.", "The doctor discreetly informed the patient of their diagnosis in a private room.", "He discreetly covered his mouth when he realized he had bad breath.", "The politician discreetly met with lobbyists to discuss fundraising efforts."]
         }
     },
     {
@@ -1425,7 +1539,8 @@ const DATA = [
         test:
         {
             word: "clerical",
-            sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work."
+            sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work.",
+            sentences: ["The new hire was responsible for clerical duties such as filing and data entry.", "The clerical error in his tax return caused a delay in processing.", "The church's clerical staff helped organize events and maintain records.", "The law firm needed someone with strong clerical skills for their receptionist position.", "The clerical task of scheduling appointments was essential for the doctor's office.", "The company implemented a new clerical system to improve efficiency.", "The clerical work of printing and sorting documents could be done by an intern.", "The clerical duties of the administrative assistant included answering phones and responding to emails.", "The school district hired clerical staff to handle the influx of paperwork during enrollment.", "The clerical error in the contract caused confusion and frustration for both parties."]
         }
     },
     {
@@ -1433,7 +1548,8 @@ const DATA = [
         test:
         {
             word: "regularity",
-            sentence: "the same old favorites recur year in year out with monotonous regularity"
+            sentence: "the same old favorites recur year in year out with monotonous regularity",
+            sentences: ["The regularity of her exercise routine helped her maintain a healthy lifestyle.", "The bus schedule's regularity ensured that commuters arrived on time.", "The regularity of his breathing indicated that he was asleep.", "The regularity of her menstrual cycle was a concern for her doctor.", "The regularity of his work schedule allowed him to plan his week.", "The regularity of his church attendance was important to him.", "The regularity of the rainfall contributed to the lushness of the jungle.", "The regularity of her bowel movements indicated good digestive health.", "The coach emphasized the regularity of practice to achieve success.", "The regularity of the construction crew's progress impressed the clients."]
         }
     },
     {
@@ -1441,7 +1557,8 @@ const DATA = [
         test:
         {
             word: "attainment",
-            sentence: "certain accomplishments are beyond attainment"
+            sentence: "certain accomplishments are beyond attainment",
+            sentences: ["Graduating from university was a proud attainment for my family.", "Her successful completion of the project was a great attainment.", "A high level of fitness was an important attainment for the athlete.", "The company's attainment of its financial goals was a cause for celebration.", "The artist's attainment of international recognition was well-deserved.", "His attainment of the championship title was the result of years of hard work.", "The attainment of a peaceful resolution to the conflict was a relief to everyone involved.", "The young author's attainment of a publishing deal was an impressive feat.", "The academic's attainment of a prestigious research grant was a career highlight.", "The attainment of a safe environment was a top priority for the organization."]
         }
     },
     {
@@ -1449,7 +1566,8 @@ const DATA = [
         test:
         {
             word: "trooped",
-            sentence: "The next morning the whole family trooped in to watch the performance."
+            sentence: "The next morning the whole family trooped in to watch the performance.",
+            sentences: ["The soldiers trooped in, exhausted from a long march.", "The students trooped out of the classroom after the bell rang.", "The protesters trooped through the streets, demanding justice.", "The guests trooped into the ballroom, marveling at the decorations.", "The children trooped behind the tour guide, eager to see the animals.", "The players trooped off the field, disappointed by their loss.", "The tourists trooped up the stairs, anxious to see the view from the top.", "The employees trooped into the conference room, ready for the meeting.", "The shoppers trooped from store to store, searching for the perfect gift.", "The actors trooped onto the stage, ready to perform the opening scene."]
         }
     },
     {
@@ -1457,14 +1575,16 @@ const DATA = [
         test:
         {
             word: "efficiency",
-            sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency."
+            sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency.",
+            sentences: ["The new software has greatly improved the efficiency of the company's operations.", "The construction project was completed with remarkable speed and efficiency.", "The factory is always looking for ways to increase efficiency and reduce waste.", "The athlete's diet and training regimen are designed for maximum efficiency.", "The teacher uses technology to improve the efficiency and effectiveness of their lessons.", "The hospital has implemented new procedures to increase efficiency in patient care.", "The transportation system was restructured to improve efficiency and reduce traffic.", "The company's success is due in part to their commitment to efficiency and innovation.", "The government agency reviewed its processes and made changes to improve efficiency.", "The solar panels were installed for their efficiency in converting sunlight into energy."]
         }
     }, {
         explanation: "in a way that shows that you are not willing to do something and are therefore slow to do it",
         test:
         {
             word: "reluctantly",
-            sentence: "She reluctantly came to the conclusion that Bessie was drunk."
+            sentence: "She reluctantly came to the conclusion that Bessie was drunk.",
+            sentences: ["Sarah reluctantly agreed to attend the party, even though she would rather stay home.", "Tim reluctantly admitted that he had made a mistake in the report.", "The sheepdog reluctantly left the herd to comply with its owner's commands.", "John reluctantly cancelled his vacation plans due to unexpected work demands.", "The employee reluctantly agreed to work overtime on the weekend.", "The child reluctantly obeyed his parents and went to bed early.", "The student reluctantly shared her group project with her classmates.", "The couple reluctantly decided to end their long-distance relationship.", "The politician reluctantly compromised in order to pass the bill.", "The artist reluctantly altered her painting to meet the gallery's requirements."]
         }
     },
     {
@@ -1472,7 +1592,8 @@ const DATA = [
         test:
         {
             word: "catastrophe",
-            sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe"
+            sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe",
+            sentences: ["The earthquake was a catastrophe that caused widespread destruction.", "The airline accident was averted at the last minute, avoiding a catastrophe.", "The oil spill was a catastrophe for the local marine life.", "The financial crisis proved to be a catastrophe for many investors.", "The rising sea levels due to climate change could lead to a global catastrophe.", "The failure to act on climate change could result in an environmental catastrophe.", "The hurricane was predicted to be a catastrophe, but it weakened before making landfall.", "The collapse of the building was a catastrophe that shocked the community.", "The meltdown of the nuclear reactor was a catastrophe that had far-reaching consequences.", "The actor's performance was a catastrophe, with critics panning it as the worst of the year."]
         }
     },
     {
@@ -1480,7 +1601,8 @@ const DATA = [
         test:
         {
             word: "straggling",
-            sentence: "The place consisted of a straggling unmade road which was lined on either side by small houses."
+            sentence: "The place consisted of a straggling unmade road which was lined on either side by small houses.",
+            sentences: ["The hiker was straggling behind the rest of the group on the steep mountain trail.", "The straggling plants received less sunlight than the others and grew weaker over time.", "His handwriting was straggling and difficult to read.", "We noticed the straggling crowd leaving the theater after the late-night show.", "The CEO was frustrated with the straggling sales figures for the quarter.", "The straggling end of the parade was still a few blocks away.", "Her hair was straggling out of her ponytail after a long day at work.", "The straggling branches of the tree reached out over the fence.", "The team's straggling defense led to a last-minute defeat.", "The straggling line at the coffee shop moved slowly, much to the annoyance of the customers."]
         }
     },
 
@@ -1489,7 +1611,8 @@ const DATA = [
         test:
         {
             word: "sardine",
-            sentence: "sardine"
+            sentence: "sardine",
+            sentences: ["I opened the tin and found it filled with sardines.", "The fishermen brought back a huge haul of sardines from the sea.", "I hate the smell of sardines, but my cat loves it.", "The sardines were seasoned with lemon and garlic, making them taste delicious.", "She felt nauseous after eating too many sardines.", "The sardine canning industry generates a significant amount of employment in the region.", "The seagulls screeched as they fought over the sardines that were washed ashore.", "The sardines were so oily that they made a greasy mess on the plate.", "The sardines were served with crackers and wine for a light snack.", "The health benefits of sardines include being high in Omega-3 fatty acids."]
         }
     },
     {
@@ -1497,7 +1620,9 @@ const DATA = [
         test:
         {
             word: "shawl",
-            sentence: "shawl"
+            sentence: "shawl",
+            sentences: ["She wore a beautiful shawl with her traditional dress.", "The old lady wrapped her shawl tightly around her shoulders to keep warm.", "She gifted a warm woolen shawl to her mother on her birthday.", "The bride draped a colorful shawl over her head during the wedding ceremony.", "The shawl had intricate embroidery work and was a sight to behold.", "He used his shawl to wipe the sweat from his face on the hot summer day.", "The actress walked gracefully on the red carpet, her shawl flowing behind her.", "She felt comforted when her grandmother's shawl was draped over her.", "The dance performance was mesmerizing with the performers' synchronized shawl movements.", "The shopkeeper displayed a wide variety of shawls made of silk, wool, and cotton."]
+
         }
     },
     {
@@ -1505,7 +1630,8 @@ const DATA = [
         test:
         {
             word: "contention",
-            sentence: "acting on the contention that facts are sacred."
+            sentence: "acting on the contention that facts are sacred.",
+            sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."]
         }
     },
     {
@@ -1514,6 +1640,7 @@ const DATA = [
         {
             word: "exert",
             sentence: "Newspapers exert such tremendous influence",
+            sentences: ["I will exert myself to finish this project on time.", "The athlete had to exert all his energy to win the race.", "The manager has to exert his authority to maintain discipline in the workplace.", "He had to exert his influence to convince the investors to fund the project.", "The teacher has to exert her patience while dealing with difficult students.", "The doctor asked the patient to exert more force during the physical therapy.", "The writer exerted his creativity to come up with a compelling storyline.", "The musician exerted her talent to produce a beautiful melody.", "The chef exerted her culinary skills to create a delicious meal.", "The lawyer exerted his legal knowledge to win the case."]
         }
     },
     {
@@ -1649,5 +1776,5 @@ sentence: "",
 //sentence:
 }
 },
- Use 'radically' to make ten sentences, and respond back by javascript array formation.
+Use 'radically' to make ten sentences, and respond back by javascript array formation.
 */
