@@ -1028,11 +1028,11 @@ const DATA = [
                 "The manufacturers of smartphones are constantly developing new technology.",
                 "Many manufacturers have moved their production overseas to reduce costs.",
                 "The car manufacturers have stringent safety standards that must be met.",
-                "Manufacturers of furniture are increasingly using sustainable materials.",
+                "manufacturers of furniture are increasingly using sustainable materials.",
                 "The manufacturers of baby products have strict regulations to ensure safety.",
                 "Many clothing manufacturers are now using ethically-sourced materials.",
                 "Food manufacturers have to comply with strict health and safety regulations.",
-                "Manufacturers of building materials are developing new eco-friendly products.",
+                "manufacturers of building materials are developing new eco-friendly products.",
                 "The manufacturers of household appliances are developing smart technology.",
                 "Pharmaceutical manufacturers have to undergo extensive testing before their products hit the market."
               ]
