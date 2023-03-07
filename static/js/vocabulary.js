@@ -40,9 +40,13 @@ document.getElementById("test").onkeyup = function (e) {
 
 function init() {
     data = JSON.parse(JSON.stringify(DATA)).filter(x => {
+        if(!x.test || !x.test.word) return false;
         let item = new storage(x.test.word);
+        //return true;
         return item.number < 5
     });
+    //console.log(data.map(x=>"\""+x.test.word+"\"").join(","))
+    
     if (data.length === 0) {
         console.log("FINISH");
         return;

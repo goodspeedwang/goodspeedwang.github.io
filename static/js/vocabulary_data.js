@@ -1026,7 +1026,7 @@ const DATA = [
         explanation: "to be willing to do something that is extreme",
         test:
         {
-            word: "go so far to",
+            word: "go so far as to",
             sentence: "Some really keen enthusiasts go so far as to build their own computers."
         }
     },
