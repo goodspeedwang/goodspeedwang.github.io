@@ -1048,21 +1048,29 @@ const DATA = [
         explanation: "",
         test:
         {
-            word: "",
+            word: "canal",
             sentence: ""
         }
     }, {
         explanation: "",
         test:
         {
-            word: "",
+            word: "agonizing",
             sentence: ""
         }
     }, {
         explanation: "",
         test:
         {
-            word: "",
+            word: "precise",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "military",
             sentence: ""
         }
     },
