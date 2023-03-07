@@ -1030,6 +1030,50 @@ const DATA = [
             sentence: "Some really keen enthusiasts go so far as to build their own computers."
         }
     },
+    {
+        explanation: "",
+        test:
+        {
+            word: "dangerous",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "devise",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "canal",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "agonizing",
+            sentence: ""
+        }
+    }, {
+        explanation: "",
+        test:
+        {
+            word: "precise",
+            sentence: ""
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "military",
+            sentence: ""
+        }
+    },
 ]
 
 /*
