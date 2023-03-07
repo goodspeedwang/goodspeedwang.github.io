@@ -995,7 +995,7 @@ const DATA = [
         test:
         {
             word: "exert",
-            sentence: "Newspapers exert such tremendous influence"
+            sentence: "Newspapers exert such tremendous influence",
         }
     },
     {
@@ -1003,7 +1003,19 @@ const DATA = [
         test:
         {
             word: "radically",
-            sentence: "an event that radically changed their lives."
+            sentence: "an event that radically changed their lives.",
+            sentences:[
+                "The new CEO plans to radically change the company's structure.",
+                "Our lives have been radically altered by the pandemic.",
+                "She decided to radically change her hair color to a bright blue.",
+                "Our society needs to radically rethink its approach to climate change.",
+                "The invention of the internet has radically transformed how we communicate and access information.",
+                "After traveling abroad for a year, his views on life were radically different.",
+                "Her therapy sessions helped her to radically shift her mindset towards positivity.",
+                "The city's skyline was radically different before the construction of the skyscrapers.",
+                "He was forced to radically alter his training routine after injuring his leg.",
+                "The scientist's discovery could radically improve the treatment of cancer."
+              ]
         }
     },
     {
@@ -1011,7 +1023,19 @@ const DATA = [
         test:
         {
             word: "manufacturers",
-            sentence: "Gifts poured in not only from unknown people, but from body food and soap manufacturers."
+            sentence: "Gifts poured in not only from unknown people, but from body food and soap manufacturers.",
+            sentences: [
+                "The manufacturers of smartphones are constantly developing new technology.",
+                "Many manufacturers have moved their production overseas to reduce costs.",
+                "The car manufacturers have stringent safety standards that must be met.",
+                "Manufacturers of furniture are increasingly using sustainable materials.",
+                "The manufacturers of baby products have strict regulations to ensure safety.",
+                "Many clothing manufacturers are now using ethically-sourced materials.",
+                "Food manufacturers have to comply with strict health and safety regulations.",
+                "Manufacturers of building materials are developing new eco-friendly products.",
+                "The manufacturers of household appliances are developing smart technology.",
+                "Pharmaceutical manufacturers have to undergo extensive testing before their products hit the market."
+              ]
         }
     },
     {
@@ -1019,15 +1043,17 @@ const DATA = [
         test:
         {
             word: "enthusiasts",
-            sentence: "Some really keen enthusiasts go so far as to build their own computers."
+            sentence: "Some really keen enthusiasts go so far as to build their own computers.",
+            sentences: ["Car enthusiasts, who are passionate about cars and enjoy learning about their mechanics, design and history.", "Sports enthusiasts, who are passionate about a particular sport and may follow professional leagues, play in amateur leagues, or both.", "Music enthusiasts, who are passionate about a particular genre or musician, and may collect records, attend concerts, or play musical instruments themselves.", "Photography enthusiasts, who are passionate about capturing beautiful or interesting images and may spend time perfecting their technique, editing their photos, and sharing them with others.", "Book enthusiasts, who are passionate about reading, collecting books, and discussing literature with others.", "Nature enthusiasts, who are passionate about exploring and observing the natural world, and may enjoy hiking, birdwatching, or wildlife photography.", "Food enthusiasts, who are passionate about cooking, trying new restaurants, and exploring different cuisines.", "Fashion enthusiasts, who are passionate about clothing, accessories, and style, and may follow fashion trends or create their own unique looks.", "Technology enthusiasts, who are passionate about new gadgets, software, and other technological innovations, and enjoy staying up-to-date on the latest advancements.", "Art enthusiasts, who are passionate about art in all its forms and may enjoy visiting galleries, collecting art, or creating their own works."]
         }
     },
     {
         explanation: "to be willing to do something that is extreme",
         test:
         {
-            word: "go so far as to",
-            sentence: "Some really keen enthusiasts go so far as to build their own computers."
+            word: "so far as to",
+            sentence: "Some really keen enthusiasts go so far as to build their own computers.",
+            sentences: ["I would never go so far as to steal from my employer.", "The company was willing to go so far as to sue their former employee for breach of contract.", "Sheila was so desperate for a job that she went so far as to offer to work for free.", "Some people go so far as to spend tens of thousands of dollars on plastic surgery.", "The coach went so far as to kick the player off the team for breaking the rules.", "I can't believe they went so far as to refuse to serve us because we were wearing the wrong clothes.", "Some people go so far as to lie in order to get what they want.", "The company went so far as to bribe government officials to secure the contract.", "Some extreme protesters go so far as to commit violent acts in protest of a cause.", "I would never go so far as to compromise my values just to be accepted by others."]
         }
     },
     {
@@ -1035,35 +1061,41 @@ const DATA = [
         test:
         {
             word: "dangerous",
-            sentence: "Aeroplanes have the reputation of being dangerous and even hardened travelers are intimidated by them."
+            sentence: "Aeroplanes have the reputation of being dangerous and even hardened travelers are intimidated by them.",
+            sentences: ["The storm last night was dangerous, with strong winds and lightning strikes.", "Swimming in the ocean during a thunderstorm can be extremely dangerous.", "The mountain trail is considered dangerous during the winter months due to snow and ice.", "Some types of snakes can be very dangerous and even deadly if their bite is not treated promptly.", "Texting while driving is a dangerous behavior that can lead to accidents and fatalities.", "The chemicals used in the factory are dangerous to handle without proper safety equipment.", "Base jumping is widely considered one of the most dangerous extreme sports.", "Walking alone through a rough neighborhood late at night can be very dangerous.", "Not wearing a helmet while riding a bike is a dangerous decision that can result in serious injury.", "Driving under the influence of drugs or alcohol is extremely dangerous and irresponsible."]
         }
     }, {
         explanation: "to invent a plan, system, object, etc., usually using your intelligence or imagination.",
         test:
         {
             word: "devise",
-            sentence: "You do not have to devise ways of taking your mind off the journey."
+            sentence: "You do not have to devise ways of taking your mind off the journey.",
+            sentences: ["He came up with a clever devise to keep his phone from falling out of his pocket.", "The scientists spent years perfecting a new medical devise to help with heart disease.", "The spy used a devise to gather information undetected.", "The magician's trick involved a clever devises to make it seem like he had made a person disappear.", "The new security system features state-of-the-art devises to protect the building from theft.", "The author used a unique devise to tell the story from multiple perspectives.", "The company plans to release a new fitness devise later this year.", "The artist created a unique devise to project moving images onto a canvas.", "The engineer devised a solution to the problem that had been plaguing the construction project.", "The teacher used a creative devise to make the class more engaging and interactive."]
         }
     }, {
         explanation: "运河",
         test:
         {
             word: "canal",
-            sentence: "canal"
+            sentence: "canal",
+            sentences: ["The Panama canal is an engineering marvel.", "The canal system in Venice, Italy is a popular tourist attraction.", "The Suez canal is a vital global shipping route.", "The Erie canal played a major role in the industrial growth of the northeastern United States.", "The Grand canal in China is the world's longest artificial waterway.", "The Corinth canal in Greece is a narrow and steep canal, making it difficult for large vessels to navigate.", "The Kiel canal in Germany connects the North Sea and the Baltic Sea.", "The Caledonian canal in Scotland is a popular route for boaters and hikers.", "The Welland canal in Canada allows ships to bypass Niagara Falls.", "The Amsterdam-Rhine canal in the Netherlands connects the city of Amsterdam with the Rhine river."]
         }
     }, {
         explanation: "causing extreme physical or mental pain",
         test:
         {
             word: "agonizing",
-            sentence: "For one agonizing moment, the dish was perched precariously on the bank of the canal"
+            sentence: "For one agonizing moment, the dish was perched precariously on the bank of the canal",
+            sentences: ["The patient's agonizing screams could be heard throughout the hospital ward.", "It was an agonizing decision for the athlete to retire due to a career-ending injury.", "The family went through agonizing uncertainty while waiting for news about their missing loved one.", "The last few minutes of the championship game were agonizing for the fans as the score remained tied.", "The writer went through an agonizing process of editing and revising her novel before finally publishing it.", "The victim's family had to endure agonizing testimony during the trial of their loved one's murderer.", "The student felt an agonizing sense of failure after receiving a failing grade on the final exam.", "The couple went through an agonizing breakup after years of being together.", "The musician's performance was agonizingly off-key and out of tune.", "The hiker experienced an agonizing injury to her ankle and had to be rescued from the mountain."]
         }
     }, {
         explanation: "exact and accurate",
         test:
         {
             word: "precise",
-            sentence: "Such undertakings require the precise planning and foresight of military operations."
+            sentence: "Such undertakings require the precise planning and foresight of military operations.",
+            sentences: ["He was very precise in his instructions.", "The surgeon's hands were perfectly precise during the operation.", "The builder made precise measurements to ensure the new structure was level.", "She spoke with precise accuracy about the topic.", "The scientist requires precise measurements in the lab.", "The mathematician solved the equation with precise calculation.", "The painter applied precise brushstrokes to the canvas.", "The writer used precise vocabulary to convey the meaning.", "The musician played the piece with precise timing.", "The chef used precise measurements for the recipe."]
+
         }
     },
     {
@@ -1071,7 +1103,20 @@ const DATA = [
         test:
         {
             word: "military",
-            sentence: "Such undertakings require the precise planning and foresight of military operations."
+            sentence: "Such undertakings require the precise planning and foresight of military operations.",
+            sentences:
+                [
+                    "The military forces were deployed to the border to prevent illegal immigration.",
+                    "The military academy trains future officers for the armed forces.",
+                    "The government increased the military budget to strengthen national defense.",
+                    "The military operation resulted in the capture of several enemy combatants.",
+                    "The general led his troops to victory in the military campaign.",
+                    "The military base was heavily guarded to protect classified information.",
+                    "The military personnel underwent rigorous training to prepare for combat.",
+                    "The military history museum showcased weapons and uniforms from different eras.",
+                    "The military tribunal sentenced the soldier to 10 years in prison for desertion.",
+                    "The military helicopter flew over the battlefield to assess the situation."
+                ]
         }
     },
 ]
@@ -1082,7 +1127,9 @@ explanation: "",
 test: 
 {
 word: "",
-sentence: ""
+sentence: "",
+//sentence:
 }
 },
+ Use 'radically' to make ten sentences, and respond back by javascript array formation.
 */

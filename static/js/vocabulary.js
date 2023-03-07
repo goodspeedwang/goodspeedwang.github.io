@@ -72,7 +72,12 @@ function exam() {
     word = test.word;
     let sentence = "<input id='word' />";
     if(document.getElementById("sentence_show").checked){
-        sentence = test.sentence.replace(word, "<input id='word' />")
+        sentences = [test.sentence];
+        if (document.getElementById("sentence_show").checked && test.sentences){           
+            sentences = sentences.concat(test.sentences)
+        }
+        sentence = sentences.shuffle().pop().replace(word, "<input id='word' />")
+        
     }
     document.getElementById("test").innerHTML = sentence;
     //console.log(word);
