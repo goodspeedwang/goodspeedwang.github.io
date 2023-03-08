@@ -1764,6 +1764,121 @@ const DATA = [
                 ]
         }
     },
+    {
+        explanation: "to make something known or tell people about something officially",
+        test:
+        {
+            word: "announce",
+            sentence: "Bruce cheerfully announced that there was no oil in the engine!",
+            sentences:[
+                "The principal will announce the winner of the science fair tomorrow.",
+                "I'm excited to announce that I'm getting married next year!",
+                "The president is expected to announce new policies regarding climate change.",
+                "She took to the stage to announce the start of the concert.",
+                "The news anchor will announce the latest updates on the hurricane.",
+                "The company will announce their quarterly earnings report at the end of the week.",
+                "He gathered everyone around to announce his decision to retire.",
+                "The flight attendant will announce the flight's departure time shortly.",
+                "The coach will announce the starting lineup for the game tonight.",
+                "The teacher will announce the upcoming project requirements to the class."
+               ]
+        }
+    }, {
+        explanation: "special, or this and not any other",
+        test:
+        {
+            word: "particular",
+            sentence: "Students specialize in a particular type of practical joke",
+            sentences:[
+                "I need a particular type of screw to fix this.",
+                "She was looking for a particular book on the shelf.",
+                "He seemed to have a particular interest in ancient history.",
+                "The teacher gave a particular assignment that required students to work in groups.",
+                "Her particular skills made her the best candidate for the job.",
+                "The restaurant had a particular ambiance that made it feel cozy and inviting.",
+                "The painting was of a particular scene in Paris that he had always loved.",
+                "I have a particular routine that I follow every morning to start my day off right.",
+                "The politician promised to address a particular issue that was important to her constituents.",
+                "She had a particular way of speaking that made her voice instantly recognizable."
+               ]
+        }
+    }, {
+        explanation: "to produce small, bright flashes of light reflected from a surface",
+        test:
+        {
+            word: "glinting",
+            sentence: "the sight of the rising sun glinting on the trees and pastures.",
+            sentences: [
+                "The sun was glinting off the water, making it hard to see.",
+                "The diamond ring was glinting on her finger in the sunlight.",
+                "The metal gate was glinting in the moonlight.",
+                "The soldier's medals were glinting on his uniform.",
+                "The skyscrapers were glinting in the distance, reflecting the sun's rays.",
+                "The car headlights were glinting in the dark alleyway.",
+                "The snow was glinting in the winter sun, creating a beautiful landscape.",
+                "The dancer's costume was glinting under the stage lights.",
+                "The broken glass was glinting on the pavement.",
+                "The watch on his wrist was glinting with every movement."
+               ]
+        }
+    }, {
+        explanation: "黎明；鸡叫",
+        test:
+        {
+            word: "cockcrow",
+            sentence: "Nothing can be compared with the first cockcrow",
+            sentences:[
+                "The rooster always sings at cockcrow every morning.",
+                "The cockcrow woke me up earlier than my alarm clock.",
+                "The farmers begin their work at cockcrow before the sun has risen.",
+                "The night watchman stayed up until cockcrow before going home.",
+                "The villagers were already up and about at cockcrow preparing for the festival.",
+                "At the sound of the first cockcrow, the fishermen set sail into the sea.",
+                "The prisoner was released at cockcrow when the judge's decision came through.",
+                "It was so quiet, I could hear the cockcrow from the neighboring farm.",
+                "I always find peace in silence and the cockcrow brings a sense of calmness.",
+                "The sound of the cockcrow reminds me of my childhood days in the countryside."
+               ]
+        }
+    }, {
+        explanation: "feeling doubt or not feeling certain",
+        test:
+        {
+            word: "dubious",
+            sentence: "Why people are prepared to tolerate a four-hour journey each day for the dubious privilege of living in the country is beyond me.",
+            sentences:[
+                "His dubious claims made everyone skeptical about his credibility.",
+                "The company's financial reports seemed dubious, prompting an investigation.",
+                "She had a dubious reputation in the town due to her past actions.",
+                "I was hesitant to try the dubious-looking food at the street vendor.",
+                "The teacher had a dubious teaching style that wasn't effective for all students.",
+                "The politician's promises sounded dubious and insincere.",
+                "His explanation for being late was dubious and hard to believe.",
+                "I have a dubious feeling about this business deal, something doesn't seem right.",
+                "Her dubious behavior towards her colleagues made her unpopular in the workplace.",
+                "The results of the study were dubious, and researchers are redoing the experiment."
+               ]
+        }
+    }, {
+        explanation: "the place from which people can watch a performance or other activity",
+        test:
+        {
+            word: "theatre",
+            sentence: "",
+            sentences:[
+                "I love going to the theatre to see live performances.",
+                "The theatre near my house has a lot of classic plays in its repertoire.",
+                "My favorite play to see at the theatre is Romeo and Juliet.",
+                "The theatre district in New York City is a must-visit for any theatre lover.",
+                "We got dressed up and went to the theatre for a special anniversary date.",
+                "I'm excited to see the new production at our local community theatre.",
+                "The theatre provides a great escape from reality for a few hours.",
+                "The actors in the theatre production were incredibly talented and passionate.",
+                "The theatre was packed with people eager to see the highly anticipated musical.",
+                "I caught a glimpse of one of my favorite actors outside the theatre before the show."
+              ]
+        }
+    },
 ]
 
 /*
@@ -1773,7 +1888,7 @@ test:
 {
 word: "",
 sentence: "",
-//sentence:
+//sentences:
 }
 },
 Use 'radically' to make ten sentences, and respond back by javascript array formation.
