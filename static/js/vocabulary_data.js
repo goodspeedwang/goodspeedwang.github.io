@@ -1864,7 +1864,7 @@ const DATA = [
         test:
         {
             word: "theatre",
-            sentence: "",
+            sentence: "Some of my acquaintances in the country come up to town once or twice a year to visit the theatre as a special treat.",
             sentences:[
                 "I love going to the theatre to see live performances.",
                 "The theatre near my house has a lot of classic plays in its repertoire.",
