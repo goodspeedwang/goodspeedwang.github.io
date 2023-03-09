@@ -1770,7 +1770,7 @@ const DATA = [
         {
             word: "announce",
             sentence: "Bruce cheerfully announced that there was no oil in the engine!",
-            sentences:[
+            sentences: [
                 "The principal will announce the winner of the science fair tomorrow.",
                 "I'm excited to announce that I'm getting married next year!",
                 "The president is expected to announce new policies regarding climate change.",
@@ -1781,7 +1781,7 @@ const DATA = [
                 "The flight attendant will announce the flight's departure time shortly.",
                 "The coach will announce the starting lineup for the game tonight.",
                 "The teacher will announce the upcoming project requirements to the class."
-               ]
+            ]
         }
     }, {
         explanation: "special, or this and not any other",
@@ -1789,7 +1789,7 @@ const DATA = [
         {
             word: "particular",
             sentence: "Students specialize in a particular type of practical joke",
-            sentences:[
+            sentences: [
                 "I need a particular type of screw to fix this.",
                 "She was looking for a particular book on the shelf.",
                 "He seemed to have a particular interest in ancient history.",
@@ -1800,7 +1800,7 @@ const DATA = [
                 "I have a particular routine that I follow every morning to start my day off right.",
                 "The politician promised to address a particular issue that was important to her constituents.",
                 "She had a particular way of speaking that made her voice instantly recognizable."
-               ]
+            ]
         }
     }, {
         explanation: "to produce small, bright flashes of light reflected from a surface",
@@ -1819,7 +1819,7 @@ const DATA = [
                 "The dancer's costume was glinting under the stage lights.",
                 "The broken glass was glinting on the pavement.",
                 "The watch on his wrist was glinting with every movement."
-               ]
+            ]
         }
     }, {
         explanation: "黎明；鸡叫",
@@ -1827,7 +1827,7 @@ const DATA = [
         {
             word: "cockcrow",
             sentence: "Nothing can be compared with the first cockcrow",
-            sentences:[
+            sentences: [
                 "The rooster always sings at cockcrow every morning.",
                 "The cockcrow woke me up earlier than my alarm clock.",
                 "The farmers begin their work at cockcrow before the sun has risen.",
@@ -1838,7 +1838,7 @@ const DATA = [
                 "It was so quiet, I could hear the cockcrow from the neighboring farm.",
                 "I always find peace in silence and the cockcrow brings a sense of calmness.",
                 "The sound of the cockcrow reminds me of my childhood days in the countryside."
-               ]
+            ]
         }
     }, {
         explanation: "feeling doubt or not feeling certain",
@@ -1846,7 +1846,7 @@ const DATA = [
         {
             word: "dubious",
             sentence: "Why people are prepared to tolerate a four-hour journey each day for the dubious privilege of living in the country is beyond me.",
-            sentences:[
+            sentences: [
                 "His dubious claims made everyone skeptical about his credibility.",
                 "The company's financial reports seemed dubious, prompting an investigation.",
                 "She had a dubious reputation in the town due to her past actions.",
@@ -1857,7 +1857,7 @@ const DATA = [
                 "I have a dubious feeling about this business deal, something doesn't seem right.",
                 "Her dubious behavior towards her colleagues made her unpopular in the workplace.",
                 "The results of the study were dubious, and researchers are redoing the experiment."
-               ]
+            ]
         }
     }, {
         explanation: "the place from which people can watch a performance or other activity",
@@ -1865,7 +1865,7 @@ const DATA = [
         {
             word: "theatre",
             sentence: "Some of my acquaintances in the country come up to town once or twice a year to visit the theatre as a special treat.",
-            sentences:[
+            sentences: [
                 "I love going to the theatre to see live performances.",
                 "The theatre near my house has a lot of classic plays in its repertoire.",
                 "My favorite play to see at the theatre is Romeo and Juliet.",
@@ -1876,9 +1876,64 @@ const DATA = [
                 "The actors in the theatre production were incredibly talented and passionate.",
                 "The theatre was packed with people eager to see the highly anticipated musical.",
                 "I caught a glimpse of one of my favorite actors outside the theatre before the show."
-              ]
+            ]
         }
     },
+    {
+        explanation: "",
+        test:
+        {
+            word: "incredible",
+            sentence: "",
+            //sentences:
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "machinery",
+            sentence: "",
+            //sentences:
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: "",
+            //sentences:
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "mania",
+            sentence: "",
+            //sentences:
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: "",
+            //sentences:
+        }
+    },
+    {
+        explanation: "",
+        test:
+        {
+            word: "",
+            sentence: "",
+            //sentences:
+        }
+    },
+
 ]
 
 /*
