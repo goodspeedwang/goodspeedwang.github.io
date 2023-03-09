@@ -19,7 +19,8 @@ const DATA = [
         explanation: "A place or experience is extremely pleasant, beautiful, or peaceful",
         test: {
             word: "idyllic",
-            sentence: "This idyllic pastoral scene is only part of the picture."
+            sentence: "This idyllic pastoral scene is only part of the picture.",
+            sentences:["They settled into their idyllic country cottage and felt the weight of city life lift off their shoulders.", "The scene was so idyllic that it almost seemed to be a painting come to life.", "The small town had an idyllic main street lined with cozy cafes and quaint shops.", "The couple spent an idyllic afternoon strolling through the park and watching the ducks on the pond.", "The sun setting over the idyllic beach was a sight they would never forget.", "Their idyllic childhood memories of summers spent on the farm always put a smile on their faces.", "The secluded cabin in the woods was the perfect spot for an idyllic weekend getaway.", "The idyllic village in Italy was the backdrop for their dream wedding.", "The small, idyllic community was known for its tight-knit neighborhoods and friendly residents.", "The writer painted an idyllic portrait of life in the countryside, filled with warmth and simplicity."]
         }
     }, {
         explanation: "to deal with something unpleasant or annoying, or to continue existing despite bad or difficult conditions",
@@ -83,7 +84,8 @@ const DATA = [
         explanation: "to change direction, especially suddenly",
         test: {
             word: "swerved",
-            sentence: "we swerved to avoid large boulders."
+            sentence: "we swerved to avoid large boulders.",
+            sentences:["The car suddenly swerved to avoid hitting the pedestrian.", "I swerved my bicycle to avoid a pothole on the road.", "The driver swerved to avoid the oncoming truck, narrowly avoiding a collision.", "The football player swerved past several defenders to score a stunning goal.", "The plane swerved to avoid a flock of birds, causing a few moments of panic among passengers.", "He swerved from the conversation topic to deflect the sensitive question.", "The ship swerved off-course due to strong winds and had to be corrected by the captain.", "She swerved her gaze away from her ex-boyfriend, trying to hold back tears.", "The stock market swerved sharply downward, causing widespread panic among investors.", "The toddler swerved around the playground, giggling in delight."]
         }
     }, {
         explanation: "in a way that suggests that something unpleasant is likely to happen",
@@ -134,7 +136,8 @@ const DATA = [
         explanation: "the ability to control yourself or other people, even in difficult situations",
         test: {
             word: "discipline",
-            sentence: "The self-discipline required to drag myself out of bed eleven minutes earlier than usual was considerable."
+            sentence: "The self-discipline required to drag myself out of bed eleven minutes earlier than usual was considerable.",
+            sentences:["Without discipline, it's difficult to achieve long-term goals.", "The strict discipline of military training prepares soldiers for the rigors of combat.", "Parenting requires a delicate balance of love and discipline.", "He credits his success to the discipline he learned from his martial arts training.", "It takes discipline to maintain a healthy lifestyle and diet.", "The teacher's discipline and structure in the classroom facilitated effective learning.", "discipline in managing finances is important for long-term stability and security.", "The athlete's discipline and dedication to training resulted in a gold medal win.", "The company's strict discipline regarding safety measures ensured a hazard-free workplace.", "discipline is the key to mastering any skill or craft."]
         }
     }, {
         explanation: "unkind remarks made to intentionally annoy and upset someone",
@@ -220,7 +223,8 @@ const DATA = [
         explanation: "laughter, humor, or happiness",
         test: {
             word: "mirth",
-            sentence: "Though this caused great mirth among the guests, Aunt Harriet was horrified."
+            sentence: "Though this caused great mirth among the guests, Aunt Harriet was horrified.",
+            sentences:["The sound of children's laughter filled the air with mirth and joy.", "Despite the trouble they faced, they still found moments of mirth and lightness.", "The witty banter between friends always resulted in contagious mirth.", "Her quick wit and infectious mirth made her the life of the party.", "The comedian's performance elicited roars of mirth from the audience.", "The unexpected joke caught everyone off guard and resulted in uproarious mirth.", "His lighthearted attitude and contagious mirth helped ease the tension in the room.", "The playful dogs chased each other in the yard, filling the air with canine mirth.", "The family gathering was filled with mirth as they shared stories and memories.", "They looked back on the situation with mirth, realizing how absurd it had been."]
         }
     },
     {
@@ -269,7 +273,8 @@ const DATA = [
         explanation: "unfriendly and likely to be unpleasant or harmful",
         test: {
             word: "forbidding",
-            sentence: "Even under a clear blue sky, the village looked forbidding, as all the houses were built of grey mud bricks."
+            sentence: "Even under a clear blue sky, the village looked forbidding, as all the houses were built of grey mud bricks.",
+            sentences:["The sky above was dark, forbidding any hope of sunshine that day.", "His forbidding glare made everyone in the room feel uncomfortable.", "She peered through the gates of the forbidding mansion, wondering who lived inside.", "The teacher's forbidding tone intimidated the students into silence.", "The forest was dense and forbidding, and she felt a nervousness creeping over her.", "The company's forbidding policies toward employees made turnover rates skyrocket.", "His backpack was full of forbidding equipment for his upcoming mountain climb.", "The barren and forbidding landscape stretched out before him, making him feel small and insignificant.", "The judge's words were stern and forbidding, making the defendant feel like he had no chance at a fair trial.", "The warning sign was forbidding, cautioning hikers to stay away from the dangerous cliffs."]
         }
     },
     {
@@ -501,7 +506,8 @@ const DATA = [
         test:
         {
             word: "cameras",
-            sentence: "Television cameras and newspapers carried the news to everyone in the country."
+            sentence: "Television cameras and newspapers carried the news to everyone in the country.",
+            sentences:["Security cameras are a common feature in many public places and businesses.", "Professional photographers often invest in high-quality cameras and lenses for their work.", "Cell phone cameras have drastically improved in quality in recent years.", "Surveillance cameras can help deter crime and assist with investigations.", "Hidden cameras can be useful for undercover investigations or for catching someone in the act of wrongdoing.", "Many action cameras are designed to capture footage in extreme environments, such as during skydiving or surfing.", "Some cameras have advanced features, such as facial recognition or night vision.", "Wildlife photographers may use hidden or remote cameras to capture shots of elusive animals.", "Dash cameras can provide valuable evidence in the event of a car accident.", "Some film enthusiasts still prefer to shoot with traditional film cameras."]
         }
     },
     {
@@ -1080,18 +1086,7 @@ const DATA = [
         {
             word: "steadily",
             sentence: "They will have hardly found the facts to select from a great mass of evidence that steadily accumulates.",
-            Sentences: [
-                'The sun was gradually setting over the horizon, painting the sky a beautiful shade of pink.',
-                'The child gradually learned how to ride a bike, slowly building up their confidence.',
-                'The water level in the lake was gradually receding due to the drought.',
-                'She gradually became more fluent in the language after months of practicing her skills.',
-                'The company gradually introduced new products to the market, testing the demand from customers.',
-                'The temperature in the room was gradually dropping as the winter night drew on.',
-                'He gradually shifted his career focus from finance to technology, pursuing his passion.',
-                'The book gradually became more interesting as the plot unfolded with unexpected twists.',
-                'The flowers in the garden gradually began to bloom as winter gave way to spring.',
-                'The music gradually faded away as the concert came to an end.'
-            ]
+            Sentences: ["The rain fell steadily all night, filling up the once-empty riverbed.", "She steadily improved her grades throughout the semester.", "The construction workers steadily worked on the new building, rain or shine.", "The sun steadily rose over the horizon, painting the sky with a warm glow.", "He steadily climbed the stairs, determined to reach the top of the tower.", "The price of gasoline has been rising steadily over the past few months.", "The guitarist steadily strummed the chords, building up to the chorus.", "Her heart rate steadily dropped as she entered a state of deep relaxation.", "He steadily increased the weight on the barbell, pushing himself to his limits.", "The population of the small town has been steadily declining for years."]
         }
     },
     {
