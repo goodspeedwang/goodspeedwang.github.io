@@ -1880,21 +1880,31 @@ const DATA = [
         }
     },
     {
-        explanation: "",
+        explanation: "impossible, or very difficult, to believe",
         test:
         {
             word: "incredible",
-            sentence: "",
-            //sentences:
+            sentence: "circumstances do sometimes conspire to bring about coincidences which anyone but a nineteenth century novelist would find incredible.",
+            sentences: ["The view from the mountaintop was absolutely incredible.", "His talent for painting is incredible.", "The amount of support we received was incredible.", "The story of her survival is incredible.", "The architecture of the building is incredible.", "The food at the restaurant was incredible.", "The speed at which he runs is incredible.", "The dedication he has to his work is incredible.", "The technology we have today is incredible.", "The beauty of nature is incredible."]
         }
     },
     {
-        explanation: "",
+        explanation: "the structure and systems of an organization or process",
         test:
         {
             word: "machinery",
-            sentence: "",
-            //sentences:
+            sentence: "Justice is part of the complex machinery of the law.",
+            sentences: ["The machinery in the factory is extremely complex.", "He has a deep understanding of how machinery operates.", "Proper maintenance is crucial for keeping machinery in good condition.", "Without the use of machinery, many manufacturing processes would be impossible.", "Automated machinery has greatly increased productivity in many industries.", "Heavy machinery is used for construction of large buildings.", "Industrial machinery has revolutionized the way we produce goods.", "The malfunctioning machinery caused a delay in production.", "The factory workers were trained to operate the machinery safely.", "The sale of used machinery can provide a source of revenue for businesses."]
+        }
+    },
+    {
+        explanation: "a very strong interest in something that fills a person's mind or uses up all their time",
+        test:
+        {
+            word: "mania",
+            sentence: "Collecting small items can easily become a mania.",
+            sentences: ["He was known for his mania for collecting rare coins.", "After her divorce, she was in a shopping mania and spent all her savings.", "The patient was experiencing a state of mania as a symptom of his bipolar disorder.", "The film's success caused a mania among its fans, who flooded the cinema for weeks.", "Cricket mania grips the nation during the World Cup matches every four years.", "The announcement of the new iPhone caused a mania among technology enthusiasts.", "His work schedule caused him to fall into a state of work mania.", "After watching the popular TV show, people developed a mania for baking homemade pastries.", "Her newfound love for hiking turned into an obsession and a mania for exploring new trails.", "Social media mania has dramatically changed the way we interact and communicate with each other."]
+
         }
     },
     {
@@ -1906,15 +1916,7 @@ const DATA = [
             //sentences:
         }
     },
-    {
-        explanation: "",
-        test:
-        {
-            word: "mania",
-            sentence: "",
-            //sentences:
-        }
-    },
+
     {
         explanation: "",
         test:
