@@ -2303,16 +2303,16 @@ const DATA = [
             word: "hordes",
             sentence: "he found hordes of ants crawling over his carefully prepared picnic lunch in his garden one Sunday morning",
             sentences: [
-                "Hordes of fans gathered outside the stadium to see the famous athlete.",
+                "hordes of fans gathered outside the stadium to see the famous athlete.",
                 "The hordes of mosquitoes made it impossible to enjoy the outdoor event.",
                 "The city was overrun by hordes of rats, causing a public health crisis.",
-                "Hordes of shoppers rushed into the store on Black Friday, seeking discounts.",
+                "hordes of shoppers rushed into the store on Black Friday, seeking discounts.",
                 "The battlefield was filled with hordes of soldiers fighting for their country.",
-                "Hordes of children swarmed the ice cream truck on a hot summer day.",
+                "hordes of children swarmed the ice cream truck on a hot summer day.",
                 "The concert venue was filled with hordes of screaming fans.",
                 "The park was overrun by hordes of geese, leaving their droppings everywhere.",
                 "The beach was packed with hordes of sunbathers and swimmers.",
-                "Hordes of protesters marched through the streets, demanding social justice."
+                "hordes of protesters marched through the streets, demanding social justice."
             ]
         }
     },
