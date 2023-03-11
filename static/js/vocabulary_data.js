@@ -104,7 +104,8 @@ const DATA = [
         test: {
             word: "zigzag",
             sentence: "He followed its zigzag course."
-        }
+        },
+        obsolete: true
     },
     {
         explanation: "to look at or consider a person or thing carefully and in detail in order to discover something about them",
@@ -346,7 +347,8 @@ const DATA = [
         {
             word: "insurmountable",
             sentence: "After buying a new chain I was faced with the insurmountable task of putting the confusing jigsaw puzzle together again."
-        }
+        },
+        obsolete: true
     },
     {
         explanation: "电工",
@@ -1018,7 +1020,6 @@ const DATA = [
                 'The firefighter climbed astride the ladder, heroically rescuing a frightened kitten from a burning building.'
             ]
         },
-        obsolete: true
     },
     {
         explanation: "very frightening",
@@ -1473,7 +1474,7 @@ const DATA = [
                 "The prairie dogs lived in a large underground colony with interconnected tunnels.",
                 "The bacteria formed a colony on the surface of the petri dish.",
                 "The bats roosted in a colony in the cave during the day."
-                ]
+            ]
         }
     }, {
         explanation: "to protect something from harm",
