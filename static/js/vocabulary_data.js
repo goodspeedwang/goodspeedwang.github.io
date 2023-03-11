@@ -1269,7 +1269,7 @@ const DATA = [
                 "The siblings conspired to play a prank on their parents.",
                 "The group of students conspired to cheat on the exam.",
                 "The gang members conspired to carry out a series of robberies in the city."
-                ]
+            ]
         }
     }, {
         explanation: "to (cause to) flow quickly and in large amounts",
@@ -1496,7 +1496,7 @@ const DATA = [
                 "The judge ordered the case to be prosecuted in a higher court due to its complexity.",
                 "The prosecutor faced criticism for failing to prosecute cases of police brutality.",
                 "The defendant was prosecuted for violating the terms of their probation."
-                ]
+            ]
         }
     }, {
         explanation: "the process of getting something",
@@ -2354,12 +2354,298 @@ const DATA = [
             ]
         }
     },
+    {
+        explanation: "a complaint or a strong feeling that you have been treated unfairly",
+        test:
+        {
+            word: "grievance",
+            sentence: "to investigate private grievances against the State.",
+            sentences: [
+                "Grievances must be addressed in order to resolve conflicts.",
+                "The protesters expressed their grievances through peaceful demonstrations.",
+                "The government has set up a commission to investigate citizen grievances.",
+                "Their grievances were ignored by the management, leading to a strike.",
+                "The players filed a grievance against the league for unfair treatment.",
+                "The union is negotiating with the company to address worker grievances.",
+                "The employee felt she had no choice but to file a grievance with HR.",
+                "The company promised to address all employee grievances in a timely manner.",
+                "The customer filed a grievance with the company after receiving poor service.",
+                "The teacher listened to the students' grievances and promised to address them."
+            ]
+        }
+    },
+    {
+        explanation: "a person who is not a citizen of the country where they are residing or visiting",
+        test:
+        {
+            word: "foreigner",
+            sentence: "He stood out as a foreigner in the small town.",
+            sentences: [
+                "The restaurant is popular among foreigners who want to try local cuisine.",
+                "The government requires foreigners to have a visa to enter the country.",
+                "She married a foreigner and now lives in a different country.",
+                "The hotel provides services to make foreigners feel more comfortable.",
+                "The embassy provides assistance to foreigners who need help with legal issues.",
+                "The police are trained to be sensitive to the needs of foreigners in the area.",
+                "The company has a policy of hiring both locals and foreigners for diversity.",
+                "The city has a large population of foreigners, creating a multicultural community."
+            ]
+        }
+    },
+    {
+        explanation: "showing an unreasonable dislike for something or someone.",
+        test:
+        {
+            word: "prejudiced",
+            sentence: "The fact that the policeman was prejudiced against foreigners could not be recorded in the political files.",
+            sentences: [
+                "He made a prejudiced comment about people of a certain religion.",
+                "The media has been criticized for perpetuating prejudiced stereotypes.",
+                "Prejudiced attitudes can lead to discrimination and unfair treatment.",
+                "The company has a zero-tolerance policy for prejudiced behavior in the workplace.",
+                "She realized her beliefs were prejudiced and worked to change them.",
+                "The organization provides resources to help people overcome prejudiced attitudes.",
+                "The teacher addressed prejudiced language in the classroom to create a safe environment.",
+                "The study found that people who hold prejudiced beliefs tend to be less accepting of diversity.",
+                "Prejudiced views often stem from fear or ignorance of those who are different.",
+                "The book explores the effects of prejudiced attitudes on individuals and society."
+            ]
+        }
+    }, {
+        explanation: "a person or thing that represents or stands for someone or something else",
+        test:
+        {
+            word: "representative",
+            sentence: "It was only possible for the Ombudsman to find this out by sending one of his representatives to check the facts.",
+            sentences: [
+                "The painting is a representative example of the artist's style.",
+                "The elected representative spoke on behalf of their constituents.",
+                "The union sent a representative to negotiate with the management.",
+                "The team captain is a representative of their players and fans.",
+                "The survey sampled a representative group of the population.",
+                "The ambassador is a representative of their country in foreign affairs.",
+                "The council appointed a representative to oversee the project.",
+                "The product's packaging is a representative of its brand identity.",
+                "The committee's report is based on the findings of its representative members.",
+                "The organization's mission statement is a representative of its values and goals."
+            ]
+        }
+    }, {
+        explanation: "to slightly change the color of something",
+        test:
+        {
+            word: "tinted",
+            sentence: "Despite the fact that the bottle is tinted a delicate shade of green",
+            sentences: [
+                "The sunglasses are tinted to protect the eyes from UV rays.",
+                "The artist mixed different colors to create a subtly tinted effect.",
+                "The hair dye is available in a range of tinted shades.",
+                "The photographer used a blue tinted filter to create a cool tone in the image.",
+                "The company offers tinted moisturizers for a natural-looking complexion.",
+                "The film director used a green tinted filter to create a dreamlike atmosphere.",
+                "The car manufacturer offers a variety of tinted glass options.",
+                "The swim goggles have tinted lenses for outdoor swimming.",
+                "The decorative glass is available in a range of tinted colors.",
+                "The makeup artist used a tinted lip balm to add color and moisture to the lips."
+            ]
+        }
+    }, {
+        explanation: "(of a problem) so difficult that it is impossible to solve:",
+        test:
+        {
+            word: "insoluble",
+            sentence: "On entering a shop, he would ask for a new perfume called Scented Shadow or for insoluble bath cubes.",
+            sentences: [
+                "The substance is insoluble in water and must be dissolved in other solvents.",
+                "The question remained insoluble despite many attempts to answer it.",
+                "The issue is highly complex and may be insoluble without a significant breakthrough.",
+                "The company faced an insoluble financial crisis and had to declare bankruptcy.",
+                "The dispute between the two parties seemed insoluble and went to court.",
+                "The puzzle proved to be insoluble without the missing piece.",
+                "The conflict between the two countries is currently insoluble and ongoing.",
+                "The scientist was awarded for solving an insoluble problem in chemistry.",
+                "The situation seemed insoluble, but a creative solution was eventually found.",
+                "The mystery remained insoluble until new evidence was discovered."
+            ]
+        }
+    }, {
+        explanation: "slightly",
+        test:
+        {
+            word: "mildly",
+            sentence: "When Harry put on his act of being mildly annoyed, the assistant promised to order some for him.",
+            sentences: [
+                "The medication may cause mildly unpleasant side effects.",
+                "The weather is expected to be mildly warm and sunny today.",
+                "The teacher graded the essay mildly, giving the student helpful feedback.",
+                "The restaurant's spicy sauce is mildly hot and flavorful.",
+                "The doctor diagnosed her with a mildly sprained ankle.",
+                "The exercise routine is designed for people who are mildly out of shape.",
+                "The criticism was mildly constructive and intended to help the writer improve.",
+                "The movie is mildly entertaining, but not particularly memorable.",
+                "The speaker delivered the message in a mildly humorous tone.",
+                "The dress code is mildly strict, allowing for some flexibility in attire."
+            ]
+        }
+    }, {
+        explanation: "to take or try to take hold of something tightly, usually in fear, worry, or pain",
+        test:
+        {
+            word: "clutching",
+            sentence: "He was glad to get away with a mere twenty pounds and he beat a hasty retreat, clutching the precious bottle under his arm.",
+            sentences: [
+                "The child was clutching his favorite toy as he fell asleep.",
+                "The athlete was clutching his injured knee in pain.",
+                "The bird was clutching a worm in its beak and flew away.",
+                "The hiker was clutching onto the rope as she climbed the steep mountain.",
+                "The driver was clutching the steering wheel tightly during the bumpy ride.",
+                "The actor was clutching the award in disbelief as he gave his acceptance speech.",
+                "The survivor was clutching onto the life raft as the waves crashed around him.",
+                "The musician was clutching the guitar as he played his final song of the night.",
+                "The woman was clutching a tissue as she watched the emotional movie scene.",
+                "The soldier was clutching onto his weapon as he advanced towards the enemy."
+            ]
+        }
+    }, {
+        explanation: "to add something decorative to a person or thing",
+        test:
+        {
+            word: "adorn",
+            sentence: "The curious bottle, which now adorns the bookcase in his study, was his first and last purchase of rare cosmetics.",
+            sentences: [
+                "The bride's hair was adorned with a beautiful crystal tiara.",
+                "The walls of the museum were adorned with famous paintings.",
+                "The chef's dishes were adorned with edible flowers and herbs.",
+                "The necklace was adorned with a large, sparkling diamond.",
+                "The garden was adorned with beautiful flowers and sculptures.",
+                "The table was adorned with a festive tablecloth and candles.",
+                "The book cover was adorned with a striking illustration.",
+                "The church was adorned with beautiful stained-glass windows.",
+                "The bride's dress was adorned with intricate lace and beading.",
+                "The palace was adorned with elaborate carvings and patterns."
+            ]
+        }
+    }, {
+        explanation: "relating to beauty products or treatments intended to improve a person's appearance",
+        test:
+        {
+            word: "cosmetic",
+            sentence: "his first and last purchase of rare cosmetics.",
+            sentences: [
+                "The store sells a variety of cosmetic products, including makeup and skincare.",
+                "The salon offers cosmetic services such as facials and massages.",
+                "The surgeon specializes in cosmetic procedures such as liposuction and breast augmentation.",
+                "The actress wears cosmetic contact lenses to change the color of her eyes.",
+                "The spa offers cosmetic treatments such as chemical peels and microdermabrasion.",
+                "The company's research and development team is focused on developing new cosmetic products.",
+                "The beauty influencer shared her favorite cosmetic products with her followers.",
+                "The dermatologist recommended a cosmetic procedure to reduce the appearance of wrinkles.",
+                "The model undergoes regular cosmetic treatments to maintain her flawless complexion.",
+                "The beauty industry is constantly evolving with new cosmetic trends and innovations."
+            ]
+        }
+    }, {
+        explanation: "in a way that is famous for something bad",
+        test:
+        {
+            word: "notoriously",
+            sentence: "Prediction the future is notoriously difficult.",
+            sentences: [
+                "The city is notoriously dangerous, so tourists are advised to be cautious.",
+                "The actor is notoriously difficult to work with on set.",
+                "The company is notoriously stingy with employee benefits and compensation.",
+                "The politician is notoriously corrupt and has been involved in several scandals.",
+                "The hotel is notoriously noisy due to its location near a busy street.",
+                "The author is notoriously reclusive and rarely gives interviews.",
+                "The neighborhood is notoriously known for its high crime rate.",
+                "The athlete is notoriously bad at handling media interviews.",
+                "The airline is notoriously unreliable and has a history of delayed flights."
+            ]
+        }
+    }, {
+        explanation: "a skilled worker who specializes in a particular technical field, such as electronics or mechanics",
+        test:
+        {
+            word: "technician",
+            sentence: "employing full-time technicians and run on specially-written software.",
+            sentences: [
+                "The auto technician diagnosed and fixed the problem with the car's engine.",
+                "The lab technician conducted experiments and analyzed the results.",
+                "The IT technician installed and configured the software on the company's computers.",
+                "The dental technician created the custom-made dentures for the patient.",
+                "The veterinary technician assisted the veterinarian during the surgery.",
+                "The aircraft technician performed routine maintenance on the plane.",
+                "The pharmacy technician filled the prescription and provided medication instructions.",
+                "The surgical technician prepared the operating room and equipment for the procedure.",
+                "The HVAC technician repaired the air conditioning system in the building.",
+                "The audio technician adjusted the sound levels for the concert."
+            ]
+        }
+    }, {
+        explanation: "the state or condition of not meeting a desired or intended objective or outcome",
+        test:
+        {
+            word: "failure",
+            sentence: "it is only because we have so often experienced the frustration that results from failure. ",
+            sentences: [
+                "The athlete experienced failure in the competition, but learned from their mistakes.",
+                "The business suffered a failure due to financial mismanagement.",
+                "The student was afraid of failure and procrastinated on their assignments.",
+                "The product launch was a failure due to lack of market research and testing.",
+                "The politician's policies were seen as a failure by many constituents.",
+                "The relationship ended in failure due to communication issues and differences.",
+                "The experiment resulted in failure due to errors in the methodology.",
+                "The artist experienced failure before achieving success in their career.",
+                "The failure of the medical treatment led to a search for alternative therapies.",
+                "The failure to meet the deadline resulted in the cancellation of the project."
+            ]
+        }
+    }, {
+        explanation: "to reveal or expose information or actions that were supposed to be kept secret or confidential; to be disloyal or unfaithful",
+        test:
+        {
+            word: "betrayed",
+            sentence: "It was this that betrayed me.",
+            sentences: [
+                "The spy was afraid of being betrayed by his double agent.",
+                "The company's confidential information was betrayed by an insider.",
+                "The dog felt betrayed when its owner gave it away.",
+                "The athlete felt betrayed by his coach's decision to cut him from the team.",
+                "The victim felt betrayed by the justice system's failure to deliver justice.",
+                "The soldier felt betrayed by his country's decision to withdraw from the conflict.",
+                "The student felt betrayed by the teacher's unfair grading system.",
+                "The employee felt betrayed by the company's decision to lay off workers.",
+                "The lover felt betrayed by their partner's infidelity.",
+                "The citizen felt betrayed by the politician's broken promises."
+            ]
+        }
+    },
+    {
+        explanation: "to express disapproval or find fault with someone or something",
+        test:
+        {
+            word: "criticized",
+            sentence: "she always criticized the fickleness of human nature",
+            sentences: [
+                "The teacher criticized the student's essay for its lack of supporting evidence.",
+                "The politician was criticized for his controversial remarks.",
+                "The chef was criticized for overcooking the steak.",
+                "The company was criticized for its unethical business practices.",
+                "The artist was criticized for copying another artist's work.",
+                "The manager was criticized for not addressing the employees' concerns.",
+                "The book was criticized for its inaccurate portrayal of historical events.",
+                "The athlete was criticized for his unsportsmanlike behavior during the game.",
+                "The journalist was criticized for publishing false information.",
+                "The musician was criticized for his offensive lyrics in the song."
+            ]
+        }
+    },
 ]
 
 /*
-tell me what 'ingenuity' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'criticized' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
-explanation: "no current word",
+explanation: "",
 test: 
 {
 word: "lowcase",
