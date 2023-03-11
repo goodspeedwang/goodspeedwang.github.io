@@ -1462,7 +1462,18 @@ const DATA = [
         {
             word: "colony",
             sentence: "They were visited by a large colony of ants",
-            sentences: ["The ants worked together to build their colony.", "Many European countries have a colonial history.", "The United States was once a British colony.", "The beekeeper inspected the honeycomb in the colony.", "Penguins huddle together to keep warm in their colonies.", "Some species of termites can create massive colonies that stretch for miles underground.", "The early settlers struggled to establish a successful colony in the New World.", "Queen Elizabeth II is the head of the British Commonwealth of former colonies.", "The Space Race between the United States and the Soviet Union included plans for colonies on the moon and other planets.", "The colony of bacteria grew rapidly in the petri dish."]
+            sentences: [
+                "The early American settlers established a colony in the New World.",
+                "The penguins huddled together in a colony to survive the harsh Antarctic winter.",
+                "The bees swarmed around their queen in the center of the colony.",
+                "The artist colony in the mountains inspired creativity and collaboration.",
+                "The coral reef was home to a diverse colony of marine life.",
+                "The space station served as a colony for astronauts conducting scientific research.",
+                "The birds nested in a colony on the rocky cliffs along the coast.",
+                "The prairie dogs lived in a large underground colony with interconnected tunnels.",
+                "The bacteria formed a colony on the surface of the petri dish.",
+                "The bats roosted in a colony in the cave during the day."
+                ]
         }
     }, {
         explanation: "to protect something from harm",
