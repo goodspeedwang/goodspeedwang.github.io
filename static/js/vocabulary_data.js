@@ -1017,7 +1017,8 @@ const DATA = [
                 'The king sat astride his throne, his royal robe flowing down to the floor.',
                 'The firefighter climbed astride the ladder, heroically rescuing a frightened kitten from a burning building.'
             ]
-        }
+        },
+        obsolete: true
     },
     {
         explanation: "very frightening",

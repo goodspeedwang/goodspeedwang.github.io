@@ -40,13 +40,13 @@ document.getElementById("test").onkeyup = function (e) {
 
 function init() {
     data = JSON.parse(JSON.stringify(DATA)).filter(x => {
-        if(!x.test || !x.test.word) return false;
+        if (!x.test || !x.test.word || x.obsolete) return false;
         let item = new storage(x.test.word);
         //return true;
         return item.number < 5
     });
-    console.log(data.map(x=>"\""+x.test.word+"\"").join(","))
-    
+    console.log(data.map(x => "\"" + x.test.word + "\"").join(","))
+
     if (data.length === 0) {
         console.log("FINISH");
         return;
@@ -63,30 +63,30 @@ function exam() {
         return;
     }
     let item = data.pop();
-    if(document.getElementById("explanation_show").checked){
+    if (document.getElementById("explanation_show").checked) {
         document.getElementById("explanation").innerHTML = item.explanation;
-    }else{
+    } else {
         document.getElementById("explanation").innerHTML = "";
     }
     let test = item.test;
     word = test.word;
     let sentence = "<input id='word' />";
-    if(document.getElementById("sentence_show").checked){
+    if (document.getElementById("sentence_show").checked) {
         sentences = [test.sentence];
-        if (document.getElementById("sentence_show").checked && test.sentences){           
+        if (document.getElementById("sentence_show").checked && test.sentences) {
             sentences = sentences.concat(test.sentences)
         }
         sentence = sentences.shuffle().pop().replace(word, "<input id='word' />")
-        
+
     }
     document.getElementById("test").innerHTML = sentence;
     //console.log(word);
     document.getElementById("number").innerHTML = new storage(word).number;
     document.getElementById("stats").innerHTML = stats.right + " vs " + stats.wrong;
     document.getElementById("word").focus();
-    if(document.getElementById("autoplay_show").checked){
+    if (document.getElementById("autoplay_show").checked) {
         playvoice();
-    }   
+    }
 }
 
 function tips() {
