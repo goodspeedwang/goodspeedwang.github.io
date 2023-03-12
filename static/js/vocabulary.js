@@ -40,12 +40,12 @@ document.getElementById("test").onkeyup = function (e) {
 
 function init() {
     data = JSON.parse(JSON.stringify(DATA)).filter(x => {
-        if (!x.test || !x.test.word || x.obsolete) return false;
-        let item = new storage(x.test.word);
+        if (!x.word || x.obsolete) return false;
+        let item = new storage(x.word);
         //return true;
         return item.number < 5
     });
-    console.log(data.map(x => "\"" + x.test.word + "\"").join(","))
+    console.log(data.map(x => "\"" + x.word + "\"").join(","))
 
     if (data.length === 0) {
         console.log("FINISH");
@@ -68,13 +68,12 @@ function exam() {
     } else {
         document.getElementById("explanation").innerHTML = "";
     }
-    let test = item.test;
-    word = test.word;
+    word = item.word;
     let sentence = "<input id='word' />";
     if (document.getElementById("sentence_show").checked) {
-        sentences = [test.sentence];
-        if (document.getElementById("sentence_show").checked && test.sentences) {
-            sentences = sentences.concat(test.sentences)
+        sentences = [item.sentence];
+        if (document.getElementById("sentence_show").checked && item.sentences) {
+            sentences = sentences.concat(item.sentences)
         }
         sentence = sentences.shuffle().pop().replace(word, "<input id='word' />")
 
