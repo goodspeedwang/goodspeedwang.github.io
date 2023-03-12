@@ -54,7 +54,7 @@
 
         img {
             width: 50px;
-            cursor:pointer;
+            cursor: pointer;
         }
     </style>
     <meta charset="UTF-8" />
@@ -73,6 +73,11 @@
         <div id="button" onclick="tips()">Tips</div>
         <div style="text-align: right; font-size: small;">
             <span style="margin-right: 20px;">
+                <select id="category">
+                    <option value="0">NCE</option>
+                    <option value="1">IELTS</option>
+                    <option value="2">Num</option>
+                </select>
                 <input checked="checked" type="checkbox" id="autoplay_show" /> Autoplay |
                 <input checked="checked" type="checkbox" id="sentence_show" /> Show sentence |
                 <input checked="checked" type="checkbox" id="explanation_show" /> Show explanation |
@@ -82,7 +87,13 @@
             Number: <span id="number"></span>
         </div>
     </div>
+    <!--
+        
+    -->
+    <script src="static/js/tools.js"></script>
     <script src="static/js/vocabulary_data.js"></script>
+    <script src="static/js/vocabulary_ielts.js"></script>
+    <script src="static/js/vocabulary_num.js"></script>
     <script src="static/js/vocabulary.js"></script>
 </body>
 
