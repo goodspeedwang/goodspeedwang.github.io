@@ -1,17 +1,10 @@
-Array.prototype.shuffle = function () {
-    var array = this;
-    var m = array.length,
-        t, i;
-    while (m) {
-        i = Math.floor(Math.random() * m--);
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }
-    return array;
+
+const loadDictionary = function () {
+    const index = document.getElementById("category").value;
+    DATA = [DATA_nce,DATA_ielts, DATA_num][index];
 }
 
-let word = data = null;
+let word = data = DATA = null;
 const stats = { right: 0, wrong: 0 };
 window.onload = init;
 document.getElementById("test").onkeyup = function (e) {
@@ -37,8 +30,10 @@ document.getElementById("test").onkeyup = function (e) {
         }
     }
 }
+document.getElementById("category").onselect = init;
 
 function init() {
+    loadDictionary();
     data = JSON.parse(JSON.stringify(DATA)).filter(x => {
         if (!x.word || x.obsolete) return false;
         let item = new storage(x.word);
@@ -63,19 +58,22 @@ function exam() {
         return;
     }
     let item = data.pop();
+    word = item.word;
+    if (!item.sentence) {
+        item.sentence = item.word;
+    }
     if (document.getElementById("explanation_show").checked) {
-        document.getElementById("explanation").innerHTML = item.explanation;
+        document.getElementById("explanation").innerHTML = item.explanation ? item.explanation : '';
     } else {
         document.getElementById("explanation").innerHTML = "";
     }
-    word = item.word;
     let sentence = "<input id='word' />";
     if (document.getElementById("sentence_show").checked) {
-        sentences = [item.sentence];
+        let sentences = [item.sentence];
         if (document.getElementById("sentence_show").checked && item.sentences) {
             sentences = sentences.concat(item.sentences)
         }
-        sentence = sentences.shuffle().pop().replace(word, "<input id='word' />")
+        sentence = sentences.shuffle().pop().replace(item.word, "<input id='word' />")
 
     }
     document.getElementById("test").innerHTML = sentence;
