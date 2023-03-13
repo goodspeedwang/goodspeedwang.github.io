@@ -1,4 +1,4 @@
-const DATA = [
+const DATA_nce = [
     {
         explanation: "to praise something or someone very much",
         word: "extol",
