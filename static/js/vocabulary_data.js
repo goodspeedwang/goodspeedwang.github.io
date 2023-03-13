@@ -2124,11 +2124,271 @@ const DATA = [
             "The musician was criticized for his offensive lyrics in the song."
         ]
     },
+    {
+        explanation: "friendly and welcoming to guests or visitors.",
+        word: "hospitable",
+        sentence: "The hotel staff was very hospitable and made sure all of our needs were met.",
+        sentences: [
+            "The locals were incredibly hospitable and showed us around their town.",
+            "Despite the language barrier, the host family was very hospitable and made us feel at home.",
+            "The restaurant had a hospitable atmosphere that made us want to stay and enjoy our meal.",
+            "The warm weather and hospitable people made our vacation unforgettable.",
+            "The hospitable staff at the bed and breakfast provided us with a delicious breakfast every morning.",
+            "We were grateful for the hospitable reception we received at the conference.",
+            "The hospitable host greeted us with a smile and offered us refreshments upon our arrival.",
+            "The hospitable community welcomed us with open arms and made us feel like we belonged.",
+            "The hospitable culture of the country was evident in the way they treated their guests.",
+            "The hospitable gesture of offering us a ride to the airport was greatly appreciated."
+        ]
+    },
+    {
+        explanation: "a technique of mural painting executed upon freshly laid, or wet lime plaster",
+        word: "fresco",
+        sentence: "The Sistine Chapel is famous for its stunning frescoes painted by Michelangelo.",
+        sentences: [
+            "The artist spent months creating a beautiful fresco on the walls of the church.",
+            "The colors of the fresco had faded over time, but it was still an impressive sight.",
+            "The museum had an entire room dedicated to frescoes from the Renaissance period.",
+            "The fresco depicted a scene from Greek mythology that was both beautiful and haunting.",
+            "The artist used the fresco technique to create a stunning work of art that was both vibrant and detailed.",
+            "The fresco had been damaged by water and needed to be restored by a team of experts.",
+            "The church commissioned a famous artist to create a fresco on the ceiling of the nave.",
+            "The fresco was so lifelike that it seemed as if the figures were about to step out of the wall.",
+            "The artist used the fresco technique to create a breathtaking mural that covered an entire wall.",
+            "Visitors to the cathedral marveled at the stunning fresco that adorned the altar."
+        ]
+    },
+    {
+        explanation: "a person who does not eat meat, poultry, or fish.",
+        word: "vegetarian",
+        sentence: "My sister has been a vegetarian for years and enjoys trying new plant-based recipes.",
+        sentences: [
+            "The restaurant had a great selection of vegetarian dishes that were both delicious and filling.",
+            "As a vegetarian, I always make sure to check the menu before going to a new restaurant.",
+            "The vegetarian chili was a hit at the potluck and even the meat-eaters enjoyed it.",
+            "The vegetarian diet is becoming more popular as people become more conscious of their health and the environment.",
+            "The vegetarian lasagna was so good that even the carnivores went back for seconds.",
+            "The vegetarian options on the menu were clearly marked, which made ordering easy.",
+            "The vegetarian restaurant had a cozy atmosphere and served a variety of tasty dishes.",
+            "The vegetarian lifestyle is not just about what we eat, but also about making ethical and sustainable choices.",
+            "The vegetarian diet is rich in nutrients and can provide all the necessary protein and vitamins.",
+            "The vegetarian burger was surprisingly juicy and flavorful, and I didn't even miss the meat."
+        ]
+    },
+    {
+        explanation: "in a way that is natural, without the use of synthetic chemicals, pesticides, or fertilizers.",
+        word: "organically",
+        sentence: "The farm grows all of its produce organically, without using any chemical pesticides.",
+        sentences: [
+            "The company is committed to sourcing its materials organically and sustainably.",
+            "The restaurant prides itself on using only organically raised meat in its dishes.",
+            "The garden was planted organically, with compost and natural fertilizers.",
+            "The clothing brand uses only organically grown cotton in its products.",
+            "The wine was made from organically grown grapes and had a rich, complex flavor.",
+            "The farmer's market sells a variety of organically grown fruits and vegetables.",
+            "The skincare company uses only organically sourced ingredients in its products.",
+            "The company is working to reduce its carbon footprint by sourcing materials organically and locally.",
+            "The cafe serves only organically brewed coffee and tea.",
+            "The yoga studio was designed to be an organically inspired space, with natural light and calming colors."
+        ]
+    },
+    {
+        explanation: "without interruption, continuously or constantly.",
+        word: "incessantly",
+        sentence: "The baby cried incessantly, causing the parents to lose sleep.",
+        sentences: [
+            "The sound of the dripping faucet was incessant and drove me crazy.",
+            "The dog barked incessantly, making it hard to concentrate.",
+            "The rain fell incessantly, causing flooding and damage to homes.",
+            "The construction noise outside my window continued incessantly throughout the day.",
+            "The politician spoke incessantly, without giving anyone else a chance to speak.",
+            "The alarm clock beeped incessantly until I finally got up to turn it off.",
+            "The mosquito buzzed incessantly around my head, making it impossible to sleep.",
+            "The child asked incessantly for candy, despite being told no multiple times.",
+            "The car honked incessantly in traffic, adding to the already chaotic atmosphere.",
+            "The phone rang incessantly, interrupting my quiet evening at home."
+        ]
+    },
+    {
+        explanation: "the act of complaining or expressing dissatisfaction in a high-pitched, annoying tone.",
+        word: "whining",
+        sentence: "The child kept whining about being bored and wanting to go home.",
+        sentences: [
+            "The employee's constant whining about their workload was starting to irritate their colleagues.",
+            "The dog's whining signaled that it was time for a walk.",
+            "The politician's whining about the media coverage was seen as unprofessional by many.",
+            "The customer's whining about the price was met with a polite explanation of the company's pricing policy.",
+            "The toddler's whining about not getting their way was met with a firm but gentle response from their parent.",
+            "The athlete's whining about the referee's calls was seen as unsportsmanlike by many.",
+            "The student's whining about the difficulty of the exam was met with reassurance from their teacher.",
+            "The customer's whining about the wait time was met with an apology and a complimentary drink.",
+            "The actor's whining about the long hours on set was seen as entitled by some of their colleagues.",
+            "The friend's constant whining about their problems was starting to strain the relationship."
+        ]
+    },
+    {
+        explanation: "the sound made when breathing during sleep that is accompanied by vibration of the soft palate and other tissues in the mouth, nose, and throat.",
+        word: "snoring",
+        sentence: "My roommate's snoring kept me up all night.",
+        sentences: [
+            "The baby's snoring was so quiet and cute that it made everyone smile.",
+            "The dog's snoring was so loud that it could be heard from across the room.",
+            "The sound of my own snoring woke me up in the middle of the night.",
+            "The man's snoring was so loud that it woke up the entire house.",
+            "The woman's snoring was so persistent that it led to a sleep study to diagnose sleep apnea.",
+            "The cat's snoring was so adorable that it became a viral video on social media.",
+            "The child's snoring was so rhythmic that it helped lull their parent to sleep.",
+            "The snoring from the neighboring hotel room was so loud that it kept the guests awake all night.",
+            "The partner's snoring was so disruptive that it caused tension in the relationship.",
+            "The snoring from the person sitting next to me on the plane was so loud that I couldn't sleep."
+        ]
+    },
+    {
+        explanation: "the act of making a loud, trumpet-like sound, often with the use of a trumpet or other brass instrument.",
+        word: "trumpeting",
+        sentence: "The band was trumpeting their new album release with a concert in the park.",
+        sentences: [
+            "The elephant was trumpeting loudly, warning the rest of the herd of danger.",
+            "The fanfare was trumpeting the arrival of the king and queen at the palace.",
+            "The orchestra was trumpeting the majesty of the piece with a grand finale.",
+            "The jazz musician was trumpeting a lively tune that had the audience dancing.",
+            "The marching band was trumpeting their school spirit with a rousing performance.",
+            "The bugler was trumpeting a solemn tune at the military funeral.",
+            "The bird was trumpeting its mating call to attract a mate.",
+            "The brass section was trumpeting a triumphant fanfare at the end of the symphony.",
+            "The car's horn was trumpeting angrily in the traffic jam.",
+            "The circus was trumpeting its arrival in town with colorful posters and billboards."
+        ]
+    },
+    {
+        explanation: "matter or substance that can be used to make things or be transformed into a finished product.",
+        word: "material",
+        sentence: "The artist used recycled materials to create a sculpture that was both beautiful and sustainable.",
+        sentences: [
+            "The company sources its materials from sustainable suppliers to reduce its environmental impact.",
+            "The construction worker unloaded a truck full of building materials at the job site.",
+            "The dress was made from a high-quality material that felt soft and luxurious.",
+            "The teacher provided the students with a list of study materials to help them prepare for the exam.",
+            "The author researched a variety of source materials to write their book.",
+            "The furniture maker used only natural materials such as wood and leather in their designs.",
+            "The company invested in new materials to make their products more durable and long-lasting.",
+            "The scientist used advanced materials to create a new type of solar panel.",
+            "The fashion designer experimented with different materials to create a unique look for their runway show.",
+            "The artist collected materials from nature such as leaves and flowers to use in their artwork."
+        ]
+    },
+    {
+        explanation: "something that provides advice or guidance, often in an official or formal capacity.",
+        word: "advisory",
+        sentence: "The government issued a travel advisory warning citizens of potential dangers in certain areas.",
+        sentences: [
+            "The government issued a travel advisory warning citizens of potential dangers in certain areas.",
+            "The school board formed an advisory committee to provide feedback on proposed curriculum changes.",
+            "The weather advisory warned of strong winds and heavy rain in the area.",
+            "The medical advisory suggested that patients with certain health conditions avoid a particular medication.",
+            "The business advisory council provided feedback and advice to the company's leadership team.",
+            "The advisory board of the nonprofit organization helped guide its strategic direction.",
+            "The security advisory recommended that all employees change their passwords following a data breach.",
+            "The environmental advisory group worked to develop policies to reduce the company's carbon footprint.",
+            "The technology advisory team provided insights and guidance on the implementation of new software.",
+            "The advisory panel of experts provided recommendations on how to address a public health crisis."
+        ]
+    },
+    {
+        explanation: "emotions or energy that have been suppressed or held back for a period of time.",
+        word: "pent up",
+        sentence: "After being stuck inside all day, I had a lot of pent up energy that I needed to release.",
+        sentences: [
+            "The athlete had a lot of pent up frustration after losing the game.",
+            "The student's pent up anxiety about the exam made it hard to concentrate.",
+            "The employee's pent up resentment towards their boss came out during the performance review.",
+            "The pandemic had caused a lot of pent up demand for travel and tourism.",
+            "The child's pent up excitement about their birthday party was hard to contain.",
+            "The performer's pent up nerves before the show could be felt backstage.",
+            "The driver's pent up anger came out in a fit of road rage.",
+            "The musician had a lot of pent up creativity that they channeled into their latest album.",
+            "The couple's pent up passion for each other was evident in their first kiss.",
+            "The patient's pent up frustration with their illness and treatment plan led to a breakdown during therapy."
+        ]
+    },
+    {
+        explanation: "a portable shelter made of canvas, nylon, or other durable material that is supported by poles and ropes.",
+        word: "tent",
+        sentence: "We set up our tent in a clearing by the river for our camping trip.",
+        sentences: [
+            "The hiker carried a small tent with them on their backpacking trip.",
+            "The family rented a large tent for their outdoor wedding reception.",
+            "The scout troop slept in individual tents during their camping trip.",
+            "The festival-goers pitched their tents in a field near the concert venue.",
+            "The mountaineers used a specialized tent designed for extreme weather conditions.",
+            "The beachgoers rented a beach tent to provide shade from the hot sun.",
+            "The military used tents as temporary housing for soldiers in the field.",
+            "The archaeologists set up a tent at the dig site to protect the artifacts from the elements.",
+            "The protesters set up a tent city in the park to draw attention to their cause.",
+            "The circus performers slept in colorful tents that were set up behind the big top."
+        ]
+    },
+    {
+        explanation: "a place where young plants or trees are grown, or a place where babies and young children are cared for.",
+        word: "nursery",
+        sentence: "The gardener tended to the young seedlings in the nursery.",
+        sentences: [
+            "The parents enrolled their child in a nursery program while they worked during the day.",
+            "The florist had a wide variety of plants available at the nursery.",
+            "The school built a new nursery to accommodate the growing number of young families in the area.",
+            "The farmer used a nursery to grow seedlings for planting in the fields.",
+            "The zoo had a nursery for caring for newborn animals that required special attention.",
+            "The landscaper purchased trees from a nursery to plant in a client's backyard.",
+            "The couple decorated the nursery in anticipation of the arrival of their first child.",
+            "The botanical garden had a nursery for propagating rare and endangered plant species.",
+            "The park service used a nursery to grow native plants for restoration projects.",
+            "The new homeowners visited a nursery to purchase shrubs and flowers for their yard."
+        ]
+    },
+    {
+        explanation: "the act of taking or grabbing something quickly or forcefully.",
+        word: "snatches",
+        sentence: "The thief snatched the woman's purse and ran away.",
+    },
+    {
+        explanation: "the act of examining the similarities and differences between two or more things to evaluate their relative merits or qualities.",
+        word: "comparison",
+        sentence: "The consumer made a comparison of different products before making a purchase.",
+        sentences: [
+            "The teacher asked the students to write a comparison of two different poems.",
+            "The athlete used their personal best time as a basis for comparison in their training.",
+            "The company conducted a comparison of different software options before selecting a new system.",
+            "The car buyer made a comparison of different models and features before making a decision.",
+            "The journalist made a comparison of the two candidates' policies and platforms.",
+            "The traveler made a comparison of different hotels before booking a room.",
+            "The researcher made a comparison of data from two different studies to confirm their findings.",
+            "The chef made a comparison of different recipes before creating their own version of a classic dish.",
+            "The student made a comparison of two different historical events to understand their significance.",
+            "The investor made a comparison of different stocks before making a decision on where to invest."
+        ]
+    },
+    {
+        explanation: "doing something in an outstanding or exceptional manner, with great skill or intelligence.",
+        word: "brilliantly",
+        sentence: "The artist's latest painting was brilliantly executed, with vibrant colors and intricate details.",
+        sentences: [
+            "The pianist played the difficult piece brilliantly, impressing the audience with their skill.",
+            "The scientist's research was brilliantly innovative, leading to a breakthrough in their field.",
+            "The chef's new recipe was brilliantly creative, combining unexpected flavors to create a unique dish.",
+            "The athlete performed brilliantly in the championship game, scoring the winning goal.",
+            "The writer's latest novel was brilliantly written, with vivid descriptions and compelling characters.",
+            "The entrepreneur's new business idea was brilliantly executed, leading to rapid growth and success.",
+            "The speaker delivered their presentation brilliantly, captivating the audience with their ideas.",
+            "The actor portrayed the character brilliantly, capturing their essence and bringing them to life.",
+            "The teacher's lesson was brilliantly designed, engaging the students and fostering deep learning.",
+            "The designer's latest collection was brilliantly inspired, showcasing their unique vision and style."
+        ]
+    },
 ]
 /*
-tell me what 'criticized' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'brilliantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
-explanation: "",
+explanation: "no current word",
 word: "lowcase",
 sentence: "",
 sentences:[]
