@@ -2384,9 +2384,111 @@ const DATA_nce = [
             "The designer's latest collection was brilliantly inspired, showcasing their unique vision and style."
         ]
     },
+    {
+        explanation: "Salvage refers to the act of saving or recovering something that has been damaged or discarded.",
+        word: "salvage",
+        sentence: "The team worked to salvage as much equipment as possible after the fire.",
+        sentences: [
+            "The company was able to salvage the project despite setbacks.",
+            "The diver was able to salvage the lost treasure from the shipwreck.",
+            "The mechanic was able to salvage the engine from the old car.",
+            "The artist used salvaged materials to create a unique sculpture.",
+            "The firefighters worked to salvage the building after the earthquake.",
+            "The farmer tried to salvage the damaged crops after the storm.",
+            "The archaeologists were able to salvage artifacts from the ancient ruins.",
+            "The company was able to salvage the reputation of its product with a successful marketing campaign.",
+            "The team worked to salvage the game after falling behind in the first half.",
+            "The organization was able to salvage the event by finding a last-minute replacement speaker."
+        ]
+    },
+    {
+        explanation: "Shivering refers to the act of shaking or trembling involuntarily due to cold, fear, or excitement.",
+        word: "shivering",
+        sentence: "The hiker was shivering in the cold wind.",
+        sentences: [
+            "The child was shivering with excitement as she opened her birthday presents.",
+            "The dog was shivering in fear during the thunderstorm.",
+            "The patient was shivering with a fever.",
+            "The swimmer was shivering after coming out of the cold water.",
+            "The homeless person was shivering on the street in the winter.",
+            "The actor was shivering in his costume during the outdoor performance.",
+            "The soldier was shivering with adrenaline as he prepared for battle.",
+            "The student was shivering in the classroom because the air conditioning was too cold.",
+            "The athlete was shivering before the big game due to nerves.",
+            "The passenger was shivering on the airplane due to the air conditioning being too high."
+        ]
+    },
+    {
+        explanation: "A corridor is a long, narrow passage that connects rooms or buildings.",
+        word: "corridor",
+        sentence: "She walked down the dimly lit corridor towards her hotel room.",
+        sentences: [
+            "The hospital corridor was bustling with doctors and nurses rushing to their patients.",
+            "The school corridor was decorated with student artwork and posters.",
+            "The office corridor was quiet and empty after hours.",
+            "The train corridor was crowded with passengers trying to find their seats.",
+            "The museum corridor was lined with ancient artifacts and artwork.",
+            "The hotel corridor had a musty smell and dim lighting.",
+            "The shopping mall corridor was filled with shoppers carrying bags from their purchases.",
+            "The prison corridor was guarded by armed officers.",
+            "The airport corridor was filled with travelers hurrying to catch their flights.",
+            "The apartment building corridor was narrow and smelled like cooking food from different cultures."
+        ]
+    },
+    {
+        explanation: "Inflatable refers to an object that can be filled with air or gas, typically for use in play or decoration.",
+        word: "inflatable",
+        sentence: "The children had fun playing on the inflatable slide at the birthday party.",
+        sentences: [
+            "The inflatable mattress was easy to pack and carry for the camping trip.",
+            "The company used an inflatable replica of their product for a promotional event.",
+            "The inflatable pool was a hit with the kids during the summer heat.",
+            "The concert venue had an inflatable roof to protect the audience from rain.",
+            "The inflatable bounce house was set up in the backyard for the children's playdate.",
+            "The inflatable boat was perfect for a day of fishing on the lake.",
+            "The inflatable arch marked the start and finish lines of the race.",
+            "The inflatable globe was used in geography class to teach about different countries.",
+            "The inflatable air dancer waved in the wind to attract customers to the store.",
+            "The inflatable obstacle course at the fair was challenging and fun for all ages."
+        ]
+    },
+    {
+        explanation: "Rubber is a material that is elastic and water-resistant, made from the sap of rubber trees or synthetic materials.",
+        word: "rubber",
+        sentence: "She wore rubber boots to keep her feet dry in the rain.",
+        sentences: [
+            "The tennis ball was made of rubber and bounced high.",
+            "The mechanic replaced the old rubber tires with new ones.",
+            "The swimmer wore a rubber cap to reduce drag in the water.",
+            "The toddler enjoyed chewing on the rubber teething toy.",
+            "The factory produced rubber gloves for workers in the medical field.",
+            "The artist carved a sculpture out of a block of rubber.",
+            "The driver hit a patch of wet rubber on the road and lost control of the car.",
+            "The farmer tapped rubber trees to collect sap for processing.",
+            "The scientist used rubber stoppers to seal the test tubes in the lab.",
+            "The hiker used rubber trekking poles for a better grip on the rocky terrain."
+        ]
+    },
+    {
+        explanation: "Eerie refers to something strange and unsettling, often causing fear or unease.",
+        word: "eerie",
+        sentence: "The abandoned house had an eerie feeling as if it was haunted.",
+        sentences: [
+            "The fog created an eerie atmosphere in the forest.",
+            "The silence in the empty hallway was eerie and unsettling.",
+            "The sound of footsteps in the dark alley was eerie and ominous.",
+            "The old graveyard was eerie with its overgrown weeds and worn gravestones.",
+            "The abandoned amusement park was eerie with its rusted rides and empty concession stands.",
+            "The howling wind outside created an eerie feeling in the house.",
+            "The creepy doll in the antique shop had an eerie resemblance to the owner's deceased daughter.",
+            "The abandoned hospital was eerie with its broken windows and flickering lights.",
+            "The misty lake at night was eerie with its eerie reflection of the moon.",
+            "The old book in the library had an eerie aura about it, as if it held a dark secret."
+        ]
+    },
 ]
 /*
-tell me what 'brilliantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'eerie' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
