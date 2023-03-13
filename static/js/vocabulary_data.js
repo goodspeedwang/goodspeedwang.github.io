@@ -2127,7 +2127,7 @@ const DATA_nce = [
     {
         explanation: "friendly and welcoming to guests or visitors.",
         word: "hospitable",
-        sentence: "The hotel staff was very hospitable and made sure all of our needs were met.",
+        sentence: "We always assume that villagers in remote places are friendly and hospitable.",
         sentences: [
             "The locals were incredibly hospitable and showed us around their town.",
             "Despite the language barrier, the host family was very hospitable and made us feel at home.",
@@ -2144,7 +2144,7 @@ const DATA_nce = [
     {
         explanation: "a technique of mural painting executed upon freshly laid, or wet lime plaster",
         word: "fresco",
-        sentence: "The Sistine Chapel is famous for its stunning frescoes painted by Michelangelo.",
+        sentence: "contained a large number of beautifully preserved frescoes as well",
         sentences: [
             "The artist spent months creating a beautiful fresco on the walls of the church.",
             "The colors of the fresco had faded over time, but it was still an impressive sight.",
@@ -2161,7 +2161,7 @@ const DATA_nce = [
     {
         explanation: "a person who does not eat meat, poultry, or fish.",
         word: "vegetarian",
-        sentence: "My sister has been a vegetarian for years and enjoys trying new plant-based recipes.",
+        sentence: "When you think you will abandon meat and become a vegetarian",
         sentences: [
             "The restaurant had a great selection of vegetarian dishes that were both delicious and filling.",
             "As a vegetarian, I always make sure to check the menu before going to a new restaurant.",
@@ -2178,7 +2178,7 @@ const DATA_nce = [
     {
         explanation: "in a way that is natural, without the use of synthetic chemicals, pesticides, or fertilizers.",
         word: "organically",
-        sentence: "The farm grows all of its produce organically, without using any chemical pesticides.",
+        sentence: "you have the choice of very expensive organically-grown vegetables or a steady diet",
         sentences: [
             "The company is committed to sourcing its materials organically and sustainably.",
             "The restaurant prides itself on using only organically raised meat in its dishes.",
@@ -2193,9 +2193,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "without interruption, continuously or constantly.",
+        explanation: "in a way that never stops, especially when this is annoying or unpleasant",
         word: "incessantly",
-        sentence: "The baby cried incessantly, causing the parents to lose sleep.",
+        sentence: "A recent survey of the efforts of noise revealed (surprisingly?) that dogs barking incessantly in the night rated the highest form of noise pollution on a scale ranging from 1 to 7.",
         sentences: [
             "The sound of the dripping faucet was incessant and drove me crazy.",
             "The dog barked incessantly, making it hard to concentrate.",
@@ -2210,9 +2210,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "the act of complaining or expressing dissatisfaction in a high-pitched, annoying tone.",
+        explanation: "to make a long, high, sad sound",
         word: "whining",
-        sentence: "The child kept whining about being bored and wanting to go home.",
+        sentence: "lawn mowers whining on a summer's day.",
         sentences: [
             "The employee's constant whining about their workload was starting to irritate their colleagues.",
             "The dog's whining signaled that it was time for a walk.",
@@ -2229,7 +2229,7 @@ const DATA_nce = [
     {
         explanation: "the sound made when breathing during sleep that is accompanied by vibration of the soft palate and other tissues in the mouth, nose, and throat.",
         word: "snoring",
-        sentence: "My roommate's snoring kept me up all night.",
+        sentence: "It turned out to be snoring!",
         sentences: [
             "The baby's snoring was so quiet and cute that it made everyone smile.",
             "The dog's snoring was so loud that it could be heard from across the room.",
@@ -2246,7 +2246,7 @@ const DATA_nce = [
     {
         explanation: "the act of making a loud, trumpet-like sound, often with the use of a trumpet or other brass instrument.",
         word: "trumpeting",
-        sentence: "The band was trumpeting their new album release with a concert in the park.",
+        sentence: "the rest are constantly woken or kept awake by their trumpeting partners.",
         sentences: [
             "The elephant was trumpeting loudly, warning the rest of the herd of danger.",
             "The fanfare was trumpeting the arrival of the king and queen at the palace.",
@@ -2263,7 +2263,7 @@ const DATA_nce = [
     {
         explanation: "matter or substance that can be used to make things or be transformed into a finished product.",
         word: "material",
-        sentence: "The artist used recycled materials to create a sculpture that was both beautiful and sustainable.",
+        sentence: "Armed with the right tools and materials",
         sentences: [
             "The company sources its materials from sustainable suppliers to reduce its environmental impact.",
             "The construction worker unloaded a truck full of building materials at the job site.",
@@ -2278,9 +2278,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "something that provides advice or guidance, often in an official or formal capacity.",
+        explanation: "giving advice",
         word: "advisory",
-        sentence: "The government issued a travel advisory warning citizens of potential dangers in certain areas.",
+        sentence: "Shops cater for the do-it-yourself craze not only by running special advisory services for novices",
         sentences: [
             "The government issued a travel advisory warning citizens of potential dangers in certain areas.",
             "The school board formed an advisory committee to provide feedback on proposed curriculum changes.",
@@ -2295,9 +2295,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "emotions or energy that have been suppressed or held back for a period of time.",
+        explanation: "(of feelings) not expressed or released",
         word: "pent up",
-        sentence: "After being stuck inside all day, I had a lot of pent up energy that I needed to release.",
+        sentence: "Such things provide an excellent out for pent up creative energy, but unfortunately not all of us are born handymen..",
         sentences: [
             "The athlete had a lot of pent up frustration after losing the game.",
             "The student's pent up anxiety about the exam made it hard to concentrate.",
@@ -2314,7 +2314,7 @@ const DATA_nce = [
     {
         explanation: "a portable shelter made of canvas, nylon, or other durable material that is supported by poles and ropes.",
         word: "tent",
-        sentence: "We set up our tent in a clearing by the river for our camping trip.",
+        sentence: "the five babies were still quietly sleeping in oxygen tentsWe set up our tent in a clearing by the river for our camping trip.",
         sentences: [
             "The hiker carried a small tent with them on their backpacking trip.",
             "The family rented a large tent for their outdoor wedding reception.",
@@ -2331,7 +2331,7 @@ const DATA_nce = [
     {
         explanation: "a place where young plants or trees are grown, or a place where babies and young children are cared for.",
         word: "nursery",
-        sentence: "The gardener tended to the young seedlings in the nursery.",
+        sentence: "the five babies were still quietly sleeping in oxygen tents in a hospital nursery",
         sentences: [
             "The parents enrolled their child in a nursery program while they worked during the day.",
             "The florist had a wide variety of plants available at the nursery.",
@@ -2346,14 +2346,14 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "the act of taking or grabbing something quickly or forcefully.",
+        explanation: "a short part of something",
         word: "snatches",
-        sentence: "The thief snatched the woman's purse and ran away.",
+        sentence: "during the day, sleep comes in snatches.",
     },
     {
         explanation: "the act of examining the similarities and differences between two or more things to evaluate their relative merits or qualities.",
         word: "comparison",
-        sentence: "The consumer made a comparison of different products before making a purchase.",
+        sentence: "By comparison, ferry trips or cruises offer a great variety of civilized comforts.",
         sentences: [
             "The teacher asked the students to write a comparison of two different poems.",
             "The athlete used their personal best time as a basis for comparison in their training.",
@@ -2370,7 +2370,7 @@ const DATA_nce = [
     {
         explanation: "doing something in an outstanding or exceptional manner, with great skill or intelligence.",
         word: "brilliantly",
-        sentence: "The artist's latest painting was brilliantly executed, with vibrant colors and intricate details.",
+        sentence: "while the sun shines brilliantly in a clear sky.",
         sentences: [
             "The pianist played the difficult piece brilliantly, impressing the audience with their skill.",
             "The scientist's research was brilliantly innovative, leading to a breakthrough in their field.",
@@ -2385,9 +2385,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "Salvage refers to the act of saving or recovering something that has been damaged or discarded.",
+        explanation: "the act of saving or recovering something that has been damaged or discarded.",
         word: "salvage",
-        sentence: "The team worked to salvage as much equipment as possible after the fire.",
+        sentence: "The pie committee telephoned a local garage owner who arrived in a recovery truck to salvage the pie dish.",
         sentences: [
             "The company was able to salvage the project despite setbacks.",
             "The diver was able to salvage the lost treasure from the shipwreck.",
@@ -2402,9 +2402,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "Shivering refers to the act of shaking or trembling involuntarily due to cold, fear, or excitement.",
+        explanation: "When people or animals shiver, they shake slightly because they feel cold, ill, or frightened",
         word: "shivering",
-        sentence: "The hiker was shivering in the cold wind.",
+        sentence: "Shivering in their wet clothes, the teenagers looked on while ……",
         sentences: [
             "The child was shivering with excitement as she opened her birthday presents.",
             "The dog was shivering in fear during the thunderstorm.",
@@ -2419,9 +2419,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "A corridor is a long, narrow passage that connects rooms or buildings.",
+        explanation: "a long, narrow passage that connects rooms or buildings.",
         word: "corridor",
-        sentence: "She walked down the dimly lit corridor towards her hotel room.",
+        sentence: "they climbed down the steep sides of the cave until they came to a narrow corridor.",
         sentences: [
             "The hospital corridor was bustling with doctors and nurses rushing to their patients.",
             "The school corridor was decorated with student artwork and posters.",
@@ -2436,9 +2436,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "Inflatable refers to an object that can be filled with air or gas, typically for use in play or decoration.",
+        explanation: "an object that can be filled with air or gas, typically for use in play or decoration.",
         word: "inflatable",
-        sentence: "The children had fun playing on the inflatable slide at the birthday party.",
+        sentence: "after loading their gear in an inflatable rubber dinghy.",
         sentences: [
             "The inflatable mattress was easy to pack and carry for the camping trip.",
             "The company used an inflatable replica of their product for a promotional event.",
@@ -2453,9 +2453,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "Rubber is a material that is elastic and water-resistant, made from the sap of rubber trees or synthetic materials.",
+        explanation: "a material that is elastic and water-resistant, made from the sap of rubber trees or synthetic materials.",
         word: "rubber",
-        sentence: "She wore rubber boots to keep her feet dry in the rain.",
+        sentence: "after loading their gear in an inflatable rubber dinghy.",
         sentences: [
             "The tennis ball was made of rubber and bounced high.",
             "The mechanic replaced the old rubber tires with new ones.",
@@ -2470,9 +2470,9 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "Eerie refers to something strange and unsettling, often causing fear or unease.",
+        explanation: "strange in a frightening and mysterious way",
         word: "eerie",
-        sentence: "The abandoned house had an eerie feeling as if it was haunted.",
+        sentence: "In the eerie silence of the cave",
         sentences: [
             "The fog created an eerie atmosphere in the forest.",
             "The silence in the empty hallway was eerie and unsettling.",
