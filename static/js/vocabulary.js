@@ -30,7 +30,7 @@ document.getElementById("test").onkeyup = function (e) {
         }
     }
 }
-document.getElementById("category").onselect = init;
+document.getElementById("category").onchange = init;
 
 function init() {
     loadDictionary();
