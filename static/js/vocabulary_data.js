@@ -27,7 +27,19 @@ const DATA_nce = [
     {
         explanation: "in an unreasonably determined way, especially by acting in a particular way and not changing at all, despite what anyone else says",
         word: "obstinately",
-        sentence: "It has always been a mystery to me why city dwellers, who appreciate all these things, obstinately pretend that they would prefer to live in the country."
+        sentence: "It has always been a mystery to me why city dwellers, who appreciate all these things, obstinately pretend that they would prefer to live in the country.",
+        sentences: [
+            "The child obstinately refused to eat her vegetables, even though they were good for her.",
+            "The company's CEO obstinately refused to change his management style, despite the declining profits.",
+            "The politician obstinately defended his controversial decision, despite the public outcry.",
+            "The employee obstinately refused to take on any additional work, even though it was part of his job description.",
+            "The artist obstinately insisted on using a specific color palette, even though it didn't fit the client's vision.",
+            "The athlete obstinately pushed through the pain and injury, which ultimately led to a more severe injury.",
+            "The driver obstinately refused to ask for directions, even though he was lost.",
+            "The student obstinately argued with the teacher over a grade, despite the clear guidelines of the assignment.",
+            "The patient obstinately refused to follow the doctor's orders, which made his recovery more difficult.",
+            "The team obstinately stuck to their game plan, even though it wasn't working and they were losing."
+        ]
     },
     {
         explanation: "the situation of being alone, often by choice",
@@ -1175,7 +1187,7 @@ const DATA_nce = [
         sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."]
     }, {
         explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
-        word: "prosecuted",
+        word: "prosecute",
         sentence: "The policeman was informed that if any further complaints were lodged against him, he would be prosecuted.",
         sentences: [
             "The company was prosecuted for violating environmental regulations.",
@@ -2197,7 +2209,6 @@ const DATA_nce = [
         word: "incessantly",
         sentence: "A recent survey of the efforts of noise revealed (surprisingly?) that dogs barking incessantly in the night rated the highest form of noise pollution on a scale ranging from 1 to 7.",
         sentences: [
-            "The sound of the dripping faucet was incessant and drove me crazy.",
             "The dog barked incessantly, making it hard to concentrate.",
             "The rain fell incessantly, causing flooding and damage to homes.",
             "The construction noise outside my window continued incessantly throughout the day.",
@@ -2244,7 +2255,7 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "the act of making a loud, trumpet-like sound, often with the use of a trumpet or other brass instrument.",
+        explanation: "the act of making a loud, often with the use of brass instrument.",
         word: "trumpeting",
         sentence: "the rest are constantly woken or kept awake by their trumpeting partners.",
         sentences: [
@@ -2402,7 +2413,7 @@ const DATA_nce = [
         ]
     },
     {
-        explanation: "When people or animals shiver, they shake slightly because they feel cold, ill, or frightened",
+        explanation: "people or animals shake slightly because they feel cold, ill, or frightened",
         word: "shivering",
         sentence: "Shivering in their wet clothes, the teenagers looked on while ……",
         sentences: [
@@ -2488,7 +2499,7 @@ const DATA_nce = [
     },
 ]
 /*
-tell me what 'eerie' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'obstinately' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
