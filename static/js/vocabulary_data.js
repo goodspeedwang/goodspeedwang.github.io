@@ -1081,7 +1081,8 @@ const DATA_nce = [
             "As a pilot, it's crucial that he's punctual and arrives on time for his flights.",
             "Being punctual is a sign of respect for other people's time.",
             "The trains in Japan are famous for being punctual to the minute."
-        ]
+        ],
+        obsolete: true
     }, {
         explanation: "in a way that does not last for long or for ever",
         word: "temporarily",
@@ -1934,13 +1935,13 @@ const DATA_nce = [
         sentences: [
             "He made a prejudiced comment about people of a certain religion.",
             "The media has been criticized for perpetuating prejudiced stereotypes.",
-            "Prejudiced attitudes can lead to discrimination and unfair treatment.",
+            "prejudiced attitudes can lead to discrimination and unfair treatment.",
             "The company has a zero-tolerance policy for prejudiced behavior in the workplace.",
             "She realized her beliefs were prejudiced and worked to change them.",
             "The organization provides resources to help people overcome prejudiced attitudes.",
             "The teacher addressed prejudiced language in the classroom to create a safe environment.",
             "The study found that people who hold prejudiced beliefs tend to be less accepting of diversity.",
-            "Prejudiced views often stem from fear or ignorance of those who are different.",
+            "prejudiced views often stem from fear or ignorance of those who are different.",
             "The book explores the effects of prejudiced attitudes on individuals and society."
         ]
     }, {
