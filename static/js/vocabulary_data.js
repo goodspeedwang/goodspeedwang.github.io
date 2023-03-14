@@ -734,7 +734,7 @@ const DATA_nce = [
         word: "ironically",
         sentence: "the police pointed out ironically that this would hardly be necessary as the men were already under arrest.",
         sentences: [
-            "Ironically, the weather was sunny on the day of the outdoor music festival after weeks of rain.",
+            "ironically, the weather was sunny on the day of the outdoor music festival after weeks of rain.",
             "She had just finished a degree in English literature, but ironically landed a job as a software engineer.",
             "The promotion he was offered came with a bigger workload and ironically, a smaller raise.",
             "ironically, the company that claimed to be eco-friendly was found to be polluting the environment.",
@@ -743,7 +743,7 @@ const DATA_nce = [
             "They installed a state-of-the-art security system, but ironically, it was hacked within days.",
             "He always went out of his way to avoid traffic, but ironically, ended up being late to his wedding because of an unexpected traffic jam.",
             "They proposed a new law to reduce government bureaucracy, but ironically, it required more complex procedures.",
-            "Ironically, the book she tried to donate to the library was already in their collection."
+            "ironically, the book she tried to donate to the library was already in their collection."
         ]
     }, {
         explanation: "the act of allowing someone to do something, or of allowing something to happen",
