@@ -1120,7 +1120,7 @@ const DATA_nce = [
         explanation: "农业",
         word: "agriculture",
         sentence: "agriculture",
-        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "Agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
+        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
     },
     {
         explanation: "烟囱",
@@ -1453,7 +1453,7 @@ const DATA_nce = [
             "It was so quiet, I could hear the cockcrow from the neighboring farm.",
             "I always find peace in silence and the cockcrow brings a sense of calmness.",
             "The sound of the cockcrow reminds me of my childhood days in the countryside."
-        ]
+        ], obsolete:true
     }, {
         explanation: "feeling doubt or not feeling certain",
         word: "dubious",
