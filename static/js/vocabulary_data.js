@@ -2823,14 +2823,14 @@ const DATA_nce = [
         ]
     }, {
         explanation: "to try to do something",
-        word: "endeavour",
-        sentence: "No human endeavour or thought would be unchanged by it.",
+        word: "endeavor",
+        sentence: "No human endeavor or thought would be unchanged by it.",
         sentences: [
             "The company is endeavoring to reduce its carbon footprint and become more environmentally friendly.",
             "She is always endeavoring to improve her language skills by reading and practicing every day.",
             "The explorers endeavored to reach the summit of the mountain, despite the difficult terrain and harsh weather.",
-            "The teacher endeavours to make her lessons engaging and interactive for her students.",
-            "The organization endeavours to provide access to education and healthcare for people in need around the world.",
+            "The teacher endeavors to make her lessons engaging and interactive for her students.",
+            "The organization endeavors to provide access to education and healthcare for people in need around the world.",
             "The athlete is endeavoring to beat his personal best and set a new world record.",
             "The government is endeavoring to create more job opportunities for young people and reduce unemployment.",
             "The artist is endeavoring to capture the essence of the landscape in her paintings.",
