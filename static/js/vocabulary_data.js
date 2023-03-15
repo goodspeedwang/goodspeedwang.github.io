@@ -1453,7 +1453,7 @@ const DATA_nce = [
             "It was so quiet, I could hear the cockcrow from the neighboring farm.",
             "I always find peace in silence and the cockcrow brings a sense of calmness.",
             "The sound of the cockcrow reminds me of my childhood days in the countryside."
-        ], obsolete:true
+        ], obsolete: true
     }, {
         explanation: "feeling doubt or not feeling certain",
         word: "dubious",
@@ -2709,10 +2709,139 @@ const DATA_nce = [
             "The delays in the delivery of the supplies were a source of frustration for the production team, who were unable to meet their deadlines."
         ]
     },
+    {
+        explanation: "not showing careful choice or planning, especially so that harm results",
+        word: "indiscriminate",
+        sentence: "Those who never have to move house become indiscriminate collectors of what can only be described as clutter.",
+        sentences: [
+            "The company's cost-cutting measures were indiscriminate and resulted in the loss of many jobs.",
+            "The hunter was criticized for his indiscriminate killing of animals in the forest.",
+            "The virus is spreading indiscriminately among people of all ages and backgrounds.",
+            "The protesters were met with indiscriminate force from the police, who used tear gas and rubber bullets.",
+            "The landlord was accused of discrimination for his indiscriminate screening of tenants based on their race and ethnicity.",
+            "The indiscriminate use of pesticides has had a negative impact on the environment and wildlife.",
+            "The warzone was the site of indiscriminate bombings, resulting in the deaths of many innocent civilians.",
+            "The social media platform has been criticized for its indiscriminate approach to content moderation, allowing hate speech and misinformation to spread unchecked.",
+            "The earthquake caused indiscriminate destruction, leaving no building or infrastructure untouched.",
+            "The disease can have an indiscriminate impact on people's health, regardless of their age or lifestyle."
+        ]
+    }, {
+        explanation: "someone who is in a place or situation where they are not wanted",
+        word: "intruder",
+        sentence: "She was ready to set off with the porter's assistance to search for any intruders who might still be lurking in her flat.",
+        sentences: [
+            "There was an intruder in the school last night, and several items were stolen.",
+            "The alarm system alerted the family to the presence of an intruder in their backyard.",
+            "The security guard caught the intruder trying to break into the building.",
+            "She felt like an intruder at the party because she didn't know anyone.",
+            "The cat hissed at the intruder who had entered its territory.",
+            "The company had to increase security measures after an intruder stole confidential information.",
+            "The intruder was arrested and charged with trespassing and theft.",
+            "The homeowner installed a security camera to monitor for intruders.",
+            "The woman screamed when she saw an intruder looking through her window.",
+            "The police warned residents to be on the lookout for any suspicious intruders in the area."
+        ]
+    }, {
+        explanation: "impossible to imagine or think of",
+        word: "inconceivable",
+        sentence: "the chaos was inconceivable",
+        sentences: [
+            "The idea that life exists on other planets is inconceivable to some people.",
+            "It is inconceivable that a company would knowingly harm the environment for profit.",
+            "The amount of money they spent on the party is inconceivable to me.",
+            "It is inconceivable that someone could have survived that plane crash.",
+            "The thought of losing my best friend is inconceivable to me.",
+            "The complexity of the human brain is inconceivable to most people.",
+            "The idea of going to Mars and colonizing it is inconceivable to some people.",
+            "It is inconceivable that someone could climb Mount Everest without any equipment.",
+            "The amount of time it would take to count all the stars in the universe is inconceivable.",
+            "The fact that he was able to memorize the entire dictionary is inconceivable to me."
+        ]
+    }, {
+        explanation: "Objects that are worn for personal adornment, such as necklaces, bracelets, earrings, and rings, often made of precious metals and stones",
+        word: "jewellery",
+        sentence: "the inspector found a dirty red bundle that contained jewellery which the old lady said was not hers.",
+        sentences: [
+            "My grandmother gave me a piece of jewellery that has been in our family for generations.",
+            "The store sells a wide variety of jewellery, from simple designs to elaborate ones.",
+            "He surprised his girlfriend with a piece of jewellery for their anniversary.",
+            "The actress was dripping in jewellery at the red carpet event.",
+            "The thief stole thousands of dollars worth of jewellery from the store.",
+            "The bride wore a stunning diamond necklace as her wedding jewellery.",
+            "She designs and creates her own unique jewellery pieces.",
+            "The museum has a collection of ancient jewellery from various civilizations.",
+            "The antique store specializes in vintage jewellery from the 1800s and earlier.",
+            "The jeweller repaired the broken clasp on her bracelet and polished her other pieces."
+        ]
+    }, {
+        explanation: "1. A being from another planet or world. 2. A foreigner or someone who is not a citizen of the country they are in.",
+        word: "alien",
+        sentence: "but everything still seemed alien to me.",
+        sentences: [
+            "She felt like an alien in a new country where she didn't know the customs or language.",
+            "The government is trying to find evidence of alien life in outer space.",
+            "The scientist believes that the strange object in the sky could be an alien spacecraft.",
+            "The children were fascinated by the idea of aliens visiting Earth.",
+            "The immigration officer asked the man if he had ever been convicted of a crime as an alien.",
+            "The hotel manager had to ask the noisy group of aliens to keep it down after midnight.",
+            "The author's new book explores the idea of humans being the real aliens on their own planet.",
+            "The company hired an alien consultant who had experience working in different cultures.",
+            "The alien invasion in the movie caused widespread panic and destruction.",
+            "The government denied rumors of an alien cover-up and said that there was no evidence of extraterrestrial activity."
+        ]
+    }, {
+        explanation: "A limit that defines the edge or extent of something, such as a physical space, a social or moral norm, or a conceptual idea",
+        word: "boundary",
+        sentence: "The river which forms the eastern boundary of our farm has always played an important part in our lives.",
+        sentences: [
+            "It is important to set clear boundary in personal relationships to avoid misunderstandings.",
+            "The river forms a natural boundary between the two countries.",
+            "The school has strict boundary for acceptable behavior and dress code.",
+            "The therapist helps clients establish healthy emotional boundary with others.",
+            "The company has expanded its business beyond the boundary of the local market.",
+            "The artist likes to push the boundary of traditional art forms with experimental techniques.",
+            "The athlete broke the world record and pushed the boundary of what was thought to be physically possible.",
+            "The government is trying to enforce stricter boundary on immigration and border control.",
+            "The book explores the boundary between reality and fantasy in the mind of the main character.",
+            "The hiker crossed the boundary into the protected wilderness area and was fined by the park rangers."
+        ]
+    }, {
+        explanation: "A special event or occasion, often religious or cultural, that is celebrated with music, dance, food, and other forms of entertainment",
+        word: "festival",
+        sentence: "holding a summer festival on Midsummer Eve",
+        sentences: [
+            "The city hosts an annual cultural festival that showcases the diversity of the community.",
+            "The religious festival honors the birth of the prophet and is celebrated by millions of people around the world.",
+            "The food festival features cuisine from different countries and regions, and attracts foodies from all over.",
+            "The film festival showcases independent and international films that are not usually shown in mainstream theaters.",
+            "The arts festival includes a variety of performances and exhibitions, from theater and dance to painting and sculpture.",
+            "The harvest festival is a traditional celebration of the end of the farming season and the beginning of winter.",
+            "The winter festival features ice sculptures, snow activities, and other winter-themed attractions.",
+            "The literary festival brings together writers, readers, and book lovers for a series of talks, workshops, and readings.",
+            "The music and arts festival is a four-day event that has become one of the biggest in the country.",
+            "The lantern festival is a colorful celebration that marks the end of the Chinese New Year and the beginning of spring."
+        ]
+    }, {
+        explanation: "to try to do something",
+        word: "endeavour",
+        sentence: "No human endeavour or thought would be unchanged by it.",
+        sentences: [
+            "The company is endeavoring to reduce its carbon footprint and become more environmentally friendly.",
+            "She is always endeavoring to improve her language skills by reading and practicing every day.",
+            "The explorers endeavored to reach the summit of the mountain, despite the difficult terrain and harsh weather.",
+            "The teacher endeavours to make her lessons engaging and interactive for her students.",
+            "The organization endeavours to provide access to education and healthcare for people in need around the world.",
+            "The athlete is endeavoring to beat his personal best and set a new world record.",
+            "The government is endeavoring to create more job opportunities for young people and reduce unemployment.",
+            "The artist is endeavoring to capture the essence of the landscape in her paintings.",
+            "The team is endeavoring to win the championship for the first time in their history.",
+            "The volunteers are endeavoring to help rebuild the community after the devastating earthquake."
+        ]
+    },
 
 ]
 /*
-tell me what 'frustration' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'indiscriminate' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
