@@ -328,7 +328,7 @@ const DATA_nce = [
     },
     {
         explanation: "to criticize something or someone strongly, usually for moral reasons.",
-        word: "condemned",
+        word: "condemn",
         sentence: "In democratic countries, any efforts to restrict the freedom of the press are rightly condemned.",
         sentences: [
             "The building was condemned due to extensive damage from the earthquake.",
