@@ -2838,10 +2838,27 @@ const DATA_nce = [
             "The volunteers are endeavoring to help rebuild the community after the devastating earthquake."
         ]
     },
+    {
+        explanation: "in a way that suggests you have achieved a victory or feel happy because of achieving a victory",
+        word: "triumphantly",
+        sentence: "Who has not stood in awe at the sight of a spider pouncing on a fly, or a column of ants triumphantly bearing home an enormous dead beetle?",
+        sentences: [
+            "He accepted the award triumphantly, with tears in his eyes.",
+            "After months of hard work, the team triumphantly completed their project.",
+            "The crowd cheered triumphantly as their team scored the winning goal.",
+            "The general led his troops triumphantly into the enemy's territory.",
+            "The actor walked off stage triumphantly, having just given a critically acclaimed performance.",
+            "The CEO announced the company's record profits triumphantly at the annual shareholder meeting.",
+            "The scientist triumphantly announced the discovery of a new species.",
+            "After overcoming many obstacles, the adventurer emerged from the jungle triumphantly.",
+            "The politician gave a triumphant speech after winning the election.",
+            "The student raised her hand triumphantly, having just solved a difficult math problem."
+        ]
+    },
 
 ]
 /*
-tell me what 'indiscriminate' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'triumphantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
