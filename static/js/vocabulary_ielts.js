@@ -43,7 +43,7 @@ const DATA_ielts = [
     { explanation: "医疗中心", word: "medical centre" },
     { explanation: "电子目录", word: "electronic directory" },
     { explanation: "文本结构", word: "text structure" },
-    { explanation: "参考", word: "refrerence" },
+    { explanation: "参考", word: "reference" },
     { explanation: "论文提纲", word: "essay outline" },
     { explanation: "扩散杂草", word: "spread weeds" },
     { explanation: "非常具有攻击性", word: "very aggressive" },
@@ -102,7 +102,7 @@ const DATA_ielts = [
     { explanation: "蜘蛛", word: "spiders" },
     { explanation: "遗传的", word: "genetic" },
     { explanation: "疾病", word: "disease" },
-    { explanation: "欧洲", word: "europe" },
+    { explanation: "欧洲", word: "Europe" },
     { explanation: "木材", word: "timber" },
     { explanation: "俄罗斯", word: "Russia" },
     { explanation: "消化问题", word: "digestive problem" }
