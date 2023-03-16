@@ -72,7 +72,7 @@ const DATA_ielts = [
     { explanation: "矿物质", word: "minerals" },
     { explanation: "液体", word: "liquid" },
     { explanation: "糖", word: "sugar" },
-    { explanation: "意大利", word: "italy" },
+    { explanation: "意大利", word: "Italy" },
     { explanation: "劳工", word: "labour" },
     { explanation: "经济", word: "economy" },
     { explanation: "海岸", word: "coast" },
@@ -104,7 +104,7 @@ const DATA_ielts = [
     { explanation: "疾病", word: "disease" },
     { explanation: "欧洲", word: "europe" },
     { explanation: "木材", word: "timber" },
-    { explanation: "俄罗斯", word: "russia" },
+    { explanation: "俄罗斯", word: "Russia" },
     { explanation: "消化问题", word: "digestive problem" }
 ];
 
