@@ -1,4 +1,4 @@
-const DATA_nce = [
+const DATA_nce2 = [
 ];
 /*
 please translate the following words to Chinese. 
