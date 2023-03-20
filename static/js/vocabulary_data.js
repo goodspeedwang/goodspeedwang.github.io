@@ -328,7 +328,7 @@ const DATA_nce = [
     },
     {
         explanation: "to criticize something or someone strongly, usually for moral reasons.",
-        word: "condemned",
+        word: "condemn",
         sentence: "In democratic countries, any efforts to restrict the freedom of the press are rightly condemned.",
         sentences: [
             "The building was condemned due to extensive damage from the earthquake.",
@@ -734,7 +734,7 @@ const DATA_nce = [
         word: "ironically",
         sentence: "the police pointed out ironically that this would hardly be necessary as the men were already under arrest.",
         sentences: [
-            "Ironically, the weather was sunny on the day of the outdoor music festival after weeks of rain.",
+            "ironically, the weather was sunny on the day of the outdoor music festival after weeks of rain.",
             "She had just finished a degree in English literature, but ironically landed a job as a software engineer.",
             "The promotion he was offered came with a bigger workload and ironically, a smaller raise.",
             "ironically, the company that claimed to be eco-friendly was found to be polluting the environment.",
@@ -743,7 +743,7 @@ const DATA_nce = [
             "They installed a state-of-the-art security system, but ironically, it was hacked within days.",
             "He always went out of his way to avoid traffic, but ironically, ended up being late to his wedding because of an unexpected traffic jam.",
             "They proposed a new law to reduce government bureaucracy, but ironically, it required more complex procedures.",
-            "Ironically, the book she tried to donate to the library was already in their collection."
+            "ironically, the book she tried to donate to the library was already in their collection."
         ]
     }, {
         explanation: "the act of allowing someone to do something, or of allowing something to happen",
@@ -1081,7 +1081,8 @@ const DATA_nce = [
             "As a pilot, it's crucial that he's punctual and arrives on time for his flights.",
             "Being punctual is a sign of respect for other people's time.",
             "The trains in Japan are famous for being punctual to the minute."
-        ]
+        ],
+        obsolete: true
     }, {
         explanation: "in a way that does not last for long or for ever",
         word: "temporarily",
@@ -1119,7 +1120,7 @@ const DATA_nce = [
         explanation: "农业",
         word: "agriculture",
         sentence: "agriculture",
-        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "Agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
+        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
     },
     {
         explanation: "烟囱",
@@ -1452,7 +1453,7 @@ const DATA_nce = [
             "It was so quiet, I could hear the cockcrow from the neighboring farm.",
             "I always find peace in silence and the cockcrow brings a sense of calmness.",
             "The sound of the cockcrow reminds me of my childhood days in the countryside."
-        ]
+        ], obsolete: true
     }, {
         explanation: "feeling doubt or not feeling certain",
         word: "dubious",
@@ -1934,13 +1935,13 @@ const DATA_nce = [
         sentences: [
             "He made a prejudiced comment about people of a certain religion.",
             "The media has been criticized for perpetuating prejudiced stereotypes.",
-            "Prejudiced attitudes can lead to discrimination and unfair treatment.",
+            "prejudiced attitudes can lead to discrimination and unfair treatment.",
             "The company has a zero-tolerance policy for prejudiced behavior in the workplace.",
             "She realized her beliefs were prejudiced and worked to change them.",
             "The organization provides resources to help people overcome prejudiced attitudes.",
             "The teacher addressed prejudiced language in the classroom to create a safe environment.",
             "The study found that people who hold prejudiced beliefs tend to be less accepting of diversity.",
-            "Prejudiced views often stem from fear or ignorance of those who are different.",
+            "prejudiced views often stem from fear or ignorance of those who are different.",
             "The book explores the effects of prejudiced attitudes on individuals and society."
         ]
     }, {
@@ -2497,9 +2498,367 @@ const DATA_nce = [
             "The old book in the library had an eerie aura about it, as if it held a dark secret."
         ]
     },
+    {
+        explanation: "to a disturbance in the atmosphere characterized by strong winds, thunder, lightning, and heavy precipitation.",
+        word: "storm",
+        sentence: "Ships may be delayed by storms",
+        sentences: [
+            "storms can be very dangerous and cause damage to property and infrastructure.",
+            "Severe storms can produce tornadoes, which can be incredibly destructive.",
+            "The National Weather Service issued a severe storm warning for our area.",
+            "The storm clouds looked ominous, and sure enough, it started pouring soon after.",
+            "During the storm, we had to take shelter in the basement to stay safe.",
+            "The storms in the Pacific Ocean can cause massive waves that surfers love to ride.",
+            "The sound of thunder during a storm can be both frightening and exhilarating at the same time.",
+            "Some people find the sound of rain during a storm very soothing and relaxing.",
+            "The storm caused a delay in our flight, and we had to spend the night at the airport.",
+            "After the storm passed, we went outside to assess the damage and clean up any fallen branches or debris."
+        ]
+    },
+    {
+        explanation: "a sequence of events that make up a story or narrative.",
+        word: "plot",
+        sentence: "wickedly plotting to bring about the hero’s downfall.",
+        sentences: [
+            "A well-crafted plot can make a book or movie unforgettable.",
+            "The author spent months developing the plot of her latest novel.",
+            "The plot of the story involved a group of adventurers searching for a lost treasure.",
+            "The twists and turns in the plot kept the audience guessing until the very end.",
+            "The plot thickened when the detective discovered a crucial piece of evidence.",
+            "The movie's plot was based on a true story, which made it even more compelling.",
+            "The plot of the play revolved around a love triangle between three characters.",
+            "The writer had to revise the plot several times before it was ready to be published.",
+            "The plot of the TV series was so intricate that some fans created online forums to discuss and analyze it.",
+            "The plot of the novel was so captivating that I finished it in one sitting."
+        ]
+    }, {
+        explanation: "a person or animal that lives permanently or temporarily in a particular place.",
+        word: "inhabitants",
+        sentence: "no one in the neighborhood knew what had become of the inhabitants.",
+        sentences: [
+            "The zoo has a diverse collection of animals from all over the world, each with their own unique inhabitants.",
+            "The island's only inhabitants were a small group of fishermen and their families.",
+            "The city's inhabitants were excited about the new park that was being built in their neighborhood.",
+            "The arctic is home to many unique animal species and their inhabitants.",
+            "The inhabitants of the jungle are constantly threatened by deforestation and other environmental issues.",
+            "The ancient ruins once housed the inhabitants of a great civilization that has long since disappeared.",
+            "The new apartment building can accommodate up to 200 inhabitants.",
+            "The spaceship's crew consisted of a diverse group of inhabitants from different parts of the galaxy.",
+            "The town's inhabitants were shocked when they learned that their mayor had been caught embezzling funds.",
+            "The inhabitants of the nursing home enjoyed spending time with the local schoolchildren who visited them every week."
+        ]
+    }, {
+        explanation: "a feeling of responsibility or remorse for doing something wrong or causing harm to others.",
+        word: "guilt",
+        sentence: "We might say that justice has been done when a man’s innocence or guilt has been proved beyond doubt.",
+        sentences: [
+            "The defendant's guilt was proven beyond a reasonable doubt, and he was sentenced to life in prison.",
+            "She was consumed by guilt after realizing the impact of her actions on others.",
+            "The therapist helped her work through her feelings of guilt and shame.",
+            "He tried to alleviate his guilt by making amends and apologizing to those he had wronged.",
+            "The weight of his guilt became too much to bear, and he eventually confessed to the crime.",
+            "She struggled with feelings of guilt and self-doubt after failing her exams.",
+            "The parents felt a sense of guilt for not spending enough time with their children.",
+            "His guilt prevented him from fully enjoying his success and accomplishments.",
+            "The victim's family expressed their satisfaction with the verdict, which finally brought closure to their years of pain and guilt.",
+            "She felt a twinge of guilt every time she indulged in her favorite dessert, knowing that she was trying to watch her diet."
+        ]
+    }, {
+        explanation: "a penalty inflicted on someone for a wrongdoing or crime.",
+        word: "punishment",
+        sentence: "Reward or punishment are meted out quite independent of human interference.",
+        sentences: [
+            "The threat of punishment is often used as a deterrent to prevent people from committing crimes.",
+            "The school has a strict policy on cheating, and anyone caught faces severe punishment.",
+            "The punishment for speeding in this state can range from a small fine to the loss of your driver's license.",
+            "The parents decided to give their child a mild punishment for misbehaving, hoping to teach him a lesson.",
+            "The prisoner was released early for good behavior, and his punishment was reduced by several years.",
+            "The punishment for treason in some countries is death.",
+            "The teacher gave the students extra homework as a punishment for not paying attention in class.",
+            "The company has a zero-tolerance policy for harassment, and anyone found guilty faces severe punishment.",
+            "The punishment should fit the crime and be appropriate to the severity of the offense.",
+            "The punishment for breaking the law should not be left to vigilantes or individuals taking the law into their own hands."
+        ]
+    }, {
+        explanation: "to distribute or administer something, typically a punishment or justice.",
+        word: "meted out",
+        sentence: "Reward or punishment are meted out quite independent of human interference.",
+        sentences: [
+            "The teacher meted out detention to the students who were caught cheating on the exam.",
+            "The coach meted out discipline to the players who broke team rules.",
+            "The government promised to mete out justice to those responsible for the terrorist attack.",
+            "The company's HR department meted out disciplinary action to the employees who violated the company's code of conduct.",
+            "The principal meted out punishment to the students who were found bullying their classmates.",
+            "The court meted out a hefty fine to the company for violating environmental regulations.",
+            "The captain meted out harsh penalties to the sailors who disobeyed orders and put the ship in danger.",
+            "The police officer meted out traffic tickets to drivers who were breaking the law.",
+            "The judge meted out a lenient sentence to the defendant, taking into account his difficult circumstances.",
+            "The coach meted out praise to the players who had worked hard and showed improvement."
+        ]
+    }, {
+        explanation: "a judgment or decision reached after considering all the evidence or information.",
+        word: "conclusion",
+        sentence: "She reluctantly came to the conclusion that Bessie was drunk.",
+        sentences: [
+            "The detective drew a conclusion based on the evidence and solved the case.",
+            "The report's conclusion stated that the company needed to cut costs in order to remain profitable.",
+            "The scholars debated the conclusion of the study for hours, trying to come to a consensus.",
+            "In conclusion, I would like to thank everyone for their hard work and dedication to this project.",
+            "The speaker's conclusion left the audience feeling inspired and motivated.",
+            "The experiment's conclusion showed that the new drug was effective in treating the disease.",
+            "It's important to draw a logical conclusion based on the evidence, rather than jumping to conclusions.",
+            "The essay's conclusion summarized the main points and provided a final thought on the topic.",
+            "After careful consideration, the committee came to the conclusion that the proposal was not in the best interest of the organization.",
+            "The judge's conclusion was that the defendant was guilty of the crime and should be sentenced accordingly."
+        ]
+    }, {
+        explanation: "the ability to accept or endure something or someone different from oneself, or the capacity to withstand a substance or stimulus without adverse effects.",
+        word: "tolerance",
+        sentence: "there can be some tolerance of unpunctuality",
+        sentences: [
+            "The medication's dosage should be adjusted based on the patient's tolerance and response to treatment.",
+            "It's important to have a high tolerance for ambiguity when dealing with complex situations.",
+            "The teacher encouraged tolerance and respect for diversity in her classroom.",
+            "The company has a zero-tolerance policy for harassment in the workplace.",
+            "The athlete's high pain tolerance allowed him to play through the injury.",
+            "The government's tolerance for dissent and criticism has been decreasing in recent years.",
+            "The religious leader preached tolerance and compassion towards all people, regardless of their beliefs or backgrounds.",
+            "The child's tolerance for spicy food gradually increased as he grew older.",
+            "The community showed great tolerance and support towards the new immigrant families settling in the area.",
+            "The doctor advised the patient to increase his tolerance for exercise in order to improve his overall health."
+        ]
+    }, {
+        explanation: "not known or understood by many people",
+        word: "abstruse",
+        sentence: "The intellectual, who is working on some abstruse problem, has everything coordinated and organized for the matter in hand.",
+        sentences: [
+            "The book's abstruse language and concepts made it a challenging read.",
+            "The artist's work was often criticized for being too abstruse and esoteric for the general public.",
+            "The philosopher's theories were so abstruse that they were often misunderstood and misinterpreted.",
+            "The software's abstruse user interface made it difficult for users to navigate and use effectively.",
+            "The scientist's research paper was rejected because its abstruse terminology and concepts were not accessible to a wider audience.",
+            "The composer's music was considered abstruse and experimental, pushing the boundaries of traditional composition.",
+            "The mathematician's proof was so abstruse that it took years for other mathematicians to fully understand and verify it.",
+            "The poet's abstruse imagery and symbolism left many readers puzzled and frustrated.",
+            "The author's abstruse writing style has won him critical acclaim but also criticism for being overly complicated.",
+            "The engineer's abstruse design was innovative and groundbreaking, but difficult to manufacture and implement."
+        ]
+    }, {
+        explanation: "having or showing great energy or vigor; active and lively.",
+        word: "energetic",
+        sentence: "It is hard for energetic, quick-minded people to waste time",
+        sentences: [
+            "The dancers gave an energetic performance that left the audience breathless.",
+            "The athlete's energetic spirit and determination led him to win the championship.",
+            "The children were so energetic that they ran around the playground for hours without getting tired.",
+            "The singer's energetic stage presence and powerful voice electrified the crowd.",
+            "The CEO's energetic leadership style inspired the employees and boosted their productivity.",
+            "The puppy's energetic behavior and playful nature brought joy to the whole family.",
+            "The band's energetic music and catchy tunes got everyone up and dancing.",
+            "The volunteer's energetic efforts helped to make the charity event a huge success.",
+            "The comedian's energetic delivery and hilarious jokes had the audience laughing non-stop.",
+            "The hiker's energetic climb up the mountain rewarded him with breathtaking views at the top."
+        ]
+    }, {
+        explanation: "something or someone that annoys you or causes trouble for you",
+        word: "nuisance",
+        sentence: "The guest who arrives half an hour too soon is the greatest nuisance.",
+        sentences: [
+            "The mosquitoes in the backyard are a constant nuisance during the summer months.",
+            "The neighbor's barking dog is a nuisance that keeps me up at night.",
+            "The traffic congestion during rush hour is a major nuisance for commuters.",
+            "The spam emails in my inbox are a nuisance that I have to deal with every day.",
+            "The broken air conditioning in the office is a big nuisance during the hot summer days.",
+            "The loud music from the party next door is a nuisance that is disturbing the entire neighborhood.",
+            "The persistent telemarketer calls are a nuisance that I wish would stop.",
+            "The graffiti on the walls of the building is a constant nuisance that requires frequent cleaning.",
+            "The power outage during the storm was a major nuisance that disrupted our daily routine.",
+            "The parking situation in the city is a nuisance that often results in high parking fees and long walks to your destination."
+        ]
+    }, {
+        explanation: "causing annoyance, impatience, or mild anger.",
+        word: "irritating",
+        sentence: "Some friends of my family had this irritating habit.",
+        sentences: [
+            "The slow internet connection was very irritating and made it difficult to get any work done.",
+            "The constant interruptions from her talkative coworker were very irritating and made it hard to concentrate.",
+            "The itchy mosquito bites on my arms and legs were very irritating and uncomfortable.",
+            "The repetitive phone calls from the telemarketer were very irritating and disruptive to my day.",
+            "The traffic jam on the way to work was very irritating and made me late for my meeting.",
+            "The smudges on my glasses were very irritating and made it difficult to see clearly.",
+            "The scratchy tag on the back of my shirt was very irritating and made me constantly fidget.",
+            "The loud chewing noises from the person next to me were very irritating and distracting during the movie.",
+            "The wait time at the doctor's office was very irritating and made me feel like my time was being wasted.",
+            "The constant beeping sound from the smoke detector with low battery was very irritating and couldn't be ignored."
+        ]
+    },
+    {
+        explanation: "the feeling of being upset or annoyed as a result of being unable to achieve a desired goal or outcome.",
+        word: "frustration",
+        sentence: "you avoid the frustration of arriving at the very moment when the train is drawing out of the station and being unable to get on it.",
+        sentences: [
+            "The long wait times on the customer service line caused a lot of frustration for the customers.",
+            "The athlete's injury was a huge frustration for him, as it prevented him from competing in the championship.",
+            "The complexity of the project was a source of frustration for the team, as they struggled to make progress.",
+            "The lack of progress in the negotiations was a major frustration for both sides, who were hoping to reach a deal soon.",
+            "The traffic jams during rush hour were a constant source of frustration for the commuters.",
+            "The malfunctioning printer was a source of frustration for the office staff, who were unable to print important documents.",
+            "The lack of recognition for her hard work was a source of frustration for the employee, who felt undervalued and underappreciated.",
+            "The constant changes in the project's requirements were a source of frustration for the developers, who had to constantly adapt to new demands.",
+            "The inability to find a solution to the problem was a source of frustration for the team, who had tried everything they could think of.",
+            "The delays in the delivery of the supplies were a source of frustration for the production team, who were unable to meet their deadlines."
+        ]
+    },
+    {
+        explanation: "not showing careful choice or planning, especially so that harm results",
+        word: "indiscriminate",
+        sentence: "Those who never have to move house become indiscriminate collectors of what can only be described as clutter.",
+        sentences: [
+            "The company's cost-cutting measures were indiscriminate and resulted in the loss of many jobs.",
+            "The hunter was criticized for his indiscriminate killing of animals in the forest.",
+            "The virus is spreading indiscriminately among people of all ages and backgrounds.",
+            "The protesters were met with indiscriminate force from the police, who used tear gas and rubber bullets.",
+            "The landlord was accused of discrimination for his indiscriminate screening of tenants based on their race and ethnicity.",
+            "The indiscriminate use of pesticides has had a negative impact on the environment and wildlife.",
+            "The warzone was the site of indiscriminate bombings, resulting in the deaths of many innocent civilians.",
+            "The social media platform has been criticized for its indiscriminate approach to content moderation, allowing hate speech and misinformation to spread unchecked.",
+            "The earthquake caused indiscriminate destruction, leaving no building or infrastructure untouched.",
+            "The disease can have an indiscriminate impact on people's health, regardless of their age or lifestyle."
+        ]
+    }, {
+        explanation: "someone who is in a place or situation where they are not wanted",
+        word: "intruder",
+        sentence: "She was ready to set off with the porter's assistance to search for any intruders who might still be lurking in her flat.",
+        sentences: [
+            "There was an intruder in the school last night, and several items were stolen.",
+            "The alarm system alerted the family to the presence of an intruder in their backyard.",
+            "The security guard caught the intruder trying to break into the building.",
+            "She felt like an intruder at the party because she didn't know anyone.",
+            "The cat hissed at the intruder who had entered its territory.",
+            "The company had to increase security measures after an intruder stole confidential information.",
+            "The intruder was arrested and charged with trespassing and theft.",
+            "The homeowner installed a security camera to monitor for intruders.",
+            "The woman screamed when she saw an intruder looking through her window.",
+            "The police warned residents to be on the lookout for any suspicious intruders in the area."
+        ]
+    }, {
+        explanation: "impossible to imagine or think of",
+        word: "inconceivable",
+        sentence: "the chaos was inconceivable",
+        sentences: [
+            "The idea that life exists on other planets is inconceivable to some people.",
+            "It is inconceivable that a company would knowingly harm the environment for profit.",
+            "The amount of money they spent on the party is inconceivable to me.",
+            "It is inconceivable that someone could have survived that plane crash.",
+            "The thought of losing my best friend is inconceivable to me.",
+            "The complexity of the human brain is inconceivable to most people.",
+            "The idea of going to Mars and colonizing it is inconceivable to some people.",
+            "It is inconceivable that someone could climb Mount Everest without any equipment.",
+            "The amount of time it would take to count all the stars in the universe is inconceivable.",
+            "The fact that he was able to memorize the entire dictionary is inconceivable to me."
+        ]
+    }, {
+        explanation: "Objects that are worn for personal adornment, such as necklaces, bracelets, earrings, and rings, often made of precious metals and stones",
+        word: "jewellery",
+        sentence: "the inspector found a dirty red bundle that contained jewellery which the old lady said was not hers.",
+        sentences: [
+            "My grandmother gave me a piece of jewellery that has been in our family for generations.",
+            "The store sells a wide variety of jewellery, from simple designs to elaborate ones.",
+            "He surprised his girlfriend with a piece of jewellery for their anniversary.",
+            "The actress was dripping in jewellery at the red carpet event.",
+            "The thief stole thousands of dollars worth of jewellery from the store.",
+            "The bride wore a stunning diamond necklace as her wedding jewellery.",
+            "She designs and creates her own unique jewellery pieces.",
+            "The museum has a collection of ancient jewellery from various civilizations.",
+            "The antique store specializes in vintage jewellery from the 1800s and earlier.",
+            "The jeweller repaired the broken clasp on her bracelet and polished her other pieces."
+        ]
+    }, {
+        explanation: "1. A being from another planet or world. 2. A foreigner or someone who is not a citizen of the country they are in.",
+        word: "alien",
+        sentence: "but everything still seemed alien to me.",
+        sentences: [
+            "She felt like an alien in a new country where she didn't know the customs or language.",
+            "The government is trying to find evidence of alien life in outer space.",
+            "The scientist believes that the strange object in the sky could be an alien spacecraft.",
+            "The children were fascinated by the idea of aliens visiting Earth.",
+            "The immigration officer asked the man if he had ever been convicted of a crime as an alien.",
+            "The hotel manager had to ask the noisy group of aliens to keep it down after midnight.",
+            "The author's new book explores the idea of humans being the real aliens on their own planet.",
+            "The company hired an alien consultant who had experience working in different cultures.",
+            "The alien invasion in the movie caused widespread panic and destruction.",
+            "The government denied rumors of an alien cover-up and said that there was no evidence of extraterrestrial activity."
+        ]
+    }, {
+        explanation: "A limit that defines the edge or extent of something, such as a physical space, a social or moral norm, or a conceptual idea",
+        word: "boundary",
+        sentence: "The river which forms the eastern boundary of our farm has always played an important part in our lives.",
+        sentences: [
+            "It is important to set clear boundary in personal relationships to avoid misunderstandings.",
+            "The river forms a natural boundary between the two countries.",
+            "The school has strict boundary for acceptable behavior and dress code.",
+            "The therapist helps clients establish healthy emotional boundary with others.",
+            "The company has expanded its business beyond the boundary of the local market.",
+            "The artist likes to push the boundary of traditional art forms with experimental techniques.",
+            "The athlete broke the world record and pushed the boundary of what was thought to be physically possible.",
+            "The government is trying to enforce stricter boundary on immigration and border control.",
+            "The book explores the boundary between reality and fantasy in the mind of the main character.",
+            "The hiker crossed the boundary into the protected wilderness area and was fined by the park rangers."
+        ]
+    }, {
+        explanation: "A special event or occasion, often religious or cultural, that is celebrated with music, dance, food, and other forms of entertainment",
+        word: "festival",
+        sentence: "holding a summer festival on Midsummer Eve",
+        sentences: [
+            "The city hosts an annual cultural festival that showcases the diversity of the community.",
+            "The religious festival honors the birth of the prophet and is celebrated by millions of people around the world.",
+            "The food festival features cuisine from different countries and regions, and attracts foodies from all over.",
+            "The film festival showcases independent and international films that are not usually shown in mainstream theaters.",
+            "The arts festival includes a variety of performances and exhibitions, from theater and dance to painting and sculpture.",
+            "The harvest festival is a traditional celebration of the end of the farming season and the beginning of winter.",
+            "The winter festival features ice sculptures, snow activities, and other winter-themed attractions.",
+            "The literary festival brings together writers, readers, and book lovers for a series of talks, workshops, and readings.",
+            "The music and arts festival is a four-day event that has become one of the biggest in the country.",
+            "The lantern festival is a colorful celebration that marks the end of the Chinese New Year and the beginning of spring."
+        ]
+    }, {
+        explanation: "to try to do something",
+        word: "endeavor",
+        sentence: "No human endeavor or thought would be unchanged by it.",
+        sentences: [
+            "The company is endeavoring to reduce its carbon footprint and become more environmentally friendly.",
+            "She is always endeavoring to improve her language skills by reading and practicing every day.",
+            "The explorers endeavored to reach the summit of the mountain, despite the difficult terrain and harsh weather.",
+            "The teacher endeavors to make her lessons engaging and interactive for her students.",
+            "The organization endeavors to provide access to education and healthcare for people in need around the world.",
+            "The athlete is endeavoring to beat his personal best and set a new world record.",
+            "The government is endeavoring to create more job opportunities for young people and reduce unemployment.",
+            "The artist is endeavoring to capture the essence of the landscape in her paintings.",
+            "The team is endeavoring to win the championship for the first time in their history.",
+            "The volunteers are endeavoring to help rebuild the community after the devastating earthquake."
+        ]
+    },
+    {
+        explanation: "in a way that suggests you have achieved a victory or feel happy because of achieving a victory",
+        word: "triumphantly",
+        sentence: "Who has not stood in awe at the sight of a spider pouncing on a fly, or a column of ants triumphantly bearing home an enormous dead beetle?",
+        sentences: [
+            "He accepted the award triumphantly, with tears in his eyes.",
+            "After months of hard work, the team triumphantly completed their project.",
+            "The crowd cheered triumphantly as their team scored the winning goal.",
+            "The general led his troops triumphantly into the enemy's territory.",
+            "The actor walked off stage triumphantly, having just given a critically acclaimed performance.",
+            "The CEO announced the company's record profits triumphantly at the annual shareholder meeting.",
+            "The scientist triumphantly announced the discovery of a new species.",
+            "After overcoming many obstacles, the adventurer emerged from the jungle triumphantly.",
+            "The politician gave a triumphant speech after winning the election.",
+            "The student raised her hand triumphantly, having just solved a difficult math problem."
+        ]
+    },
+
 ]
 /*
-tell me what 'obstinately' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'triumphantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
