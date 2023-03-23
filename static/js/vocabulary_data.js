@@ -92,16 +92,16 @@ const DATA_nce = [
     {
         explanation: "causing you to have fear or respect for something or someone because that thing or person is large, powerful, or difficult",
         word: "formidable",
-        sentence: "most of us could compile formidable lists of dos and don'ts"
+        sentence: "most of us could compile formidable lists of dos and don'ts", obsolete: true
     },
     {
         explanation: "someone who does something very often and cannot stop doing it",
         word: "inveterate",
-        sentence: "if we remain inveterate smokers, it is only because we have so often experienced the frustration that results from failure."
+        sentence: "if we remain inveterate smokers, it is only because we have so often experienced the frustration that results from failure.", obsolete: true
     }, {
         explanation: "in a way that involves great care and attention to detail",
         word: "assiduously",
-        sentence: "On the second, I applied myself assiduously to the task."
+        sentence: "On the second, I applied myself assiduously to the task.", obsolete: true
     }, {
         explanation: "the ability to control yourself or other people, even in difficult situations",
         word: "discipline",
@@ -1211,41 +1211,45 @@ const DATA_nce = [
         explanation: "to express a thought, feeling, or idea so that it is understood by other people",
         word: "conveyed",
         sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf.",
-        sentences: ["The tone of her voice conveyed excitement and enthusiasm.", "The painting conveyed a sense of sadness and loneliness.", "His body language conveyed his discomfort and unease.", "The message was conveyed through the use of images and symbols.", "The news article conveyed a sense of urgency and seriousness.", "His words conveyed a message of hope and inspiration.", "The song conveyed a feeling of nostalgia and longing.", "The artist conveyed his emotions through his music.", "Her eyes conveyed a mix of anger and disappointment.", "The text message conveyed the details of the plan."]
+        sentences: ["The tone of her voice conveyed excitement and enthusiasm.", "The painting conveyed a sense of sadness and loneliness.", "His body language conveyed his discomfort and unease.", "The message was conveyed through the use of images and symbols.", "The news article conveyed a sense of urgency and seriousness.", "His words conveyed a message of hope and inspiration.", "The song conveyed a feeling of nostalgia and longing.", "The artist conveyed his emotions through his music.", "Her eyes conveyed a mix of anger and disappointment.", "The text message conveyed the details of the plan."],
+        obsolete: true
     },
     {
         explanation: "雀斑",
         word: "freckles",
         sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles",
-        sentences: ["She has so many freckles on her nose and cheeks.", "I always loved the freckles on my grandma's hands.", "He has a few freckles on his arms from spending so much time outdoors.", "The sunlight brought out the freckles on her shoulders.", "Some people believe that freckles are a sign of good luck.", "I wish I had freckles like hers - they're so cute!", "The little girl had a constellation of freckles across her forehead.", "My brother used to tease me about the freckles on my legs.", "I don't mind my freckles, but I wish they would fade a little.", "He smiled and brushed his thumb over the freckles on her cheek."]
+        sentences: ["She has so many freckles on her nose and cheeks.", "I always loved the freckles on my grandma's hands.", "He has a few freckles on his arms from spending so much time outdoors.", "The sunlight brought out the freckles on her shoulders.", "Some people believe that freckles are a sign of good luck.", "I wish I had freckles like hers - they're so cute!", "The little girl had a constellation of freckles across her forehead.", "My brother used to tease me about the freckles on my legs.", "I don't mind my freckles, but I wish they would fade a little.", "He smiled and brushed his thumb over the freckles on her cheek."],
+        obsolete: true
     }, {
         explanation: "very strange and unusual, unexpected, or not natural",
         word: "weird",
         sentence: "She produced all sorts of weird concoctions",
-        sentences: ["That's a weird looking bug crawling on your shoulder!", "I had a weird dream last night about talking animals.", "He has a weird habit of humming to himself when he's nervous.", "The house had a weird smell that we couldn't identify.", "It's weird to think that we've known each other for so long.", "She made a weird noise when she saw the spider crawling on the wall.", "The movie had a weird plot twist that caught everyone off guard.", "He always wears weird combinations of clothing that clash with each other.", "The car made a weird noise when we turned the key in the ignition.", "It's weird that he hasn't responded to any of our messages."]
+        sentences: ["That's a weird looking bug crawling on your shoulder!", "I had a weird dream last night about talking animals.", "He has a weird habit of humming to himself when he's nervous.", "The house had a weird smell that we couldn't identify.", "It's weird to think that we've known each other for so long.", "She made a weird noise when she saw the spider crawling on the wall.", "The movie had a weird plot twist that caught everyone off guard.", "He always wears weird combinations of clothing that clash with each other.", "The car made a weird noise when we turned the key in the ignition.", "It's weird that he hasn't responded to any of our messages."],
+        obsolete: true
     }, {
         explanation: "in a way that is careful not to cause embarrassment or attract too much attention, especially by keeping something secret",
         word: "discreetly",
         sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price.",
-        sentences: ["He discreetly slipped the envelope into her hand as they passed in the hallway.", "The detective tried to discreetly gather information without drawing attention to himself.", "She discreetly adjusted her clothing to hide a stain.", "The couple discreetly left the party early to avoid any drama.", "The secret agent discreetly observed the suspects from a distance.", "The waiter discreetly signaled to the manager that a customer was causing trouble.", "They discreetly whispered their plans to each other to avoid being overheard.", "The doctor discreetly informed the patient of their diagnosis in a private room.", "He discreetly covered his mouth when he realized he had bad breath.", "The politician discreetly met with lobbyists to discuss fundraising efforts."]
+        sentences: ["He discreetly slipped the envelope into her hand as they passed in the hallway.", "The detective tried to discreetly gather information without drawing attention to himself.", "She discreetly adjusted her clothing to hide a stain.", "The couple discreetly left the party early to avoid any drama.", "The secret agent discreetly observed the suspects from a distance.", "The waiter discreetly signaled to the manager that a customer was causing trouble.", "They discreetly whispered their plans to each other to avoid being overheard.", "The doctor discreetly informed the patient of their diagnosis in a private room.", "He discreetly covered his mouth when he realized he had bad breath.", "The politician discreetly met with lobbyists to discuss fundraising efforts."],
+        obsolete: true
     },
     {
         explanation: "relating to work done in an office",
         word: "clerical",
         sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work.",
-        sentences: ["The new hire was responsible for clerical duties such as filing and data entry.", "The clerical error in his tax return caused a delay in processing.", "The church's clerical staff helped organize events and maintain records.", "The law firm needed someone with strong clerical skills for their receptionist position.", "The clerical task of scheduling appointments was essential for the doctor's office.", "The company implemented a new clerical system to improve efficiency.", "The clerical work of printing and sorting documents could be done by an intern.", "The clerical duties of the administrative assistant included answering phones and responding to emails.", "The school district hired clerical staff to handle the influx of paperwork during enrollment.", "The clerical error in the contract caused confusion and frustration for both parties."]
+        sentences: ["The new hire was responsible for clerical duties such as filing and data entry.", "The clerical error in his tax return caused a delay in processing.", "The church's clerical staff helped organize events and maintain records.", "The law firm needed someone with strong clerical skills for their receptionist position.", "The clerical task of scheduling appointments was essential for the doctor's office.", "The company implemented a new clerical system to improve efficiency.", "The clerical work of printing and sorting documents could be done by an intern.", "The clerical duties of the administrative assistant included answering phones and responding to emails.", "The school district hired clerical staff to handle the influx of paperwork during enrollment.", "The clerical error in the contract caused confusion and frustration for both parties."], obsolete: true
     },
     {
         explanation: "the fact of something happening or being done often",
         word: "regularity",
         sentence: "the same old favorites recur year in year out with monotonous regularity",
-        sentences: ["The regularity of her exercise routine helped her maintain a healthy lifestyle.", "The bus schedule's regularity ensured that commuters arrived on time.", "The regularity of his breathing indicated that he was asleep.", "The regularity of her menstrual cycle was a concern for her doctor.", "The regularity of his work schedule allowed him to plan his week.", "The regularity of his church attendance was important to him.", "The regularity of the rainfall contributed to the lushness of the jungle.", "The regularity of her bowel movements indicated good digestive health.", "The coach emphasized the regularity of practice to achieve success.", "The regularity of the construction crew's progress impressed the clients."]
+        sentences: ["The regularity of her exercise routine helped her maintain a healthy lifestyle.", "The bus schedule's regularity ensured that commuters arrived on time.", "The regularity of his breathing indicated that he was asleep.", "The regularity of her menstrual cycle was a concern for her doctor.", "The regularity of his work schedule allowed him to plan his week.", "The regularity of his church attendance was important to him.", "The regularity of the rainfall contributed to the lushness of the jungle.", "The regularity of her bowel movements indicated good digestive health.", "The coach emphasized the regularity of practice to achieve success.", "The regularity of the construction crew's progress impressed the clients."], obsolete: true
     },
     {
         explanation: "the act of achieving something",
         word: "attainment",
         sentence: "certain accomplishments are beyond attainment",
-        sentences: ["Graduating from university was a proud attainment for my family.", "Her successful completion of the project was a great attainment.", "A high level of fitness was an important attainment for the athlete.", "The company's attainment of its financial goals was a cause for celebration.", "The artist's attainment of international recognition was well-deserved.", "His attainment of the championship title was the result of years of hard work.", "The attainment of a peaceful resolution to the conflict was a relief to everyone involved.", "The young author's attainment of a publishing deal was an impressive feat.", "The academic's attainment of a prestigious research grant was a career highlight.", "The attainment of a safe environment was a top priority for the organization."]
+        sentences: ["Graduating from university was a proud attainment for my family.", "Her successful completion of the project was a great attainment.", "A high level of fitness was an important attainment for the athlete.", "The company's attainment of its financial goals was a cause for celebration.", "The artist's attainment of international recognition was well-deserved.", "His attainment of the championship title was the result of years of hard work.", "The attainment of a peaceful resolution to the conflict was a relief to everyone involved.", "The young author's attainment of a publishing deal was an impressive feat.", "The academic's attainment of a prestigious research grant was a career highlight.", "The attainment of a safe environment was a top priority for the organization."], obsolete: true
     },
     {
         explanation: "to walk somewhere in a large group, usually with one person behind another",
@@ -2007,7 +2011,8 @@ const DATA_nce = [
             "The movie is mildly entertaining, but not particularly memorable.",
             "The speaker delivered the message in a mildly humorous tone.",
             "The dress code is mildly strict, allowing for some flexibility in attire."
-        ]
+        ],
+        obsolete: true
     }, {
         explanation: "to take or try to take hold of something tightly, usually in fear, worry, or pain",
         word: "clutching",
@@ -2023,7 +2028,7 @@ const DATA_nce = [
             "The musician was clutching the guitar as he played his final song of the night.",
             "The woman was clutching a tissue as she watched the emotional movie scene.",
             "The soldier was clutching onto his weapon as he advanced towards the enemy."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to add something decorative to a person or thing",
         word: "adorn",
@@ -2070,7 +2075,7 @@ const DATA_nce = [
             "The neighborhood is notoriously known for its high crime rate.",
             "The athlete is notoriously bad at handling media interviews.",
             "The airline is notoriously unreliable and has a history of delayed flights."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a skilled worker who specializes in a particular technical field, such as electronics or mechanics",
         word: "technician",
@@ -2086,7 +2091,7 @@ const DATA_nce = [
             "The surgical technician prepared the operating room and equipment for the procedure.",
             "The HVAC technician repaired the air conditioning system in the building.",
             "The audio technician adjusted the sound levels for the concert."
-        ]
+        ], obsolete: true
     }, {
         explanation: "the state or condition of not meeting a desired or intended objective or outcome",
         word: "failure",
@@ -2866,4 +2871,6 @@ sentence: "",
 sentences:[]
 },
 */
-
+sufficiently
+permanent
+ambitious
