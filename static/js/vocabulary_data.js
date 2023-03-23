@@ -106,15 +106,15 @@ const DATA_nce = [
         explanation: "the ability to control yourself or other people, even in difficult situations",
         word: "discipline",
         sentence: "The self-discipline required to drag myself out of bed eleven minutes earlier than usual was considerable.",
-        sentences: ["Without discipline, it's difficult to achieve long-term goals.", "The strict discipline of military training prepares soldiers for the rigors of combat.", "Parenting requires a delicate balance of love and discipline.", "He credits his success to the discipline he learned from his martial arts training.", "It takes discipline to maintain a healthy lifestyle and diet.", "The teacher's discipline and structure in the classroom facilitated effective learning.", "discipline in managing finances is important for long-term stability and security.", "The athlete's discipline and dedication to training resulted in a gold medal win.", "The company's strict discipline regarding safety measures ensured a hazard-free workplace.", "discipline is the key to mastering any skill or craft."]
+        sentences: ["Without discipline, it's difficult to achieve long-term goals.", "The strict discipline of military training prepares soldiers for the rigors of combat.", "Parenting requires a delicate balance of love and discipline.", "He credits his success to the discipline he learned from his martial arts training.", "It takes discipline to maintain a healthy lifestyle and diet.", "The teacher's discipline and structure in the classroom facilitated effective learning.", "discipline in managing finances is important for long-term stability and security.", "The athlete's discipline and dedication to training resulted in a gold medal win.", "The company's strict discipline regarding safety measures ensured a hazard-free workplace.", "discipline is the key to mastering any skill or craft."], obsolete: true
     }, {
         explanation: "unkind remarks made to intentionally annoy and upset someone",
         word: "taunts",
-        sentence: "I fended off the taunts and jibes of the family good-humouredly."
+        sentence: "I fended off the taunts and jibes of the family good-humouredly.", obsolete: true
     }, {
         explanation: "to keep your attention so strongly that you feel unable to move or look away",
         word: "hypnotizing",
-        sentence: "Resisting the hypnotizing effect of television, I sat in my room for a few evenings with my eyes glued to a book."
+        sentence: "Resisting the hypnotizing effect of television, I sat in my room for a few evenings with my eyes glued to a book.", obsolete: true
     }, {
         explanation: "you start to sleep, especially during the day",
         word: "dozing",
@@ -123,7 +123,7 @@ const DATA_nce = [
     {
         explanation: "a subject or activity that interests you very much",
         word: "enthusiasm",
-        sentence: "However, my enthusiasm waned."
+        sentence: "However, my enthusiasm waned.", obsolete: true
     },
     {
         explanation: "to try to do or continue doing something in a determined but often unreasonable way",
@@ -1255,7 +1255,7 @@ const DATA_nce = [
         explanation: "to walk somewhere in a large group, usually with one person behind another",
         word: "trooped",
         sentence: "The next morning the whole family trooped in to watch the performance.",
-        sentences: ["The soldiers trooped in, exhausted from a long march.", "The students trooped out of the classroom after the bell rang.", "The protesters trooped through the streets, demanding justice.", "The guests trooped into the ballroom, marveling at the decorations.", "The children trooped behind the tour guide, eager to see the animals.", "The players trooped off the field, disappointed by their loss.", "The tourists trooped up the stairs, anxious to see the view from the top.", "The employees trooped into the conference room, ready for the meeting.", "The shoppers trooped from store to store, searching for the perfect gift.", "The actors trooped onto the stage, ready to perform the opening scene."]
+        sentences: ["The soldiers trooped in, exhausted from a long march.", "The students trooped out of the classroom after the bell rang.", "The protesters trooped through the streets, demanding justice.", "The guests trooped into the ballroom, marveling at the decorations.", "The children trooped behind the tour guide, eager to see the animals.", "The players trooped off the field, disappointed by their loss.", "The tourists trooped up the stairs, anxious to see the view from the top.", "The employees trooped into the conference room, ready for the meeting.", "The shoppers trooped from store to store, searching for the perfect gift.", "The actors trooped onto the stage, ready to perform the opening scene."], obsolete: true
     },
     {
         explanation: "the quality of working well in an organized way, without wasting time or energy",
