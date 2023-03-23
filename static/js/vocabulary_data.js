@@ -171,7 +171,7 @@ const DATA_nce = [
         explanation: "laughter, humor, or happiness",
         word: "mirth",
         sentence: "Though this caused great mirth among the guests, Aunt Harriet was horrified.",
-        sentences: ["The sound of children's laughter filled the air with mirth and joy.", "Despite the trouble they faced, they still found moments of mirth and lightness.", "The witty banter between friends always resulted in contagious mirth.", "Her quick wit and infectious mirth made her the life of the party.", "The comedian's performance elicited roars of mirth from the audience.", "The unexpected joke caught everyone off guard and resulted in uproarious mirth.", "His lighthearted attitude and contagious mirth helped ease the tension in the room.", "The playful dogs chased each other in the yard, filling the air with canine mirth.", "The family gathering was filled with mirth as they shared stories and memories.", "They looked back on the situation with mirth, realizing how absurd it had been."]
+        sentences: ["The sound of children's laughter filled the air with mirth and joy.", "Despite the trouble they faced, they still found moments of mirth and lightness.", "The witty banter between friends always resulted in contagious mirth.", "Her quick wit and infectious mirth made her the life of the party.", "The comedian's performance elicited roars of mirth from the audience.", "The unexpected joke caught everyone off guard and resulted in uproarious mirth.", "His lighthearted attitude and contagious mirth helped ease the tension in the room.", "The playful dogs chased each other in the yard, filling the air with canine mirth.", "The family gathering was filled with mirth as they shared stories and memories.", "They looked back on the situation with mirth, realizing how absurd it had been."], obsolete: true
     },
     {
         explanation: "to be in charge of a formal meeting, ceremony, or trial",
@@ -191,7 +191,7 @@ const DATA_nce = [
     {
         explanation: "a tall cupboard in which you hang your clothes",
         word: "wardrobe",
-        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe"
+        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe", obsolete: true
     },
     {
         explanation: "relating to the design of buildings",
@@ -868,7 +868,7 @@ const DATA_nce = [
         explanation: "gradually",
         word: "steadily",
         sentence: "They will have hardly found the facts to select from a great mass of evidence that steadily accumulates.",
-        Sentences: ["The rain fell steadily all night, filling up the once-empty riverbed.", "She steadily improved her grades throughout the semester.", "The construction workers steadily worked on the new building, rain or shine.", "The sun steadily rose over the horizon, painting the sky with a warm glow.", "He steadily climbed the stairs, determined to reach the top of the tower.", "The price of gasoline has been rising steadily over the past few months.", "The guitarist steadily strummed the chords, building up to the chorus.", "Her heart rate steadily dropped as she entered a state of deep relaxation.", "He steadily increased the weight on the barbell, pushing himself to his limits.", "The population of the small town has been steadily declining for years."]
+        Sentences: ["The rain fell steadily all night, filling up the once-empty riverbed.", "She steadily improved her grades throughout the semester.", "The construction workers steadily worked on the new building, rain or shine.", "The sun steadily rose over the horizon, painting the sky with a warm glow.", "He steadily climbed the stairs, determined to reach the top of the tower.", "The price of gasoline has been rising steadily over the past few months.", "The guitarist steadily strummed the chords, building up to the chorus.", "Her heart rate steadily dropped as she entered a state of deep relaxation.", "He steadily increased the weight on the barbell, pushing himself to his limits.", "The population of the small town has been steadily declining for years."], obsolete: true
     },
     {
         explanation: "to reach an answer or a decision by thinking carefully about the known facts:",
@@ -1261,7 +1261,7 @@ const DATA_nce = [
         explanation: "the quality of working well in an organized way, without wasting time or energy",
         word: "efficiency",
         sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency.",
-        sentences: ["The new software has greatly improved the efficiency of the company's operations.", "The construction project was completed with remarkable speed and efficiency.", "The factory is always looking for ways to increase efficiency and reduce waste.", "The athlete's diet and training regimen are designed for maximum efficiency.", "The teacher uses technology to improve the efficiency and effectiveness of their lessons.", "The hospital has implemented new procedures to increase efficiency in patient care.", "The transportation system was restructured to improve efficiency and reduce traffic.", "The company's success is due in part to their commitment to efficiency and innovation.", "The government agency reviewed its processes and made changes to improve efficiency.", "The solar panels were installed for their efficiency in converting sunlight into energy."]
+        sentences: ["The new software has greatly improved the efficiency of the company's operations.", "The construction project was completed with remarkable speed and efficiency.", "The factory is always looking for ways to increase efficiency and reduce waste.", "The athlete's diet and training regimen are designed for maximum efficiency.", "The teacher uses technology to improve the efficiency and effectiveness of their lessons.", "The hospital has implemented new procedures to increase efficiency in patient care.", "The transportation system was restructured to improve efficiency and reduce traffic.", "The company's success is due in part to their commitment to efficiency and innovation.", "The government agency reviewed its processes and made changes to improve efficiency.", "The solar panels were installed for their efficiency in converting sunlight into energy."], obsolete: true
     }, {
         explanation: "in a way that shows that you are not willing to do something and are therefore slow to do it",
         word: "reluctantly",
@@ -1272,7 +1272,7 @@ const DATA_nce = [
         explanation: "disaster",
         word: "catastrophe",
         sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe",
-        sentences: ["The earthquake was a catastrophe that caused widespread destruction.", "The airline accident was averted at the last minute, avoiding a catastrophe.", "The oil spill was a catastrophe for the local marine life.", "The financial crisis proved to be a catastrophe for many investors.", "The rising sea levels due to climate change could lead to a global catastrophe.", "The failure to act on climate change could result in an environmental catastrophe.", "The hurricane was predicted to be a catastrophe, but it weakened before making landfall.", "The collapse of the building was a catastrophe that shocked the community.", "The meltdown of the nuclear reactor was a catastrophe that had far-reaching consequences.", "The actor's performance was a catastrophe, with critics panning it as the worst of the year."]
+        sentences: ["The earthquake was a catastrophe that caused widespread destruction.", "The airline accident was averted at the last minute, avoiding a catastrophe.", "The oil spill was a catastrophe for the local marine life.", "The financial crisis proved to be a catastrophe for many investors.", "The rising sea levels due to climate change could lead to a global catastrophe.", "The failure to act on climate change could result in an environmental catastrophe.", "The hurricane was predicted to be a catastrophe, but it weakened before making landfall.", "The collapse of the building was a catastrophe that shocked the community.", "The meltdown of the nuclear reactor was a catastrophe that had far-reaching consequences.", "The actor's performance was a catastrophe, with critics panning it as the worst of the year."], obsolete: true
     },
     {
         explanation: "to move or spread untidily and in small numbers or amounts",
@@ -2859,11 +2859,75 @@ const DATA_nce = [
             "The politician gave a triumphant speech after winning the election.",
             "The student raised her hand triumphantly, having just solved a difficult math problem."
         ]
+    }, {
+        explanation: "to the required degree or extent.",
+        word: "sufficiently",
+        sentence: "He studied sufficiently for his exam.",
+        sentences: [
+            "She cooked the chicken sufficiently to ensure it was safe to eat.",
+            "The evidence presented was not sufficiently strong to support the argument.",
+            "I believe we have discussed this point sufficiently.",
+            "We must ensure that our supplies are sufficiently stocked for the winter months.",
+            "The team worked sufficiently hard to complete the project on time.",
+            "The car was not sufficiently maintained, which led to its breakdown on the highway.",
+            "I am sure that with sufficient practice, you will become an expert in no time.",
+            "Her experience was sufficiently relevant to the job requirements.",
+            "The company invested sufficiently in research and development to stay ahead of its competitors.",
+            "The instructions provided were not sufficiently clear, leading to confusion among the participants."
+        ]
+    }, {
+        explanation: "to do something based on emotions or feelings.",
+        word: "sentimentally",
+        sentence: "She chose the dress sentimentally, even though it didn't fit her well.",
+        sentences: [
+            "He proposed sentimentally in the same place they had their first date.",
+            "I always buy sentimental gifts for my best friend's birthday.",
+            "She kept the old photograph album sentimentally, because it reminded her of her childhood.",
+            "The song he wrote was full of sentimental lyrics and melodies.",
+            "Whenever she feels down, she watches a sentimental movie to cheer herself up.",
+            "His decision was influenced by his sentimental attachment to the company he worked for.",
+            "She couldn't sell the antique vase, as it had too much sentimental value to her.",
+            "The book was written sentimentally, with a lot of personal anecdotes and memories.",
+            "He felt a sentimental connection to the old house where he grew up.",
+            "She cried sentimentally while watching her daughter graduate from college."
+        ]
+    }, {
+        explanation: "Having or showing a strong desire and determination to succeed or achieve something",
+        word: "ambitious",
+        sentence: "She's an ambitious politician with big plans for the country.",
+        sentences: [
+            "His ambitious project was finally completed after years of hard work.",
+            "I admire her for being so ambitious and never giving up on her dreams.",
+            "The company has ambitious goals for expanding into new markets.",
+            "He is ambitious and always looking for ways to improve his skills.",
+            "She had an ambitious schedule for finishing her dissertation.",
+            "Their ambitious plan to climb Mount Everest was risky but exciting.",
+            "It takes an ambitious person to start their own business.",
+            "I'm feeling ambitious today and want to tackle a big project.",
+            "He has an ambitious vision for how the world could be a better place.",
+            "She took on an ambitious challenge and successfully completed it."
+        ]
+    }, {
+        explanation: "lasting or intended to last indefinitely without change.",
+        word: "permanent",
+        sentence: "The tattoo was a permanent mark on his skin.",
+        sentences: [
+            "She found a permanent home for the stray cat she had taken in.",
+            "His injuries left him with permanent disabilities.",
+            "The company offered him a permanent position after his internship ended.",
+            "They decided to make their separation permanent and filed for divorce.",
+            "The effects of climate change are having permanent impacts on our environment.",
+            "He moved to a different city and started a new permanent job.",
+            "The museum is now closed due to permanent structural damage caused by the earthquake.",
+            "The artist used permanent ink to create his drawings.",
+            "The government promised to provide permanent housing for the homeless population.",
+            "The loss of their child was a permanent source of grief for the family."
+        ]
     },
 
 ]
 /*
-tell me what 'triumphantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'sentimentally' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
@@ -2871,7 +2935,3 @@ sentence: "",
 sentences:[]
 },
 */
-sufficiently
-permanent
-ambitious
-sentimentally
