@@ -222,7 +222,7 @@ const DATA_nce = [
     {
         explanation: "(of something unpleasant or dangerous) gradually and secretly causing harm",
         word: "insidious",
-        sentence: "There is an even more insidious kind of pollution that particularly affects urban areas and invades our daily lives, and that is noise."
+        sentence: "There is an even more insidious kind of pollution that particularly affects urban areas and invades our daily lives, and that is noise.", obsolete: true
     },
     {
         explanation: "农药",
@@ -2224,7 +2224,7 @@ const DATA_nce = [
             "The child asked incessantly for candy, despite being told no multiple times.",
             "The car honked incessantly in traffic, adding to the already chaotic atmosphere.",
             "The phone rang incessantly, interrupting my quiet evening at home."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to make a long, high, sad sound",
