@@ -207,17 +207,17 @@ const DATA_nce = [
         explanation: "unfriendly and likely to be unpleasant or harmful",
         word: "forbidding",
         sentence: "Even under a clear blue sky, the village looked forbidding, as all the houses were built of grey mud bricks.",
-        sentences: ["The sky above was dark, forbidding any hope of sunshine that day.", "His forbidding glare made everyone in the room feel uncomfortable.", "She peered through the gates of the forbidding mansion, wondering who lived inside.", "The teacher's forbidding tone intimidated the students into silence.", "The forest was dense and forbidding, and she felt a nervousness creeping over her.", "The company's forbidding policies toward employees made turnover rates skyrocket.", "His backpack was full of forbidding equipment for his upcoming mountain climb.", "The barren and forbidding landscape stretched out before him, making him feel small and insignificant.", "The judge's words were stern and forbidding, making the defendant feel like he had no chance at a fair trial.", "The warning sign was forbidding, cautioning hikers to stay away from the dangerous cliffs."]
+        sentences: ["The sky above was dark, forbidding any hope of sunshine that day.", "His forbidding glare made everyone in the room feel uncomfortable.", "She peered through the gates of the forbidding mansion, wondering who lived inside.", "The teacher's forbidding tone intimidated the students into silence.", "The forest was dense and forbidding, and she felt a nervousness creeping over her.", "The company's forbidding policies toward employees made turnover rates skyrocket.", "His backpack was full of forbidding equipment for his upcoming mountain climb.", "The barren and forbidding landscape stretched out before him, making him feel small and insignificant.", "The judge's words were stern and forbidding, making the defendant feel like he had no chance at a fair trial.", "The warning sign was forbidding, cautioning hikers to stay away from the dangerous cliffs."], obsolete: true
     },
     {
         explanation: "old and in poor condition",
         word: "dilapidated",
-        sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch."
+        sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch.", obsolete: true
     },
     {
         explanation: "the amount or number of something, especially that can be measured",
         word: "quantities",
-        sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution."
+        sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution.", obsolete: true
     },
     {
         explanation: "(of something unpleasant or dangerous) gradually and secretly causing harm",
@@ -227,7 +227,7 @@ const DATA_nce = [
     {
         explanation: "农药",
         word: "pesticides",
-        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables."
+        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables.", obsolete: true
     },
     {
         explanation: "肥料",
@@ -237,7 +237,7 @@ const DATA_nce = [
     {
         explanation: "沙门氏菌",
         word: "salmonella",
-        sentence: "salmonella in chicken and eggs"
+        sentence: "salmonella in chicken and eggs", obsolete: true
     },
     {
         explanation: "in bad condition and therefore weak and likely to break",
@@ -1284,7 +1284,7 @@ const DATA_nce = [
         explanation: "沙丁鱼",
         word: "sardine",
         sentence: "sardine",
-        sentences: ["I opened the tin and found it filled with sardines.", "The fishermen brought back a huge haul of sardines from the sea.", "I hate the smell of sardines, but my cat loves it.", "The sardines were seasoned with lemon and garlic, making them taste delicious.", "She felt nauseous after eating too many sardines.", "The sardine canning industry generates a significant amount of employment in the region.", "The seagulls screeched as they fought over the sardines that were washed ashore.", "The sardines were so oily that they made a greasy mess on the plate.", "The sardines were served with crackers and wine for a light snack.", "The health benefits of sardines include being high in Omega-3 fatty acids."]
+        sentences: ["I opened the tin and found it filled with sardines.", "The fishermen brought back a huge haul of sardines from the sea.", "I hate the smell of sardines, but my cat loves it.", "The sardines were seasoned with lemon and garlic, making them taste delicious.", "She felt nauseous after eating too many sardines.", "The sardine canning industry generates a significant amount of employment in the region.", "The seagulls screeched as they fought over the sardines that were washed ashore.", "The sardines were so oily that they made a greasy mess on the plate.", "The sardines were served with crackers and wine for a light snack.", "The health benefits of sardines include being high in Omega-3 fatty acids."], obsolete: true
     },
     {
         explanation: "（女用）披巾",
@@ -2157,7 +2157,7 @@ const DATA_nce = [
             "The hospitable community welcomed us with open arms and made us feel like we belonged.",
             "The hospitable culture of the country was evident in the way they treated their guests.",
             "The hospitable gesture of offering us a ride to the airport was greatly appreciated."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a technique of mural painting executed upon freshly laid, or wet lime plaster",
@@ -2174,7 +2174,7 @@ const DATA_nce = [
             "The fresco was so lifelike that it seemed as if the figures were about to step out of the wall.",
             "The artist used the fresco technique to create a breathtaking mural that covered an entire wall.",
             "Visitors to the cathedral marveled at the stunning fresco that adorned the altar."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a person who does not eat meat, poultry, or fish.",
@@ -2191,7 +2191,7 @@ const DATA_nce = [
             "The vegetarian lifestyle is not just about what we eat, but also about making ethical and sustainable choices.",
             "The vegetarian diet is rich in nutrients and can provide all the necessary protein and vitamins.",
             "The vegetarian burger was surprisingly juicy and flavorful, and I didn't even miss the meat."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that is natural, without the use of synthetic chemicals, pesticides, or fertilizers.",
@@ -2208,7 +2208,7 @@ const DATA_nce = [
             "The company is working to reduce its carbon footprint by sourcing materials organically and locally.",
             "The cafe serves only organically brewed coffee and tea.",
             "The yoga studio was designed to be an organically inspired space, with natural light and calming colors."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that never stops, especially when this is annoying or unpleasant",
