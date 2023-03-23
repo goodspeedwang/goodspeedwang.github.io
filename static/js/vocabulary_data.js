@@ -247,7 +247,7 @@ const DATA_nce = [
     {
         explanation: "to take a machine apart or to come apart into separate pieces",
         word: "dismantle",
-        sentence: "the mower firmly refused to mow, so I decided to dismantle it."
+        sentence: "the mower firmly refused to mow, so I decided to dismantle it.", obsolete: true
     },
     {
         explanation: "(especially of a problem or a difficulty) so great that it cannot be dealt with successfully",
@@ -263,17 +263,17 @@ const DATA_nce = [
     {
         explanation: "木匠",
         word: "carpenter",
-        sentence: "carpenter"
+        sentence: "carpenter", obsolete: true
     },
     {
         explanation: "水电工",
         word: "plumber",
-        sentence: "plumber"
+        sentence: "plumber", obsolete: true
     },
     {
         explanation: "机修工",
         word: "mechanic",
-        sentence: "mechanic"
+        sentence: "mechanic", obsolete: true
     },
     {
         explanation: "吸尘器",
@@ -290,7 +290,7 @@ const DATA_nce = [
             "The vacuum pump was used to create a vacuum inside the chamber.",
             "She vacuum sealed the food to keep it fresh.",
             "The shop vacuum was powerful enough to pick up larger debris like sawdust."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "拼图",
@@ -307,7 +307,7 @@ const DATA_nce = [
             "The jigsaw puzzle was missing a few important pieces.",
             "She traced the outline of the design onto the wood before using the jigsaw.",
             "He often used a jigsaw to make cuts for custom furniture projects."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that cannot be avoided",
@@ -324,7 +324,7 @@ const DATA_nce = [
             "The shift in society's values was inevitably going to cause conflict.",
             "Inevitably, mistakes will be made in any endeavor.",
             "The two political candidates were inevitably going to clash during the debate."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to criticize something or someone strongly, usually for moral reasons.",
@@ -2292,7 +2292,7 @@ const DATA_nce = [
             "The scientist used advanced materials to create a new type of solar panel.",
             "The fashion designer experimented with different materials to create a unique look for their runway show.",
             "The artist collected materials from nature such as leaves and flowers to use in their artwork."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "giving advice",
