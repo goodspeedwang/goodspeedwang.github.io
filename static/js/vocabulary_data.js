@@ -128,7 +128,7 @@ const DATA_nce = [
     {
         explanation: "to try to do or continue doing something in a determined but often unreasonable way",
         word: "persisted",
-        sentence: "she persisted in living long after her husband's death."
+        sentence: "she persisted in living long after her husband's death.", obsolete: true
     },
     {
         explanation: "in a way that is expensive or impressive",
@@ -155,12 +155,12 @@ const DATA_nce = [
     {
         explanation: "in a way that is very surprising or difficult to believe",
         word: "miraculously",
-        sentence: "Even my uncle's huge collection of books was kept miraculously free from dust."
+        sentence: "Even my uncle's huge collection of books was kept miraculously free from dust.", obsolete: true
     },
     {
         explanation: "to try to achieve",
         word: "pursued",
-        sentence: "Though my aunt pursued what was, in those days, an enlightened policy, in that she never allowed her domestic staff to work more than eight hours a day, she was extremely difficult to please."
+        sentence: "Though my aunt pursued what was, in those days, an enlightened policy, in that she never allowed her domestic staff to work more than eight hours a day, she was extremely difficult to please.", obsolete: true
     },
     {
         explanation: "the quality of being likely to change suddenly and without warning",
@@ -176,7 +176,7 @@ const DATA_nce = [
     {
         explanation: "to be in charge of a formal meeting, ceremony, or trial",
         word: "presided",
-        sentence: "Aunt Harriet presided over an invisible army of servants that continuously scrubbed, cleaned, and polished."
+        sentence: "Aunt Harriet presided over an invisible army of servants that continuously scrubbed, cleaned, and polished.", obsolete: true
     },
     {
         explanation: "not in the place where you are expected to be, especially at school or work",
@@ -2874,3 +2874,4 @@ sentences:[]
 sufficiently
 permanent
 ambitious
+sentimentally
