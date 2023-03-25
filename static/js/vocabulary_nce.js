@@ -18,10 +18,8 @@ const DATA_nce2 = [
 /*
 please translate the following words to Chinese. 
 --------
-rhythm
-sacrifice
-desire
-rapture
+specialized
+obstacle
 --------
 only respond back by javascript array formation.
 { explanation: "chinese", word: "", },
