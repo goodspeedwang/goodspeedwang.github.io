@@ -2,12 +2,12 @@ const DATA_nce = [
     {
         explanation: "to praise something or someone very much",
         word: "extol",
-        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life."
+        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life.", obsolete: true
     },
     {
         explanation: "a good moral quality in a person, or the general quality of being morally good",
         word: "virtues",
-        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life."
+        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life.", obsolete: true
     },
     {
         explanation: "A place or experience is extremely pleasant, beautiful, or peaceful",
@@ -22,7 +22,7 @@ const DATA_nce = [
     {
         explanation: "unusual and exciting because of coming (or seeming to come) from far away, especially in a tropical country",
         word: "exotic",
-        sentence: "stagger home loaded with as many of the exotic items as they can carry."
+        sentence: "stagger home loaded with as many of the exotic items as they can carry.", obsolete: true
     },
     {
         explanation: "in an unreasonably determined way, especially by acting in a particular way and not changing at all, despite what anyone else says",
@@ -39,7 +39,7 @@ const DATA_nce = [
             "The student obstinately argued with the teacher over a grade, despite the clear guidelines of the assignment.",
             "The patient obstinately refused to follow the doctor's orders, which made his recovery more difficult.",
             "The team obstinately stuck to their game plan, even though it wasn't working and they were losing."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "the situation of being alone, often by choice",
@@ -466,7 +466,7 @@ const DATA_nce = [
             "Watching a stunning sunset on a beach can be an exhilarating and unforgettable experience.",
             "The escape room game was an exhilarating and intense challenge.",
             "An exhilarating feeling of freedom washed over her as she took off on her first solo flight."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a small change that improves something",
@@ -483,7 +483,7 @@ const DATA_nce = [
             "After testing the prototype, the team made several refinements to the product design.",
             "The musician made several refinements to the song lyrics to better convey her message.",
             "The software developer made several refinements to the code to make it run more efficiently."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "not full of folds",
@@ -517,7 +517,7 @@ const DATA_nce = [
             "Renovating the old farmhouse was an arduous project that required a lot of hard work.",
             "The astronaut's journey to space was an arduous mission that required extensive preparation.",
             "The athlete's recovery from an injury was an arduous process that pushed her to her limits."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "good or good enough for a particular need or purpose",
@@ -534,7 +534,7 @@ const DATA_nce = [
             "The medical test results came back as satisfactory, indicating no serious health issues.",
             "The contractor completed the building project to a satisfactory level, meeting all specifications.",
             "The quality of the customer support was only satisfactory, making it difficult to resolve issues quickly."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a very deep, narrow opening in rock, ice, or the ground",
@@ -551,7 +551,7 @@ const DATA_nce = [
             "The company needed to bridge the chasm between their current strategy and their future goals.",
             "The discussion revealed a chasm in the team's understanding of the project requirements.",
             "The brave knight crossed the treacherous chasm to rescue the damsel in distress."
-        ]
+        ], obsolete: true
     }, {
         explanation: "used to describe a respected and admired person or their work",
         word: "distinguished",
@@ -567,7 +567,7 @@ const DATA_nce = [
             "The distinguished building stood out among the other plain structures in the city.",
             "The distinguished musician's performance left the audience in awe.",
             "The distinguished judge was known for his fair and impartial decisions."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a tornado filled with water that forms over the sea",
         word: "waterspout",
@@ -599,7 +599,7 @@ const DATA_nce = [
             "The annual school trip to the museum is a highlight for many students.",
             "The annual family reunion is always filled with laughter and good food.",
             "The annual tradition of putting up Christmas lights brings joy to the neighborhood."
-        ]
+        ], obsolete: true
     }, {
         explanation: "in a way that is likely to fall, be damaged, fail, etc",
         word: "precariously",
@@ -631,7 +631,7 @@ const DATA_nce = [
             "The canyon was an impressive sight, with its plunging cliffs and winding river below.",
             "The brave firefighter made a plunging rescue into the burning building to save a trapped victim.",
             "The company's profits were skyrocketing after the new product launch, but soon went plunging after a competitor released a similar product."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "better than average or better than other people or things of the same type",
@@ -664,7 +664,7 @@ const DATA_nce = [
             "Being able to choose one's own career path is a privilege that was not always available to women and other minorities.",
             "Owning property and land is a privilege that not everyone has the opportunity to achieve.",
             "Having supportive friends and family is a privilege that can make a significant positive impact on one's life."
-        ]
+        ], obsolete: true
     }, {
         explanation: "always",
         word: "invariably",
@@ -696,7 +696,7 @@ const DATA_nce = [
             "Many of my acquaintances from college are now successful professionals in their fields.",
             "I ran into one of my old acquaintances from high school and couldn't remember their name.",
             "It's important to maintain a certain level of professionalism with acquaintances in business settings."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to be in a place that is hidden or where few people go",
         word: "tucked",
@@ -712,7 +712,7 @@ const DATA_nce = [
             "The village was tucked away in a remote mountain valley.",
             "She tucked a strand of hair behind her ear as she listened to him speak.",
             "The secret recipe was tucked safely away in a locked cabinet."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to do something very often, so that you are known for doing it",
         word: "specialize",
@@ -1297,7 +1297,7 @@ const DATA_nce = [
         word: "contention",
         sentence: "acting on the contention that facts are sacred.",
         sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."], obsolete: true
-    }
+    },
     {
         explanation: "to use something such as authority, power, influence, etc. in order to make something happen",
         word: "exert",
@@ -1354,12 +1354,12 @@ const DATA_nce = [
         explanation: "able or likely to cause harm or death, or unpleasant problems",
         word: "dangerous",
         sentence: "Aeroplanes have the reputation of being dangerous and even hardened travelers are intimidated by them.",
-        sentences: ["The storm last night was dangerous, with strong winds and lightning strikes.", "Swimming in the ocean during a thunderstorm can be extremely dangerous.", "The mountain trail is considered dangerous during the winter months due to snow and ice.", "Some types of snakes can be very dangerous and even deadly if their bite is not treated promptly.", "Texting while driving is a dangerous behavior that can lead to accidents and fatalities.", "The chemicals used in the factory are dangerous to handle without proper safety equipment.", "Base jumping is widely considered one of the most dangerous extreme sports.", "Walking alone through a rough neighborhood late at night can be very dangerous.", "Not wearing a helmet while riding a bike is a dangerous decision that can result in serious injury.", "Driving under the influence of drugs or alcohol is extremely dangerous and irresponsible."]
+        sentences: ["The storm last night was dangerous, with strong winds and lightning strikes.", "Swimming in the ocean during a thunderstorm can be extremely dangerous.", "The mountain trail is considered dangerous during the winter months due to snow and ice.", "Some types of snakes can be very dangerous and even deadly if their bite is not treated promptly.", "Texting while driving is a dangerous behavior that can lead to accidents and fatalities.", "The chemicals used in the factory are dangerous to handle without proper safety equipment.", "Base jumping is widely considered one of the most dangerous extreme sports.", "Walking alone through a rough neighborhood late at night can be very dangerous.", "Not wearing a helmet while riding a bike is a dangerous decision that can result in serious injury.", "Driving under the influence of drugs or alcohol is extremely dangerous and irresponsible."], obsolete: true
     }, {
         explanation: "to invent a plan, system, object, etc., usually using your intelligence or imagination.",
         word: "devise",
         sentence: "You do not have to devise ways of taking your mind off the journey.",
-        sentences: ["He came up with a clever devise to keep his phone from falling out of his pocket.", "The scientists spent years perfecting a new medical devise to help with heart disease.", "The spy used a devise to gather information undetected.", "The magician's trick involved a clever devises to make it seem like he had made a person disappear.", "The new security system features state-of-the-art devises to protect the building from theft.", "The author used a unique devise to tell the story from multiple perspectives.", "The company plans to release a new fitness devise later this year.", "The artist created a unique devise to project moving images onto a canvas.", "The engineer devised a solution to the problem that had been plaguing the construction project.", "The teacher used a creative devise to make the class more engaging and interactive."]
+        sentences: ["He came up with a clever devise to keep his phone from falling out of his pocket.", "The scientists spent years perfecting a new medical devise to help with heart disease.", "The spy used a devise to gather information undetected.", "The magician's trick involved a clever devises to make it seem like he had made a person disappear.", "The new security system features state-of-the-art devises to protect the building from theft.", "The author used a unique devise to tell the story from multiple perspectives.", "The company plans to release a new fitness devise later this year.", "The artist created a unique devise to project moving images onto a canvas.", "The engineer devised a solution to the problem that had been plaguing the construction project.", "The teacher used a creative devise to make the class more engaging and interactive."], obsolete: true
     }, {
         explanation: "运河",
         word: "canal",
@@ -1369,12 +1369,12 @@ const DATA_nce = [
         explanation: "causing extreme physical or mental pain",
         word: "agonizing",
         sentence: "For one agonizing moment, the dish was perched precariously on the bank of the canal",
-        sentences: ["The patient's agonizing screams could be heard throughout the hospital ward.", "It was an agonizing decision for the athlete to retire due to a career-ending injury.", "The family went through agonizing uncertainty while waiting for news about their missing loved one.", "The last few minutes of the championship game were agonizing for the fans as the score remained tied.", "The writer went through an agonizing process of editing and revising her novel before finally publishing it.", "The victim's family had to endure agonizing testimony during the trial of their loved one's murderer.", "The student felt an agonizing sense of failure after receiving a failing grade on the final exam.", "The couple went through an agonizing breakup after years of being together.", "The musician's performance was agonizingly off-key and out of tune.", "The hiker experienced an agonizing injury to her ankle and had to be rescued from the mountain."]
+        sentences: ["The patient's agonizing screams could be heard throughout the hospital ward.", "It was an agonizing decision for the athlete to retire due to a career-ending injury.", "The family went through agonizing uncertainty while waiting for news about their missing loved one.", "The last few minutes of the championship game were agonizing for the fans as the score remained tied.", "The writer went through an agonizing process of editing and revising her novel before finally publishing it.", "The victim's family had to endure agonizing testimony during the trial of their loved one's murderer.", "The student felt an agonizing sense of failure after receiving a failing grade on the final exam.", "The couple went through an agonizing breakup after years of being together.", "The musician's performance was agonizingly off-key and out of tune.", "The hiker experienced an agonizing injury to her ankle and had to be rescued from the mountain."], obsolete: true
     }, {
         explanation: "exact and accurate",
         word: "precise",
         sentence: "Such undertakings require the precise planning and foresight of military operations.",
-        sentences: ["He was very precise in his instructions.", "The surgeon's hands were perfectly precise during the operation.", "The builder made precise measurements to ensure the new structure was level.", "She spoke with precise accuracy about the topic.", "The scientist requires precise measurements in the lab.", "The mathematician solved the equation with precise calculation.", "The painter applied precise brushstrokes to the canvas.", "The writer used precise vocabulary to convey the meaning.", "The musician played the piece with precise timing.", "The chef used precise measurements for the recipe."]
+        sentences: ["He was very precise in his instructions.", "The surgeon's hands were perfectly precise during the operation.", "The builder made precise measurements to ensure the new structure was level.", "She spoke with precise accuracy about the topic.", "The scientist requires precise measurements in the lab.", "The mathematician solved the equation with precise calculation.", "The painter applied precise brushstrokes to the canvas.", "The writer used precise vocabulary to convey the meaning.", "The musician played the piece with precise timing.", "The chef used precise measurements for the recipe."], obsolete: true
     },
     {
         explanation: "relating to or belonging to the armed forces",
@@ -1392,7 +1392,7 @@ const DATA_nce = [
                 "The military history museum showcased weapons and uniforms from different eras.",
                 "The military tribunal sentenced the soldier to 10 years in prison for desertion.",
                 "The military helicopter flew over the battlefield to assess the situation."
-            ]
+            ], obsolete: true
     },
     {
         explanation: "to make something known or tell people about something officially",
@@ -1441,7 +1441,7 @@ const DATA_nce = [
             "The dancer's costume was glinting under the stage lights.",
             "The broken glass was glinting on the pavement.",
             "The watch on his wrist was glinting with every movement."
-        ]
+        ], obsolete: true
     }, {
         explanation: "黎明；鸡叫",
         word: "cockcrow",
@@ -1489,7 +1489,7 @@ const DATA_nce = [
             "The actors in the theatre production were incredibly talented and passionate.",
             "The theatre was packed with people eager to see the highly anticipated musical.",
             "I caught a glimpse of one of my favorite actors outside the theatre before the show."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "impossible, or very difficult, to believe",
@@ -2416,7 +2416,7 @@ const DATA_nce = [
             "The company was able to salvage the reputation of its product with a successful marketing campaign.",
             "The team worked to salvage the game after falling behind in the first half.",
             "The organization was able to salvage the event by finding a last-minute replacement speaker."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "people or animals shake slightly because they feel cold, ill, or frightened",
@@ -2433,7 +2433,7 @@ const DATA_nce = [
             "The student was shivering in the classroom because the air conditioning was too cold.",
             "The athlete was shivering before the big game due to nerves.",
             "The passenger was shivering on the airplane due to the air conditioning being too high."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a long, narrow passage that connects rooms or buildings.",
@@ -2450,7 +2450,7 @@ const DATA_nce = [
             "The prison corridor was guarded by armed officers.",
             "The airport corridor was filled with travelers hurrying to catch their flights.",
             "The apartment building corridor was narrow and smelled like cooking food from different cultures."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "an object that can be filled with air or gas, typically for use in play or decoration.",
@@ -2467,7 +2467,7 @@ const DATA_nce = [
             "The inflatable globe was used in geography class to teach about different countries.",
             "The inflatable air dancer waved in the wind to attract customers to the store.",
             "The inflatable obstacle course at the fair was challenging and fun for all ages."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a material that is elastic and water-resistant, made from the sap of rubber trees or synthetic materials.",
@@ -2484,7 +2484,7 @@ const DATA_nce = [
             "The farmer tapped rubber trees to collect sap for processing.",
             "The scientist used rubber stoppers to seal the test tubes in the lab.",
             "The hiker used rubber trekking poles for a better grip on the rocky terrain."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "strange in a frightening and mysterious way",
@@ -2501,7 +2501,7 @@ const DATA_nce = [
             "The abandoned hospital was eerie with its broken windows and flickering lights.",
             "The misty lake at night was eerie with its eerie reflection of the moon.",
             "The old book in the library had an eerie aura about it, as if it held a dark secret."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to a disturbance in the atmosphere characterized by strong winds, thunder, lightning, and heavy precipitation.",
