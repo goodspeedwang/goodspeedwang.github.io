@@ -358,7 +358,7 @@ const DATA_nce = [
             "The vows exchanged during a wedding ceremony are considered sacred promises.",
             "The river was considered a sacred body of water and was used for spiritual purification.",
             "Certain animals are considered sacred in some cultures and are not to be hunted or harmed."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "any of five children born at the same time to the same mother",
@@ -375,7 +375,7 @@ const DATA_nce = [
             "The quintuplets were the talk of the town and people would often stop to take pictures with them.",
             "As they grew up, the quintuplets had to learn to share and be patient with each other.",
             "The quintuplets were the pride and joy of their parents' lives."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "摄像机",
@@ -398,7 +398,7 @@ const DATA_nce = [
             "The availability of a commodity can determine how much it is worth on the market.",
             "Investing in commodity can be a way to diversify one's portfolio.",
             "The market for some commodity, such as diamonds, is tightly controlled."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "not having enough space or time",
@@ -1296,13 +1296,13 @@ const DATA_nce = [
         explanation: "an opinion expressed in an argument",
         word: "contention",
         sentence: "acting on the contention that facts are sacred.",
-        sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."]
-    },
+        sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."], obsolete: true
+    }
     {
         explanation: "to use something such as authority, power, influence, etc. in order to make something happen",
         word: "exert",
         sentence: "Newspapers exert such tremendous influence",
-        sentences: ["I will exert myself to finish this project on time.", "The athlete had to exert all his energy to win the race.", "The manager has to exert his authority to maintain discipline in the workplace.", "He had to exert his influence to convince the investors to fund the project.", "The teacher has to exert her patience while dealing with difficult students.", "The doctor asked the patient to exert more force during the physical therapy.", "The writer exerted his creativity to come up with a compelling storyline.", "The musician exerted her talent to produce a beautiful melody.", "The chef exerted her culinary skills to create a delicious meal.", "The lawyer exerted his legal knowledge to win the case."]
+        sentences: ["I will exert myself to finish this project on time.", "The athlete had to exert all his energy to win the race.", "The manager has to exert his authority to maintain discipline in the workplace.", "He had to exert his influence to convince the investors to fund the project.", "The teacher has to exert her patience while dealing with difficult students.", "The doctor asked the patient to exert more force during the physical therapy.", "The writer exerted his creativity to come up with a compelling storyline.", "The musician exerted her talent to produce a beautiful melody.", "The chef exerted her culinary skills to create a delicious meal.", "The lawyer exerted his legal knowledge to win the case."], obsolete: true
     },
     {
         explanation: "completely or extremely",
@@ -1336,7 +1336,7 @@ const DATA_nce = [
             "manufacturers of building materials are developing new eco-friendly products.",
             "The manufacturers of household appliances are developing smart technology.",
             "Pharmaceutical manufacturers have to undergo extensive testing before their products hit the market."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a person who is very interested in and involved with a particular subject or activity",
@@ -2551,7 +2551,7 @@ const DATA_nce = [
             "The spaceship's crew consisted of a diverse group of inhabitants from different parts of the galaxy.",
             "The town's inhabitants were shocked when they learned that their mayor had been caught embezzling funds.",
             "The inhabitants of the nursing home enjoyed spending time with the local schoolchildren who visited them every week."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a feeling of responsibility or remorse for doing something wrong or causing harm to others.",
         word: "guilt",
