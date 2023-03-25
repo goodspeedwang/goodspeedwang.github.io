@@ -49,17 +49,17 @@ const DATA_nce = [
     {
         explanation: "to allow yourself or another person to have something enjoyable, especially more than is good for you",
         word: "indulge",
-        sentence: "Inviting the fire brigade to put out a nonexistent fire is a crude form of deception which no self-respecting student would ever indulge in"
+        sentence: "Inviting the fire brigade to put out a nonexistent fire is a crude form of deception which no self-respecting student would ever indulge in", obsolete: true
     },
     {
         explanation: "in a frightening, violent, or powerful way",
         word: "fiercely",
-        sentence: "the workmen struggled fiercely."
+        sentence: "the workmen struggled fiercely.", obsolete: true
     },
     {
         explanation: "to take using sudden force",
         word: "seize",
-        sentence: "the police attempted to seize the pneumatic drill."
+        sentence: "the police attempted to seize the pneumatic drill.", obsolete: true
     },
     {
         explanation: "a very large rock",
@@ -69,15 +69,15 @@ const DATA_nce = [
         explanation: "to change direction, especially suddenly",
         word: "swerved",
         sentence: "we swerved to avoid large boulders.",
-        sentences: ["The car suddenly swerved to avoid hitting the pedestrian.", "I swerved my bicycle to avoid a pothole on the road.", "The driver swerved to avoid the oncoming truck, narrowly avoiding a collision.", "The football player swerved past several defenders to score a stunning goal.", "The plane swerved to avoid a flock of birds, causing a few moments of panic among passengers.", "He swerved from the conversation topic to deflect the sensitive question.", "The ship swerved off-course due to strong winds and had to be corrected by the captain.", "She swerved her gaze away from her ex-boyfriend, trying to hold back tears.", "The stock market swerved sharply downward, causing widespread panic among investors.", "The toddler swerved around the playground, giggling in delight."]
+        sentences: ["The car suddenly swerved to avoid hitting the pedestrian.", "I swerved my bicycle to avoid a pothole on the road.", "The driver swerved to avoid the oncoming truck, narrowly avoiding a collision.", "The football player swerved past several defenders to score a stunning goal.", "The plane swerved to avoid a flock of birds, causing a few moments of panic among passengers.", "He swerved from the conversation topic to deflect the sensitive question.", "The ship swerved off-course due to strong winds and had to be corrected by the captain.", "She swerved her gaze away from her ex-boyfriend, trying to hold back tears.", "The stock market swerved sharply downward, causing widespread panic among investors.", "The toddler swerved around the playground, giggling in delight."], obsolete: true
     }, {
         explanation: "in a way that suggests that something unpleasant is likely to happen",
         word: "ominously",
-        sentence: "The wheels scooped up stones that hammered ominously under the car."
+        sentence: "The wheels scooped up stones that hammered ominously under the car.", obsolete: true
     }, {
         explanation: "to move something with a scoop or with something used as a scoop",
         word: "scooped",
-        sentence: "The wheels scooped up stones that hammered ominously under the car."
+        sentence: "The wheels scooped up stones that hammered ominously under the car.", obsolete: true
     }, {
         explanation: "a line or pattern that looks like a Z or a row of Zs joined together",
         word: "zigzag",
@@ -87,7 +87,7 @@ const DATA_nce = [
     {
         explanation: "to look at or consider a person or thing carefully and in detail in order to discover something about them",
         word: "examine",
-        sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure."
+        sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure.", obsolete: true
     },
     {
         explanation: "causing you to have fear or respect for something or someone because that thing or person is large, powerful, or difficult",
@@ -744,7 +744,7 @@ const DATA_nce = [
             "He always went out of his way to avoid traffic, but ironically, ended up being late to his wedding because of an unexpected traffic jam.",
             "They proposed a new law to reduce government bureaucracy, but ironically, it required more complex procedures.",
             "ironically, the book she tried to donate to the library was already in their collection."
-        ]
+        ], obsolete: true
     }, {
         explanation: "the act of allowing someone to do something, or of allowing something to happen",
         word: "permission",
@@ -760,7 +760,7 @@ const DATA_nce = [
             'I received permission from the professor to submit my assignment a day late.',
             'You have my permission to use my idea for your project.',
             'The concert venue requires permission from the city to use outdoor speakers.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to worry someone",
@@ -828,7 +828,7 @@ const DATA_nce = [
             'The spider was so big and terrifying that I couldn\'t even move.',
             'The narrow bridge was terrifying to cross during the storm.',
             'The idea of being lost in the middle of the ocean is absolutely terrifying.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "having only a short distance from the top to the bottom",
@@ -845,7 +845,7 @@ const DATA_nce = [
             'Her behavior was very shallow and she only cared about her appearance.',
             'The river was too shallow for boats to navigate.',
             'The book\'s characters were too shallow and one-dimensional for the story to be engaging.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to rub something against a hard surface, in order to make it sharper or smoother",
@@ -862,7 +862,7 @@ const DATA_nce = [
             'The skateboarder was grinding along the edge of the railing, performing a trick.',
             'The dancer\'s footwork was so smooth that it looked like she was grinding on air.',
             'The author was grinding away at her manuscript, trying to finish it before her deadline.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "gradually",
@@ -1144,7 +1144,7 @@ const DATA_nce = [
         explanation: "not needed or wanted, or more than is needed or wanted",
         word: "unnecessary",
         sentence: "We regard them as unnecessary creatures that do more harm than good.",
-        sentences: ["The manager scolded the employee for making an unnecessary mistake.", "Her constant nagging about the issue was deemed unnecessary by her colleagues.", "The doctor prescribed an unnecessary medication to the patient, causing harm.", "The teacher found the use of swear words in the student's essay to be unnecessary.", "He was fired from his job for adding unnecessary expenses to the company's budget.", "The extra features on the product were deemed unnecessary by most consumers.", "The politician made an unnecessary remark, causing backlash from the public.", "The additional security measures were seen as unnecessary by some people.", "Her constant need for attention was deemed unnecessary by her friends.", "The artist felt that adding more paint to the canvas would be unnecessary."]
+        sentences: ["The manager scolded the employee for making an unnecessary mistake.", "Her constant nagging about the issue was deemed unnecessary by her colleagues.", "The doctor prescribed an unnecessary medication to the patient, causing harm.", "The teacher found the use of swear words in the student's essay to be unnecessary.", "He was fired from his job for adding unnecessary expenses to the company's budget.", "The extra features on the product were deemed unnecessary by most consumers.", "The politician made an unnecessary remark, causing backlash from the public.", "The additional security measures were seen as unnecessary by some people.", "Her constant need for attention was deemed unnecessary by her friends.", "The artist felt that adding more paint to the canvas would be unnecessary."], obsolete: true
     }, {
         explanation: "a strong, often sudden, feeling that something is extremely unpleasant",
         word: "revulsion",
@@ -1409,7 +1409,7 @@ const DATA_nce = [
             "The flight attendant will announce the flight's departure time shortly.",
             "The coach will announce the starting lineup for the game tonight.",
             "The teacher will announce the upcoming project requirements to the class."
-        ]
+        ], obsolete: true
     }, {
         explanation: "special, or this and not any other",
         word: "particular",
