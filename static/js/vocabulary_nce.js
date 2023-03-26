@@ -14,12 +14,31 @@ const DATA_nce2 = [
     { explanation: "牺牲", word: "sacrifice" },
     { explanation: "渴望", word: "desire" },
     { explanation: "狂喜", word: "rapture" },
+    { explanation: "专业的", word: "specialized" },
+    { explanation: "障碍物", word: "obstacle" },
+    { explanation: "相似", word: "resemblance" },
+    { explanation: "被摧毁的", word: "destroyed" },
+    { explanation: "干涉", word: "interference" },
+    { explanation: "小偷", word: "thief" },
+    { explanation: "小偷们", word: "thieves" },
+    { explanation: "深奥的", word: "abstruse" },
+    { explanation: "血统", word: "descent" },
+    { explanation: "审判", word: "trial" },
+    { explanation: "乞求", word: "begged" },
+    { explanation: "早期的", word: "early" },
+    { explanation: "必要的", word: "essential" },
+    { explanation: "逐渐地", word: "gradually" },
+    { explanation: "足够地", word: "sufficiently" },
+    { explanation: "无聊", word: "boredom" },
+    { explanation: "冲动", word: "impulse" },
+    { explanation: "闯入者", word: "intruder" },
+    { explanation: "难以想象的", word: "inconceivable" },
+    { explanation: "名副其实的", word: "veritable" },
 ];
 /*
 please translate the following words to Chinese. 
 --------
-specialized
-obstacle
+embadded
 --------
 only respond back by javascript array formation.
 { explanation: "chinese", word: "", },

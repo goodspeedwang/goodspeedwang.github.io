@@ -919,7 +919,7 @@ const DATA_nce = [
             "The museum had an insignificant collection of modern art.",
             "The student's plagiarism was an insignificant infringement of the academic rules.",
             "Despite his insignificant role, he played an important part in the success of the team."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "獠牙",
@@ -936,7 +936,7 @@ const DATA_nce = [
             "The hunter held up the massive elephant tusk with pride.",
             "The carvings on the ivory tusk were incredibly detailed and precise.",
             "The documentary highlighted the importance of protecting endangered animals and their tusks."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "猛犸",
@@ -953,7 +953,7 @@ const DATA_nce = [
             "The mammoth's size was awe-inspiring to ancient peoples.",
             "Paleontologists study mammoth fossils to trace their evolution.",
             "The mammoth skull was an impressive specimen in the collection."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "If two or more facts, numbers, etc. there is a relationship between them:",
@@ -970,22 +970,22 @@ const DATA_nce = [
             "The stock market tends to have correlating trends across various sectors.",
             "The study found a correlating link between diet and heart disease.",
             "The correlating evidence supports the hypothesis proposed by the researcher."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "any stage in a series of events or in a process of development",
         word: "phases",
-        sentence: "the phases of the moon"
+        sentence: "the phases of the moon", obsolete: true
     },
     {
         explanation: "to represent or show something in a picture or story",
         word: "depicted",
-        sentence: "The hunting scenes depicted on walls were not simply a form of artistic expression."
+        sentence: "The hunting scenes depicted on walls were not simply a form of artistic expression.", obsolete: true
     },
     {
         explanation: "too willing to believe what you are told and so easily deceived",
         word: "credulous",
-        sentence: "We are less credulous than we used to be."
+        sentence: "We are less credulous than we used to be.", obsolete: true
     }, {
         explanation: "not known to many people",
         word: "obscure",
@@ -1001,7 +1001,7 @@ const DATA_nce = [
             "The obscure cult practiced unconventional rituals that were kept secret from outsiders.",
             "The writer's novel was criticized for its obscure plot and convoluted narrative.",
             "Her memories of the accident were obscured by the trauma of the experience."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to plan secretly with other people to do something bad, illegal, or against someone's wishes",
         word: "conspire",
@@ -1017,7 +1017,7 @@ const DATA_nce = [
             "The siblings conspired to play a prank on their parents.",
             "The group of students conspired to cheat on the exam.",
             "The gang members conspired to carry out a series of robberies in the city."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to (cause to) flow quickly and in large amounts",
         word: "poured",
@@ -1033,7 +1033,7 @@ const DATA_nce = [
             "He poured the cleaning solution onto the stains and let it soak in.",
             "The sun poured its bright rays through the window, warming the room.",
             "She poured all her energy into finishing the marathon."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a very strong feeling of no respect for someone or something that you think is stupid or has no value",
         word: "scorn",
@@ -1049,7 +1049,7 @@ const DATA_nce = [
             "His lazy attitude towards work had earned him the scorn of his colleagues.",
             "The politician was met with loud scorn as he lied about his accomplishments.",
             "The teacher's reaction to the student's shoddy work was one of cold scorn."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to know or be familiar with something, because you have studied it or have experienced it before",
         word: "acquainted",
@@ -1065,7 +1065,7 @@ const DATA_nce = [
             "She is well-acquainted with the history of the company.",
             "The police officer was acquainted with the suspect and questioned him accordingly.",
             "Becoming acquainted with a language takes time and practice."
-        ]
+        ], obsolete: true
     }, {
         explanation: "on time",
         word: "punctual",
@@ -1098,7 +1098,7 @@ const DATA_nce = [
             "The road has been temporarily closed for repairs.",
             "The store is temporarily out of stock for that item.",
             "The government has temporarily frozen all immigration visas."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to do something or go somewhere very slowly, taking more time than is necessary",
         word: "dawdled",
@@ -1120,7 +1120,7 @@ const DATA_nce = [
         explanation: "农业",
         word: "agriculture",
         sentence: "agriculture",
-        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
+        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."], obsolete: true
     },
     {
         explanation: "烟囱",
@@ -1501,7 +1501,7 @@ const DATA_nce = [
         explanation: "the structure and systems of an organization or process",
         word: "machinery",
         sentence: "Justice is part of the complex machinery of the law.",
-        sentences: ["The machinery in the factory is extremely complex.", "He has a deep understanding of how machinery operates.", "Proper maintenance is crucial for keeping machinery in good condition.", "Without the use of machinery, many manufacturing processes would be impossible.", "Automated machinery has greatly increased productivity in many industries.", "Heavy machinery is used for construction of large buildings.", "Industrial machinery has revolutionized the way we produce goods.", "The malfunctioning machinery caused a delay in production.", "The factory workers were trained to operate the machinery safely.", "The sale of used machinery can provide a source of revenue for businesses."]
+        sentences: ["The machinery in the factory is extremely complex.", "He has a deep understanding of how machinery operates.", "Proper maintenance is crucial for keeping machinery in good condition.", "Without the use of machinery, many manufacturing processes would be impossible.", "Automated machinery has greatly increased productivity in many industries.", "Heavy machinery is used for construction of large buildings.", "Industrial machinery has revolutionized the way we produce goods.", "The malfunctioning machinery caused a delay in production.", "The factory workers were trained to operate the machinery safely.", "The sale of used machinery can provide a source of revenue for businesses."], obsolete: true
     },
     {
         explanation: "a very strong interest in something that fills a person's mind or uses up all their time",
@@ -1524,7 +1524,7 @@ const DATA_nce = [
             "The monstrous injustice of the system left many feeling angry and frustrated.",
             "The monstrous injustice of the system left many feeling angry and frustrated.",
             "The monstrous fire consumed the forest, leaving behind a charred and barren landscape."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "used to describe something as another, more exciting, interesting, or unusual thing, as a way of emphasizing its character",
@@ -1558,7 +1558,7 @@ const DATA_nce = [
             "The teacher continually encourages their students to ask questions and seek knowledge.",
             "The wind continually blows, rustling the leaves on the trees and carrying the scent of flowers.",
             "The rain continually falls, nourishing the plants and replenishing the earth."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to fix or implant something firmly and deeply into a surrounding mass or object.",
@@ -1592,7 +1592,7 @@ const DATA_nce = [
             "The insult was mortally offensive and caused a fight.",
             "The storm was mortally destructive, leaving a trail of destruction.",
             "The decision was mortally consequential and would have long-term effects."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "complete and including everything that is necessary",
@@ -1609,7 +1609,7 @@ const DATA_nce = [
             "The health care policy aims to provide comprehensive coverage for all citizens.",
             "The museum has a comprehensive collection of artwork from the Renaissance period.",
             "The law firm offers comprehensive legal services to its clients."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "(an area of) land, or sometimes sea, that is considered as belonging to or connected with a particular country or person",
@@ -1643,7 +1643,7 @@ const DATA_nce = [
             "The website is updated with frequent news articles.",
             "The city is known for its frequent traffic congestion.",
             "The police were called to the bar due to frequent disturbances."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a large natural or artificial lake used as a source of water supply, or a place where something is collected and stored for future use.",
@@ -2535,7 +2535,7 @@ const DATA_nce = [
             "The writer had to revise the plot several times before it was ready to be published.",
             "The plot of the TV series was so intricate that some fans created online forums to discuss and analyze it.",
             "The plot of the novel was so captivating that I finished it in one sitting."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a person or animal that lives permanently or temporarily in a particular place.",
         word: "inhabitants",
@@ -2567,7 +2567,7 @@ const DATA_nce = [
             "His guilt prevented him from fully enjoying his success and accomplishments.",
             "The victim's family expressed their satisfaction with the verdict, which finally brought closure to their years of pain and guilt.",
             "She felt a twinge of guilt every time she indulged in her favorite dessert, knowing that she was trying to watch her diet."
-        ]
+        ], obsolete: truede
     }, {
         explanation: "a penalty inflicted on someone for a wrongdoing or crime.",
         word: "punishment",
@@ -2583,7 +2583,7 @@ const DATA_nce = [
             "The company has a zero-tolerance policy for harassment, and anyone found guilty faces severe punishment.",
             "The punishment should fit the crime and be appropriate to the severity of the offense.",
             "The punishment for breaking the law should not be left to vigilantes or individuals taking the law into their own hands."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to distribute or administer something, typically a punishment or justice.",
         word: "meted out",
@@ -2599,7 +2599,7 @@ const DATA_nce = [
             "The police officer meted out traffic tickets to drivers who were breaking the law.",
             "The judge meted out a lenient sentence to the defendant, taking into account his difficult circumstances.",
             "The coach meted out praise to the players who had worked hard and showed improvement."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a judgment or decision reached after considering all the evidence or information.",
         word: "conclusion",
