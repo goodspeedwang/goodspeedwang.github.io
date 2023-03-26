@@ -2567,7 +2567,7 @@ const DATA_nce = [
             "His guilt prevented him from fully enjoying his success and accomplishments.",
             "The victim's family expressed their satisfaction with the verdict, which finally brought closure to their years of pain and guilt.",
             "She felt a twinge of guilt every time she indulged in her favorite dessert, knowing that she was trying to watch her diet."
-        ], obsolete: truede
+        ], obsolete: true
     }, {
         explanation: "a penalty inflicted on someone for a wrongdoing or crime.",
         word: "punishment",
