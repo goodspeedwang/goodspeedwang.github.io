@@ -34,11 +34,29 @@ const DATA_nce2 = [
     { explanation: "闯入者", word: "intruder" },
     { explanation: "难以想象的", word: "inconceivable" },
     { explanation: "名副其实的", word: "veritable" },
+    { explanation: "嵌入的", word: "embedded" },
+    { explanation: "边界", word: "boundary" },
+    { explanation: "前任，前辈", word: "predecessor" },
+    { explanation: "关键的，重要的", word: "critical" },
+    { explanation: "观察到的", word: "observed" },
+    { explanation: "观察力强的", word: "observant" },
+    { explanation: "大群，一大批", word: "hordes" },
+    { explanation: "离奇的，神秘的", word: "uncanny" },
+    { explanation: "入迷的，着迷的", word: "entranced" },
+    { explanation: "绝望", word: "despair" },
+    { explanation: "美味的，芳香的", word: "luscious" },
+    { explanation: "代表性的", word: "representive" },
+    { explanation: "带色调的", word: "tinted" },
+    { explanation: "获得，收购", word: "acquisition" },
+    { explanation: "过分的，令人不可接受的", word: "outrageous" },
+    { explanation: "无法解决的", word: "insoluble" },
+    { explanation: "解释，说明", word: "explanation" },
+    { explanation: "握，紧抓", word: "clutching" },
 ];
 /*
 please translate the following words to Chinese. 
 --------
-embadded
+
 --------
 only respond back by javascript array formation.
 { explanation: "chinese", word: "", },
