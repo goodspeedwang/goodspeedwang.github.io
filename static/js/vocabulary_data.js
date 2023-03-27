@@ -1154,7 +1154,7 @@ const DATA_nce = [
         explanation: "protected from wind, rain, or other bad weather",
         word: "sheltered",
         sentence: "The tree has grown against a warm wall on a sheltered side of the house.",
-        sentences: ["The small town was sheltered from the harsh winter winds.", "The shy child was sheltered by her parents.", "The old oak tree provided sheltered for the animals in the forest.", "The beach was sheltered from the strong waves by the large cliff.", "The new building was sheltered from the sun by the tall trees.", "The birds huddled together in the sheltered corner of the nest.", "The elderly lady lived a sheltered life in her small cottage in the countryside.", "The treasure was sheltered from the world in the hidden cave.", "The homeless man found sheltered under the bridge during the storm.", "The locals knew where to find sheltered spots during the hurricane season."]
+        sentences: ["The small town was sheltered from the harsh winter winds.", "The shy child was sheltered by her parents.", "The old oak tree provided sheltered for the animals in the forest.", "The beach was sheltered from the strong waves by the large cliff.", "The new building was sheltered from the sun by the tall trees.", "The birds huddled together in the sheltered corner of the nest.", "The elderly lady lived a sheltered life in her small cottage in the countryside.", "The treasure was sheltered from the world in the hidden cave.", "The homeless man found sheltered under the bridge during the storm.", "The locals knew where to find sheltered spots during the hurricane season."], obsolete: true
     }, {
         explanation: "having a pleasant sweet taste or containing a lot of juice",
         word: "luscious",
@@ -1175,7 +1175,7 @@ const DATA_nce = [
             "The prairie dogs lived in a large underground colony with interconnected tunnels.",
             "The bacteria formed a colony on the surface of the petri dish.",
             "The bats roosted in a colony in the cave during the day."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to protect something from harm",
         word: "safeguard",
@@ -1185,7 +1185,7 @@ const DATA_nce = [
         explanation: "to speak, act, or be present officially for a person or group",
         word: "representing",
         sentence: "A parliamentary committee representing all political parties appoints a person",
-        sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."]
+        sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."], obsolete:true
     }, {
         explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
         word: "prosecute",
@@ -1201,7 +1201,7 @@ const DATA_nce = [
             "The judge ordered the case to be prosecuted in a higher court due to its complexity.",
             "The prosecutor faced criticism for failing to prosecute cases of police brutality.",
             "The defendant was prosecuted for violating the terms of their probation."
-        ]
+        ], obsolete:true
     }, {
         explanation: "the process of getting something",
         word: "acquisition",
@@ -1677,7 +1677,7 @@ const DATA_nce = [
             "The autumn moon shone brightly in the night sky.",
             "The autumn rain brought relief from the summer heat.",
             "The autumn holidays, such as Halloween and Thanksgiving, are celebrated in many cultures."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "something that happens",
@@ -1694,7 +1694,7 @@ const DATA_nce = [
             "The occurrence of the pandemic has changed the way we live our lives.",
             "The occurrence of the new species was documented by the biologist.",
             "The occurrence of the rare flower can only be found in the mountain region."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that is positive or beneficial, or in a way that shows approval or support.",
@@ -1762,7 +1762,7 @@ const DATA_nce = [
             "The politician was accused of unduly influencing the outcome of the election.",
             "The police were accused of unduly using force in apprehending the suspect.",
             "The customer was dissatisfied with the service they received, as they felt they were unduly ignored."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a firm and determined way",
@@ -1779,7 +1779,7 @@ const DATA_nce = [
             "The farmer plowed the field stoutly, using his trusty tractor.",
             "The dog barked stoutly, warning its owner of the approaching danger.",
             "The ship sailed stoutly through the rough waters, despite the stormy conditions."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to hold someone while fighting with him or her",
@@ -1796,7 +1796,7 @@ const DATA_nce = [
             "The scientist had to grapple with the problem of finding a cure for the disease.",
             "The government had to grapple with the issue of unemployment and poverty.",
             "The athlete had to grapple with the challenge of overcoming a serious injury to return to competition."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to form a mental image or concept of something that is not present or has not occurred, or to suppose or assume something to be the case.",
@@ -1813,7 +1813,7 @@ const DATA_nce = [
             "imagine waking up to a world covered in snow.",
             "She asked us to imagine ourselves as characters in a story.",
             "I can imagine how excited the children will be when they see the presents."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a mixture of gases that surrounds any planet",
@@ -1847,7 +1847,7 @@ const DATA_nce = [
             "The historian's knowledge covered the realm of ancient civilizations.",
             "The monarch ruled over a vast realm of territories and peoples.",
             "The explorer ventured into the uncharted realms of the jungle."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "large groups or crowds of people, animals, or things, typically in a disorderly or unruly manner.",
@@ -1881,7 +1881,7 @@ const DATA_nce = [
             "The impact of the asteroid was enormous, causing massive destruction and changing the course of history.",
             "The task of organizing the event was enormous, requiring the coordination of dozens of teams and volunteers.",
             "The talent of the singer was enormous, captivating the audience with every performance."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "someone's ability to think of clever new ways of doing something",
@@ -1898,7 +1898,7 @@ const DATA_nce = [
             "The athlete's ingenuity allowed them to come up with new and effective training methods.",
             "The teacher's ingenuity was praised for their ability to engage and inspire their students.",
             "The scientist's ingenuity was crucial in developing the breakthrough discovery."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a complaint or a strong feeling that you have been treated unfairly",
@@ -1915,7 +1915,7 @@ const DATA_nce = [
             "The company promised to address all employee grievances in a timely manner.",
             "The customer filed a grievance with the company after receiving poor service.",
             "The teacher listened to the students' grievances and promised to address them."
-        ]
+        ], obsolete:true
     },
     {
         explanation: "a person who is not a citizen of the country where they are residing or visiting",
@@ -1930,7 +1930,7 @@ const DATA_nce = [
             "The police are trained to be sensitive to the needs of foreigners in the area.",
             "The company has a policy of hiring both locals and foreigners for diversity.",
             "The city has a large population of foreigners, creating a multicultural community."
-        ]
+        ], obsolete:true
     },
     {
         explanation: "showing an unreasonable dislike for something or someone.",
@@ -1947,7 +1947,7 @@ const DATA_nce = [
             "The study found that people who hold prejudiced beliefs tend to be less accepting of diversity.",
             "prejudiced views often stem from fear or ignorance of those who are different.",
             "The book explores the effects of prejudiced attitudes on individuals and society."
-        ]
+        ], obsolete:true
     }, {
         explanation: "a person or thing that represents or stands for someone or something else",
         word: "representative",
@@ -2044,7 +2044,7 @@ const DATA_nce = [
             "The church was adorned with beautiful stained-glass windows.",
             "The bride's dress was adorned with intricate lace and beading.",
             "The palace was adorned with elaborate carvings and patterns."
-        ]
+        ], obsolete:true
     }, {
         explanation: "relating to beauty products or treatments intended to improve a person's appearance",
         word: "cosmetic",
@@ -2060,7 +2060,7 @@ const DATA_nce = [
             "The dermatologist recommended a cosmetic procedure to reduce the appearance of wrinkles.",
             "The model undergoes regular cosmetic treatments to maintain her flawless complexion.",
             "The beauty industry is constantly evolving with new cosmetic trends and innovations."
-        ]
+        ], obsolete:true
     }, {
         explanation: "in a way that is famous for something bad",
         word: "notoriously",
@@ -2825,7 +2825,7 @@ const DATA_nce = [
             "The literary festival brings together writers, readers, and book lovers for a series of talks, workshops, and readings.",
             "The music and arts festival is a four-day event that has become one of the biggest in the country.",
             "The lantern festival is a colorful celebration that marks the end of the Chinese New Year and the beginning of spring."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to try to do something",
         word: "endeavor",
@@ -2858,7 +2858,7 @@ const DATA_nce = [
             "After overcoming many obstacles, the adventurer emerged from the jungle triumphantly.",
             "The politician gave a triumphant speech after winning the election.",
             "The student raised her hand triumphantly, having just solved a difficult math problem."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to the required degree or extent.",
         word: "sufficiently",
