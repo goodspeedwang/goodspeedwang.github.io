@@ -181,12 +181,12 @@ const DATA_nce = [
     {
         explanation: "not in the place where you are expected to be, especially at school or work",
         word: "absent",
-        sentence: "After being absent from The Gables for a week, my aunt unexpectedly returned one afternoon with a party of guests and instructed Bessie to prepare dinner."
+        sentence: "After being absent from The Gables for a week, my aunt unexpectedly returned one afternoon with a party of guests and instructed Bessie to prepare dinner.", obsolete:true
     },
     {
         explanation: "an ability, characteristic, or experience that makes you suitable for a particular job or activity",
         word: "qualifications",
-        sentence: "In addition to all her other qualifications, Bessie was an expert cook."
+        sentence: "In addition to all her other qualifications, Bessie was an expert cook.", obsolete:true
     },
     {
         explanation: "a tall cupboard in which you hang your clothes",
