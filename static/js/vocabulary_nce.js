@@ -62,6 +62,12 @@ failure
 ambitious
 fend off
 hypnotizing
+immaculate
+fickleness
+reluctantly
+wardrobe
+sentimentally
+criticized
 --------
 only respond back by javascript array formation.
 { explanation: "chinese", word: "", },
