@@ -2934,9 +2934,4 @@ word: "lowcase",
 sentence: "",
 sentences:[]
 },
-<<<<<<< HEAD
 */
-sufficiently
-=======
-*/
->>>>>>> b4f75de6d7452fc34901699fa8afdcb353236db3
