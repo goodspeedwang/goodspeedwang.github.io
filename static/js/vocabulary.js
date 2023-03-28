@@ -1,7 +1,7 @@
 
 const loadDictionary = function () {
     const index = document.getElementById("category").value;
-    DATA = [DATA_nce,DATA_ielts, DATA_num][index];
+    DATA = [DATA_nce, DATA_ielts, DATA_num, DATA_nce2][index];
 }
 
 let word = data = DATA = null;

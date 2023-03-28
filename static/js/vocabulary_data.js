@@ -2,12 +2,12 @@ const DATA_nce = [
     {
         explanation: "to praise something or someone very much",
         word: "extol",
-        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life."
+        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life.", obsolete: true
     },
     {
         explanation: "a good moral quality in a person, or the general quality of being morally good",
         word: "virtues",
-        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life."
+        sentence: "Though they extol the virtues of the peaceful life, only one of them has ever gone to live in the country and he was back in town within six months. Even he still lives under the illusion that country life is somehow superior to town life.", obsolete: true
     },
     {
         explanation: "A place or experience is extremely pleasant, beautiful, or peaceful",
@@ -22,7 +22,7 @@ const DATA_nce = [
     {
         explanation: "unusual and exciting because of coming (or seeming to come) from far away, especially in a tropical country",
         word: "exotic",
-        sentence: "stagger home loaded with as many of the exotic items as they can carry."
+        sentence: "stagger home loaded with as many of the exotic items as they can carry.", obsolete: true
     },
     {
         explanation: "in an unreasonably determined way, especially by acting in a particular way and not changing at all, despite what anyone else says",
@@ -39,7 +39,7 @@ const DATA_nce = [
             "The student obstinately argued with the teacher over a grade, despite the clear guidelines of the assignment.",
             "The patient obstinately refused to follow the doctor's orders, which made his recovery more difficult.",
             "The team obstinately stuck to their game plan, even though it wasn't working and they were losing."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "the situation of being alone, often by choice",
@@ -49,17 +49,17 @@ const DATA_nce = [
     {
         explanation: "to allow yourself or another person to have something enjoyable, especially more than is good for you",
         word: "indulge",
-        sentence: "Inviting the fire brigade to put out a nonexistent fire is a crude form of deception which no self-respecting student would ever indulge in"
+        sentence: "Inviting the fire brigade to put out a nonexistent fire is a crude form of deception which no self-respecting student would ever indulge in", obsolete: true
     },
     {
         explanation: "in a frightening, violent, or powerful way",
         word: "fiercely",
-        sentence: "the workmen struggled fiercely."
+        sentence: "the workmen struggled fiercely.", obsolete: true
     },
     {
         explanation: "to take using sudden force",
         word: "seize",
-        sentence: "the police attempted to seize the pneumatic drill."
+        sentence: "the police attempted to seize the pneumatic drill.", obsolete: true
     },
     {
         explanation: "a very large rock",
@@ -69,15 +69,15 @@ const DATA_nce = [
         explanation: "to change direction, especially suddenly",
         word: "swerved",
         sentence: "we swerved to avoid large boulders.",
-        sentences: ["The car suddenly swerved to avoid hitting the pedestrian.", "I swerved my bicycle to avoid a pothole on the road.", "The driver swerved to avoid the oncoming truck, narrowly avoiding a collision.", "The football player swerved past several defenders to score a stunning goal.", "The plane swerved to avoid a flock of birds, causing a few moments of panic among passengers.", "He swerved from the conversation topic to deflect the sensitive question.", "The ship swerved off-course due to strong winds and had to be corrected by the captain.", "She swerved her gaze away from her ex-boyfriend, trying to hold back tears.", "The stock market swerved sharply downward, causing widespread panic among investors.", "The toddler swerved around the playground, giggling in delight."]
+        sentences: ["The car suddenly swerved to avoid hitting the pedestrian.", "I swerved my bicycle to avoid a pothole on the road.", "The driver swerved to avoid the oncoming truck, narrowly avoiding a collision.", "The football player swerved past several defenders to score a stunning goal.", "The plane swerved to avoid a flock of birds, causing a few moments of panic among passengers.", "He swerved from the conversation topic to deflect the sensitive question.", "The ship swerved off-course due to strong winds and had to be corrected by the captain.", "She swerved her gaze away from her ex-boyfriend, trying to hold back tears.", "The stock market swerved sharply downward, causing widespread panic among investors.", "The toddler swerved around the playground, giggling in delight."], obsolete: true
     }, {
         explanation: "in a way that suggests that something unpleasant is likely to happen",
         word: "ominously",
-        sentence: "The wheels scooped up stones that hammered ominously under the car."
+        sentence: "The wheels scooped up stones that hammered ominously under the car.", obsolete: true
     }, {
         explanation: "to move something with a scoop or with something used as a scoop",
         word: "scooped",
-        sentence: "The wheels scooped up stones that hammered ominously under the car."
+        sentence: "The wheels scooped up stones that hammered ominously under the car.", obsolete: true
     }, {
         explanation: "a line or pattern that looks like a Z or a row of Zs joined together",
         word: "zigzag",
@@ -87,34 +87,34 @@ const DATA_nce = [
     {
         explanation: "to look at or consider a person or thing carefully and in detail in order to discover something about them",
         word: "examine",
-        sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure."
+        sentence: "We saw Bruce remaining in the car when we all got out to examine the fissure.", obsolete: true
     },
     {
         explanation: "causing you to have fear or respect for something or someone because that thing or person is large, powerful, or difficult",
         word: "formidable",
-        sentence: "most of us could compile formidable lists of dos and don'ts"
+        sentence: "most of us could compile formidable lists of dos and don'ts", obsolete: true
     },
     {
         explanation: "someone who does something very often and cannot stop doing it",
         word: "inveterate",
-        sentence: "if we remain inveterate smokers, it is only because we have so often experienced the frustration that results from failure."
+        sentence: "if we remain inveterate smokers, it is only because we have so often experienced the frustration that results from failure.", obsolete: true
     }, {
         explanation: "in a way that involves great care and attention to detail",
         word: "assiduously",
-        sentence: "On the second, I applied myself assiduously to the task."
+        sentence: "On the second, I applied myself assiduously to the task.", obsolete: true
     }, {
         explanation: "the ability to control yourself or other people, even in difficult situations",
         word: "discipline",
         sentence: "The self-discipline required to drag myself out of bed eleven minutes earlier than usual was considerable.",
-        sentences: ["Without discipline, it's difficult to achieve long-term goals.", "The strict discipline of military training prepares soldiers for the rigors of combat.", "Parenting requires a delicate balance of love and discipline.", "He credits his success to the discipline he learned from his martial arts training.", "It takes discipline to maintain a healthy lifestyle and diet.", "The teacher's discipline and structure in the classroom facilitated effective learning.", "discipline in managing finances is important for long-term stability and security.", "The athlete's discipline and dedication to training resulted in a gold medal win.", "The company's strict discipline regarding safety measures ensured a hazard-free workplace.", "discipline is the key to mastering any skill or craft."]
+        sentences: ["Without discipline, it's difficult to achieve long-term goals.", "The strict discipline of military training prepares soldiers for the rigors of combat.", "Parenting requires a delicate balance of love and discipline.", "He credits his success to the discipline he learned from his martial arts training.", "It takes discipline to maintain a healthy lifestyle and diet.", "The teacher's discipline and structure in the classroom facilitated effective learning.", "discipline in managing finances is important for long-term stability and security.", "The athlete's discipline and dedication to training resulted in a gold medal win.", "The company's strict discipline regarding safety measures ensured a hazard-free workplace.", "discipline is the key to mastering any skill or craft."], obsolete: true
     }, {
         explanation: "unkind remarks made to intentionally annoy and upset someone",
         word: "taunts",
-        sentence: "I fended off the taunts and jibes of the family good-humouredly."
+        sentence: "I fended off the taunts and jibes of the family good-humouredly.", obsolete: true
     }, {
         explanation: "to keep your attention so strongly that you feel unable to move or look away",
         word: "hypnotizing",
-        sentence: "Resisting the hypnotizing effect of television, I sat in my room for a few evenings with my eyes glued to a book."
+        sentence: "Resisting the hypnotizing effect of television, I sat in my room for a few evenings with my eyes glued to a book.", obsolete: true
     }, {
         explanation: "you start to sleep, especially during the day",
         word: "dozing",
@@ -123,12 +123,12 @@ const DATA_nce = [
     {
         explanation: "a subject or activity that interests you very much",
         word: "enthusiasm",
-        sentence: "However, my enthusiasm waned."
+        sentence: "However, my enthusiasm waned.", obsolete: true
     },
     {
         explanation: "to try to do or continue doing something in a determined but often unreasonable way",
         word: "persisted",
-        sentence: "she persisted in living long after her husband's death."
+        sentence: "she persisted in living long after her husband's death.", obsolete: true
     },
     {
         explanation: "in a way that is expensive or impressive",
@@ -155,12 +155,12 @@ const DATA_nce = [
     {
         explanation: "in a way that is very surprising or difficult to believe",
         word: "miraculously",
-        sentence: "Even my uncle's huge collection of books was kept miraculously free from dust."
+        sentence: "Even my uncle's huge collection of books was kept miraculously free from dust.", obsolete: true
     },
     {
         explanation: "to try to achieve",
         word: "pursued",
-        sentence: "Though my aunt pursued what was, in those days, an enlightened policy, in that she never allowed her domestic staff to work more than eight hours a day, she was extremely difficult to please."
+        sentence: "Though my aunt pursued what was, in those days, an enlightened policy, in that she never allowed her domestic staff to work more than eight hours a day, she was extremely difficult to please.", obsolete: true
     },
     {
         explanation: "the quality of being likely to change suddenly and without warning",
@@ -171,12 +171,12 @@ const DATA_nce = [
         explanation: "laughter, humor, or happiness",
         word: "mirth",
         sentence: "Though this caused great mirth among the guests, Aunt Harriet was horrified.",
-        sentences: ["The sound of children's laughter filled the air with mirth and joy.", "Despite the trouble they faced, they still found moments of mirth and lightness.", "The witty banter between friends always resulted in contagious mirth.", "Her quick wit and infectious mirth made her the life of the party.", "The comedian's performance elicited roars of mirth from the audience.", "The unexpected joke caught everyone off guard and resulted in uproarious mirth.", "His lighthearted attitude and contagious mirth helped ease the tension in the room.", "The playful dogs chased each other in the yard, filling the air with canine mirth.", "The family gathering was filled with mirth as they shared stories and memories.", "They looked back on the situation with mirth, realizing how absurd it had been."]
+        sentences: ["The sound of children's laughter filled the air with mirth and joy.", "Despite the trouble they faced, they still found moments of mirth and lightness.", "The witty banter between friends always resulted in contagious mirth.", "Her quick wit and infectious mirth made her the life of the party.", "The comedian's performance elicited roars of mirth from the audience.", "The unexpected joke caught everyone off guard and resulted in uproarious mirth.", "His lighthearted attitude and contagious mirth helped ease the tension in the room.", "The playful dogs chased each other in the yard, filling the air with canine mirth.", "The family gathering was filled with mirth as they shared stories and memories.", "They looked back on the situation with mirth, realizing how absurd it had been."], obsolete: true
     },
     {
         explanation: "to be in charge of a formal meeting, ceremony, or trial",
         word: "presided",
-        sentence: "Aunt Harriet presided over an invisible army of servants that continuously scrubbed, cleaned, and polished."
+        sentence: "Aunt Harriet presided over an invisible army of servants that continuously scrubbed, cleaned, and polished.", obsolete: true
     },
     {
         explanation: "not in the place where you are expected to be, especially at school or work",
@@ -191,7 +191,7 @@ const DATA_nce = [
     {
         explanation: "a tall cupboard in which you hang your clothes",
         word: "wardrobe",
-        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe"
+        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe", obsolete: true
     },
     {
         explanation: "relating to the design of buildings",
@@ -207,27 +207,27 @@ const DATA_nce = [
         explanation: "unfriendly and likely to be unpleasant or harmful",
         word: "forbidding",
         sentence: "Even under a clear blue sky, the village looked forbidding, as all the houses were built of grey mud bricks.",
-        sentences: ["The sky above was dark, forbidding any hope of sunshine that day.", "His forbidding glare made everyone in the room feel uncomfortable.", "She peered through the gates of the forbidding mansion, wondering who lived inside.", "The teacher's forbidding tone intimidated the students into silence.", "The forest was dense and forbidding, and she felt a nervousness creeping over her.", "The company's forbidding policies toward employees made turnover rates skyrocket.", "His backpack was full of forbidding equipment for his upcoming mountain climb.", "The barren and forbidding landscape stretched out before him, making him feel small and insignificant.", "The judge's words were stern and forbidding, making the defendant feel like he had no chance at a fair trial.", "The warning sign was forbidding, cautioning hikers to stay away from the dangerous cliffs."]
+        sentences: ["The sky above was dark, forbidding any hope of sunshine that day.", "His forbidding glare made everyone in the room feel uncomfortable.", "She peered through the gates of the forbidding mansion, wondering who lived inside.", "The teacher's forbidding tone intimidated the students into silence.", "The forest was dense and forbidding, and she felt a nervousness creeping over her.", "The company's forbidding policies toward employees made turnover rates skyrocket.", "His backpack was full of forbidding equipment for his upcoming mountain climb.", "The barren and forbidding landscape stretched out before him, making him feel small and insignificant.", "The judge's words were stern and forbidding, making the defendant feel like he had no chance at a fair trial.", "The warning sign was forbidding, cautioning hikers to stay away from the dangerous cliffs."], obsolete: true
     },
     {
         explanation: "old and in poor condition",
         word: "dilapidated",
-        sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch."
+        sentence: "Sitting down on a dilapidated wooden fence near the field, we opened a couple of tins of sardines and had a picnic lunch.", obsolete: true
     },
     {
         explanation: "the amount or number of something, especially that can be measured",
         word: "quantities",
-        sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution."
+        sentence: "The need to produce ever-increasing quantities of cheap food leads to a different kind of pollution.", obsolete: true
     },
     {
         explanation: "(of something unpleasant or dangerous) gradually and secretly causing harm",
         word: "insidious",
-        sentence: "There is an even more insidious kind of pollution that particularly affects urban areas and invades our daily lives, and that is noise."
+        sentence: "There is an even more insidious kind of pollution that particularly affects urban areas and invades our daily lives, and that is noise.", obsolete: true
     },
     {
         explanation: "农药",
         word: "pesticides",
-        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables."
+        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables.", obsolete: true
     },
     {
         explanation: "肥料",
@@ -237,7 +237,7 @@ const DATA_nce = [
     {
         explanation: "沙门氏菌",
         word: "salmonella",
-        sentence: "salmonella in chicken and eggs"
+        sentence: "salmonella in chicken and eggs", obsolete: true
     },
     {
         explanation: "in bad condition and therefore weak and likely to break",
@@ -247,7 +247,7 @@ const DATA_nce = [
     {
         explanation: "to take a machine apart or to come apart into separate pieces",
         word: "dismantle",
-        sentence: "the mower firmly refused to mow, so I decided to dismantle it."
+        sentence: "the mower firmly refused to mow, so I decided to dismantle it.", obsolete: true
     },
     {
         explanation: "(especially of a problem or a difficulty) so great that it cannot be dealt with successfully",
@@ -263,17 +263,17 @@ const DATA_nce = [
     {
         explanation: "木匠",
         word: "carpenter",
-        sentence: "carpenter"
+        sentence: "carpenter", obsolete: true
     },
     {
         explanation: "水电工",
         word: "plumber",
-        sentence: "plumber"
+        sentence: "plumber", obsolete: true
     },
     {
         explanation: "机修工",
         word: "mechanic",
-        sentence: "mechanic"
+        sentence: "mechanic", obsolete: true
     },
     {
         explanation: "吸尘器",
@@ -290,7 +290,7 @@ const DATA_nce = [
             "The vacuum pump was used to create a vacuum inside the chamber.",
             "She vacuum sealed the food to keep it fresh.",
             "The shop vacuum was powerful enough to pick up larger debris like sawdust."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "拼图",
@@ -307,7 +307,7 @@ const DATA_nce = [
             "The jigsaw puzzle was missing a few important pieces.",
             "She traced the outline of the design onto the wood before using the jigsaw.",
             "He often used a jigsaw to make cuts for custom furniture projects."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that cannot be avoided",
@@ -324,7 +324,7 @@ const DATA_nce = [
             "The shift in society's values was inevitably going to cause conflict.",
             "Inevitably, mistakes will be made in any endeavor.",
             "The two political candidates were inevitably going to clash during the debate."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to criticize something or someone strongly, usually for moral reasons.",
@@ -358,7 +358,7 @@ const DATA_nce = [
             "The vows exchanged during a wedding ceremony are considered sacred promises.",
             "The river was considered a sacred body of water and was used for spiritual purification.",
             "Certain animals are considered sacred in some cultures and are not to be hunted or harmed."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "any of five children born at the same time to the same mother",
@@ -375,7 +375,7 @@ const DATA_nce = [
             "The quintuplets were the talk of the town and people would often stop to take pictures with them.",
             "As they grew up, the quintuplets had to learn to share and be patient with each other.",
             "The quintuplets were the pride and joy of their parents' lives."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "摄像机",
@@ -398,7 +398,7 @@ const DATA_nce = [
             "The availability of a commodity can determine how much it is worth on the market.",
             "Investing in commodity can be a way to diversify one's portfolio.",
             "The market for some commodity, such as diamonds, is tightly controlled."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "not having enough space or time",
@@ -466,7 +466,7 @@ const DATA_nce = [
             "Watching a stunning sunset on a beach can be an exhilarating and unforgettable experience.",
             "The escape room game was an exhilarating and intense challenge.",
             "An exhilarating feeling of freedom washed over her as she took off on her first solo flight."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a small change that improves something",
@@ -483,7 +483,7 @@ const DATA_nce = [
             "After testing the prototype, the team made several refinements to the product design.",
             "The musician made several refinements to the song lyrics to better convey her message.",
             "The software developer made several refinements to the code to make it run more efficiently."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "not full of folds",
@@ -517,7 +517,7 @@ const DATA_nce = [
             "Renovating the old farmhouse was an arduous project that required a lot of hard work.",
             "The astronaut's journey to space was an arduous mission that required extensive preparation.",
             "The athlete's recovery from an injury was an arduous process that pushed her to her limits."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "good or good enough for a particular need or purpose",
@@ -534,7 +534,7 @@ const DATA_nce = [
             "The medical test results came back as satisfactory, indicating no serious health issues.",
             "The contractor completed the building project to a satisfactory level, meeting all specifications.",
             "The quality of the customer support was only satisfactory, making it difficult to resolve issues quickly."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a very deep, narrow opening in rock, ice, or the ground",
@@ -551,7 +551,7 @@ const DATA_nce = [
             "The company needed to bridge the chasm between their current strategy and their future goals.",
             "The discussion revealed a chasm in the team's understanding of the project requirements.",
             "The brave knight crossed the treacherous chasm to rescue the damsel in distress."
-        ]
+        ], obsolete: true
     }, {
         explanation: "used to describe a respected and admired person or their work",
         word: "distinguished",
@@ -567,7 +567,7 @@ const DATA_nce = [
             "The distinguished building stood out among the other plain structures in the city.",
             "The distinguished musician's performance left the audience in awe.",
             "The distinguished judge was known for his fair and impartial decisions."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a tornado filled with water that forms over the sea",
         word: "waterspout",
@@ -599,7 +599,7 @@ const DATA_nce = [
             "The annual school trip to the museum is a highlight for many students.",
             "The annual family reunion is always filled with laughter and good food.",
             "The annual tradition of putting up Christmas lights brings joy to the neighborhood."
-        ]
+        ], obsolete: true
     }, {
         explanation: "in a way that is likely to fall, be damaged, fail, etc",
         word: "precariously",
@@ -631,7 +631,7 @@ const DATA_nce = [
             "The canyon was an impressive sight, with its plunging cliffs and winding river below.",
             "The brave firefighter made a plunging rescue into the burning building to save a trapped victim.",
             "The company's profits were skyrocketing after the new product launch, but soon went plunging after a competitor released a similar product."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "better than average or better than other people or things of the same type",
@@ -664,7 +664,7 @@ const DATA_nce = [
             "Being able to choose one's own career path is a privilege that was not always available to women and other minorities.",
             "Owning property and land is a privilege that not everyone has the opportunity to achieve.",
             "Having supportive friends and family is a privilege that can make a significant positive impact on one's life."
-        ]
+        ], obsolete: true
     }, {
         explanation: "always",
         word: "invariably",
@@ -696,7 +696,7 @@ const DATA_nce = [
             "Many of my acquaintances from college are now successful professionals in their fields.",
             "I ran into one of my old acquaintances from high school and couldn't remember their name.",
             "It's important to maintain a certain level of professionalism with acquaintances in business settings."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to be in a place that is hidden or where few people go",
         word: "tucked",
@@ -712,7 +712,7 @@ const DATA_nce = [
             "The village was tucked away in a remote mountain valley.",
             "She tucked a strand of hair behind her ear as she listened to him speak.",
             "The secret recipe was tucked safely away in a locked cabinet."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to do something very often, so that you are known for doing it",
         word: "specialize",
@@ -744,7 +744,7 @@ const DATA_nce = [
             "He always went out of his way to avoid traffic, but ironically, ended up being late to his wedding because of an unexpected traffic jam.",
             "They proposed a new law to reduce government bureaucracy, but ironically, it required more complex procedures.",
             "ironically, the book she tried to donate to the library was already in their collection."
-        ]
+        ], obsolete: true
     }, {
         explanation: "the act of allowing someone to do something, or of allowing something to happen",
         word: "permission",
@@ -760,7 +760,7 @@ const DATA_nce = [
             'I received permission from the professor to submit my assignment a day late.',
             'You have my permission to use my idea for your project.',
             'The concert venue requires permission from the city to use outdoor speakers.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to worry someone",
@@ -828,7 +828,7 @@ const DATA_nce = [
             'The spider was so big and terrifying that I couldn\'t even move.',
             'The narrow bridge was terrifying to cross during the storm.',
             'The idea of being lost in the middle of the ocean is absolutely terrifying.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "having only a short distance from the top to the bottom",
@@ -845,7 +845,7 @@ const DATA_nce = [
             'Her behavior was very shallow and she only cared about her appearance.',
             'The river was too shallow for boats to navigate.',
             'The book\'s characters were too shallow and one-dimensional for the story to be engaging.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to rub something against a hard surface, in order to make it sharper or smoother",
@@ -862,13 +862,13 @@ const DATA_nce = [
             'The skateboarder was grinding along the edge of the railing, performing a trick.',
             'The dancer\'s footwork was so smooth that it looked like she was grinding on air.',
             'The author was grinding away at her manuscript, trying to finish it before her deadline.'
-        ]
+        ], obsolete: true
     },
     {
         explanation: "gradually",
         word: "steadily",
         sentence: "They will have hardly found the facts to select from a great mass of evidence that steadily accumulates.",
-        Sentences: ["The rain fell steadily all night, filling up the once-empty riverbed.", "She steadily improved her grades throughout the semester.", "The construction workers steadily worked on the new building, rain or shine.", "The sun steadily rose over the horizon, painting the sky with a warm glow.", "He steadily climbed the stairs, determined to reach the top of the tower.", "The price of gasoline has been rising steadily over the past few months.", "The guitarist steadily strummed the chords, building up to the chorus.", "Her heart rate steadily dropped as she entered a state of deep relaxation.", "He steadily increased the weight on the barbell, pushing himself to his limits.", "The population of the small town has been steadily declining for years."]
+        Sentences: ["The rain fell steadily all night, filling up the once-empty riverbed.", "She steadily improved her grades throughout the semester.", "The construction workers steadily worked on the new building, rain or shine.", "The sun steadily rose over the horizon, painting the sky with a warm glow.", "He steadily climbed the stairs, determined to reach the top of the tower.", "The price of gasoline has been rising steadily over the past few months.", "The guitarist steadily strummed the chords, building up to the chorus.", "Her heart rate steadily dropped as she entered a state of deep relaxation.", "He steadily increased the weight on the barbell, pushing himself to his limits.", "The population of the small town has been steadily declining for years."], obsolete: true
     },
     {
         explanation: "to reach an answer or a decision by thinking carefully about the known facts:",
@@ -919,7 +919,7 @@ const DATA_nce = [
             "The museum had an insignificant collection of modern art.",
             "The student's plagiarism was an insignificant infringement of the academic rules.",
             "Despite his insignificant role, he played an important part in the success of the team."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "獠牙",
@@ -936,7 +936,7 @@ const DATA_nce = [
             "The hunter held up the massive elephant tusk with pride.",
             "The carvings on the ivory tusk were incredibly detailed and precise.",
             "The documentary highlighted the importance of protecting endangered animals and their tusks."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "猛犸",
@@ -953,7 +953,7 @@ const DATA_nce = [
             "The mammoth's size was awe-inspiring to ancient peoples.",
             "Paleontologists study mammoth fossils to trace their evolution.",
             "The mammoth skull was an impressive specimen in the collection."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "If two or more facts, numbers, etc. there is a relationship between them:",
@@ -970,22 +970,22 @@ const DATA_nce = [
             "The stock market tends to have correlating trends across various sectors.",
             "The study found a correlating link between diet and heart disease.",
             "The correlating evidence supports the hypothesis proposed by the researcher."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "any stage in a series of events or in a process of development",
         word: "phases",
-        sentence: "the phases of the moon"
+        sentence: "the phases of the moon", obsolete: true
     },
     {
         explanation: "to represent or show something in a picture or story",
         word: "depicted",
-        sentence: "The hunting scenes depicted on walls were not simply a form of artistic expression."
+        sentence: "The hunting scenes depicted on walls were not simply a form of artistic expression.", obsolete: true
     },
     {
         explanation: "too willing to believe what you are told and so easily deceived",
         word: "credulous",
-        sentence: "We are less credulous than we used to be."
+        sentence: "We are less credulous than we used to be.", obsolete: true
     }, {
         explanation: "not known to many people",
         word: "obscure",
@@ -1001,7 +1001,7 @@ const DATA_nce = [
             "The obscure cult practiced unconventional rituals that were kept secret from outsiders.",
             "The writer's novel was criticized for its obscure plot and convoluted narrative.",
             "Her memories of the accident were obscured by the trauma of the experience."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to plan secretly with other people to do something bad, illegal, or against someone's wishes",
         word: "conspire",
@@ -1017,7 +1017,7 @@ const DATA_nce = [
             "The siblings conspired to play a prank on their parents.",
             "The group of students conspired to cheat on the exam.",
             "The gang members conspired to carry out a series of robberies in the city."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to (cause to) flow quickly and in large amounts",
         word: "poured",
@@ -1033,7 +1033,7 @@ const DATA_nce = [
             "He poured the cleaning solution onto the stains and let it soak in.",
             "The sun poured its bright rays through the window, warming the room.",
             "She poured all her energy into finishing the marathon."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a very strong feeling of no respect for someone or something that you think is stupid or has no value",
         word: "scorn",
@@ -1049,7 +1049,7 @@ const DATA_nce = [
             "His lazy attitude towards work had earned him the scorn of his colleagues.",
             "The politician was met with loud scorn as he lied about his accomplishments.",
             "The teacher's reaction to the student's shoddy work was one of cold scorn."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to know or be familiar with something, because you have studied it or have experienced it before",
         word: "acquainted",
@@ -1065,7 +1065,7 @@ const DATA_nce = [
             "She is well-acquainted with the history of the company.",
             "The police officer was acquainted with the suspect and questioned him accordingly.",
             "Becoming acquainted with a language takes time and practice."
-        ]
+        ], obsolete: true
     }, {
         explanation: "on time",
         word: "punctual",
@@ -1098,7 +1098,7 @@ const DATA_nce = [
             "The road has been temporarily closed for repairs.",
             "The store is temporarily out of stock for that item.",
             "The government has temporarily frozen all immigration visas."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to do something or go somewhere very slowly, taking more time than is necessary",
         word: "dawdled",
@@ -1120,7 +1120,7 @@ const DATA_nce = [
         explanation: "农业",
         word: "agriculture",
         sentence: "agriculture",
-        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."]
+        sentences: ["agriculture is the practice of farming and growing crops for food and other products.", "Modern agriculture uses technology and scientific advancements to increase efficiency and yield.", "Organic agriculture relies on natural methods and avoids the use of synthetic fertilizers and pesticides.", "Sustainable agriculture aims to meet food production needs while protecting the environment and ensuring the health of future generations.", "agricultural workers face challenging and physically demanding work in fields and orchards.", "Precision agriculture uses data and technology to make targeted decisions about planting, fertilizing, and harvesting crops.", "The study of agriculture includes topics such as soil science, plant biology, and animal husbandry.", "Agricultural exports contribute significantly to the economies of many countries.", "Climate change is having an impact on agriculture around the world, changing growing seasons and making certain crops more difficult to cultivate.", "Traditional agriculture practices, such as crop rotation and companion planting, can have benefits for soil health and pest management."], obsolete: true
     },
     {
         explanation: "烟囱",
@@ -1144,7 +1144,7 @@ const DATA_nce = [
         explanation: "not needed or wanted, or more than is needed or wanted",
         word: "unnecessary",
         sentence: "We regard them as unnecessary creatures that do more harm than good.",
-        sentences: ["The manager scolded the employee for making an unnecessary mistake.", "Her constant nagging about the issue was deemed unnecessary by her colleagues.", "The doctor prescribed an unnecessary medication to the patient, causing harm.", "The teacher found the use of swear words in the student's essay to be unnecessary.", "He was fired from his job for adding unnecessary expenses to the company's budget.", "The extra features on the product were deemed unnecessary by most consumers.", "The politician made an unnecessary remark, causing backlash from the public.", "The additional security measures were seen as unnecessary by some people.", "Her constant need for attention was deemed unnecessary by her friends.", "The artist felt that adding more paint to the canvas would be unnecessary."]
+        sentences: ["The manager scolded the employee for making an unnecessary mistake.", "Her constant nagging about the issue was deemed unnecessary by her colleagues.", "The doctor prescribed an unnecessary medication to the patient, causing harm.", "The teacher found the use of swear words in the student's essay to be unnecessary.", "He was fired from his job for adding unnecessary expenses to the company's budget.", "The extra features on the product were deemed unnecessary by most consumers.", "The politician made an unnecessary remark, causing backlash from the public.", "The additional security measures were seen as unnecessary by some people.", "Her constant need for attention was deemed unnecessary by her friends.", "The artist felt that adding more paint to the canvas would be unnecessary."], obsolete: true
     }, {
         explanation: "a strong, often sudden, feeling that something is extremely unpleasant",
         word: "revulsion",
@@ -1154,7 +1154,7 @@ const DATA_nce = [
         explanation: "protected from wind, rain, or other bad weather",
         word: "sheltered",
         sentence: "The tree has grown against a warm wall on a sheltered side of the house.",
-        sentences: ["The small town was sheltered from the harsh winter winds.", "The shy child was sheltered by her parents.", "The old oak tree provided sheltered for the animals in the forest.", "The beach was sheltered from the strong waves by the large cliff.", "The new building was sheltered from the sun by the tall trees.", "The birds huddled together in the sheltered corner of the nest.", "The elderly lady lived a sheltered life in her small cottage in the countryside.", "The treasure was sheltered from the world in the hidden cave.", "The homeless man found sheltered under the bridge during the storm.", "The locals knew where to find sheltered spots during the hurricane season."]
+        sentences: ["The small town was sheltered from the harsh winter winds.", "The shy child was sheltered by her parents.", "The old oak tree provided sheltered for the animals in the forest.", "The beach was sheltered from the strong waves by the large cliff.", "The new building was sheltered from the sun by the tall trees.", "The birds huddled together in the sheltered corner of the nest.", "The elderly lady lived a sheltered life in her small cottage in the countryside.", "The treasure was sheltered from the world in the hidden cave.", "The homeless man found sheltered under the bridge during the storm.", "The locals knew where to find sheltered spots during the hurricane season."], obsolete: true
     }, {
         explanation: "having a pleasant sweet taste or containing a lot of juice",
         word: "luscious",
@@ -1175,7 +1175,7 @@ const DATA_nce = [
             "The prairie dogs lived in a large underground colony with interconnected tunnels.",
             "The bacteria formed a colony on the surface of the petri dish.",
             "The bats roosted in a colony in the cave during the day."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to protect something from harm",
         word: "safeguard",
@@ -1185,7 +1185,7 @@ const DATA_nce = [
         explanation: "to speak, act, or be present officially for a person or group",
         word: "representing",
         sentence: "A parliamentary committee representing all political parties appoints a person",
-        sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."]
+        sentences: ["The lawyer representing the defendant made a persuasive argument in court.", "The painting is a masterpiece, representing the artist's greatest achievement.", "The team captain will be representing the country in the upcoming international tournament.", "The slogan is representing the brand's commitment to environmental sustainability.", "The logo is representing the company's mission and values.", "The spokesperson representing the company was interviewed on national television.", "The academic paper is representing a significant advancement in the field of science.", "The photograph is representing the tragedy of war and its impact on civilian populations.", "The sculpture is representing the artist's interpretation of human emotion and struggle.", "The actor is representing a historical figure in the new biopic film."], obsolete:true
     }, {
         explanation: "to officially accuse someone of committing an illegal act, and to bring a case against that person in a court of law",
         word: "prosecute",
@@ -1201,7 +1201,7 @@ const DATA_nce = [
             "The judge ordered the case to be prosecuted in a higher court due to its complexity.",
             "The prosecutor faced criticism for failing to prosecute cases of police brutality.",
             "The defendant was prosecuted for violating the terms of their probation."
-        ]
+        ], obsolete:true
     }, {
         explanation: "the process of getting something",
         word: "acquisition",
@@ -1211,53 +1211,57 @@ const DATA_nce = [
         explanation: "to express a thought, feeling, or idea so that it is understood by other people",
         word: "conveyed",
         sentence: "this explanation evidently conveyed something to the woman who searched shelf after shelf.",
-        sentences: ["The tone of her voice conveyed excitement and enthusiasm.", "The painting conveyed a sense of sadness and loneliness.", "His body language conveyed his discomfort and unease.", "The message was conveyed through the use of images and symbols.", "The news article conveyed a sense of urgency and seriousness.", "His words conveyed a message of hope and inspiration.", "The song conveyed a feeling of nostalgia and longing.", "The artist conveyed his emotions through his music.", "Her eyes conveyed a mix of anger and disappointment.", "The text message conveyed the details of the plan."]
+        sentences: ["The tone of her voice conveyed excitement and enthusiasm.", "The painting conveyed a sense of sadness and loneliness.", "His body language conveyed his discomfort and unease.", "The message was conveyed through the use of images and symbols.", "The news article conveyed a sense of urgency and seriousness.", "His words conveyed a message of hope and inspiration.", "The song conveyed a feeling of nostalgia and longing.", "The artist conveyed his emotions through his music.", "Her eyes conveyed a mix of anger and disappointment.", "The text message conveyed the details of the plan."],
+        obsolete: true
     },
     {
         explanation: "雀斑",
         word: "freckles",
         sentence: "myrolite was a hard, amber-like substance which could be used to remove freckles",
-        sentences: ["She has so many freckles on her nose and cheeks.", "I always loved the freckles on my grandma's hands.", "He has a few freckles on his arms from spending so much time outdoors.", "The sunlight brought out the freckles on her shoulders.", "Some people believe that freckles are a sign of good luck.", "I wish I had freckles like hers - they're so cute!", "The little girl had a constellation of freckles across her forehead.", "My brother used to tease me about the freckles on my legs.", "I don't mind my freckles, but I wish they would fade a little.", "He smiled and brushed his thumb over the freckles on her cheek."]
+        sentences: ["She has so many freckles on her nose and cheeks.", "I always loved the freckles on my grandma's hands.", "He has a few freckles on his arms from spending so much time outdoors.", "The sunlight brought out the freckles on her shoulders.", "Some people believe that freckles are a sign of good luck.", "I wish I had freckles like hers - they're so cute!", "The little girl had a constellation of freckles across her forehead.", "My brother used to tease me about the freckles on my legs.", "I don't mind my freckles, but I wish they would fade a little.", "He smiled and brushed his thumb over the freckles on her cheek."],
+        obsolete: true
     }, {
         explanation: "very strange and unusual, unexpected, or not natural",
         word: "weird",
         sentence: "She produced all sorts of weird concoctions",
-        sentences: ["That's a weird looking bug crawling on your shoulder!", "I had a weird dream last night about talking animals.", "He has a weird habit of humming to himself when he's nervous.", "The house had a weird smell that we couldn't identify.", "It's weird to think that we've known each other for so long.", "She made a weird noise when she saw the spider crawling on the wall.", "The movie had a weird plot twist that caught everyone off guard.", "He always wears weird combinations of clothing that clash with each other.", "The car made a weird noise when we turned the key in the ignition.", "It's weird that he hasn't responded to any of our messages."]
+        sentences: ["That's a weird looking bug crawling on your shoulder!", "I had a weird dream last night about talking animals.", "He has a weird habit of humming to himself when he's nervous.", "The house had a weird smell that we couldn't identify.", "It's weird to think that we've known each other for so long.", "She made a weird noise when she saw the spider crawling on the wall.", "The movie had a weird plot twist that caught everyone off guard.", "He always wears weird combinations of clothing that clash with each other.", "The car made a weird noise when we turned the key in the ignition.", "It's weird that he hasn't responded to any of our messages."],
+        obsolete: true
     }, {
         explanation: "in a way that is careful not to cause embarrassment or attract too much attention, especially by keeping something secret",
         word: "discreetly",
         sentence: "Harry picked up what seemed to be the smallest bottle and discreetly asked the price.",
-        sentences: ["He discreetly slipped the envelope into her hand as they passed in the hallway.", "The detective tried to discreetly gather information without drawing attention to himself.", "She discreetly adjusted her clothing to hide a stain.", "The couple discreetly left the party early to avoid any drama.", "The secret agent discreetly observed the suspects from a distance.", "The waiter discreetly signaled to the manager that a customer was causing trouble.", "They discreetly whispered their plans to each other to avoid being overheard.", "The doctor discreetly informed the patient of their diagnosis in a private room.", "He discreetly covered his mouth when he realized he had bad breath.", "The politician discreetly met with lobbyists to discuss fundraising efforts."]
+        sentences: ["He discreetly slipped the envelope into her hand as they passed in the hallway.", "The detective tried to discreetly gather information without drawing attention to himself.", "She discreetly adjusted her clothing to hide a stain.", "The couple discreetly left the party early to avoid any drama.", "The secret agent discreetly observed the suspects from a distance.", "The waiter discreetly signaled to the manager that a customer was causing trouble.", "They discreetly whispered their plans to each other to avoid being overheard.", "The doctor discreetly informed the patient of their diagnosis in a private room.", "He discreetly covered his mouth when he realized he had bad breath.", "The politician discreetly met with lobbyists to discuss fundraising efforts."],
+        obsolete: true
     },
     {
         explanation: "relating to work done in an office",
         word: "clerical",
         sentence: "when they would relieve office workers and accountants of dull, repetitive clerical work.",
-        sentences: ["The new hire was responsible for clerical duties such as filing and data entry.", "The clerical error in his tax return caused a delay in processing.", "The church's clerical staff helped organize events and maintain records.", "The law firm needed someone with strong clerical skills for their receptionist position.", "The clerical task of scheduling appointments was essential for the doctor's office.", "The company implemented a new clerical system to improve efficiency.", "The clerical work of printing and sorting documents could be done by an intern.", "The clerical duties of the administrative assistant included answering phones and responding to emails.", "The school district hired clerical staff to handle the influx of paperwork during enrollment.", "The clerical error in the contract caused confusion and frustration for both parties."]
+        sentences: ["The new hire was responsible for clerical duties such as filing and data entry.", "The clerical error in his tax return caused a delay in processing.", "The church's clerical staff helped organize events and maintain records.", "The law firm needed someone with strong clerical skills for their receptionist position.", "The clerical task of scheduling appointments was essential for the doctor's office.", "The company implemented a new clerical system to improve efficiency.", "The clerical work of printing and sorting documents could be done by an intern.", "The clerical duties of the administrative assistant included answering phones and responding to emails.", "The school district hired clerical staff to handle the influx of paperwork during enrollment.", "The clerical error in the contract caused confusion and frustration for both parties."], obsolete: true
     },
     {
         explanation: "the fact of something happening or being done often",
         word: "regularity",
         sentence: "the same old favorites recur year in year out with monotonous regularity",
-        sentences: ["The regularity of her exercise routine helped her maintain a healthy lifestyle.", "The bus schedule's regularity ensured that commuters arrived on time.", "The regularity of his breathing indicated that he was asleep.", "The regularity of her menstrual cycle was a concern for her doctor.", "The regularity of his work schedule allowed him to plan his week.", "The regularity of his church attendance was important to him.", "The regularity of the rainfall contributed to the lushness of the jungle.", "The regularity of her bowel movements indicated good digestive health.", "The coach emphasized the regularity of practice to achieve success.", "The regularity of the construction crew's progress impressed the clients."]
+        sentences: ["The regularity of her exercise routine helped her maintain a healthy lifestyle.", "The bus schedule's regularity ensured that commuters arrived on time.", "The regularity of his breathing indicated that he was asleep.", "The regularity of her menstrual cycle was a concern for her doctor.", "The regularity of his work schedule allowed him to plan his week.", "The regularity of his church attendance was important to him.", "The regularity of the rainfall contributed to the lushness of the jungle.", "The regularity of her bowel movements indicated good digestive health.", "The coach emphasized the regularity of practice to achieve success.", "The regularity of the construction crew's progress impressed the clients."], obsolete: true
     },
     {
         explanation: "the act of achieving something",
         word: "attainment",
         sentence: "certain accomplishments are beyond attainment",
-        sentences: ["Graduating from university was a proud attainment for my family.", "Her successful completion of the project was a great attainment.", "A high level of fitness was an important attainment for the athlete.", "The company's attainment of its financial goals was a cause for celebration.", "The artist's attainment of international recognition was well-deserved.", "His attainment of the championship title was the result of years of hard work.", "The attainment of a peaceful resolution to the conflict was a relief to everyone involved.", "The young author's attainment of a publishing deal was an impressive feat.", "The academic's attainment of a prestigious research grant was a career highlight.", "The attainment of a safe environment was a top priority for the organization."]
+        sentences: ["Graduating from university was a proud attainment for my family.", "Her successful completion of the project was a great attainment.", "A high level of fitness was an important attainment for the athlete.", "The company's attainment of its financial goals was a cause for celebration.", "The artist's attainment of international recognition was well-deserved.", "His attainment of the championship title was the result of years of hard work.", "The attainment of a peaceful resolution to the conflict was a relief to everyone involved.", "The young author's attainment of a publishing deal was an impressive feat.", "The academic's attainment of a prestigious research grant was a career highlight.", "The attainment of a safe environment was a top priority for the organization."], obsolete: true
     },
     {
         explanation: "to walk somewhere in a large group, usually with one person behind another",
         word: "trooped",
         sentence: "The next morning the whole family trooped in to watch the performance.",
-        sentences: ["The soldiers trooped in, exhausted from a long march.", "The students trooped out of the classroom after the bell rang.", "The protesters trooped through the streets, demanding justice.", "The guests trooped into the ballroom, marveling at the decorations.", "The children trooped behind the tour guide, eager to see the animals.", "The players trooped off the field, disappointed by their loss.", "The tourists trooped up the stairs, anxious to see the view from the top.", "The employees trooped into the conference room, ready for the meeting.", "The shoppers trooped from store to store, searching for the perfect gift.", "The actors trooped onto the stage, ready to perform the opening scene."]
+        sentences: ["The soldiers trooped in, exhausted from a long march.", "The students trooped out of the classroom after the bell rang.", "The protesters trooped through the streets, demanding justice.", "The guests trooped into the ballroom, marveling at the decorations.", "The children trooped behind the tour guide, eager to see the animals.", "The players trooped off the field, disappointed by their loss.", "The tourists trooped up the stairs, anxious to see the view from the top.", "The employees trooped into the conference room, ready for the meeting.", "The shoppers trooped from store to store, searching for the perfect gift.", "The actors trooped onto the stage, ready to perform the opening scene."], obsolete: true
     },
     {
         explanation: "the quality of working well in an organized way, without wasting time or energy",
         word: "efficiency",
         sentence: "Aunt Harriet could not find words to praise Bessie’s industriousness and efficiency.",
-        sentences: ["The new software has greatly improved the efficiency of the company's operations.", "The construction project was completed with remarkable speed and efficiency.", "The factory is always looking for ways to increase efficiency and reduce waste.", "The athlete's diet and training regimen are designed for maximum efficiency.", "The teacher uses technology to improve the efficiency and effectiveness of their lessons.", "The hospital has implemented new procedures to increase efficiency in patient care.", "The transportation system was restructured to improve efficiency and reduce traffic.", "The company's success is due in part to their commitment to efficiency and innovation.", "The government agency reviewed its processes and made changes to improve efficiency.", "The solar panels were installed for their efficiency in converting sunlight into energy."]
+        sentences: ["The new software has greatly improved the efficiency of the company's operations.", "The construction project was completed with remarkable speed and efficiency.", "The factory is always looking for ways to increase efficiency and reduce waste.", "The athlete's diet and training regimen are designed for maximum efficiency.", "The teacher uses technology to improve the efficiency and effectiveness of their lessons.", "The hospital has implemented new procedures to increase efficiency in patient care.", "The transportation system was restructured to improve efficiency and reduce traffic.", "The company's success is due in part to their commitment to efficiency and innovation.", "The government agency reviewed its processes and made changes to improve efficiency.", "The solar panels were installed for their efficiency in converting sunlight into energy."], obsolete: true
     }, {
         explanation: "in a way that shows that you are not willing to do something and are therefore slow to do it",
         word: "reluctantly",
@@ -1268,7 +1272,7 @@ const DATA_nce = [
         explanation: "disaster",
         word: "catastrophe",
         sentence: "The guests had realized this from the moment Bessie opened the door for them long before the final catastrophe",
-        sentences: ["The earthquake was a catastrophe that caused widespread destruction.", "The airline accident was averted at the last minute, avoiding a catastrophe.", "The oil spill was a catastrophe for the local marine life.", "The financial crisis proved to be a catastrophe for many investors.", "The rising sea levels due to climate change could lead to a global catastrophe.", "The failure to act on climate change could result in an environmental catastrophe.", "The hurricane was predicted to be a catastrophe, but it weakened before making landfall.", "The collapse of the building was a catastrophe that shocked the community.", "The meltdown of the nuclear reactor was a catastrophe that had far-reaching consequences.", "The actor's performance was a catastrophe, with critics panning it as the worst of the year."]
+        sentences: ["The earthquake was a catastrophe that caused widespread destruction.", "The airline accident was averted at the last minute, avoiding a catastrophe.", "The oil spill was a catastrophe for the local marine life.", "The financial crisis proved to be a catastrophe for many investors.", "The rising sea levels due to climate change could lead to a global catastrophe.", "The failure to act on climate change could result in an environmental catastrophe.", "The hurricane was predicted to be a catastrophe, but it weakened before making landfall.", "The collapse of the building was a catastrophe that shocked the community.", "The meltdown of the nuclear reactor was a catastrophe that had far-reaching consequences.", "The actor's performance was a catastrophe, with critics panning it as the worst of the year."], obsolete: true
     },
     {
         explanation: "to move or spread untidily and in small numbers or amounts",
@@ -1280,7 +1284,7 @@ const DATA_nce = [
         explanation: "沙丁鱼",
         word: "sardine",
         sentence: "sardine",
-        sentences: ["I opened the tin and found it filled with sardines.", "The fishermen brought back a huge haul of sardines from the sea.", "I hate the smell of sardines, but my cat loves it.", "The sardines were seasoned with lemon and garlic, making them taste delicious.", "She felt nauseous after eating too many sardines.", "The sardine canning industry generates a significant amount of employment in the region.", "The seagulls screeched as they fought over the sardines that were washed ashore.", "The sardines were so oily that they made a greasy mess on the plate.", "The sardines were served with crackers and wine for a light snack.", "The health benefits of sardines include being high in Omega-3 fatty acids."]
+        sentences: ["I opened the tin and found it filled with sardines.", "The fishermen brought back a huge haul of sardines from the sea.", "I hate the smell of sardines, but my cat loves it.", "The sardines were seasoned with lemon and garlic, making them taste delicious.", "She felt nauseous after eating too many sardines.", "The sardine canning industry generates a significant amount of employment in the region.", "The seagulls screeched as they fought over the sardines that were washed ashore.", "The sardines were so oily that they made a greasy mess on the plate.", "The sardines were served with crackers and wine for a light snack.", "The health benefits of sardines include being high in Omega-3 fatty acids."], obsolete: true
     },
     {
         explanation: "（女用）披巾",
@@ -1292,13 +1296,13 @@ const DATA_nce = [
         explanation: "an opinion expressed in an argument",
         word: "contention",
         sentence: "acting on the contention that facts are sacred.",
-        sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."]
+        sentences: ["There is a contention among the team members about the project's budget.", "The politician's contention that the election was rigged caused widespread protests.", "The students had a lively contention in the classroom about the novel's ending.", "The company's contention for market share led to aggressive advertising campaigns.", "The athlete's contention for a gold medal pushed her to train harder.", "There is a long-standing contention between the two countries over the disputed border.", "The environmentalist's contention that the proposed factory will harm the ecosystem is valid.", "The contention between the siblings over their inheritance caused a rift in their family.", "The musician's contention that music should be free sparked a debate in the industry.", "The contention among the scientists about the theory's validity led to further research."], obsolete: true
     },
     {
         explanation: "to use something such as authority, power, influence, etc. in order to make something happen",
         word: "exert",
         sentence: "Newspapers exert such tremendous influence",
-        sentences: ["I will exert myself to finish this project on time.", "The athlete had to exert all his energy to win the race.", "The manager has to exert his authority to maintain discipline in the workplace.", "He had to exert his influence to convince the investors to fund the project.", "The teacher has to exert her patience while dealing with difficult students.", "The doctor asked the patient to exert more force during the physical therapy.", "The writer exerted his creativity to come up with a compelling storyline.", "The musician exerted her talent to produce a beautiful melody.", "The chef exerted her culinary skills to create a delicious meal.", "The lawyer exerted his legal knowledge to win the case."]
+        sentences: ["I will exert myself to finish this project on time.", "The athlete had to exert all his energy to win the race.", "The manager has to exert his authority to maintain discipline in the workplace.", "He had to exert his influence to convince the investors to fund the project.", "The teacher has to exert her patience while dealing with difficult students.", "The doctor asked the patient to exert more force during the physical therapy.", "The writer exerted his creativity to come up with a compelling storyline.", "The musician exerted her talent to produce a beautiful melody.", "The chef exerted her culinary skills to create a delicious meal.", "The lawyer exerted his legal knowledge to win the case."], obsolete: true
     },
     {
         explanation: "completely or extremely",
@@ -1332,7 +1336,7 @@ const DATA_nce = [
             "manufacturers of building materials are developing new eco-friendly products.",
             "The manufacturers of household appliances are developing smart technology.",
             "Pharmaceutical manufacturers have to undergo extensive testing before their products hit the market."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a person who is very interested in and involved with a particular subject or activity",
@@ -1350,12 +1354,12 @@ const DATA_nce = [
         explanation: "able or likely to cause harm or death, or unpleasant problems",
         word: "dangerous",
         sentence: "Aeroplanes have the reputation of being dangerous and even hardened travelers are intimidated by them.",
-        sentences: ["The storm last night was dangerous, with strong winds and lightning strikes.", "Swimming in the ocean during a thunderstorm can be extremely dangerous.", "The mountain trail is considered dangerous during the winter months due to snow and ice.", "Some types of snakes can be very dangerous and even deadly if their bite is not treated promptly.", "Texting while driving is a dangerous behavior that can lead to accidents and fatalities.", "The chemicals used in the factory are dangerous to handle without proper safety equipment.", "Base jumping is widely considered one of the most dangerous extreme sports.", "Walking alone through a rough neighborhood late at night can be very dangerous.", "Not wearing a helmet while riding a bike is a dangerous decision that can result in serious injury.", "Driving under the influence of drugs or alcohol is extremely dangerous and irresponsible."]
+        sentences: ["The storm last night was dangerous, with strong winds and lightning strikes.", "Swimming in the ocean during a thunderstorm can be extremely dangerous.", "The mountain trail is considered dangerous during the winter months due to snow and ice.", "Some types of snakes can be very dangerous and even deadly if their bite is not treated promptly.", "Texting while driving is a dangerous behavior that can lead to accidents and fatalities.", "The chemicals used in the factory are dangerous to handle without proper safety equipment.", "Base jumping is widely considered one of the most dangerous extreme sports.", "Walking alone through a rough neighborhood late at night can be very dangerous.", "Not wearing a helmet while riding a bike is a dangerous decision that can result in serious injury.", "Driving under the influence of drugs or alcohol is extremely dangerous and irresponsible."], obsolete: true
     }, {
         explanation: "to invent a plan, system, object, etc., usually using your intelligence or imagination.",
         word: "devise",
         sentence: "You do not have to devise ways of taking your mind off the journey.",
-        sentences: ["He came up with a clever devise to keep his phone from falling out of his pocket.", "The scientists spent years perfecting a new medical devise to help with heart disease.", "The spy used a devise to gather information undetected.", "The magician's trick involved a clever devises to make it seem like he had made a person disappear.", "The new security system features state-of-the-art devises to protect the building from theft.", "The author used a unique devise to tell the story from multiple perspectives.", "The company plans to release a new fitness devise later this year.", "The artist created a unique devise to project moving images onto a canvas.", "The engineer devised a solution to the problem that had been plaguing the construction project.", "The teacher used a creative devise to make the class more engaging and interactive."]
+        sentences: ["He came up with a clever devise to keep his phone from falling out of his pocket.", "The scientists spent years perfecting a new medical devise to help with heart disease.", "The spy used a devise to gather information undetected.", "The magician's trick involved a clever devises to make it seem like he had made a person disappear.", "The new security system features state-of-the-art devises to protect the building from theft.", "The author used a unique devise to tell the story from multiple perspectives.", "The company plans to release a new fitness devise later this year.", "The artist created a unique devise to project moving images onto a canvas.", "The engineer devised a solution to the problem that had been plaguing the construction project.", "The teacher used a creative devise to make the class more engaging and interactive."], obsolete: true
     }, {
         explanation: "运河",
         word: "canal",
@@ -1365,12 +1369,12 @@ const DATA_nce = [
         explanation: "causing extreme physical or mental pain",
         word: "agonizing",
         sentence: "For one agonizing moment, the dish was perched precariously on the bank of the canal",
-        sentences: ["The patient's agonizing screams could be heard throughout the hospital ward.", "It was an agonizing decision for the athlete to retire due to a career-ending injury.", "The family went through agonizing uncertainty while waiting for news about their missing loved one.", "The last few minutes of the championship game were agonizing for the fans as the score remained tied.", "The writer went through an agonizing process of editing and revising her novel before finally publishing it.", "The victim's family had to endure agonizing testimony during the trial of their loved one's murderer.", "The student felt an agonizing sense of failure after receiving a failing grade on the final exam.", "The couple went through an agonizing breakup after years of being together.", "The musician's performance was agonizingly off-key and out of tune.", "The hiker experienced an agonizing injury to her ankle and had to be rescued from the mountain."]
+        sentences: ["The patient's agonizing screams could be heard throughout the hospital ward.", "It was an agonizing decision for the athlete to retire due to a career-ending injury.", "The family went through agonizing uncertainty while waiting for news about their missing loved one.", "The last few minutes of the championship game were agonizing for the fans as the score remained tied.", "The writer went through an agonizing process of editing and revising her novel before finally publishing it.", "The victim's family had to endure agonizing testimony during the trial of their loved one's murderer.", "The student felt an agonizing sense of failure after receiving a failing grade on the final exam.", "The couple went through an agonizing breakup after years of being together.", "The musician's performance was agonizingly off-key and out of tune.", "The hiker experienced an agonizing injury to her ankle and had to be rescued from the mountain."], obsolete: true
     }, {
         explanation: "exact and accurate",
         word: "precise",
         sentence: "Such undertakings require the precise planning and foresight of military operations.",
-        sentences: ["He was very precise in his instructions.", "The surgeon's hands were perfectly precise during the operation.", "The builder made precise measurements to ensure the new structure was level.", "She spoke with precise accuracy about the topic.", "The scientist requires precise measurements in the lab.", "The mathematician solved the equation with precise calculation.", "The painter applied precise brushstrokes to the canvas.", "The writer used precise vocabulary to convey the meaning.", "The musician played the piece with precise timing.", "The chef used precise measurements for the recipe."]
+        sentences: ["He was very precise in his instructions.", "The surgeon's hands were perfectly precise during the operation.", "The builder made precise measurements to ensure the new structure was level.", "She spoke with precise accuracy about the topic.", "The scientist requires precise measurements in the lab.", "The mathematician solved the equation with precise calculation.", "The painter applied precise brushstrokes to the canvas.", "The writer used precise vocabulary to convey the meaning.", "The musician played the piece with precise timing.", "The chef used precise measurements for the recipe."], obsolete: true
     },
     {
         explanation: "relating to or belonging to the armed forces",
@@ -1388,7 +1392,7 @@ const DATA_nce = [
                 "The military history museum showcased weapons and uniforms from different eras.",
                 "The military tribunal sentenced the soldier to 10 years in prison for desertion.",
                 "The military helicopter flew over the battlefield to assess the situation."
-            ]
+            ], obsolete: true
     },
     {
         explanation: "to make something known or tell people about something officially",
@@ -1405,7 +1409,7 @@ const DATA_nce = [
             "The flight attendant will announce the flight's departure time shortly.",
             "The coach will announce the starting lineup for the game tonight.",
             "The teacher will announce the upcoming project requirements to the class."
-        ]
+        ], obsolete: true
     }, {
         explanation: "special, or this and not any other",
         word: "particular",
@@ -1437,7 +1441,7 @@ const DATA_nce = [
             "The dancer's costume was glinting under the stage lights.",
             "The broken glass was glinting on the pavement.",
             "The watch on his wrist was glinting with every movement."
-        ]
+        ], obsolete: true
     }, {
         explanation: "黎明；鸡叫",
         word: "cockcrow",
@@ -1485,7 +1489,7 @@ const DATA_nce = [
             "The actors in the theatre production were incredibly talented and passionate.",
             "The theatre was packed with people eager to see the highly anticipated musical.",
             "I caught a glimpse of one of my favorite actors outside the theatre before the show."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "impossible, or very difficult, to believe",
@@ -1497,7 +1501,7 @@ const DATA_nce = [
         explanation: "the structure and systems of an organization or process",
         word: "machinery",
         sentence: "Justice is part of the complex machinery of the law.",
-        sentences: ["The machinery in the factory is extremely complex.", "He has a deep understanding of how machinery operates.", "Proper maintenance is crucial for keeping machinery in good condition.", "Without the use of machinery, many manufacturing processes would be impossible.", "Automated machinery has greatly increased productivity in many industries.", "Heavy machinery is used for construction of large buildings.", "Industrial machinery has revolutionized the way we produce goods.", "The malfunctioning machinery caused a delay in production.", "The factory workers were trained to operate the machinery safely.", "The sale of used machinery can provide a source of revenue for businesses."]
+        sentences: ["The machinery in the factory is extremely complex.", "He has a deep understanding of how machinery operates.", "Proper maintenance is crucial for keeping machinery in good condition.", "Without the use of machinery, many manufacturing processes would be impossible.", "Automated machinery has greatly increased productivity in many industries.", "Heavy machinery is used for construction of large buildings.", "Industrial machinery has revolutionized the way we produce goods.", "The malfunctioning machinery caused a delay in production.", "The factory workers were trained to operate the machinery safely.", "The sale of used machinery can provide a source of revenue for businesses."], obsolete: true
     },
     {
         explanation: "a very strong interest in something that fills a person's mind or uses up all their time",
@@ -1520,7 +1524,7 @@ const DATA_nce = [
             "The monstrous injustice of the system left many feeling angry and frustrated.",
             "The monstrous injustice of the system left many feeling angry and frustrated.",
             "The monstrous fire consumed the forest, leaving behind a charred and barren landscape."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "used to describe something as another, more exciting, interesting, or unusual thing, as a way of emphasizing its character",
@@ -1554,7 +1558,7 @@ const DATA_nce = [
             "The teacher continually encourages their students to ask questions and seek knowledge.",
             "The wind continually blows, rustling the leaves on the trees and carrying the scent of flowers.",
             "The rain continually falls, nourishing the plants and replenishing the earth."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to fix or implant something firmly and deeply into a surrounding mass or object.",
@@ -1588,7 +1592,7 @@ const DATA_nce = [
             "The insult was mortally offensive and caused a fight.",
             "The storm was mortally destructive, leaving a trail of destruction.",
             "The decision was mortally consequential and would have long-term effects."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "complete and including everything that is necessary",
@@ -1605,7 +1609,7 @@ const DATA_nce = [
             "The health care policy aims to provide comprehensive coverage for all citizens.",
             "The museum has a comprehensive collection of artwork from the Renaissance period.",
             "The law firm offers comprehensive legal services to its clients."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "(an area of) land, or sometimes sea, that is considered as belonging to or connected with a particular country or person",
@@ -1639,7 +1643,7 @@ const DATA_nce = [
             "The website is updated with frequent news articles.",
             "The city is known for its frequent traffic congestion.",
             "The police were called to the bar due to frequent disturbances."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a large natural or artificial lake used as a source of water supply, or a place where something is collected and stored for future use.",
@@ -1673,7 +1677,7 @@ const DATA_nce = [
             "The autumn moon shone brightly in the night sky.",
             "The autumn rain brought relief from the summer heat.",
             "The autumn holidays, such as Halloween and Thanksgiving, are celebrated in many cultures."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "something that happens",
@@ -1690,7 +1694,7 @@ const DATA_nce = [
             "The occurrence of the pandemic has changed the way we live our lives.",
             "The occurrence of the new species was documented by the biologist.",
             "The occurrence of the rare flower can only be found in the mountain region."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that is positive or beneficial, or in a way that shows approval or support.",
@@ -1758,7 +1762,7 @@ const DATA_nce = [
             "The politician was accused of unduly influencing the outcome of the election.",
             "The police were accused of unduly using force in apprehending the suspect.",
             "The customer was dissatisfied with the service they received, as they felt they were unduly ignored."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a firm and determined way",
@@ -1775,7 +1779,7 @@ const DATA_nce = [
             "The farmer plowed the field stoutly, using his trusty tractor.",
             "The dog barked stoutly, warning its owner of the approaching danger.",
             "The ship sailed stoutly through the rough waters, despite the stormy conditions."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to hold someone while fighting with him or her",
@@ -1792,7 +1796,7 @@ const DATA_nce = [
             "The scientist had to grapple with the problem of finding a cure for the disease.",
             "The government had to grapple with the issue of unemployment and poverty.",
             "The athlete had to grapple with the challenge of overcoming a serious injury to return to competition."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to form a mental image or concept of something that is not present or has not occurred, or to suppose or assume something to be the case.",
@@ -1809,7 +1813,7 @@ const DATA_nce = [
             "imagine waking up to a world covered in snow.",
             "She asked us to imagine ourselves as characters in a story.",
             "I can imagine how excited the children will be when they see the presents."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a mixture of gases that surrounds any planet",
@@ -1843,7 +1847,7 @@ const DATA_nce = [
             "The historian's knowledge covered the realm of ancient civilizations.",
             "The monarch ruled over a vast realm of territories and peoples.",
             "The explorer ventured into the uncharted realms of the jungle."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "large groups or crowds of people, animals, or things, typically in a disorderly or unruly manner.",
@@ -1877,7 +1881,7 @@ const DATA_nce = [
             "The impact of the asteroid was enormous, causing massive destruction and changing the course of history.",
             "The task of organizing the event was enormous, requiring the coordination of dozens of teams and volunteers.",
             "The talent of the singer was enormous, captivating the audience with every performance."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "someone's ability to think of clever new ways of doing something",
@@ -1894,7 +1898,7 @@ const DATA_nce = [
             "The athlete's ingenuity allowed them to come up with new and effective training methods.",
             "The teacher's ingenuity was praised for their ability to engage and inspire their students.",
             "The scientist's ingenuity was crucial in developing the breakthrough discovery."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a complaint or a strong feeling that you have been treated unfairly",
@@ -1911,7 +1915,7 @@ const DATA_nce = [
             "The company promised to address all employee grievances in a timely manner.",
             "The customer filed a grievance with the company after receiving poor service.",
             "The teacher listened to the students' grievances and promised to address them."
-        ]
+        ], obsolete:true
     },
     {
         explanation: "a person who is not a citizen of the country where they are residing or visiting",
@@ -1926,7 +1930,7 @@ const DATA_nce = [
             "The police are trained to be sensitive to the needs of foreigners in the area.",
             "The company has a policy of hiring both locals and foreigners for diversity.",
             "The city has a large population of foreigners, creating a multicultural community."
-        ]
+        ], obsolete:true
     },
     {
         explanation: "showing an unreasonable dislike for something or someone.",
@@ -1943,7 +1947,7 @@ const DATA_nce = [
             "The study found that people who hold prejudiced beliefs tend to be less accepting of diversity.",
             "prejudiced views often stem from fear or ignorance of those who are different.",
             "The book explores the effects of prejudiced attitudes on individuals and society."
-        ]
+        ], obsolete:true
     }, {
         explanation: "a person or thing that represents or stands for someone or something else",
         word: "representative",
@@ -2007,7 +2011,8 @@ const DATA_nce = [
             "The movie is mildly entertaining, but not particularly memorable.",
             "The speaker delivered the message in a mildly humorous tone.",
             "The dress code is mildly strict, allowing for some flexibility in attire."
-        ]
+        ],
+        obsolete: true
     }, {
         explanation: "to take or try to take hold of something tightly, usually in fear, worry, or pain",
         word: "clutching",
@@ -2023,7 +2028,7 @@ const DATA_nce = [
             "The musician was clutching the guitar as he played his final song of the night.",
             "The woman was clutching a tissue as she watched the emotional movie scene.",
             "The soldier was clutching onto his weapon as he advanced towards the enemy."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to add something decorative to a person or thing",
         word: "adorn",
@@ -2039,7 +2044,7 @@ const DATA_nce = [
             "The church was adorned with beautiful stained-glass windows.",
             "The bride's dress was adorned with intricate lace and beading.",
             "The palace was adorned with elaborate carvings and patterns."
-        ]
+        ], obsolete:true
     }, {
         explanation: "relating to beauty products or treatments intended to improve a person's appearance",
         word: "cosmetic",
@@ -2055,7 +2060,7 @@ const DATA_nce = [
             "The dermatologist recommended a cosmetic procedure to reduce the appearance of wrinkles.",
             "The model undergoes regular cosmetic treatments to maintain her flawless complexion.",
             "The beauty industry is constantly evolving with new cosmetic trends and innovations."
-        ]
+        ], obsolete:true
     }, {
         explanation: "in a way that is famous for something bad",
         word: "notoriously",
@@ -2070,7 +2075,7 @@ const DATA_nce = [
             "The neighborhood is notoriously known for its high crime rate.",
             "The athlete is notoriously bad at handling media interviews.",
             "The airline is notoriously unreliable and has a history of delayed flights."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a skilled worker who specializes in a particular technical field, such as electronics or mechanics",
         word: "technician",
@@ -2086,7 +2091,7 @@ const DATA_nce = [
             "The surgical technician prepared the operating room and equipment for the procedure.",
             "The HVAC technician repaired the air conditioning system in the building.",
             "The audio technician adjusted the sound levels for the concert."
-        ]
+        ], obsolete: true
     }, {
         explanation: "the state or condition of not meeting a desired or intended objective or outcome",
         word: "failure",
@@ -2152,7 +2157,7 @@ const DATA_nce = [
             "The hospitable community welcomed us with open arms and made us feel like we belonged.",
             "The hospitable culture of the country was evident in the way they treated their guests.",
             "The hospitable gesture of offering us a ride to the airport was greatly appreciated."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a technique of mural painting executed upon freshly laid, or wet lime plaster",
@@ -2169,7 +2174,7 @@ const DATA_nce = [
             "The fresco was so lifelike that it seemed as if the figures were about to step out of the wall.",
             "The artist used the fresco technique to create a breathtaking mural that covered an entire wall.",
             "Visitors to the cathedral marveled at the stunning fresco that adorned the altar."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a person who does not eat meat, poultry, or fish.",
@@ -2186,7 +2191,7 @@ const DATA_nce = [
             "The vegetarian lifestyle is not just about what we eat, but also about making ethical and sustainable choices.",
             "The vegetarian diet is rich in nutrients and can provide all the necessary protein and vitamins.",
             "The vegetarian burger was surprisingly juicy and flavorful, and I didn't even miss the meat."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that is natural, without the use of synthetic chemicals, pesticides, or fertilizers.",
@@ -2203,7 +2208,7 @@ const DATA_nce = [
             "The company is working to reduce its carbon footprint by sourcing materials organically and locally.",
             "The cafe serves only organically brewed coffee and tea.",
             "The yoga studio was designed to be an organically inspired space, with natural light and calming colors."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "in a way that never stops, especially when this is annoying or unpleasant",
@@ -2219,7 +2224,7 @@ const DATA_nce = [
             "The child asked incessantly for candy, despite being told no multiple times.",
             "The car honked incessantly in traffic, adding to the already chaotic atmosphere.",
             "The phone rang incessantly, interrupting my quiet evening at home."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to make a long, high, sad sound",
@@ -2287,7 +2292,7 @@ const DATA_nce = [
             "The scientist used advanced materials to create a new type of solar panel.",
             "The fashion designer experimented with different materials to create a unique look for their runway show.",
             "The artist collected materials from nature such as leaves and flowers to use in their artwork."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "giving advice",
@@ -2411,7 +2416,7 @@ const DATA_nce = [
             "The company was able to salvage the reputation of its product with a successful marketing campaign.",
             "The team worked to salvage the game after falling behind in the first half.",
             "The organization was able to salvage the event by finding a last-minute replacement speaker."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "people or animals shake slightly because they feel cold, ill, or frightened",
@@ -2428,7 +2433,7 @@ const DATA_nce = [
             "The student was shivering in the classroom because the air conditioning was too cold.",
             "The athlete was shivering before the big game due to nerves.",
             "The passenger was shivering on the airplane due to the air conditioning being too high."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a long, narrow passage that connects rooms or buildings.",
@@ -2445,7 +2450,7 @@ const DATA_nce = [
             "The prison corridor was guarded by armed officers.",
             "The airport corridor was filled with travelers hurrying to catch their flights.",
             "The apartment building corridor was narrow and smelled like cooking food from different cultures."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "an object that can be filled with air or gas, typically for use in play or decoration.",
@@ -2462,7 +2467,7 @@ const DATA_nce = [
             "The inflatable globe was used in geography class to teach about different countries.",
             "The inflatable air dancer waved in the wind to attract customers to the store.",
             "The inflatable obstacle course at the fair was challenging and fun for all ages."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "a material that is elastic and water-resistant, made from the sap of rubber trees or synthetic materials.",
@@ -2479,7 +2484,7 @@ const DATA_nce = [
             "The farmer tapped rubber trees to collect sap for processing.",
             "The scientist used rubber stoppers to seal the test tubes in the lab.",
             "The hiker used rubber trekking poles for a better grip on the rocky terrain."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "strange in a frightening and mysterious way",
@@ -2496,7 +2501,7 @@ const DATA_nce = [
             "The abandoned hospital was eerie with its broken windows and flickering lights.",
             "The misty lake at night was eerie with its eerie reflection of the moon.",
             "The old book in the library had an eerie aura about it, as if it held a dark secret."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "to a disturbance in the atmosphere characterized by strong winds, thunder, lightning, and heavy precipitation.",
@@ -2530,7 +2535,7 @@ const DATA_nce = [
             "The writer had to revise the plot several times before it was ready to be published.",
             "The plot of the TV series was so intricate that some fans created online forums to discuss and analyze it.",
             "The plot of the novel was so captivating that I finished it in one sitting."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a person or animal that lives permanently or temporarily in a particular place.",
         word: "inhabitants",
@@ -2546,7 +2551,7 @@ const DATA_nce = [
             "The spaceship's crew consisted of a diverse group of inhabitants from different parts of the galaxy.",
             "The town's inhabitants were shocked when they learned that their mayor had been caught embezzling funds.",
             "The inhabitants of the nursing home enjoyed spending time with the local schoolchildren who visited them every week."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a feeling of responsibility or remorse for doing something wrong or causing harm to others.",
         word: "guilt",
@@ -2562,7 +2567,7 @@ const DATA_nce = [
             "His guilt prevented him from fully enjoying his success and accomplishments.",
             "The victim's family expressed their satisfaction with the verdict, which finally brought closure to their years of pain and guilt.",
             "She felt a twinge of guilt every time she indulged in her favorite dessert, knowing that she was trying to watch her diet."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a penalty inflicted on someone for a wrongdoing or crime.",
         word: "punishment",
@@ -2578,7 +2583,7 @@ const DATA_nce = [
             "The company has a zero-tolerance policy for harassment, and anyone found guilty faces severe punishment.",
             "The punishment should fit the crime and be appropriate to the severity of the offense.",
             "The punishment for breaking the law should not be left to vigilantes or individuals taking the law into their own hands."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to distribute or administer something, typically a punishment or justice.",
         word: "meted out",
@@ -2594,7 +2599,7 @@ const DATA_nce = [
             "The police officer meted out traffic tickets to drivers who were breaking the law.",
             "The judge meted out a lenient sentence to the defendant, taking into account his difficult circumstances.",
             "The coach meted out praise to the players who had worked hard and showed improvement."
-        ]
+        ], obsolete: true
     }, {
         explanation: "a judgment or decision reached after considering all the evidence or information.",
         word: "conclusion",
@@ -2820,7 +2825,7 @@ const DATA_nce = [
             "The literary festival brings together writers, readers, and book lovers for a series of talks, workshops, and readings.",
             "The music and arts festival is a four-day event that has become one of the biggest in the country.",
             "The lantern festival is a colorful celebration that marks the end of the Chinese New Year and the beginning of spring."
-        ]
+        ], obsolete: true
     }, {
         explanation: "to try to do something",
         word: "endeavor",
@@ -2853,17 +2858,85 @@ const DATA_nce = [
             "After overcoming many obstacles, the adventurer emerged from the jungle triumphantly.",
             "The politician gave a triumphant speech after winning the election.",
             "The student raised her hand triumphantly, having just solved a difficult math problem."
+        ], obsolete: true
+    }, {
+        explanation: "to the required degree or extent.",
+        word: "sufficiently",
+        sentence: "He studied sufficiently for his exam.",
+        sentences: [
+            "She cooked the chicken sufficiently to ensure it was safe to eat.",
+            "The evidence presented was not sufficiently strong to support the argument.",
+            "I believe we have discussed this point sufficiently.",
+            "We must ensure that our supplies are sufficiently stocked for the winter months.",
+            "The team worked sufficiently hard to complete the project on time.",
+            "The car was not sufficiently maintained, which led to its breakdown on the highway.",
+            "I am sure that with sufficient practice, you will become an expert in no time.",
+            "Her experience was sufficiently relevant to the job requirements.",
+            "The company invested sufficiently in research and development to stay ahead of its competitors.",
+            "The instructions provided were not sufficiently clear, leading to confusion among the participants."
+        ]
+    }, {
+        explanation: "to do something based on emotions or feelings.",
+        word: "sentimentally",
+        sentence: "She chose the dress sentimentally, even though it didn't fit her well.",
+        sentences: [
+            "He proposed sentimentally in the same place they had their first date.",
+            "I always buy sentimental gifts for my best friend's birthday.",
+            "She kept the old photograph album sentimentally, because it reminded her of her childhood.",
+            "The song he wrote was full of sentimental lyrics and melodies.",
+            "Whenever she feels down, she watches a sentimental movie to cheer herself up.",
+            "His decision was influenced by his sentimental attachment to the company he worked for.",
+            "She couldn't sell the antique vase, as it had too much sentimental value to her.",
+            "The book was written sentimentally, with a lot of personal anecdotes and memories.",
+            "He felt a sentimental connection to the old house where he grew up.",
+            "She cried sentimentally while watching her daughter graduate from college."
+        ]
+    }, {
+        explanation: "Having or showing a strong desire and determination to succeed or achieve something",
+        word: "ambitious",
+        sentence: "She's an ambitious politician with big plans for the country.",
+        sentences: [
+            "His ambitious project was finally completed after years of hard work.",
+            "I admire her for being so ambitious and never giving up on her dreams.",
+            "The company has ambitious goals for expanding into new markets.",
+            "He is ambitious and always looking for ways to improve his skills.",
+            "She had an ambitious schedule for finishing her dissertation.",
+            "Their ambitious plan to climb Mount Everest was risky but exciting.",
+            "It takes an ambitious person to start their own business.",
+            "I'm feeling ambitious today and want to tackle a big project.",
+            "He has an ambitious vision for how the world could be a better place.",
+            "She took on an ambitious challenge and successfully completed it."
+        ]
+    }, {
+        explanation: "lasting or intended to last indefinitely without change.",
+        word: "permanent",
+        sentence: "The tattoo was a permanent mark on his skin.",
+        sentences: [
+            "She found a permanent home for the stray cat she had taken in.",
+            "His injuries left him with permanent disabilities.",
+            "The company offered him a permanent position after his internship ended.",
+            "They decided to make their separation permanent and filed for divorce.",
+            "The effects of climate change are having permanent impacts on our environment.",
+            "He moved to a different city and started a new permanent job.",
+            "The museum is now closed due to permanent structural damage caused by the earthquake.",
+            "The artist used permanent ink to create his drawings.",
+            "The government promised to provide permanent housing for the homeless population.",
+            "The loss of their child was a permanent source of grief for the family."
         ]
     },
 
 ]
 /*
-tell me what 'triumphantly' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
+tell me what 'sentimentally' is meaning and use it to make ten sentences, and only respond back by javascript array formation.
 {
 explanation: "no current word",
 word: "lowcase",
 sentence: "",
 sentences:[]
 },
+<<<<<<< HEAD
 */
 sufficiently
+=======
+*/
+>>>>>>> b4f75de6d7452fc34901699fa8afdcb353236db3
