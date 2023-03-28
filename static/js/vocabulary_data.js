@@ -118,7 +118,7 @@ const DATA_nce = [
     }, {
         explanation: "you start to sleep, especially during the day",
         word: "dozing",
-        sentence: "I soon got back to my old bad habit of dozing off in front of the television."
+        sentence: "I soon got back to my old bad habit of dozing off in front of the television.", obsolete:true
     },
     {
         explanation: "a subject or activity that interests you very much",
@@ -2123,7 +2123,7 @@ const DATA_nce = [
             "The employee felt betrayed by the company's decision to lay off workers.",
             "The lover felt betrayed by their partner's infidelity.",
             "The citizen felt betrayed by the politician's broken promises."
-        ]
+        ], obsolete:true
     },
     {
         explanation: "to express disapproval or find fault with someone or something",
