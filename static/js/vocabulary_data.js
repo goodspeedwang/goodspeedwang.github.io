@@ -191,17 +191,17 @@ const DATA_nce = [
     {
         explanation: "a tall cupboard in which you hang your clothes",
         word: "wardrobe",
-        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe", obsolete: true
+        sentence: "bottles of all shapes and sizes neatly stacked in what had once been Bessie's wardrobe"
     },
     {
         explanation: "relating to the design of buildings",
         word: "architectural",
-        sentence: "These attracted many tourists, for they were not only of great architectural interest, but contained a large number of beautifully preserved frescoes as well."
+        sentence: "These attracted many tourists, for they were not only of great architectural interest, but contained a large number of beautifully preserved frescoes as well.", obsolete: true
     },
     {
         explanation: "to cause people to do or believe something, esp. by explaining why they should",
         word: "persuaded",
-        sentence: "Though he was reluctant to do so at first, we eventually persuaded him to take us"
+        sentence: "Though he was reluctant to do so at first, we eventually persuaded him to take us", obsolete: true
     },
     {
         explanation: "unfriendly and likely to be unpleasant or harmful",
@@ -232,7 +232,7 @@ const DATA_nce = [
     {
         explanation: "肥料",
         word: "fertilizers",
-        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables."
+        sentence: "The use of pesticides and fertilizers produces cheap grains and vegetables.", obsolete: true
     },
     {
         explanation: "沙门氏菌",
@@ -242,7 +242,7 @@ const DATA_nce = [
     {
         explanation: "in bad condition and therefore weak and likely to break",
         word: "rickety",
-        sentence: "the furniture gets rickety"
+        sentence: "the furniture gets rickety", obsolete: true
     },
     {
         explanation: "to take a machine apart or to come apart into separate pieces",
@@ -258,7 +258,7 @@ const DATA_nce = [
     {
         explanation: "电工",
         word: "electrician",
-        sentence: "electrician"
+        sentence: "electrician", obsolete: true
     },
     {
         explanation: "木匠",
@@ -290,23 +290,6 @@ const DATA_nce = [
             "The vacuum pump was used to create a vacuum inside the chamber.",
             "She vacuum sealed the food to keep it fresh.",
             "The shop vacuum was powerful enough to pick up larger debris like sawdust."
-        ], obsolete: true
-    },
-    {
-        explanation: "拼图",
-        word: "jigsaw",
-        sentence: "putting the confusing jigsaw puzzle together again.",
-        sentences: [
-            "She spent hours putting together the jigsaw puzzle.",
-            "The jigsaw blade was too dull to cut through the thick wood.",
-            "The jigsaw was a crucial tool in creating the intricate design.",
-            "He carefully selected each piece of the jigsaw to complete the picture.",
-            "The noise of the jigsaw echoed through the workshop.",
-            "She used a jigsaw to create the perfect shape for the project.",
-            "He was challenged by the complicated jigsaw puzzle, but eventually finished it.",
-            "The jigsaw puzzle was missing a few important pieces.",
-            "She traced the outline of the design onto the wood before using the jigsaw.",
-            "He often used a jigsaw to make cuts for custom furniture projects."
         ], obsolete: true
     },
     {
@@ -1278,7 +1261,7 @@ const DATA_nce = [
         explanation: "to move or spread untidily and in small numbers or amounts",
         word: "straggling",
         sentence: "The place consisted of a straggling unmade road which was lined on either side by small houses.",
-        sentences: ["The hiker was straggling behind the rest of the group on the steep mountain trail.", "The straggling plants received less sunlight than the others and grew weaker over time.", "His handwriting was straggling and difficult to read.", "We noticed the straggling crowd leaving the theater after the late-night show.", "The CEO was frustrated with the straggling sales figures for the quarter.", "The straggling end of the parade was still a few blocks away.", "Her hair was straggling out of her ponytail after a long day at work.", "The straggling branches of the tree reached out over the fence.", "The team's straggling defense led to a last-minute defeat.", "The straggling line at the coffee shop moved slowly, much to the annoyance of the customers."]
+        sentences: ["The hiker was straggling behind the rest of the group on the steep mountain trail.", "The straggling plants received less sunlight than the others and grew weaker over time.", "His handwriting was straggling and difficult to read.", "We noticed the straggling crowd leaving the theater after the late-night show.", "The CEO was frustrated with the straggling sales figures for the quarter.", "The straggling end of the parade was still a few blocks away.", "Her hair was straggling out of her ponytail after a long day at work.", "The straggling branches of the tree reached out over the fence.", "The team's straggling defense led to a last-minute defeat.", "The straggling line at the coffee shop moved slowly, much to the annoyance of the customers."], obsolete: true
     },
     {
         explanation: "沙丁鱼",
@@ -1290,7 +1273,7 @@ const DATA_nce = [
         explanation: "（女用）披巾",
         word: "shawl",
         sentence: "shawl",
-        sentences: ["She wore a beautiful shawl with her traditional dress.", "The old lady wrapped her shawl tightly around her shoulders to keep warm.", "She gifted a warm woolen shawl to her mother on her birthday.", "The bride draped a colorful shawl over her head during the wedding ceremony.", "The shawl had intricate embroidery work and was a sight to behold.", "He used his shawl to wipe the sweat from his face on the hot summer day.", "The actress walked gracefully on the red carpet, her shawl flowing behind her.", "She felt comforted when her grandmother's shawl was draped over her.", "The dance performance was mesmerizing with the performers' synchronized shawl movements.", "The shopkeeper displayed a wide variety of shawls made of silk, wool, and cotton."]
+        sentences: ["She wore a beautiful shawl with her traditional dress.", "The old lady wrapped her shawl tightly around her shoulders to keep warm.", "She gifted a warm woolen shawl to her mother on her birthday.", "The bride draped a colorful shawl over her head during the wedding ceremony.", "The shawl had intricate embroidery work and was a sight to behold.", "He used his shawl to wipe the sweat from his face on the hot summer day.", "The actress walked gracefully on the red carpet, her shawl flowing behind her.", "She felt comforted when her grandmother's shawl was draped over her.", "The dance performance was mesmerizing with the performers' synchronized shawl movements.", "The shopkeeper displayed a wide variety of shawls made of silk, wool, and cotton."], obsolete: true
     },
     {
         explanation: "an opinion expressed in an argument",
@@ -1348,7 +1331,7 @@ const DATA_nce = [
         explanation: "to be willing to do something that is extreme",
         word: "so far as to",
         sentence: "Some really keen enthusiasts go so far as to build their own computers.",
-        sentences: ["I would never go so far as to steal from my employer.", "The company was willing to go so far as to sue their former employee for breach of contract.", "Sheila was so desperate for a job that she went so far as to offer to work for free.", "Some people go so far as to spend tens of thousands of dollars on plastic surgery.", "The coach went so far as to kick the player off the team for breaking the rules.", "I can't believe they went so far as to refuse to serve us because we were wearing the wrong clothes.", "Some people go so far as to lie in order to get what they want.", "The company went so far as to bribe government officials to secure the contract.", "Some extreme protesters go so far as to commit violent acts in protest of a cause.", "I would never go so far as to compromise my values just to be accepted by others."]
+        sentences: ["I would never go so far as to steal from my employer.", "The company was willing to go so far as to sue their former employee for breach of contract.", "Sheila was so desperate for a job that she went so far as to offer to work for free.", "Some people go so far as to spend tens of thousands of dollars on plastic surgery.", "The coach went so far as to kick the player off the team for breaking the rules.", "I can't believe they went so far as to refuse to serve us because we were wearing the wrong clothes.", "Some people go so far as to lie in order to get what they want.", "The company went so far as to bribe government officials to secure the contract.", "Some extreme protesters go so far as to commit violent acts in protest of a cause.", "I would never go so far as to compromise my values just to be accepted by others."], obsolete: true
     },
     {
         explanation: "able or likely to cause harm or death, or unpleasant problems",
@@ -2174,7 +2157,7 @@ const DATA_nce = [
             "The fresco was so lifelike that it seemed as if the figures were about to step out of the wall.",
             "The artist used the fresco technique to create a breathtaking mural that covered an entire wall.",
             "Visitors to the cathedral marveled at the stunning fresco that adorned the altar."
-        ], obsolete: true
+        ]
     },
     {
         explanation: "a person who does not eat meat, poultry, or fish.",
@@ -2241,7 +2224,7 @@ const DATA_nce = [
             "The customer's whining about the wait time was met with an apology and a complimentary drink.",
             "The actor's whining about the long hours on set was seen as entitled by some of their colleagues.",
             "The friend's constant whining about their problems was starting to strain the relationship."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "the sound made when breathing during sleep that is accompanied by vibration of the soft palate and other tissues in the mouth, nose, and throat.",
@@ -2258,7 +2241,7 @@ const DATA_nce = [
             "The snoring from the neighboring hotel room was so loud that it kept the guests awake all night.",
             "The partner's snoring was so disruptive that it caused tension in the relationship.",
             "The snoring from the person sitting next to me on the plane was so loud that I couldn't sleep."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "the act of making a loud, often with the use of brass instrument.",
@@ -2399,7 +2382,7 @@ const DATA_nce = [
             "The actor portrayed the character brilliantly, capturing their essence and bringing them to life.",
             "The teacher's lesson was brilliantly designed, engaging the students and fostering deep learning.",
             "The designer's latest collection was brilliantly inspired, showcasing their unique vision and style."
-        ]
+        ], obsolete: true
     },
     {
         explanation: "the act of saving or recovering something that has been damaged or discarded.",

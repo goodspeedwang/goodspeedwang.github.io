@@ -52,22 +52,35 @@ const DATA_nce2 = [
     { explanation: "无法解决的", word: "insoluble" },
     { explanation: "解释，说明", word: "explanation" },
     { explanation: "握，紧抓", word: "clutching" },
+    { explanation: "臭名昭著的", word: "notoriously" },
+    { explanation: "缓解；减轻", word: "relieve" },
+    { explanation: "失败；失灵", word: "failure" },
+    { explanation: "有抱负的；雄心勃勃的", word: "ambitious" },
+    { explanation: "挡开；避开", word: "fend off" },
+    { explanation: "催眠的；令人着迷的", word: "hypnotizing" },
+    { explanation: "完美无瑕的；洁净的", word: "immaculate" },
+    { explanation: "易变的；浮躁的", word: "fickleness" },
+    { explanation: "不情愿地；勉强地", word: "reluctantly" },
+    { explanation: "衣柜；服装", word: "wardrobe" },
+    { explanation: "感伤地；多愁善感地", word: "sentimentally" },
+    { explanation: "批评；指责", word: "criticized" },
+    { explanation: "壁画；湿壁画", word: "fresco" },
+    { explanation: "日记；日记帐", word: "diary" },
+    { explanation: "体积；卷", word: "volume" },
+    { explanation: "压倒性的；淹没性的", word: "overwhelm" },
+    { explanation: "吹嘘；鼓吹", word: "trumpeting" },
+    { explanation: "装饰", word: "decorate" },
+    { explanation: "咨询的", word: "advisory" },
+    { explanation: "憋闷的", word: "pent up" },
+    { explanation: "物质的", word: "material" },
+    { explanation: "自豪", word: "pride" },
+    { explanation: "根本上", word: "radically" },
+    { explanation: "如此，那么", word: "tant" },
 ];
 /*
 please translate the following words to Chinese. 
 --------
-notoriously
-relieve
-failure
-ambitious
-fend off
-hypnotizing
-immaculate
-fickleness
-reluctantly
-wardrobe
-sentimentally
-criticized
+
 --------
 only respond back by javascript array formation.
 { explanation: "chinese", word: "", },
