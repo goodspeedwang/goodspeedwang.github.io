@@ -33,5 +33,4 @@ dictionary.cambridge.org##DIV[amp-access="1=1"]
 dictionary.cambridge.org##DIV[id*=ad_]
 www.dictionary.com##aside
 *.gigya.com
-www.scmp.com##iframe
 www.scmp.com##script
