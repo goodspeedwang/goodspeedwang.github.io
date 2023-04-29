@@ -75,7 +75,7 @@ const DATA_nce2 = [
     { explanation: "物质的", word: "material" },
     { explanation: "自豪", word: "pride" },
     { explanation: "根本上", word: "radically" },
-    { explanation: "如此，那么", word: "tant" },
+    { explanation: "帐篷", word: "tent" },
 ];
 /*
 please translate the following words to Chinese. 
