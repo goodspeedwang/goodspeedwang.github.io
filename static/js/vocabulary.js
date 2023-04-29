@@ -38,7 +38,7 @@ function init() {
         if (!x.word || x.obsolete) return false;
         let item = new storage(x.word);
         //return true;
-        return item.number < 5
+        return item.number < 2
     });
     console.log(data.map(x => "\"" + x.word + "\"").join(","))
 
