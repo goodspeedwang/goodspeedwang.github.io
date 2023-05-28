@@ -1,21 +1,21 @@
-#EXTINF:-1, CCTV1综合
+#EXTINF:-1 tvg-id="1" tvg-name="CCTV1" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" group-title="央视",CCTV1综合
 https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv1_2/index.m3u8
-#EXTINF:-1, CCTV2财经
+#EXTINF:-1 tvg-id="2" tvg-name="CCTV2" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png" group-title="央视",CCTV2财经
 https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv2_2/index.m3u8
-#EXTINF:-1, CCTV3娱乐
+#EXTINF:-1 tvg-id="3" tvg-name="CCTV3" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png" group-title="央视",CCTV3娱乐
 http://58.205.220.58:8088/tlivectfree-cdn.ysp.cctv.cn/ysp/2000203803.m3u8
-#EXTINF:-1 tvg-id="106" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="央视",CCTV-4K
+#EXTINF:-1 tvg-id="4" tvg-name="CCTV4" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4.png" group-title="央视",CCTV4中文国际
 http://liveop.cctv.cn/hls/4KHD/playlist.m3u8
-#EXTINF:-1, CCTV5体育
+#EXTINF:-1 tvg-id="5" tvg-name="CCTV5" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png" group-title="央视",CCTV5体育
 https://cctvwbndks.v.kcdnvip.com/cctvwbnd/cctv5_2/index.m3u8
-#EXTINF:-1, CCTV6电影
+#EXTINF:-1 tvg-id="7" tvg-name="CCTV6" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png" group-title="央视",CCTV6电影
 http://58.205.220.58:8088/tlivectfree-cdn.ysp.cctv.cn/ysp/2000203303.m3u8
-#EXTINF:-1, CCTV7国防军事
+#EXTINF:-1 tvg-id="8" tvg-name="CCTV7" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV7.png" group-title="央视",CCTV7国防军事
 http://58.205.220.58:8088/tlivectfree-cdn.ysp.cctv.cn/ysp/2000510003.m3u8
-#EXTINF:-1, CCTV9纪录
+#EXTINF:-1 tvg-id="10" tvg-name="CCTV9" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV9.png" group-title="央视",CCTV9纪录
 http://58.205.220.58:8088/tlivectfree-cdn.ysp.cctv.cn/ysp/2000499403.m3u8
-#EXTINF:-1 tvg-id="106" tvg-name="CCTV13" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV13.png" group-title="央视",CCTV-13
+#EXTINF:-1 tvg-id="14" tvg-name="CCTV13" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV13.png" group-title="央视",CCTV13新闻
 #http://stream4.jlntv.cn/cctv13/sd/live.m3u8
 https://live-play.cctvnews.cctv.com/cctv/merge_cctv13_mhd.m3u8
-#EXTINF:-1, CCTV15音乐
+#EXTINF:-1 tvg-id="16" tvg-name="CCTV15" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV15.png" group-title="央视",CCTV15音乐
 http://58.205.220.58:8088/tlivectfree-cdn.ysp.cctv.cn/ysp/2000205002.m3u8
