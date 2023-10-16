@@ -44,8 +44,17 @@
         <网址><名称>微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
     </组>
     
+<<<<<<< HEAD
     <组 组名="Canada">
         <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
+=======
+    <组 组名="Oversea">
+        <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
+        <网址><名称>房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
+        <网址><名称>Realtor</名称><地址>https://www.realtor.com/</地址></网址>
+        <网址><名称>加拿大家园论坛</名称><地址>https://forum.iask.ca/</地址></网址>
+        <网址><名称>一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
+>>>>>>> 5541c9439ef9bfd8a6935b0c1d8c38d253020332
     </组>
 
     <组 组名="Computer">
@@ -84,6 +93,7 @@
         <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
         <网址><地址>https://poe.com/chatgpt</地址><名称>POE</名称></网址>
         <网址><地址>https://bard.google.com/</地址><名称>Bard</名称></网址>
+        <网址><地址>https://www.doubao.com/chat/</地址><名称>豆包</名称></网址>
         
     </组>
     <组 组名="Book">
@@ -161,10 +171,6 @@
         <网址><名称>话题</名称><地址>https://123.sankuai.com/huati/home</地址></网址>
         <网址><名称>邮箱</名称><地址>https://mail.meituan.com/</地址></网址>
         <网址><名称>太平洋</名称><地址>http://h5.dianping.com/app/cs-fe-sep/index.html</地址></网址>
-        <网址><名称>在线会话分析</名称><地址>https://h5.dianping.com/app/kingfisher-portal/index.html#/portal/classifyChatAnalaze</地址></网址>
-        <网址><名称>电话会话分析</名称><地址>https://h5.dianping.com/app/kingfisher-portal/index.html#/ivr/visualization/search</地址></网址>
-        <网址><名称>峰值 COE</名称><地址>https://h5.dianping.com/app/kingfisher-portal/index.html#/strategyCenter/caseOverview</地址></网址>
-        <网址><名称>石家庄大屏</名称><地址>http://wallboard.sankuai.com/dashboard/service/service_all</地址></网址>
         <网址><地址>https://km.sankuai.com/page/1271371337</地址><名称>服务体验</名称></网址>
         <网址><地址>https://km.sankuai.com/collabpage/1500097680</地址><名称>研发中心</名称></网址>
     </组>
@@ -172,7 +178,7 @@
     <组 组名="Movie">
         <网址><地址>http://www.dytt8.net/</地址><名称>电影天堂</名称></网址>
         <网址><地址>https://www.domp4.cc/</地址><名称>MP4电影</名称></网址>
-        <网址><地址>https://www.80s.tw/</地址><名称>80s手机电影网</名称></网址>
+        <网址><地址>https://www.80sgod.com/</地址><名称>80s手机电影网</名称></网址>
         <网址><地址>https://www.bilibili.com/</地址><名称>Bilibili</名称></网址>
         <网址><地址>https://www.iqiyi.com/</地址><名称>爱奇艺</名称></网址>
         <网址><地址>https://www.ixigua.com/</地址><名称>西瓜</名称></网址>
@@ -182,8 +188,8 @@
     <组 组名="Travel">
         <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
         <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
-        <网址><地址>http://www.daoduoduo.com/forum-25-1.html</地址><名称>岛多多</名称></网址>
-        <网址><地址>http://www.mafengwo.cn/travel-scenic-spot/mafengwo/10118.html</地址><名称>玛蜂窝</名称></网址>
+        <网址><地址>http://www.daoduoduo.com/forum-24-1.html</地址><名称>岛多多</名称></网址>
+        <网址><地址>https://www.mafengwo.cn/travel-scenic-spot/mafengwo/11051.html</地址><名称>玛蜂窝</名称></网址>
         <网址><地址>http://www.fumubang.com/hd/pc40_c40/</地址><名称>父母邦</名称></网址>
     </组>
 </导航>
