@@ -42,6 +42,6 @@ www.scmp.com##DIV[class="piano-metering__fade-overlay"]
 https://securepubads.g.doubleclick.net/tag/js/gpt.js
 https://googleads.g.doubleclick.net/pagead/*
 https://cdn.tinypass.com/api/tinypass.min.js
-
 ikuuu.eu##DIV[id="popup-ann-modal"]
 ikuuu.eu##DIV[class="modal-backdrop fade show"]
+bilibili.com##DIV[class="request-permission"]
