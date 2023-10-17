@@ -44,17 +44,12 @@
         <网址><名称>微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
     </组>
     
-<<<<<<< HEAD
-    <组 组名="Canada">
-        <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
-=======
     <组 组名="Oversea">
         <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
         <网址><名称>房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
         <网址><名称>Realtor</名称><地址>https://www.realtor.com/</地址></网址>
         <网址><名称>加拿大家园论坛</名称><地址>https://forum.iask.ca/</地址></网址>
         <网址><名称>一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
->>>>>>> 5541c9439ef9bfd8a6935b0c1d8c38d253020332
     </组>
 
     <组 组名="Computer">
