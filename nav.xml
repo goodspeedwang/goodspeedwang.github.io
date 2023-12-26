@@ -42,6 +42,9 @@
         <网址><名称>Twitter</名称><地址>http://twitter.com/home</地址></网址>
         <网址><名称>网易</名称><地址>https://www.163.com/</地址></网址>
         <网址><名称>微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
+        <网址><地址>https://globalnews.ca/</地址><名称>GlobalNews</名称></网址>
+        <网址><地址>https://www.scmp.com/</地址><名称>SouthChina</名称></网址>
+        <网址><名称>Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
     </组>
     
     <组 组名="Oversea">
@@ -71,10 +74,7 @@
         <网址><地址>https://www.voicetube.com/</地址><名称>VoiceTube</名称></网址>
         <网址><地址>http://www.thefreedictionary.com/</地址><名称>thefreedictionary</名称></网址>
         <网址><地址>https://www.quodb.com/</地址><名称>Quodb</名称></网址>
-        <网址><地址>https://globalnews.ca/</地址><名称>GlobalNews</名称></网址>
-        <网址><地址>https://www.scmp.com/</地址><名称>SouthChina</名称></网址>
         <网址><地址>https://www.tjxz.cc/</地址><名称>田间小站</名称></网址>
-        <网址><地址>https://www.ieltsbro.com/</地址><名称>雅思哥</名称></网址>
     </组>
 
     <组 组名="Coding">
@@ -146,7 +146,7 @@
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
         <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
         <网址><地址>https://acsqiyvl6y.feishu.cn/sheets/shtcnMAhWTbRqsFeFCGVeeI4XMh?sheet=1aLJQt</地址><名称>Finance</名称></网址>
-        <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec></地址><名称>刷卡</名称></网址>
+        <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec</地址><名称>刷卡</名称></网址>
         <网址><名称>Health</名称><地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址></网址>
 
         <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
