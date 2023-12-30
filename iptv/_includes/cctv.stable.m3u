@@ -10,7 +10,7 @@ http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv3hd/4000000/mnf
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv4/1300000/mnf.m3u8
 #EXTINF:-1 tvg-id="5" tvg-name="CCTV5" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png" group-title="央视",CCTV5体育
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv5hd/4000000/mnf.m3u8
-#EXTINF:-1 tvg-id="5" tvg-name="CCTV5+" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png" group-title="央视",CCTV5+体育
+#EXTINF:-1 tvg-id="6" tvg-name="CCTV5+" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png" group-title="央视",CCTV5+体育
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv5phd/4000000/mnf.m3u8
 #EXTINF:-1 tvg-id="7" tvg-name="CCTV6" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png" group-title="央视",CCTV6电影
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv6hd/4000000/mnf.m3u8
@@ -36,3 +36,4 @@ http://101.33.17.11/Liveplay-kk.rtxapp.com/live/program/live/cctv16hd8m/8000000/
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv17hd8m/8000000/mnf.m3u8
 #EXTINF:-1 tvg-id="17" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="央视",CCTV4K
 http://101.33.17.11/liveplay-kk.rtxapp.com/live/program/live/cctv4k/15000000/mnf.m3u8
+
