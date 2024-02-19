@@ -107,7 +107,7 @@ http://iptv.8t.cx:8180/udp/239.3.1.96:8001
 http://iptv.8t.cx:8180/udp/239.3.1.66:8068
 #EXTINF:-1 ,电子竞技 [1080p]
 http://iptv.8t.cx:8180/udp/239.3.1.157:8176
-#EXTINF:-1 ,电影台 [1080p]
+#EXTINF:-1 ,BTV体育休闲 [1080p]
 http://iptv.8t.cx:8180/udp/239.3.1.97:8001
 #EXTINF:-1 tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" tvg-id="1" tvg-name="CCTV1" group-title="央视",CCTV-1综合 [576p]
 http://iptv.8t.cx:8180/udp/239.3.1.1:8000
