@@ -1,2 +1,4 @@
-#EXTINF:-1,北京新闻
+#EXTINF:-1 tvg-logo="http://epg.51zmt.top:8000/tb1/sheng/BTV新闻.png" tvg-id="1880" tvg-name="BTV新闻" group-title="Local",BTV新闻
 https://live.funhillrm.com/5/sd/live.m3u8
+#EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="Local", 武汉新闻综合
+http://stream.appwuhan.com/1tzb/sd/live.m3u8
