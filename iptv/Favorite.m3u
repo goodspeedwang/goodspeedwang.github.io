@@ -40,8 +40,9 @@ https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV31.m3u8
 http://50.7.238.114:8278/niandainews_twn/playlist.m3u8?tid=MA6A4647720946477209&ct=19226&tsum=48a66838dbcf633b2fb41307b29ef50a
 #EXTINF:-1 tvg-id="1880" tvg-name="BTV新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/sheng/BTV新闻.png" group-title="地方台",BTV新闻 [1080p]
 http://iptv.8t.cx:8180/udp/239.3.1.159:8000
-#EXTINF:-1 tvg-id="1784" tvg-name="湖北经视" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI8.png" group-title="湖北", 湖北经视HD
-http://iptv.home/hb.php?id=hbjs
+
+#EXTINF:-1 tvg-id="HB06" tvg-name="湖北经视" tvg-logo="https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/Hubei6.png" group-title="地方特色",湖北经视
+http://[2409:8087:4c0a:22:1::11]:6410/170000001115/UmaiCHAN63807203543e3/index.m3u8?AuthInfo=9kOOdBn7MFF%2F2bWjKgahUUAdKgLqNB5aOAUhcp5CeNLVCQ3pDe4nBySab%2B3xPL123aTSCRugzF2ABe36IIJw2evZbYdWUo0ffUw53bflDgU
 #EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="湖北",武汉新闻综合
 http://stream.appwuhan.com/1tzb/sd/live.m3u8
 
