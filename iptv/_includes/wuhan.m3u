@@ -7,3 +7,19 @@ http://stream.appwuhan.com/3tzb/sd/live.m3u8
 http://stream.appwuhan.com/4tzb/sd/live.m3u8
 #EXTINF:-1 tvg-id="1795" tvg-name="武汉教育电视台" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WETV.png" group-title="湖北", 武汉教育
 http://stream.appwuhan.com/jyzb/sd/live.m3u8
+#EXTINF:-1 tvg-id="48" tvg-name="湖北卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/hubei.png" group-title="卫视", 湖北卫视
+http://iptv.home/hb.php?id=hbws
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="未分类", 湖北经视
+http://iptv.home/hb.php?id=hbjs
+#EXTINF:-1 tvg-id="1778" tvg-name="湖北综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI2.png" group-title="湖北", 湖北综合
+http://iptv.home/hb.php?id=hbzh
+#EXTINF:-1 tvg-id="1783" tvg-name="湖北公共·新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI7.png" group-title="湖北", 湖北公共新闻
+http://iptv.home/hb.php?id=hbgg
+#EXTINF:-1 tvg-id="1779" tvg-name="湖北影视频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI3.png" group-title="湖北", 湖北影视
+http://iptv.home/hb.php?id=hbys
+#EXTINF:-1 tvg-id="1781" tvg-name="湖北生活频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI5.png" group-title="湖北", 湖北生活
+http://iptv.home/hb.php?id=hbsh
+#EXTINF:-1 tvg-id="1780" tvg-name="湖北教育频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HUBEI4.png" group-title="湖北", 湖北教育
+http://iptv.home/hb.php?id=hbjy
+#EXTINF:-1 tvg-id="1785" tvg-name="湖北垄上频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/HBLS.png" group-title="湖北", 湖北垄上
+http://iptv.home/hb.php?id=hbls
