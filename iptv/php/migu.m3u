@@ -1,0 +1,282 @@
+#EXTM3U
+#EXTINF:-1, CCTV1综合
+http://iptv.home/migu.php?id=cctv1
+#EXTINF:-1, CCTV2财经
+http://iptv.home/migu.php?id=cctv2
+#EXTINF:-1, CCTV3综艺
+http://iptv.home/migu.php?id=cctv3
+#EXTINF:-1, CCTV4中文国际
+http://iptv.home/migu.php?id=cctv4
+#EXTINF:-1, CCTV4美洲
+http://iptv.home/migu.php?id=cctv4a
+#EXTINF:-1, CCTV4欧洲
+http://iptv.home/migu.php?id=cctv4o
+#EXTINF:-1, CCTV5体育
+http://iptv.home/migu.php?id=cctv5
+#EXTINF:-1, CCTV5+体育赛事
+http://iptv.home/migu.php?id=cctv5p
+#EXTINF:-1, CCTV6电影
+http://iptv.home/migu.php?id=cctv6
+#EXTINF:-1, CCTV7国防军事
+http://iptv.home/migu.php?id=cctv7
+#EXTINF:-1, CCTV8电视剧
+http://iptv.home/migu.php?id=cctv8
+#EXTINF:-1, CCTV9纪录
+http://iptv.home/migu.php?id=cctv9
+#EXTINF:-1, CCTV10科教
+http://iptv.home/migu.php?id=cctv10
+#EXTINF:-1, CCTV11戏曲
+http://iptv.home/migu.php?id=cctv11
+#EXTINF:-1, CCTV12社会与法
+http://iptv.home/migu.php?id=cctv12
+#EXTINF:-1, CCTV13新闻
+http://iptv.home/migu.php?id=cctv13
+#EXTINF:-1, CCTV14少儿
+http://iptv.home/migu.php?id=cctv14
+#EXTINF:-1, CCTV15音乐
+http://iptv.home/migu.php?id=cctv15
+#EXTINF:-1, CCTV17农业农村
+http://iptv.home/migu.php?id=cctv17
+
+#EXTINF:-1, CCTV发现之旅
+http://iptv.home/migu.php?id=fxzl
+#EXTINF:-1, CCTV老故事
+http://iptv.home/migu.php?id=lgs
+#EXTINF:-1, CCTV中学生
+http://iptv.home/migu.php?id=zxs
+
+#EXTINF:-1, CGTN
+http://iptv.home/migu.php?id=cgtn
+#EXTINF:-1, CGTN纪录
+http://iptv.home/migu.php?id=cgtnjl
+#EXTINF:-1, CCTV西班牙语
+http://iptv.home/migu.php?id=cgtne
+#EXTINF:-1, CCTV法语
+http://iptv.home/migu.php?id=cgtnf
+#EXTINF:-1, CCTV阿拉伯语
+http://iptv.home/migu.php?id=cgtna
+#EXTINF:-1, CCTV俄语
+http://iptv.home/migu.php?id=cgtnr
+
+#EXTINF:-1, 东方卫视x
+http://iptv.home/migu.php?id=dfws
+#EXTINF:-1, 重庆卫视
+http://iptv.home/migu.php?id=cqws
+#EXTINF:-1, 吉林卫视
+http://iptv.home/migu.php?id=jlws
+#EXTINF:-1, 辽宁卫视
+http://iptv.home/migu.php?id=lnws
+#EXTINF:-1, 内蒙古卫视
+http://iptv.home/migu.php?id=nmws
+#EXTINF:-1, 宁夏卫视x
+http://iptv.home/migu.php?id=nxws
+#EXTINF:-1, 甘肃卫视
+http://iptv.home/migu.php?id=gsws
+#EXTINF:-1, 青海卫视
+http://iptv.home/migu.php?id=qhws
+#EXTINF:-1, 陕西卫视
+http://iptv.home/migu.php?id=sxws
+#EXTINF:-1, 山东卫视
+http://iptv.home/migu.php?id=sdws
+#EXTINF:-1, 河南卫视
+http://iptv.home/migu.php?id=hnws
+#EXTINF:-1, 湖北卫视
+http://iptv.home/migu.php?id=hubws
+#EXTINF:-1, 湖南卫视x
+http://iptv.home/migu.php?id=hunws
+#EXTINF:-1, 江西卫视
+http://iptv.home/migu.php?id=jxws
+#EXTINF:-1, 江苏卫视
+http://iptv.home/migu.php?id=jsws
+#EXTINF:-1, 东南卫视x
+http://iptv.home/migu.php?id=dnws
+#EXTINF:-1, 海峡卫视
+http://iptv.home/migu.php?id=hxws
+#EXTINF:-1, 广东卫视x
+http://iptv.home/migu.php?id=gdws
+#EXTINF:-1, 大湾区卫视
+http://iptv.home/migu.php?id=dwqws
+#EXTINF:-1, 广西卫视
+http://iptv.home/migu.php?id=gxws
+#EXTINF:-1, 云南卫视
+http://iptv.home/migu.php?id=ynws
+#EXTINF:-1, 贵州卫视
+http://iptv.home/migu.php?id=gzws
+#EXTINF:-1, 新疆卫视
+http://iptv.home/migu.php?id=xjws
+#EXTINF:-1, 西藏卫视
+http://iptv.home/migu.php?id=xzws
+#EXTINF:-1, 海南卫视
+http://iptv.home/migu.php?id=hinws
+
+#EXTINF:-1, 四海钓鱼
+http://iptv.home/migu.php?id=shdy
+
+#EXTINF:-1, 东方影视
+http://iptv.home/migu.php?id=dfys
+#EXTINF:-1, 上海新闻综合
+http://iptv.home/migu.php?id=shxwzh
+#EXTINF:-1, 上海第一财*
+http://iptv.home/migu.php?id=dycj
+#EXTINF:-1, 上视纪实人文
+http://iptv.home/migu.php?id=shjsrw
+#EXTINF:-1, 上海外语
+http://iptv.home/migu.php?id=shics
+#EXTINF:-1, 法治天地
+http://iptv.home/migu.php?id=fztd
+#EXTINF:-1, 劲爆体育
+http://iptv.home/migu.php?id=jbty
+#EXTINF:-1, 魅力足球
+http://iptv.home/migu.php?id=mlzq
+#EXTINF:-1, 乐游
+http://iptv.home/migu.php?id=ly
+#EXTINF:-1, 欢笑剧场
+http://iptv.home/migu.php?id=hxjc
+#EXTINF:-1, 七彩戏剧
+http://iptv.home/migu.php?id=qcxj
+#EXTINF:-1, 游戏风云
+http://iptv.home/migu.php?id=yxfy
+
+#EXTINF:-1, 临洮电视台
+http://iptv.home/migu.php?id=lttv
+
+#EXTINF:-1, 江苏城市
+http://iptv.home/migu.php?id=jscs
+#EXTINF:-1, 江苏综艺
+http://iptv.home/migu.php?id=jszy
+#EXTINF:-1, 江苏影视
+http://iptv.home/migu.php?id=jsys
+#EXTINF:-1, 江苏公共新闻
+http://iptv.home/migu.php?id=jsggxw
+#EXTINF:-1, 江苏国际
+http://iptv.home/migu.php?id=jsgj
+#EXTINF:-1, 江苏教育
+http://iptv.home/migu.php?id=jsjy
+#EXTINF:-1, 江苏体育休闲
+http://iptv.home/migu.php?id=jstyxx
+#EXTINF:-1, 优漫卡通
+http://iptv.home/migu.php?id=ymkt
+
+#EXTINF:-1, 南京新闻综合
+http://iptv.home/migu.php?id=njxwzh
+#EXTINF:-1, 南京教科
+http://iptv.home/migu.php?id=njkj
+#EXTINF:-1, 南京十八
+http://iptv.home/migu.php?id=njsb
+
+#EXTINF:-1, 淮安新闻综合
+http://iptv.home/migu.php?id=haxwzh
+#EXTINF:-1, 连云港新闻综合
+http://iptv.home/migu.php?id=lygxwzh
+#EXTINF:-1, 苏州新闻综合
+http://iptv.home/migu.php?id=szxwzh
+#EXTINF:-1, 泰州新闻综合
+http://iptv.home/migu.php?id=tzxwzh
+#EXTINF:-1, 宿迁新闻综合
+http://iptv.home/migu.php?id=sqxwzh
+#EXTINF:-1, 徐州新闻综合
+http://iptv.home/migu.php?id=xzxwzh
+
+#EXTINF:-1, 广东影视
+http://iptv.home/migu.php?id=gdys
+#EXTINF:-1, 嘉佳卡通
+http://iptv.home/migu.php?id=jjkt
+
+#EXTINF:-1, 24小时亚洲杯频道
+http://iptv.home/migu.php?id=24hyzb
+#EXTINF:-1, CBA经典
+http://iptv.home/migu.php?id=cbajd
+#EXTINF:-1, 掼蛋精英赛
+http://iptv.home/migu.php?id=gdjys
+#EXTINF:-1, 高清大片
+http://iptv.home/migu.php?id=gqdp
+#EXTINF:-1, 和平精英赛事
+http://iptv.home/migu.php?id=hpjxss
+#EXTINF:-1, 红色轮播台
+http://iptv.home/migu.php?id=hslbt
+#EXTINF:-1, 经典动画大集合
+http://iptv.home/migu.php?id=jddhdjh
+#EXTINF:-1, 经典深圳旁边电影
+http://iptv.home/migu.php?id=jdxgdy
+#EXTINF:-1, 军事迷必看大片
+http://iptv.home/migu.php?id=jsdp
+#EXTINF:-1, 历届春晚回顾
+http://iptv.home/migu.php?id=ljcwhg
+#EXTINF:-1, 咪咕24小时体育台
+http://iptv.home/migu.php?id=mg24hty
+#EXTINF:-1, 玫瑰轮播台
+http://iptv.home/migu.php?id=mglbt
+#EXTINF:-1, NBA经典
+http://iptv.home/migu.php?id=nbajd
+#EXTINF:-1, 欧洲足球风云
+http://iptv.home/migu.php?id=ozzqfy
+#EXTINF:-1, 全民乒乓
+http://iptv.home/migu.php?id=qmpp
+#EXTINF:-1, 热剧联播
+http://iptv.home/migu.php?id=rjlb
+#EXTINF:-1, 赛事最经典
+http://iptv.home/migu.php?id=sszjd
+#EXTINF:-1, 体坛名栏汇
+http://iptv.home/migu.php?id=ttmlh
+#EXTINF:-1, UFC格斗精选
+http://iptv.home/migu.php?id=ufcgdjx
+#EXTINF:-1, 五大联赛经典
+http://iptv.home/migu.php?id=wdlsjd
+#EXTINF:-1, 乡村振兴
+http://iptv.home/migu.php?id=xczx
+#EXTINF:-1, 幸福中国年
+http://iptv.home/migu.php?id=xfzgn
+#EXTINF:-1, 新片放映厅
+http://iptv.home/migu.php?id=xpfyt
+#EXTINF:-1, 英雄联盟赛事
+http://iptv.home/migu.php?id=yxlmss
+#EXTINF:-1, 周杰伦现场
+http://iptv.home/migu.php?id=zjlxc
+#EXTINF:-1, 最强综艺趴
+http://iptv.home/migu.php?id=zqzyp
+
+#EXTINF:-1, 熊猫01高清
+http://iptv.home/migu.php?id=xmpd
+#EXTINF:-1, 熊猫1
+http://iptv.home/migu.php?id=xm1
+#EXTINF:-1, 熊猫2
+http://iptv.home/migu.php?id=xm2
+#EXTINF:-1, 熊猫3
+http://iptv.home/migu.php?id=xm3
+#EXTINF:-1, 熊猫4
+http://iptv.home/migu.php?id=xm4
+#EXTINF:-1, 熊猫5
+http://iptv.home/migu.php?id=xm5
+#EXTINF:-1, 熊猫6
+http://iptv.home/migu.php?id=xm6
+#EXTINF:-1, 熊猫7
+http://iptv.home/migu.php?id=xm7
+#EXTINF:-1, 熊猫8
+http://iptv.home/migu.php?id=xm8
+#EXTINF:-1, 熊猫9
+http://iptv.home/migu.php?id=xm9
+#EXTINF:-1, 熊猫10
+http://iptv.home/migu.php?id=xm10
+
+#EXTINF:-1, 龙胜龙脊梯田
+http://iptv.home/migu.php?id=lsljtt
+#EXTINF:-1, 大藤峡
+http://iptv.home/migu.php?id=dtx
+#EXTINF:-1, 邕城
+http://iptv.home/migu.php?id=yc
+#EXTINF:-1, 遇龙河
+http://iptv.home/migu.php?id=ylh
+#EXTINF:-1, 开封金明广场
+http://iptv.home/migu.php?id=kfjmgc
+#EXTINF:-1, 开封清明上河园西门
+http://iptv.home/migu.php?id=kfqmshyxm
+#EXTINF:-1, 开封连霍高速路口
+http://iptv.home/migu.php?id=kflhgsgl
+#EXTINF:-1, 开封鼓楼
+http://iptv.home/migu.php?id=kfgl
+#EXTINF:-1, 武汉光谷
+http://iptv.home/migu.php?id=whgg
+#EXTINF:-1, 武汉江汉关
+http://iptv.home/migu.php?id=whjhg
+#EXTINF:-1, 武汉黄鹤楼
+http://iptv.home/migu.php?id=whhhl

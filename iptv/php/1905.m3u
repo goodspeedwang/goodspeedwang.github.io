@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1,CCTV6电影频道
+http://iptv.home/1905.php?id=cctv6
+#EXTINF:-1,1905国外电影
+http://iptv.home/1905.php?id=1905a
+#EXTINF:-1,1905国内电影
+http://iptv.home/1905.php?id=1905b
