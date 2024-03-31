@@ -1,0 +1,148 @@
+[
+    {
+        "group": "香港",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/fenghuangzhongwen.png",
+        "name": "凤凰中文",
+        "title": "凤凰中文",
+        "uris": [
+            "http://1.62.64.252/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pcc72.flv",
+            "http://[2409:8087:7000:20::4]:80/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226547/index.m3u8"
+        ]
+    },
+    {
+        "group": "香港",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png",
+        "name": "凤凰资讯",
+        "title": "凤凰资讯",
+        "uris": [
+            "http://1.62.64.252/1.v.smtcdns.net/qctv.fengshows.cn/live/0701pin72.flv",
+            "http://[2409:8087:7000:20::4]:80/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226546/index.m3u8"
+        ]
+    },
+    {
+        "group": "台湾",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png",
+        "name": "TVBS新闻台",
+        "title": "TVBS新闻台",
+        "uris": [
+            "https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV31.m3u8"
+        ]
+    },
+    {
+        "group": "台湾",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/FTVNews.png",
+        "name": "民视新闻",
+        "title": "民视新闻",
+        "uris": [
+            "https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV17.m3u8"
+        ]
+    },
+    {
+        "name": "台视新闻台",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/台视新闻.png",
+        "group": "台湾",
+        "title": "台视新闻",
+        "uris": [
+            "https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV25.m3u8"
+        ]
+    },
+    {
+        "name": "无线新闻",
+        "logo": "http://epg.51zmt.top:8000/tb1/gt/wxxw.png",
+        "group": "香港",
+        "title": "无线新闻台",
+        "uris": [
+            "http://iptv.home/tvb.php?id=0&hq"
+        ]
+    },
+    {
+        "logo": "https://i.imgur.com/kf818kM.png",
+        "group": "香港",
+        "title": "RTHK31",
+        "name": "RTHK31",
+        "uris": [
+            "https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8"
+        ]
+    },
+    {
+        "logo": "https://i.imgur.com/MXLuUoU.png",
+        "group": "香港",
+        "title": "RTHK32",
+        "name": "RTHK32",
+        "uris": [
+            "https://rthktv32-live.akamaized.net/hls/live/2036819/RTHKTV32/stream5/streamPlaylist.m3u8"
+        ]
+    },
+    {
+        "name": "湖北经视",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/Hubei6.png",
+        "group": "地方台",
+        "title": "湖北经视",
+        "uris": [
+            "http://iptv.home/hb.php?id=hbjs"
+        ]
+    },
+    {
+        "name": "武汉新闻综合频道",
+        "logo": "http://epg.51zmt.top:8000/tb1/qt/WHTV1.png",
+        "group": "地方台",
+        "title": "武汉新闻综合",
+        "uris": [
+            "http://stream.appwuhan.com/1tzb/sd/live.m3u8"
+        ]
+    },
+    {
+        "name": "CHC高清电影",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/CHC1.png",
+        "group": "电影",
+        "title": "CHC高清电影",
+        "uris": [
+            "http://[2409:8087:7000:20:1000::22]:6060/yinhe/2/ch00000090990000002065/index.m3u8?virtualDomain=yinhe.live_hls.zte.com"
+        ]
+    },
+    {
+        "name": "CHC家庭影院",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/CHC2.png",
+        "group": "电影",
+        "title": "CHC家庭影院",
+        "uris": [
+            "http://[2409:8087:7000:20:1000::22]:6060/yinhe/2/ch00000090990000002085/index.m3u8?virtualDomain=yinhe.live_hls.zte.com"
+        ]
+    },
+    {
+        "name": "CHC动作电影",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/CHC3.png",
+        "group": "电影",
+        "title": "CHC动作电影",
+        "uris": [
+            "http://[2409:8087:7000:20:1000::22]:6060/yinhe/2/ch00000090990000002055/index.m3u8?virtualDomain=yinhe.live_hls.zte.com"
+        ]
+    },
+    {
+        "name": "CCTV4K",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/CCTV4K.png",
+        "group": "央视",
+        "title": "CCTV-4K 超高清",
+        "uris": [
+            "http://[2409:8087:2001:20:2800:0:df6e:eb13]/ott.mobaibox.com/PLTV/3/224/3221228228/index.m3u8"
+        ]
+    },
+    {
+        "name": "CCTV8K",
+        "logo": "https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/CCTV8K.png",
+        "group": "央视",
+        "title": "CCTV-8K 超高清",
+        "uris": [
+            "http://[2409:8087:2001:20:2800:0:df6e:eb03]/ott.mobaibox.com/PLTV/4/224/3221228165/index.m3u8"
+        ]
+    },
+    {
+        "name": "CCTV3",
+        "logo": "http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png",
+        "group": "央视",
+        "title": "CCTV-3 娱乐",
+        "uris": [
+            "http://[2409:8087:2001:20:2800:0:df6e:eb21]/ott.mobaibox.com/PLTV/3/224/3221228499/index.m3u8"
+        ]
+    }
+]
