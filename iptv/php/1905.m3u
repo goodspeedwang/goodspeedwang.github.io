@@ -1,7 +1,8 @@
 #EXTM3U
-#EXTINF:-1,CCTV6电影频道
+#EXTM3U
+#EXTINF:-1 tvg-id="7" tvg-name="CCTV6" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png" group-title="央视",CCTV6电影频道
 http://iptv.home/1905.php?id=cctv6
-#EXTINF:-1,1905国外电影
+#EXTINF:-1 tvg-id="73" tvg-name="1905国外电影" tvg-logo="http://live.cooltv.top/logo/1905.png" group-title="电影",1905国外电影
 http://iptv.home/1905.php?id=1905a
-#EXTINF:-1,1905国内电影
+#EXTINF:-1 tvg-id="73" tvg-name="1905国外电影" tvg-logo="http://live.cooltv.top/logo/1905.png" group-title="电影",1905国内电影
 http://iptv.home/1905.php?id=1905b
