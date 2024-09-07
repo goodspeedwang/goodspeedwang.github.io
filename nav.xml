@@ -8,7 +8,7 @@
         ]>
 <?xml-stylesheet type="text/xsl" href="static/xslt/nav.xsl" ?>
 <导航>
-    <组 组名="常用链接">
+    <组 组名="♔ 常用链接">
         <网址><名称>Gmail</名称><地址>https://mail.google.com/</地址></网址>
         <网址><名称>Youtube</名称><地址>https://www.youtube.com/</地址></网址>
         <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
@@ -22,7 +22,7 @@
         <网址><名称>Gitpod</名称><地址>https://gitpod.io/workspaces</地址></网址>
     </组>
 
-    <组 组名="Life">
+    <组 组名="♕ Life">
         <网址><名称>联通</名称><地址>http://www.10010.com/</地址></网址>
         <网址><名称>北京电信</名称><地址>http://www.189.cn/bj/</地址></网址>
         <网址><名称>中国石化</名称><地址>https://www.sinopecsales.com/</地址></网址>
@@ -33,7 +33,7 @@
         <网址><名称>什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
     </组>
 
-    <组 组名="Media">
+    <组 组名="♖ Media">
         <网址><名称>新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
         <网址><名称>得意生活</名称><地址>http://www.deyi.com/</地址></网址>
         <网址><名称>空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
@@ -47,7 +47,7 @@
         <网址><名称>Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
     </组>
     
-    <组 组名="Oversea">
+    <组 组名="♗ Oversea">
         <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
         <网址><名称>房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
         <网址><名称>Realtor</名称><地址>https://www.realtor.com/</地址></网址>
@@ -55,7 +55,7 @@
         <网址><名称>一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
     </组>
 
-    <组 组名="Computer">
+    <组 组名="♘ Computer">
         <网址><名称>电脑之家</名称><地址>http://www.pchome.net/</地址></网址>
         <网址><地址>http://www.zol.com.cn/</地址><名称>中关村</名称></网址>
         <网址><地址>http://www.pcpop.com/</地址><名称>pcpop</名称></网址>
@@ -65,7 +65,7 @@
         <网址><地址>password.html</地址><名称>密码生成</名称></网址>
     </组>
 
-    <组 组名="English">
+    <组 组名="♙ English">
         <网址><地址>http://www.chinadaily.com.cn/</地址><名称>中国日报</名称></网址>
         <网址><地址>http://www.jukuu.com/</地址><名称>句库</名称></网址>
         <网址><地址>http://www.dict.cn/</地址><名称>在线词典</名称></网址>
@@ -77,7 +77,7 @@
         <网址><地址>https://www.tjxz.cc/</地址><名称>田间小站</名称></网址>
     </组>
 
-    <组 组名="Coding">
+    <组 组名="♚ Coding">
         <网址><地址>http://www.csdn.net/</地址><名称>CSDN</名称></网址>
         <网址><地址>http://forums.asp.net/</地址><名称>ASP.NET</名称></网址>
         <网址><地址>http://msdn.microsoft.com/library/default.asp</地址><名称>MSDN</名称></网址>
@@ -95,7 +95,7 @@
         
         
     </组>
-    <组 组名="Book">
+    <组 组名="♛ Book">
         <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
         <网址><地址>http://www.kudubook.com/</地址><名称>酷读</名称></网址>
         <网址><地址>http://neikuw.com/</地址><名称>內酷网</名称></网址>
@@ -114,7 +114,7 @@
         <网址><地址>https://www.kongfz.com/</地址><名称>孔夫子</名称></网址>
     </组>
 
-    <组 组名="Stock">
+    <组 组名="♜ Stock">
         <网址><地址>https://www.bj.cmbchina.com/bjtransweb/wsgzd_employ/login.jsp</地址><名称>工资查询</名称></网址>
         <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>
         <网址><地址>https://grwsyw.bjgjj.gov.cn/ish/</地址><名称>公积金</名称></网址>
@@ -130,7 +130,7 @@
         <网址><地址>http://www.xinguyufu.cn/</地址><名称>打新</名称></网址>
     </组>
 
-    <组 组名="Investment">
+    <组 组名="♝ Investment">
         <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
         <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
         <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
@@ -144,7 +144,7 @@
         <网址><地址>https://mis.fortunebill.com/</地址><名称>招钱进宝</名称><卡号>848102659696877</卡号></网址>
     </组>
 
-    <组 组名="Document">
+    <组 组名="♞ Document">
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
         <网址><地址>https://docs.qq.com/</地址><名称>腾讯文档</名称></网址>
         <网址><地址>https://acsqiyvl6y.feishu.cn/sheets/shtcnMAhWTbRqsFeFCGVeeI4XMh?sheet=1aLJQt</地址><名称>Finance</名称></网址>
@@ -160,7 +160,7 @@
         <网址><名称>云盘</名称><地址>https://goodspeed.coding.net/p/goodspeed.coding.me/files/all</地址></网址> 
     </组>
 
-    <组 组名="Movie">
+    <组 组名="♟ Movie">
         <网址><地址>https://www.dytt8.com/</地址><名称>电影天堂</名称></网址>
         <网址><地址>https://www.domp4.cc/</地址><名称>MP4电影</名称></网址>
         <网址><地址>https://www.80sgod.com/</地址><名称>80s手机电影网</名称></网址>
@@ -170,7 +170,7 @@
         <网址><地址>https://h5login.qqchess.qq.com/</地址><名称>天天象棋</名称></网址>
     </组>
     
-    <组 组名="Travel">
+    <组 组名="❀ Travel">
         <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
         <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
         <网址><地址>http://www.daoduoduo.com/forum-24-1.html</地址><名称>岛多多</名称></网址>
