@@ -18,7 +18,7 @@ body {
 }
 
 .category-title {
-    font-size: 0.7em;
+    font-size: 1.2em;
     margin-bottom: 15px;
     color: #666;
     border-bottom: 1px solid #ddd;
@@ -37,7 +37,6 @@ body {
     padding: 8px 10px;
     border-radius: 20px;
     transition: all 0.3s ease;
-    font-size: 12px;
 }
 
 .link:hover {
