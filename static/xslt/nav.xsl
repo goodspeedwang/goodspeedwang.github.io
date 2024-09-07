@@ -9,32 +9,31 @@
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 				<title>导航</title>
 				<base target="_blank"/>
-				<style>
-					body{background-color:#C0C0C0; margin:0px;}
-					a{color:black;text-decoration:none;font-size:10pt;padding:3px 3px;}
-					div{letter-spacing:0.02em; line-height:1.3;COLOR: "#666666"; padding:2px 0px;}
-					.title{background-color: #4455aa;color: white;font-size: 12px;font-weight:bold;height:20;text-align: left;}
-				</style>
+				<link rel="stylesheet" type="text/css" href="static/css/style.css" />
 				<link href="/favicon.ico" rel="icon"/>
 			</head>
 
-			<body>		
+			<body>
+				<div class="container">	
 				<xsl:apply-templates select="组" />
+				</div>
 			</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="组">
-		<div class="title">-=> <xsl:value-of select = "@组名"/></div>
-		<div>
+		<div class="category-title"><xsl:value-of select = "@组名"/></div>
+		<div class="links">
 			<xsl:apply-templates select="网址" />
 		</div>
 	</xsl:template>
 
 	<xsl:template match="网址">
+		<div class="link">
 		<a>
 			<xsl:attribute name="href"><xsl:value-of select="地址"/></xsl:attribute> 
 			<xsl:value-of select = "名称"/>
 		</a>
+		</div>
 	</xsl:template>
 </xsl:stylesheet>
