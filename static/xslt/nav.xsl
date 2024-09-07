@@ -5,7 +5,7 @@
 		<html lang="zh-cn">
 			<head>
 				<meta charset="UTF-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title>导航</title>
 				<link rel="stylesheet" type="text/css" href="static/css/style.css" />
 				<link href="/favicon.ico" rel="icon"/>

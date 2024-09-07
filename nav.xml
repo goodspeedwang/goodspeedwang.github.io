@@ -6,7 +6,7 @@
         <!ELEMENT 地址 ( #PCDATA)>
 
         ]>
-<?xml-stylesheet type="text/xsl" href="/static/xslt/nav.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="static/xslt/nav.xsl" ?>
 <导航>
     <组 组名="常用链接">
         <网址><名称>Gmail</名称><地址>https://mail.google.com/</地址></网址>
