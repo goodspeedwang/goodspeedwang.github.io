@@ -21,9 +21,11 @@
 	</xsl:template>
 
 	<xsl:template match="组">
+		<div class="category">
 		<div class="category-title"><xsl:value-of select = "@组名"/></div>
 		<div class="links">
 			<xsl:apply-templates select="网址" />
+		</div>
 		</div>
 	</xsl:template>
 
