@@ -28,8 +28,8 @@
         <网址><名称 favicon="https://www.sinopecsales.com/favicon.ico">中国石化</名称><地址>https://www.sinopecsales.com/</地址></网址>
         <网址><名称 favicon="https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_!!6000000000236-73-tps-64-64.ico">阿里云盘</名称><地址>https://www.aliyundrive.com/</地址></网址>
         <网址><名称 favicon="https://www.ahhhhfs.com/wp-content/uploads/2021/07/1625210968-d02a42d9cb3dec9.webp">A姐分享</名称><地址>https://www.abskoop.com/</地址></网址>
-        <网址><名称 favicon="https://www.jd.com/favicon.ico">京东</名称><地址>https://www.jd.com/</地址></网址>
-        <网址><名称 favicon="https://www.taobao.com/favicon.ico">淘宝</名称><地址>https://www.taobao.com/</地址></网址>
+        <网址><名称 favicon="https://www.jd.com/favicon.ico" hot="true">京东</名称><地址>https://www.jd.com/</地址></网址>
+        <网址><名称 favicon="https://www.taobao.com/favicon.ico" hot="true">淘宝</名称><地址>https://www.taobao.com/</地址></网址>
         <网址><名称 hot="true" favicon="https://www.smzdm.com/favicon.ico">什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
     </组>
 
@@ -84,7 +84,7 @@
         <网址><地址>http://www.cnblogs.com/</地址><名称 favicon="https://assets.cnblogs.com/favicon.svg?v=2">博客园</名称></网址>
         <网址><地址>http://www.tutorialspoint.com</地址><名称 favicon="https://www.tutorialspoint.com/images/favicon.ico">tutorialspoint</名称></网址>
         <网址><地址>https://poe.com/chatgpt</地址><名称 favicon="https://psc2.cf2.poecdn.net/assets/apple-touch-icon.png">POE</名称></网址>
-        <网址><地址>https://gemini.google.com/</地址><名称 favicon="https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06b.png">Gemini</名称></网址>
+        <网址><地址>https://gemini.google.com/</地址><名称>Gemini</名称></网址>
         <网址><地址>https://web.skype.com/</地址><名称 favicon="https://secure.skypeassets.com/wcss/8-127-0-200/images/favicons/favicon.ico">Skype</名称></网址>
         <网址><地址>https://www.yeschat.ai/</地址><名称 favicon="https://www.yeschat.ai/favicon.ico">Yeschat</名称></网址>
         <网址><地址>https://start.chatgot.io/</地址><名称 favicon="https://start.chatgot.io/favicon.ico">Chatgot</名称></网址>
