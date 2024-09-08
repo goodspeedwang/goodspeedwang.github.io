@@ -37,6 +37,15 @@
                 <xsl:text> hot</xsl:text>
             </xsl:if>
         </xsl:attribute>
+
+		<xsl:if test="名称/@hot = 'true'">
+			<img class="favicon">
+				<xsl:attribute name="src">
+					<xsl:value-of select="地址"/>
+					<xsl:text>/favicon.ico</xsl:text>
+				</xsl:attribute>
+			</img>
+		</xsl:if>
 		<a>
 			<xsl:attribute name="href"><xsl:value-of select="地址"/></xsl:attribute>
 			<xsl:value-of select = "名称"/>
