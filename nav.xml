@@ -150,7 +150,7 @@
         <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec</地址><名称>刷卡</名称></网址>
         <网址><名称>Health</名称><地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址></网址>
 
-        <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
+        <网址><地址>https://www.dida365.com/</地址><名称 favicon="https://www.dida365.com/favicon.ico">ToDoList</名称></网址>
         <网址><地址>https://note.youdao.com/web/</地址><名称>云笔记</名称></网址>
         <网址><名称 hot="true" favicon="https://sports.garmin.cn/web/favicon.ico">Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
         <网址><名称>CodeStudio</名称><地址>https://goodspeed.cloudstudio.net/</地址></网址>
