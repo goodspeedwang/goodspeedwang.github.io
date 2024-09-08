@@ -9,8 +9,8 @@
 <?xml-stylesheet type="text/xsl" href="static/xslt/nav.xsl" ?>
 <导航>
     <组 组名="♔ 常用链接">
-        <网址><名称>Gmail</名称><地址>https://mail.google.com/</地址></网址>
-        <网址><名称>Youtube</名称><地址>https://www.youtube.com/</地址></网址>
+        <网址><名称 favicon="https://mail.google.com/favicon.ico">Gmail</名称><地址>https://mail.google.com/</地址></网址>
+        <网址><名称 favicon="https://www.youtube.com/favicon.ico">Youtube</名称><地址>https://www.youtube.com/</地址></网址>
         <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
         <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
         <网址><名称>Cambridge</名称><地址>https://dictionary.cambridge.org/</地址></网址>
@@ -146,7 +146,7 @@
 
     <组 组名="♞ Document">
         <网址><地址>https://www.weiyun.com/</地址><名称>微云</名称></网址>
-        <网址><地址>https://docs.qq.com/</地址><名称 hot="true" favicon="https://docs.qq.com/docs.gtimg.com/desktop/favicon2.ico">腾讯文档</名称></网址>
+        <网址><地址>https://docs.qq.com/</地址><名称 hot="true" favicon="https://docs.gtimg.com/desktop/favicon2.ico">腾讯文档</名称></网址>
         <网址><地址>https://acsqiyvl6y.feishu.cn/sheets/shtcnMAhWTbRqsFeFCGVeeI4XMh?sheet=1aLJQt</地址><名称>Finance</名称></网址>
         <网址><地址>https://doc.weiyun.com/d1e3a174278db83637382f30e52b2ec</地址><名称>刷卡</名称></网址>
         <网址><名称>Health</名称><地址>https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0</地址></网址>
