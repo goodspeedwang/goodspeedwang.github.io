@@ -42,7 +42,7 @@
 			<img class="favicon">
 				<xsl:attribute name="src">
 					<xsl:value-of select="地址"/>
-					<xsl:text>/favicon.ico</xsl:text>
+					<xsl:text>favicon.ico</xsl:text>
 				</xsl:attribute>
 			</img>
 		</xsl:if>
