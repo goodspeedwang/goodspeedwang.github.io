@@ -48,11 +48,11 @@
     </组>
     
     <组 组名="♗ Oversea">
-        <网址><名称>HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
-        <网址><名称>房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
-        <网址><名称>Realtor</名称><地址>https://www.realtor.com/</地址></网址>
-        <网址><名称>加拿大家园论坛</名称><地址>https://forum.iask.ca/</地址></网址>
-        <网址><名称>一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
+        <网址><名称 favicon="https://housesigma.com/favicon.png">HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
+        <网址><名称 favicon="https://static.wixstatic.com/media/32dd51_9aa93d62e97e46da81a8b38a425eee24.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/32dd51_9aa93d62e97e46da81a8b38a425eee24.png">房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
+        <网址><名称 favicon="https://static.rdc.moveaws.com/favicon.ico">Realtor</名称><地址>https://www.realtor.com/</地址></网址>
+        <网址><名称 favicon="https://forum.iask.ca/favicon.ico">加拿大家园论坛</名称><地址>https://forum.iask.ca/</地址></网址>
+        <网址><名称 favicon="https://www.1point3acres.com/bbs/favicon.ico">一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
     </组>
 
     <组 组名="♘ Computer">
