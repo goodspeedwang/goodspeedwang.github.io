@@ -133,7 +133,7 @@
         <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
         <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
         <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
-        <网址><地址 favicon="https://xueqiu.com/favicon.ico">https://xueqiu.com/</地址><名称>雪球</名称></网址>
+        <网址><地址>https://xueqiu.com/</地址><名称 favicon="https://xueqiu.com/favicon.ico">雪球</名称></网址>
         <网址><地址>https://xueqiu.com/S/03690</地址><名称>美团</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH513050</地址><名称>中概互联</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH512880</地址><名称>证券ETF</名称></网址>
