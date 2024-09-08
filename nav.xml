@@ -77,20 +77,19 @@
     </组>
 
     <组 组名="♚ Coding">
-        <网址><地址>http://www.csdn.net/</地址><名称>CSDN</名称></网址>
-        <网址><地址>http://forums.asp.net/</地址><名称>ASP.NET</名称></网址>
-        <网址><地址>http://msdn.microsoft.com/library/default.asp</地址><名称>MSDN</名称></网址>
-        <网址><地址>http://www.regexlib.com/Search.aspx</地址><名称>正则表达式</名称></网址>
-        <网址><地址>http://www.cnblogs.com/</地址><名称>博客园</名称></网址>
-        <网址><地址>http://www.tutorialspoint.com</地址><名称>tutorialspoint</名称></网址>
-        <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
+        <网址><地址>http://www.csdn.net/</地址><名称 favicon="https://g.csdnimg.cn/static/logo/favicon32.ico">CSDN</名称></网址>
+        <网址><地址>http://forums.asp.net/</地址><名称 favicon="">ASP.NET</名称></网址>
+        <网址><地址>http://msdn.microsoft.com/library/default.asp</地址><名称 favicon="https://learn.microsoft.com/favicon.ico">MSDN</名称></网址>
+        <网址><地址>http://www.regexlib.com/Search.aspx</地址><名称 favicon="https://www.regexlib.com/favicon.ico">正则表达式</名称></网址>
+        <网址><地址>http://www.cnblogs.com/</地址><名称 favicon="https://assets.cnblogs.com/favicon.svg?v=2">博客园</名称></网址>
+        <网址><地址>http://www.tutorialspoint.com</地址><名称 favicon="https://www.tutorialspoint.com/images/favicon.ico">tutorialspoint</名称></网址>
         <网址><地址>https://poe.com/chatgpt</地址><名称 favicon="https://psc2.cf2.poecdn.net/assets/apple-touch-icon.png">POE</名称></网址>
-        <网址><地址>https://bard.google.com/</地址><名称>Bard</名称></网址>
-        <网址><地址>https://web.skype.com/</地址><名称>Skype</名称></网址>
-        <网址><地址>https://www.yeschat.ai/</地址><名称>Yeschat</名称></网址>
-        <网址><地址>https://start-chat.chatgot.io/</地址><名称>Chatgot</名称></网址>
-        <网址><地址>https://www.doubao.com/chat/</地址><名称>豆包</名称></网址>
-        <网址><地址>https://www.perplexity.ai/</地址><名称>Perplexity</名称></网址>
+        <网址><地址>https://gemini.google.com/</地址><名称 favicon="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini</名称></网址>
+        <网址><地址>https://web.skype.com/</地址><名称 favicon="https://secure.skypeassets.com/wcss/8-127-0-200/images/favicons/favicon.ico">Skype</名称></网址>
+        <网址><地址>https://www.yeschat.ai/</地址><名称 favicon="https://www.yeschat.ai/favicon.ico">Yeschat</名称></网址>
+        <网址><地址>https://start.chatgot.io/</地址><名称 favicon="https://start.chatgot.io/favicon.ico">Chatgot</名称></网址>
+        <网址><地址>https://www.doubao.com/chat/</地址><名称 favicon="https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png">豆包</名称></网址>
+        <网址><地址>https://www.perplexity.ai/</地址><名称 favicon="https://www.perplexity.ai/favicon.ico">Perplexity</名称></网址>
         
         
     </组>
