@@ -17,17 +17,17 @@
         <网址><名称 favicon="https://www.dictionary.com/94e56a525da4e9fe0cda.png">Dictionary</名称><地址>https://www.dictionary.com/</地址></网址>
         <网址><名称 favicon="https://dict.youdao.com/favicon.ico">有道词典</名称><地址>https://dict.youdao.com/</地址></网址>
         <网址><名称 favicon="https://shared.ydstatic.com/ai/youdao-writing/production/v3.0.6/favicon.ico">有道写作</名称><地址>https://write.youdao.com/#/home</地址></网址>
-        <网址><名称 favicon="https://cn.bing.com/th?id=OTT.7A274AA188550691D09FA80F322A58D2&pid=Trans">Translate</名称><地址>https://cn.bing.com/translator</地址></网址>
+        <网址><名称 favicon="https://cn.bing.com/th?id=OTT.7A274AA188550691D09FA80F322A58D2&amp;pid=Trans">Translate</名称><地址>https://cn.bing.com/translator</地址></网址>
         <网址><名称 favicon="https://www.notion.so/images/favicon.ico">Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
         <网址><名称 favicon="https://gitpod.io/favicon256.png">Gitpod</名称><地址>https://gitpod.io/workspaces</地址></网址>
     </组>
 
     <组 组名="♕ Life">
-        <网址><名称>联通</名称><地址>http://www.10010.com/</地址></网址>
-        <网址><名称>北京电信</名称><地址>http://www.189.cn/bj/</地址></网址>
-        <网址><名称>中国石化</名称><地址>https://www.sinopecsales.com/</地址></网址>
-        <网址><名称>阿里云盘</名称><地址>https://www.aliyundrive.com/</地址></网址>
-        <网址><名称>A姐分享</名称><地址>https://www.abskoop.com/</地址></网址>
+        <网址><名称 favicon="https://www.10010.com/wt_service_web/favicon.ico">联通</名称><地址>http://www.10010.com/</地址></网址>
+        <网址><名称 favicon="https://www.189.cn/image/189cnv2/indexv2/images/favicon.ico">北京电信</名称><地址>http://www.189.cn/bj/</地址></网址>
+        <网址><名称 favicon="https://www.sinopecsales.com/favicon.ico">中国石化</名称><地址>https://www.sinopecsales.com/</地址></网址>
+        <网址><名称 favicon="https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_!!6000000000236-73-tps-64-64.ico">阿里云盘</名称><地址>https://www.aliyundrive.com/</地址></网址>
+        <网址><名称 favicon="https://www.ahhhhfs.com/wp-content/uploads/2021/07/1625210968-d02a42d9cb3dec9.webp">A姐分享</名称><地址>https://www.abskoop.com/</地址></网址>
         <网址><名称 favicon="https://www.jd.com/favicon.ico">京东</名称><地址>https://www.jd.com/</地址></网址>
         <网址><名称 favicon="https://www.taobao.com/favicon.ico">淘宝</名称><地址>https://www.taobao.com/</地址></网址>
         <网址><名称 hot="true" favicon="https://www.smzdm.com/favicon.ico">什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
