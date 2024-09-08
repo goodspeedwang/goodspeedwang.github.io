@@ -44,7 +44,7 @@
         <网址><名称 favicon="https://www.weibo.com/favicon.ico">微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
         <网址><地址>https://globalnews.ca/</地址><名称 favicon="https://secure.gravatar.com/blavatar/134ef81f5668dc78080f6bd19ca2310b?s=32">GlobalNews</名称></网址>
         <网址><地址>https://www.scmp.com/</地址><名称 favicon="https://www.scmp.com/favicon.ico">SouthChina</名称></网址>
-        <网址><名称>Bloomberg</名称><地址 favicon="https://www.bloomberg.com/favicon.ico">https://www.bloomberg.com/next-china</地址></网址>
+        <网址><名称 favicon="https://www.bloomberg.com/favicon.ico">Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
     </组>
     
     <组 组名="♗ Oversea">
