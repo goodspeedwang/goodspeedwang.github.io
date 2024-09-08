@@ -9,7 +9,7 @@
 <?xml-stylesheet type="text/xsl" href="static/xslt/nav.xsl" ?>
 <导航>
     <组 组名="♔ 常用链接">
-        <网址><名称 favicon="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico">Gmail</名称><地址>https://mail.google.com/</地址></网址>
+        <网址><名称 favicon="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" hot="true">Gmail</名称><地址>https://mail.google.com/</地址></网址>
         <网址><名称 favicon="https://www.youtube.com/favicon.ico">Youtube</名称><地址>https://www.youtube.com/</地址></网址>
         <网址><名称 favicon="https://lh3.googleusercontent.com/-DR60l-K8vnyi99NZovm9HlXyZwQ85GMDxiwJWzoasZYCUrPuUM_P_4Rb7ei03j-0nRs0c4F=w16">News</名称><地址>http://news.google.com/</地址></网址>
         <网址><名称 favicon="https://www.zhihu.com/favicon.ico">知乎</名称><地址>https://www.zhihu.com/</地址></网址>
@@ -37,11 +37,11 @@
         <网址><名称 favicon="https://www.bjnews.com.cn/favicon.ico">新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
         <网址><名称 favicon="https://www.deyi.com/favicon.ico">得意生活</名称><地址>http://www.deyi.com/</地址></网址>
         <网址><名称 favicon="https://aqicn.org/images/favicon.ico">空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
-        <网址><名称 favicon="https://v2ex.com/static/favicon.ico">v2ex</名称><地址>https://v2ex.com/</地址></网址>
+        <网址><名称 favicon="https://v2ex.com/static/favicon.ico" hot="true">v2ex</名称><地址>https://v2ex.com/</地址></网址>
         <网址><名称 favicon="https://cdn-static.sspai.com/favicon/sspai.ico">少数派</名称><地址>https://sspai.com/</地址></网址>
         <网址><名称 favicon="https://abs.twimg.com/favicons/twitter.3.ico">Twitter</名称><地址>http://twitter.com/home</地址></网址>
         <网址><名称 favicon="https://www.163.com/favicon.ico">网易</名称><地址>https://www.163.com/</地址></网址>
-        <网址><名称 favicon="https://www.weibo.com/favicon.ico">微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
+        <网址><名称 favicon="https://www.weibo.com/favicon.ico" hot="true">微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
         <网址><地址>https://globalnews.ca/</地址><名称 favicon="https://secure.gravatar.com/blavatar/134ef81f5668dc78080f6bd19ca2310b?s=32">GlobalNews</名称></网址>
         <网址><地址>https://www.scmp.com/</地址><名称 favicon="https://www.scmp.com/favicon.ico">SouthChina</名称></网址>
         <网址><名称 favicon="https://www.bloomberg.com/favicon.ico">Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
