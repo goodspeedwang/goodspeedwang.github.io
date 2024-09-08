@@ -13,9 +13,9 @@
         <网址><名称 favicon="https://www.youtube.com/favicon.ico">Youtube</名称><地址>https://www.youtube.com/</地址></网址>
         <网址><名称 favicon="https://lh3.googleusercontent.com/-DR60l-K8vnyi99NZovm9HlXyZwQ85GMDxiwJWzoasZYCUrPuUM_P_4Rb7ei03j-0nRs0c4F=w16">News</名称><地址>http://news.google.com/</地址></网址>
         <网址><名称 favicon="https://www.zhihu.com/favicon.ico">知乎</名称><地址>https://www.zhihu.com/</地址></网址>
-        <网址><名称>Cambridge</名称><地址>https://dictionary.cambridge.org/</地址></网址>
+        <网址><名称 favicon="https://dictionary.cambridge.org/favicon.ico">Cambridge</名称><地址>https://dictionary.cambridge.org/</地址></网址>
         <网址><名称>Dictionary</名称><地址>https://www.dictionary.com/</地址></网址>
-        <网址><名称>有道词典</名称><地址>https://dict.youdao.com/</地址></网址>
+        <网址><名称 favicon="https://dict.youdao.com/favicon.ico">有道词典</名称><地址>https://dict.youdao.com/</地址></网址>
         <网址><名称>有道写作</名称><地址>https://write.youdao.com/#/home</地址></网址>
         <网址><名称>Translate</名称><地址>https://cn.bing.com/translator</地址></网址>
         <网址><名称>Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
@@ -85,7 +85,7 @@
         <网址><地址>http://www.cnblogs.com/</地址><名称>博客园</名称></网址>
         <网址><地址>http://www.tutorialspoint.com</地址><名称>tutorialspoint</名称></网址>
         <网址><地址>http://www.objgen.com/pojo</地址><名称>POJO生成器</名称></网址>
-        <网址><地址>https://poe.com/chatgpt</地址><名称>POE</名称></网址>
+        <网址><地址>https://poe.com/chatgpt</地址><名称 favicon="https://psc2.cf2.poecdn.net/assets/apple-touch-icon.png">POE</名称></网址>
         <网址><地址>https://bard.google.com/</地址><名称>Bard</名称></网址>
         <网址><地址>https://web.skype.com/</地址><名称>Skype</名称></网址>
         <网址><地址>https://www.yeschat.ai/</地址><名称>Yeschat</名称></网址>
