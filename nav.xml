@@ -40,11 +40,11 @@
         <网址><名称>v2ex</名称><地址>https://v2ex.com/</地址></网址>
         <网址><名称>少数派</名称><地址>https://sspai.com/</地址></网址>
         <网址><名称 favicon="https://abs.twimg.com/favicons/twitter.3.ico">Twitter</名称><地址>http://twitter.com/home</地址></网址>
-        <网址><名称>网易</名称><地址>https://www.163.com/</地址></网址>
-        <网址><名称>微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
-        <网址><地址>https://globalnews.ca/</地址><名称>GlobalNews</名称></网址>
-        <网址><地址>https://www.scmp.com/</地址><名称>SouthChina</名称></网址>
-        <网址><名称>Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
+        <网址><名称 favicon="https://www.163.com/favicon.ico">网易</名称><地址>https://www.163.com/</地址></网址>
+        <网址><名称 favicon="https://www.weibo.com/favicon.ico">微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
+        <网址><地址>https://globalnews.ca/</地址><名称 favicon="https://globalnews.ca/favicon.ico">GlobalNews</名称></网址>
+        <网址><地址>https://www.scmp.com/</地址><名称 favicon="https://www.scmp.com/favicon.ico">SouthChina</名称></网址>
+        <网址><名称>Bloomberg</名称><地址 favicon="https://www.bloomberg.com/favicon.ico">https://www.bloomberg.com/next-china</地址></网址>
     </组>
     
     <组 组名="♗ Oversea">
