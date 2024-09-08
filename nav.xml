@@ -31,6 +31,7 @@
         <网址><名称 favicon="https://www.jd.com/favicon.ico" hot="true">京东</名称><地址>https://www.jd.com/</地址></网址>
         <网址><名称 favicon="https://www.taobao.com/favicon.ico" hot="true">淘宝</名称><地址>https://www.taobao.com/</地址></网址>
         <网址><名称 hot="true" favicon="https://www.smzdm.com/favicon.ico">什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
+        <网址><名称 favicon="https://a.amap.com/pc/static/favicon.ico">高德</名称><地址>https://www.gaode.com/</地址></网址>
     </组>
 
     <组 组名="♖ Media">
