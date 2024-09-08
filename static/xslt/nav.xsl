@@ -30,12 +30,15 @@
 	</xsl:template>
 
 	<xsl:template match="网址">
-		<div class="link">
+		<div>
+		<xsl:attribute name="class">
+            <xsl:text>link</xsl:text>
+            <xsl:if test="名称/@hot = 'true'">
+                <xsl:text> hot</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
 		<a>
 			<xsl:attribute name="href"><xsl:value-of select="地址"/></xsl:attribute>
-			<xsl:if test="名称/@hot = 'true'">
-                <xsl:attribute name="class">hot</xsl:attribute>
-            </xsl:if>
 			<xsl:value-of select = "名称"/>
 		</a>
 		</div>
