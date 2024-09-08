@@ -30,7 +30,7 @@
         <网址><名称>A姐分享</名称><地址>https://www.abskoop.com/</地址></网址>
         <网址><名称>京东</名称><地址>https://www.jd.com/</地址></网址>
         <网址><名称>淘宝</名称><地址>https://www.taobao.com/</地址></网址>
-        <网址><名称 hot="true">什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
+        <网址><名称 hot="true" favicon="https://www.smzdm.com/favicon.ico">什么值得买</名称><地址>https://www.smzdm.com/</地址></网址>
     </组>
 
     <组 组名="♖ Media">
@@ -153,7 +153,7 @@
 
         <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
         <网址><地址>https://note.youdao.com/web/</地址><名称>云笔记</名称></网址>
-        <网址><名称 hot="true">Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
+        <网址><名称 hot="true" favicon="https://sports.garmin.cn/web/favicon.ico">Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
         <网址><名称>CodeStudio</名称><地址>https://goodspeed.cloudstudio.net/</地址></网址>
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
         <网址><名称>写作猫</名称><地址>https://xiezuocat.com/</地址></网址>
