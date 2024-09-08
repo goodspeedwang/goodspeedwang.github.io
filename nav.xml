@@ -153,7 +153,7 @@
 
         <网址><地址>https://www.dida365.com/</地址><名称>ToDoList</名称></网址>
         <网址><地址>https://note.youdao.com/web/</地址><名称>云笔记</名称></网址>
-        <网址><名称>Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
+        <网址><名称 hot="true">Garmin</名称><地址>https://connect.garmin.cn/modern/activities</地址></网址>
         <网址><名称>CodeStudio</名称><地址>https://goodspeed.cloudstudio.net/</地址></网址>
         <网址><名称>Notes</名称><地址>https://www.icloud.com/notes/</地址></网址>
         <网址><名称>写作猫</名称><地址>https://xiezuocat.com/</地址></网址>
@@ -161,7 +161,7 @@
     </组>
 
     <组 组名="♟ Movie">
-        <网址><地址>https://www.dytt8.com/</地址><名称>电影天堂</名称></网址>
+        <网址><地址 hot="true">https://www.dytt8.com/</地址><名称>电影天堂</名称></网址>
         <网址><地址>https://www.domp4.cc/</地址><名称>MP4电影</名称></网址>
         <网址><地址>https://www.80sgod.com/</地址><名称>80s手机电影网</名称></网址>
         <网址><地址>https://www.bugutv.org/</地址><名称>布谷TV</名称></网址>
