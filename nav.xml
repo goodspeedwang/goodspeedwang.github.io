@@ -145,19 +145,18 @@
 
     <组 组名="♟ Movie">
         <网址><地址>https://www.dytt8.com/</地址><名称 hot="true">电影天堂</名称></网址>
-        <网址><地址>https://www.domp4.cc/</地址><名称>MP4电影</名称></网址>
-        <网址><地址>https://www.80sgod.com/</地址><名称>80s手机电影网</名称></网址>
-        <网址><地址>https://www.bugutv.org/</地址><名称>布谷TV</名称></网址>
-        <网址><地址>https://www.xiaobaotv.app/</地址><名称>小宝影院</名称></网址>
-        <网址><地址>https://www.ixigua.com/</地址><名称>西瓜</名称></网址>
+        <网址><地址>https://www.domp4.cc/</地址><名称 favicon="https://www.padmp4.com/favicon.ico">MP4电影</名称></网址>
+        <网址><地址>https://www.80sgod.com/</地址><名称 favicon="https://www.80sgod.com/favicon.ico">80s手机电影网</名称></网址>
+        <网址><地址>https://www.bugutv.org/</地址><名称 favicon="https://www.bugutv.org/wp-content/uploads/favicon.jpg">布谷TV</名称></网址>
+        <网址><地址>https://www.ixigua.com/</地址><名称 favicon="https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lpqpflo/ixigua_favicon.ico">西瓜</名称></网址>
         <网址><地址>https://h5login.qqchess.qq.com/</地址><名称 hot="true" favicon="https://h5login.qqchess.qq.com/favicon.62570.ico">天天象棋</名称></网址>
     </组>
     
     <组 组名="❀ Travel">
-        <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称>穷游网</名称></网址>
-        <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
-        <网址><地址>http://www.daoduoduo.com/forum-24-1.html</地址><名称>岛多多</名称></网址>
-        <网址><地址>https://www.mafengwo.cn/travel-scenic-spot/mafengwo/11051.html</地址><名称>玛蜂窝</名称></网址>
-        <网址><地址>http://www.fumubang.com/hd/pc40_c40/</地址><名称>父母邦</名称></网址>
+        <网址><地址>https://bbs.qyer.com/forum-53-1.html?order=2#gotonav</地址><名称 favicon="https://static.qyer.com/images/favicon.ico">穷游网</名称></网址>
+        <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称 favicon="http://www.elvxing.net/favicon.ico">E旅行网</名称></网址>
+        <网址><地址>http://www.daoduoduo.com/forum-24-1.html</地址><名称 favicon="http://www.daoduoduo.com/favicon.ico">岛多多</名称></网址>
+        <网址><地址>https://www.mafengwo.cn/travel-scenic-spot/mafengwo/11051.html</地址><名称 favicon="https://www.mafengwo.cn/favicon.ico">玛蜂窝</名称></网址>
+        <网址><地址>http://www.fumubang.com/hd/pc40_c40/</地址><名称 favicon="https://www.fumubang.com/favicon.ico">父母邦</名称></网址>
     </组>
 </导航>
