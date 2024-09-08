@@ -9,10 +9,10 @@
 <?xml-stylesheet type="text/xsl" href="static/xslt/nav.xsl" ?>
 <导航>
     <组 组名="♔ 常用链接">
-        <网址><名称 favicon="https://mail.google.com/favicon.ico">Gmail</名称><地址>https://mail.google.com/</地址></网址>
+        <网址><名称 favicon="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico">Gmail</名称><地址>https://mail.google.com/</地址></网址>
         <网址><名称 favicon="https://www.youtube.com/favicon.ico">Youtube</名称><地址>https://www.youtube.com/</地址></网址>
         <网址><名称>News</名称><地址>http://news.google.com/</地址></网址>
-        <网址><名称>知乎</名称><地址>https://www.zhihu.com/</地址></网址>
+        <网址><名称 favicon="https://www.zhihu.com/favicon.ico">知乎</名称><地址>https://www.zhihu.com/</地址></网址>
         <网址><名称>Cambridge</名称><地址>https://dictionary.cambridge.org/</地址></网址>
         <网址><名称>Dictionary</名称><地址>https://www.dictionary.com/</地址></网址>
         <网址><名称>有道词典</名称><地址>https://dict.youdao.com/</地址></网址>
