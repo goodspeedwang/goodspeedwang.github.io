@@ -94,51 +94,39 @@
         
     </组>
     <组 组名="♛ Book">
-        <网址><地址>https://www.jiumodiary.com/</地址><名称>鸠摩搜书</名称></网址>
-        <网址><地址>http://www.kudubook.com/</地址><名称>酷读</名称></网址>
-        <网址><地址>http://neikuw.com/</地址><名称>內酷网</名称></网址>
-        <网址><地址>http://www.fast8.com/list/6_1.html</地址><名称>快吧</名称></网址>
-        <网址><地址>https://www.xiaolipan.com//</地址><名称>小力盘</名称></网址>
-        <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称>首都图书馆</名称></网址>
-        <网址><地址>http://www.childlib.org</地址><名称>少儿图书馆</名称></网址>
-        <网址><地址>http://redis.readthedocs.org/en/latest/</地址><名称>Redis</名称></网址>
-        <网址><地址>http://dormousehole.readthedocs.org/en/latest/</地址><名称>Flask</名称></网址>
-        <网址><地址>http://www.css88.com/jqapi-1.9/</地址><名称>JQuery</名称></网址>
-        <网址><地址>http://overapi.com/</地址><名称>overapi</名称></网址>
-        <网址><地址>https://diyizazhi.com/</地址><名称>第一杂志网</名称></网址>
-        <网址><地址>https://ch.downmagaz.net/</地址><名称>下载PDF杂志</名称></网址>
-        <网址><地址>https://www.zazhipdf.com/</地址><名称>致趣杂志馆</名称></网址>
-        <网址><地址>https://chinadigitaltimes.net/chinese/404-articles-archive</地址><名称>404文库</名称></网址>
-        <网址><地址>https://www.kongfz.com/</地址><名称>孔夫子</名称></网址>
+        <网址><地址>https://www.jiumodiary.com/</地址><名称 favicon="https://www.jiumodiary.com/images/favicon.png">鸠摩搜书</名称></网址>
+        <网址><地址>http://neikuw.com/</地址><名称 favicon="http://neikuw.com/zb_users/theme/tpure/style/images/favicon.ico">內酷网</名称></网址>
+        <网址><地址>http://www.fast8.com/list/6_1.html</地址><名称 favicon="https://www.kb199.com/favicon.ico" hot="true">快吧</名称></网址>
+        <网址><地址>https://www.xiaolipan.com//</地址><名称 favicon="https://www.xiaolipan.com/favicon.ico">小力盘</名称></网址>
+        <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称 favicon="http://primo.clcn.net.cn:1701/favicon.ico">首都图书馆</名称></网址>
+        <网址><地址>http://redis.readthedocs.org/en/latest/</地址><名称 favicon="https://redis.readthedocs.io/favicon.ico">Redis</名称></网址>
+        <网址><地址>http://dormousehole.readthedocs.org/en/latest/</地址><名称 favicon="https://dormousehole.readthedocs.io/en/latest/_static/shortcut-icon.png">Flask</名称></网址>
+        <网址><地址>http://overapi.com/</地址><名称 favicon="https://overapi.com/favicon.ico">overapi</名称></网址>
+        <网址><地址>https://chinadigitaltimes.net/chinese/404-articles-archive</地址><名称 favicon="https://chinadigitaltimes.net/chinese/wp-content/themes/Extra-child/images/favicon.png">404文库</名称></网址>
+        <网址><地址>https://www.kongfz.com/</地址><名称 favicon="https://www.kongfz.com/favicon.ico">孔夫子</名称></网址>
     </组>
 
     <组 组名="♜ Stock">
-        <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>
-        <网址><地址>https://grwsyw.bjgjj.gov.cn/ish/</地址><名称>公积金</名称></网址>
-        <网址><地址>http://data.eastmoney.com/xg/xg/default.html</地址><名称>新股</名称></网址>
-        <网址><地址>http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml</地址><名称>上证</名称></网址>
-        <网址><地址>https://www.mysmartadvisor.com/</地址><名称>行权</名称></网址>
-        <网址><地址>https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx</地址><名称>招商银行</名称></网址>
-        <网址><地址>https://cardsonline.spdbccc.com.cn/icard/icardlogin.do?_locale=zh_CN</地址><名称>浦发银行</名称></网址>
-        <网址><地址>https://pbank.95559.com.cn/personbank/logon.jsp</地址><名称>交通银行</名称></网址>
-        <网址><地址>http://www.hxb.com.cn/home/cn/</地址><名称>华夏银行</名称></网址>
-        <网址><地址>https://ebsnew.boc.cn/boc15/login.html</地址><名称>中国银行</名称></网址>
-        <网址><地址>https://simplywall.st/</地址><名称>SimplyWall</名称></网址>
-        <网址><地址>http://www.xinguyufu.cn/</地址><名称>打新</名称></网址>
+        <网址><地址>https://www.kylc.com/huilv</地址><名称>汇率</名称></网址>        
+        <网址><地址>http://data.eastmoney.com/xg/xg/default.html</地址><名称 favicon="https://data.eastmoney.com/favicon.ico">新股</名称></网址>
+        <网址><地址>http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml</地址><名称 favicon="https://finance.sina.com.cn/favicon.ico">上证</名称></网址>
+        <网址><地址>https://www.mysmartadvisor.com/</地址><名称 favicon="https://sso.mysmartadvisor.com/favicon.ico">行权</名称></网址>
+        <网址><地址>https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx</地址><名称 favicon="https://www.cmbchina.com/favicon.ico">招商银行</名称></网址>
+        <网址><地址>https://cardsonline.spdbccc.com.cn/icard/icardlogin.do?_locale=zh_CN</地址><名称 favicon="https://cdnicard.res.spdb.com.cn/icard/images/favicon.ico">浦发银行</名称></网址>
+        <网址><地址>https://pbank.95559.com.cn/personbank/logon.jsp</地址><名称 favicon="https://pbank.95559.com.cn/personbank/system/favicon.png">交通银行</名称></网址>
+        <网址><地址>https://simplywall.st/</地址><名称 favicon="https://cdn.prod.website-files.com/648009cb318551f1806b36b4/6487e4bd5b63a6818cb5c697_Favicon.png">SimplyWall</名称></网址>
     </组>
 
     <组 组名="♝ Investment">
-        <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称>债券大全</名称></网址>
-        <网址><地址>http://bbs.toplicai.cn/thread.php?fid=38</地址><名称>鼎级理财网</名称></网址>
-        <网址><地址>http://www.jisilu.cn/category/4</地址><名称>集思录</名称></网址>
+        <网址><地址>http://www.jisilu.cn/data/bond/</地址><名称 favicon="https://www.jisilu.cn/favicon.ico">债券大全</名称></网址>
+        <网址><地址>http://www.jisilu.cn/category/4</地址><名称 favicon="https://www.jisilu.cn/favicon.ico">集思录</名称></网址>
         <网址><地址>https://xueqiu.com/</地址><名称 favicon="https://xueqiu.com/favicon.ico">雪球</名称></网址>
         <网址><地址>https://xueqiu.com/S/03690</地址><名称>美团</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH513050</地址><名称>中概互联</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH512880</地址><名称>证券ETF</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH511990</地址><名称>华宝添益</名称></网址>
         <网址><地址>https://xueqiu.com/S/SH511010</地址><名称>国债ETF</名称></网址>
-        <网址><地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称>国债收益率曲线</名称></网址>
-        <网址><地址>https://mis.fortunebill.com/</地址><名称>招钱进宝</名称><卡号>848102659696877</卡号></网址>
+        <网址><地址>http://www.worldgovernmentbonds.com/country/china/</地址><名称 favicon="https://www.worldgovernmentbonds.com/wp-content/uploads/2023/10/cropped-icon-32x32.png">国债收益率曲线</名称></网址>
     </组>
 
     <组 组名="♞ Document">
