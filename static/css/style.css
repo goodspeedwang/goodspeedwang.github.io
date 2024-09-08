@@ -38,6 +38,10 @@ body {
     font-size: 12px;
 }
 
+.hot{
+    background-color: lightgray;
+}
+
 .link:hover {
     background-color: #f0f0f0;
     transform: translateY(-2px);
