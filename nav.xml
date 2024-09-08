@@ -95,10 +95,10 @@
     </组>
     <组 组名="♛ Book">
         <网址><地址>https://www.jiumodiary.com/</地址><名称 favicon="https://www.jiumodiary.com/images/favicon.png">鸠摩搜书</名称></网址>
-        <网址><地址>http://neikuw.com/</地址><名称 favicon="http://neikuw.com/zb_users/theme/tpure/style/images/favicon.ico">內酷网</名称></网址>
+        <网址><地址>http://neikuw.com/</地址><名称>內酷网</名称></网址>
         <网址><地址>http://www.fast8.com/list/6_1.html</地址><名称 favicon="https://www.kb199.com/favicon.ico" hot="true">快吧</名称></网址>
         <网址><地址>https://www.xiaolipan.com//</地址><名称 favicon="https://www.xiaolipan.com/favicon.ico">小力盘</名称></网址>
-        <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称 favicon="http://primo.clcn.net.cn:1701/favicon.ico">首都图书馆</名称></网址>
+        <网址><地址>http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do</地址><名称 favicon="https://www.clcn.net.cn/favicon.ico">首都图书馆</名称></网址>
         <网址><地址>http://redis.readthedocs.org/en/latest/</地址><名称 favicon="https://redis.readthedocs.io/favicon.ico">Redis</名称></网址>
         <网址><地址>http://dormousehole.readthedocs.org/en/latest/</地址><名称 favicon="https://dormousehole.readthedocs.io/en/latest/_static/shortcut-icon.png">Flask</名称></网址>
         <网址><地址>http://overapi.com/</地址><名称 favicon="https://overapi.com/favicon.ico">overapi</名称></网址>
