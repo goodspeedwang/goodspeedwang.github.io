@@ -34,11 +34,11 @@
     </组>
 
     <组 组名="♖ Media">
-        <网址><名称>新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
-        <网址><名称>得意生活</名称><地址>http://www.deyi.com/</地址></网址>
-        <网址><名称>空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
-        <网址><名称>v2ex</名称><地址>https://v2ex.com/</地址></网址>
-        <网址><名称>少数派</名称><地址>https://sspai.com/</地址></网址>
+        <网址><名称 favicon="https://www.bjnews.com.cn/favicon.ico">新京报</名称><地址>http://www.thebeijingnews.com/</地址></网址>
+        <网址><名称 favicon="https://www.deyi.com/favicon.ico">得意生活</名称><地址>http://www.deyi.com/</地址></网址>
+        <网址><名称 favicon="https://aqicn.org/images/favicon.ico">空气质量</名称><地址>https://aqicn.org/city/beijing/us-embassy/</地址></网址>
+        <网址><名称 favicon="https://v2ex.com/static/favicon.ico">v2ex</名称><地址>https://v2ex.com/</地址></网址>
+        <网址><名称 favicon="https://cdn-static.sspai.com/favicon/sspai.ico">少数派</名称><地址>https://sspai.com/</地址></网址>
         <网址><名称 favicon="https://abs.twimg.com/favicons/twitter.3.ico">Twitter</名称><地址>http://twitter.com/home</地址></网址>
         <网址><名称 favicon="https://www.163.com/favicon.ico">网易</名称><地址>https://www.163.com/</地址></网址>
         <网址><名称 favicon="https://www.weibo.com/favicon.ico">微博</名称><地址>https://www.weibo.com/mygroups?gid=110001308620010</地址></网址>
