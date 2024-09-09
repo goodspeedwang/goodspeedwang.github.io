@@ -69,6 +69,7 @@
             object-fit: contain;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
     <div class="player-container">
@@ -116,12 +117,37 @@
             return stations;
         }
 
+        async function initializePlayer() {
+            const m3u8Content = await fetchM3U8(M3U8_URL);
+            const stations = parseM3U8(m3u8Content);
+
+            stations.forEach(station => {
+                stationList.appendChild(createStationElement(station));
+            });
+
+            if (stations.length > 0) {
+                updateCurrentStation(stations[0]);
+            }
+        }
+
         function updateCurrentStation(station) {
             currentStationName.textContent = station.name;
             currentStationLogo.src = station.logo || 'default-logo.png';
             currentStationLogo.alt = station.name;
-            audioPlayer.src = station.url;
-            audioPlayer.play();
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(station.url);
+                hls.attachMedia(audioPlayer);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    audioPlayer.play();
+                });
+            } else if (audioPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                audioPlayer.src = station.url;
+                audioPlayer.play();
+            } else {
+                alert('您的浏览器不支持HLS播放');
+            }
         }
 
         function createStationElement(station) {
@@ -135,19 +161,6 @@
                 updateCurrentStation(station);
             });
             return stationElement;
-        }
-
-        async function initializePlayer() {
-            const m3u8Content = await fetchM3U8(M3U8_URL);
-            const stations = parseM3U8(m3u8Content);
-
-            stations.forEach(station => {
-                stationList.appendChild(createStationElement(station));
-            });
-
-            if (stations.length > 0) {
-                updateCurrentStation(stations[0]);
-            }
         }
 
         initializePlayer();
