@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电台播放器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .player-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .current-station {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .current-station img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        .current-station h1 {
+            color: #333;
+            margin: 0;
+            font-size: 1.5em;
+        }
+        #audio-player {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .station-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .station {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .station:hover {
+            background-color: #f0f0f0;
+        }
+        .station img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <div class="current-station">
+            <img id="current-station-logo" src="" alt="">
+            <h1 id="current-station-name"></h1>
+        </div>
+        <audio id="audio-player" controls>
+            您的浏览器不支持音频元素。
+        </audio>
+        <div id="station-list" class="station-list"></div>
+    </div>
+
+    <script>
+        const M3U8_URL = 'radio.m3u8';
+        const audioPlayer = document.getElementById('audio-player');
+        const stationList = document.getElementById('station-list');
+        const currentStationName = document.getElementById('current-station-name');
+        const currentStationLogo = document.getElementById('current-station-logo');
+
+        async function fetchM3U8(url) {
+            const response = await fetch(url);
+            const text = await response.text();
+            return text.split('\n');
+        }
+
+        function parseM3U8(lines) {
+            const stations = [];
+            let currentStation = {};
+
+            for (const line of lines) {
+                if (line.startsWith('#EXTINF:')) {
+                    const match = line.match(/tvg-logo="([^"]*)"[^,]*,(.*)/);
+                    if (match) {
+                        currentStation.logo = match[1];
+                        currentStation.name = match[2];
+                    }
+                } else if (line.trim() && !line.startsWith('#')) {
+                    currentStation.url = line.trim();
+                    stations.push(currentStation);
+                    currentStation = {};
+                }
+            }
+
+            return stations;
+        }
+
+        function updateCurrentStation(station) {
+            currentStationName.textContent = station.name;
+            currentStationLogo.src = station.logo || 'default-logo.png';
+            currentStationLogo.alt = station.name;
+            audioPlayer.src = station.url;
+            audioPlayer.play();
+        }
+
+        function createStationElement(station) {
+            const stationElement = document.createElement('div');
+            stationElement.className = 'station';
+            stationElement.innerHTML = `
+                <img src="${station.logo || 'default-logo.png'}" alt="${station.name}">
+                <p>${station.name}</p>
+            `;
+            stationElement.addEventListener('click', () => {
+                updateCurrentStation(station);
+            });
+            return stationElement;
+        }
+
+        async function initializePlayer() {
+            const m3u8Content = await fetchM3U8(M3U8_URL);
+            const stations = parseM3U8(m3u8Content);
+
+            stations.forEach(station => {
+                stationList.appendChild(createStationElement(station));
+            });
+
+            if (stations.length > 0) {
+                updateCurrentStation(stations[0]);
+            }
+        }
+
+        initializePlayer();
+    </script>
+</body>
+</html>
