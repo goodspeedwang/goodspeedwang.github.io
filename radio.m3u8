@@ -1,13 +1,3 @@
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radioonline-my/8-fm-kuala-lumpur.png" group-title="马来西亚",Eight FM
-https://mediaprima.rastream.com/mediaprima-onefm
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radios-tw/news-98-fm.png" group-title="台湾",九八新闻台
-http://n12.rcs.revma.com/55tyxsy4qtzuv
-
-#EXTINF:-1 tvg-id="CCTV1" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv1.png" group-title="电视伴音",CCTV-1 综合
-https://piccpndali.v.myalicdn.com/audio/cctv1_2.m3u8
-#EXTINF:-1 tvg-id="CCTV13" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv13.png" group-title="电视伴音",CCTV-13 新闻
-https://piccpndali.v.myalicdn.com/audio/cctv13_2.m3u8
-
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/voc.jpg" group-title="中央",中国之声
 http://ngcdn001.cnr.cn/live/zgzs/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://gitee.com/radioer/transparentlogo/raw/master/cmgradio/ezfm.png" group-title="中央",轻松调频
@@ -19,3 +9,13 @@ http://ngcdn002.cnr.cn/live/jjzs/index.m3u8
 https://brtv-radiolive.rbc.cn/alive/fm1039.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2Fz8fv10BRlL6nFF1xzGKYemBpJQq49thcp9n4Z2024072321746.jpg" group-title="综合广播",北京新闻广播
 http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radioonline-my/8-fm-kuala-lumpur.png" group-title="马来西亚",Eight FM
+https://mediaprima.rastream.com/mediaprima-onefm
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radios-tw/news-98-fm.png" group-title="台湾",九八新闻台
+http://n12.rcs.revma.com/55tyxsy4qtzuv
+
+#EXTINF:-1 tvg-id="CCTV1" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv1.png" group-title="电视伴音",CCTV-1 综合
+https://piccpndali.v.myalicdn.com/audio/cctv1_2.m3u8
+#EXTINF:-1 tvg-id="CCTV13" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv13.png" group-title="电视伴音",CCTV-13 新闻
+https://piccpndali.v.myalicdn.com/audio/cctv13_2.m3u8
