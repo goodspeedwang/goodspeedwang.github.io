@@ -7,7 +7,7 @@ http://ngcdn002.cnr.cn/live/jjzs/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2FDp3MezEeI6Za8n5AbyUx6N9hO2024072321247.jpg" group-title="北京",北京交通广播
 https://brtv-radiolive.rbc.cn/alive/fm1039.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2Fz8fv10BRlL6nFF1xzGKYemBpJQq49thcp9n4Z2024072321746.jpg" group-title="综合广播",北京新闻广播
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2Fz8fv10BRlL6nFF1xzGKYemBpJQq49thcp9n4Z2024072321746.jpg" group-title="北京",北京新闻广播
 http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radioonline-my/8-fm-kuala-lumpur.png" group-title="马来西亚",Eight FM
