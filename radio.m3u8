@@ -11,8 +11,6 @@ http://sk.cri.cn/am846.m3u8
 https://brtv-radiolive.rbc.cn/alive/fm1039.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2Fz8fv10BRlL6nFF1xzGKYemBpJQq49thcp9n4Z2024072321746.jpg" group-title="北京",北京新闻广播
 http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://www.am774.com/_CMS_TPL_IMG_/public/a_images/sy_img_02.jpg" group-title="北京",北京外语广播
-https://brtv-radiolive.rbc.cn/alive/fm923.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://ytmedia.radio.cn/radioLogo/10609083.png" group-title="北京",北京城市广播
 http://satellitepull.cnr.cn/live/wxbjcsfwgl/playlist.m3u8
 
