@@ -47,7 +47,7 @@
         <网址><地址>https://www.scmp.com/</地址><名称 favicon="https://www.scmp.com/favicon.ico">SouthChina</名称></网址>
         <网址><名称 favicon="https://www.bloomberg.com/favicon.ico">Bloomberg</名称><地址>https://www.bloomberg.com/next-china</地址></网址>
     </组>
-    
+    <!-- 
     <组 组名="♗ Oversea">
         <网址><名称 favicon="https://housesigma.com/favicon.png">HouseSigma</名称><地址>https://housesigma.com/</地址></网址>
         <网址><名称 favicon="https://static.wixstatic.com/media/32dd51_9aa93d62e97e46da81a8b38a425eee24.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/32dd51_9aa93d62e97e46da81a8b38a425eee24.png">房大师</名称><地址>https://www.realmaster.ca/</地址></网址>
@@ -55,6 +55,7 @@
         <网址><名称 favicon="https://forum.iask.ca/favicon.ico">加拿大家园论坛</名称><地址>https://forum.iask.ca/</地址></网址>
         <网址><名称 favicon="https://www.1point3acres.com/bbs/favicon.ico">一亩三分地</名称><地址>https://www.1point3acres.com/bbs/forum-337-1.html</地址></网址>
     </组>
+    --> 
 
     <组 组名="♘ Computer">
         <网址><名称 favicon="https://www.pchome.net/favicon.ico">电脑之家</名称><地址>http://www.pchome.net/</地址></网址>
