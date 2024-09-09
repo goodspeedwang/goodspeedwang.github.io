@@ -64,7 +64,7 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
-            display: flex;
+            display: none; /* 初始隐藏播放器 */
             align-items: center;
             justify-content: center;
             z-index: 1000;
@@ -101,7 +101,7 @@
         <!-- 频道列表将根据group-title插入这里 -->
     </div>
 
-    <div class="player-container">
+    <div class="player-container" id="player-container">
         <div class="current-station">
             <img id="current-station-logo" src="" alt="">
             <h1 id="current-station-name"></h1>
@@ -118,6 +118,7 @@
         const stationContainer = document.getElementById('station-container');
         const currentStationName = document.getElementById('current-station-name');
         const currentStationLogo = document.getElementById('current-station-logo');
+        const playerContainer = document.getElementById('player-container');
 
         async function fetchM3U8(url) {
             const response = await fetch(url);
@@ -160,12 +161,14 @@
             currentStationLogo.src = station.logo || 'default-logo.png';
             currentStationLogo.alt = station.name;
 
+            // 显示播放器
+            playerContainer.style.display = 'flex';
+
             // 销毁之前的 HLS 实例（如果存在）
             if (hls) {
                 hls.destroy();
                 hls = null; // 确保清除引用
             }
-
 
             if (station.url.endsWith('.m3u8')) {
                 if (Hls.isSupported()) {
@@ -226,11 +229,6 @@
             for (const groupTitle in groups) {
                 const groupElement = createGroupElement(groupTitle, groups[groupTitle]);
                 stationContainer.appendChild(groupElement);
-            }
-
-            const firstGroup = Object.values(groups)[0];
-            if (firstGroup && firstGroup.length > 0) {
-                updateCurrentStation(firstGroup[0]);
             }
         }
 
