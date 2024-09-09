@@ -2,10 +2,8 @@
 https://sk.cri.cn/915.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202302%2F09%2F16%2FUgh1gKpGMpZRjhaxOz3lk4xS2023020916974.png" group-title="中央",经济之声
 https://ngcdn002.cnr.cn/live/jjzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/hqzx.png" group-title="中央",环球资讯广播
-https://live-play.cctvnews.cctv.com/cctvaudio/hqzx.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/cgtnradio.png" group-title="中央",CGTN Radio
-https://sk.cri.cn/am846.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/zhibo-fm/cri-news.png" group-title="中央",环球资讯广播
+https://sk.cri.cn/915.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2FDp3MezEeI6Za8n5AbyUx6N9hO2024072321247.jpg" group-title="北京",北京交通广播
 https://brtv-radiolive.rbc.cn/alive/fm1039.m3u8
@@ -18,19 +16,6 @@ https://satellitepull.cnr.cn/live/wxbjcsfwgl/playlist.m3u8
 https://mediaprima.rastream.com/mediaprima-onefm
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radios-tw/news-98-fm.png" group-title="台湾",九八新闻台
 https://n12.rcs.revma.com/55tyxsy4qtzuv
-
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiahot.png" group-title="网络广播",AsiaFM 亚洲热歌台
-https://hot.asiafm.net:8000/asiafm
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiamusic.png" group-title="网络广播",AsiaFM 亚洲音乐台
-https://asiafm.hk:8000/asiafm
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiagold.png" group-title="网络广播",AsiaFM 亚洲经典台
-https://goldfm.cn:8000/goldfm
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiasky.png" group-title="网络广播",AsiaFM 亚洲天空台
-https://funradio.cn:8000/funradio
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiahd.png" group-title="网络广播",AsiaFM HD音乐台
-https://asiafm.hk:8000/asiahd
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://live.cooltv.top/logo/asiayy.png" group-title="网络广播",AsiaFM 亚洲粤语台
-https://yyt.asiafm.net:8000/asiafm
 
 #EXTINF:-1 tvg-id="CCTV1" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv1.png" group-title="电视伴音",CCTV-1 综合
 https://piccpndali.v.myalicdn.com/audio/cctv1_2.m3u8
