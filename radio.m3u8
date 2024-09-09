@@ -16,6 +16,9 @@ https://satellitepull.cnr.cn/live/wxbjcsfwgl/playlist.m3u8
 https://mediaprima.rastream.com/mediaprima-onefm
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radios-tw/news-98-fm.png" group-title="台湾",九八新闻台
 https://n12.rcs.revma.com/55tyxsy4qtzuv
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn.instant.audio/images/logos/radios-tw/bcc-news-network.png" group-title="台湾",中廣新聞網
+https://stream.rcs.revma.com/78fm9wyy2tzuv
+
 
 #EXTINF:-1 tvg-id="CCTV1" tvg-name="" tvg-logo="https://epg.112114.eu.org/logo/cctv1.png" group-title="电视伴音",CCTV-1 综合
 https://piccpndali.v.myalicdn.com/audio/cctv1_2.m3u8
