@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +11,47 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+
         .station-container {
-            padding-bottom: 100px; /* 给播放器留空间 */
+            padding-bottom: 100px;
+            /* 给播放器留空间 */
         }
+
         .group-title {
             font-size: 1.5em;
             margin: 20px 0;
             color: #333;
         }
+
         .station-list {
             display: flex;
-            flex-wrap: wrap;            
+            flex-wrap: wrap;
             gap: 10px;
             margin: 0 auto;
         }
+
         .station {
+            display: flex;
+            /* 使用 flex 布局 */
+            align-items: center;
+            /* 垂直居中 */
             cursor: pointer;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        .station:hover {
-            background-color: #f0f0f0;
-        }
+
         .station img {
             width: 50px;
             height: 50px;
             object-fit: contain;
+            margin-right: 10px;
+            /* 图标和文字之间的间距 */
+        }
+
+        .station:hover {
+            background-color: #f0f0f0;
         }
 
         /* 固定播放器 */
@@ -47,35 +61,40 @@
             left: 0;
             width: 100%;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
         }
+
         .current-station {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
         }
+
         .current-station img {
             width: 50px;
             height: 50px;
             object-fit: contain;
             margin-right: 10px;
         }
+
         .current-station h1 {
             color: #333;
             margin: 0;
             font-size: 1.2em;
         }
+
         #audio-player {
             width: 300px;
         }
     </style>
 </head>
+
 <body>
     <div class="station-container" id="station-container">
         <!-- 频道列表将根据group-title插入这里 -->
@@ -133,23 +152,38 @@
             return groups;
         }
 
+        let hls = null;
+
         function updateCurrentStation(station) {
             currentStationName.textContent = station.name;
             currentStationLogo.src = station.logo || 'default-logo.png';
             currentStationLogo.alt = station.name;
 
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(station.url);
-                hls.attachMedia(audioPlayer);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            // 销毁之前的 HLS 实例（如果存在）
+            if (hls) {
+                hls.destroy();
+                hls = null; // 确保清除引用
+            }
+
+
+            if (station.url.endsWith('.m3u8')) {
+                if (Hls.isSupported()) {
+                    hls = new Hls();
+                    hls.loadSource(station.url);
+                    hls.attachMedia(audioPlayer);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                        audioPlayer.play();
+                    });
+                } else if (audioPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                    audioPlayer.src = station.url;
                     audioPlayer.play();
-                });
-            } else if (audioPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                } else {
+                    alert('您的浏览器不支持HLS播放');
+                }
+            } else {
+                // 对于非 m3u8 流，直接设置 audio 的 src
                 audioPlayer.src = station.url;
                 audioPlayer.play();
-            } else {
-                alert('您的浏览器不支持HLS播放');
             }
         }
 
@@ -202,4 +236,5 @@
         initializePlayer();
     </script>
 </body>
+
 </html>
