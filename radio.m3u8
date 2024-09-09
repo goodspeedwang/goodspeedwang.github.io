@@ -12,10 +12,10 @@ https://piccpndali.v.myalicdn.com/audio/cctv13_2.m3u8
 http://ngcdn001.cnr.cn/live/zgzs/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://gitee.com/radioer/transparentlogo/raw/master/cmgradio/ezfm.png" group-title="中央",轻松调频
 http://sk.cri.cn/915.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202301%2F19%2F09%2FqHSZVxUnOY1ZDXNLYeEEfeTpkhj722023011909122.jpg" group-title="中央",经济之声
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202302%2F10%2F14%2FHgpJrBSVIU2023021014928.png" group-title="中央",经济之声
 http://ngcdn002.cnr.cn/live/jjzs/index.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://gitee.com/radioer/transparentlogo/raw/master/generalradio/北京交通广播.png" group-title="北京",北京交通广播
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2FDp3MezEeI6Za8n5AbyUx6N9hO2024072321247.jpg" group-title="北京",北京交通广播
 https://brtv-radiolive.rbc.cn/alive/fm1039.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://gitee.com/radioer/transparentlogo/raw/master/generalradio/北京新闻广播.png" group-title="综合广播",北京新闻广播
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://ytmedia.radio.cn/CCYT%2F202407%2F23%2F21%2Fz8fv10BRlL6nFF1xzGKYemBpJQq49thcp9n4Z2024072321746.jpg" group-title="综合广播",北京新闻广播
 http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
