@@ -7,51 +7,27 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
             background-color: #f0f0f0;
         }
-        .player-container {
-            background-color: #ffffff;
+        .station-list-container {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
+            margin-bottom: 100px;
         }
-        .current-station {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .group {
             margin-bottom: 20px;
         }
-        .current-station img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-right: 10px;
-        }
-        .current-station h1 {
+        .group-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
             color: #333;
-            margin: 0;
-            font-size: 1.5em;
-        }
-        #audio-player {
-            width: 100%;
-            margin-top: 20px;
         }
         .station-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 10px;
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
         }
         .station {
             cursor: pointer;
@@ -59,6 +35,8 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             transition: background-color 0.3s;
+            text-align: center;
+            background-color: #fff;
         }
         .station:hover {
             background-color: #f0f0f0;
@@ -67,25 +45,64 @@
             width: 50px;
             height: 50px;
             object-fit: contain;
+            margin-bottom: 5px;
+        }
+        .station p {
+            margin: 0;
+            font-size: 0.9em;
+            word-break: break-word;
+        }
+        .player-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .current-station {
+            display: flex;
+            align-items: center;
+        }
+        .current-station img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        .current-station h2 {
+            color: #333;
+            margin: 0;
+            font-size: 1.2em;
+        }
+        #audio-player {
+            flex-grow: 1;
+            max-width: 300px;
+            margin: 0 20px;
         }
     </style>
 </head>
 <body>
+    <div class="station-list-container" id="station-list-container"></div>
+
     <div class="player-container">
         <div class="current-station">
             <img id="current-station-logo" src="" alt="">
-            <h1 id="current-station-name"></h1>
+            <h2 id="current-station-name"></h2>
         </div>
         <audio id="audio-player" controls>
             您的浏览器不支持音频元素。
         </audio>
-        <div id="station-list" class="station-list"></div>
     </div>
 
     <script>
-        const M3U8_URL = 'radio.m3u8';
+        const M3U8_URL = 'https://goodspeedwang.github.io/radio.m3u8';
         const audioPlayer = document.getElementById('audio-player');
-        const stationList = document.getElementById('station-list');
+        const stationListContainer = document.getElementById('station-list-container');
         const currentStationName = document.getElementById('current-station-name');
         const currentStationLogo = document.getElementById('current-station-logo');
 
@@ -101,10 +118,11 @@
 
             for (const line of lines) {
                 if (line.startsWith('#EXTINF:')) {
-                    const match = line.match(/tvg-logo="([^"]*)"[^,]*,(.*)/);
+                    const match = line.match(/group-title="([^"]*)".*tvg-logo="([^"]*)"[^,]*,(.*)/);
                     if (match) {
-                        currentStation.logo = match[1];
-                        currentStation.name = match[2];
+                        currentStation.group = match[1];
+                        currentStation.logo = match[2];
+                        currentStation.name = match[3];
                     }
                 } else if (line.trim() && !line.startsWith('#')) {
                     currentStation.url = line.trim();
@@ -137,13 +155,37 @@
             return stationElement;
         }
 
+        function groupStations(stations) {
+            const groups = {};
+            stations.forEach(station => {
+                if (!groups[station.group]) {
+                    groups[station.group] = [];
+                }
+                groups[station.group].push(station);
+            });
+            return groups;
+        }
+
         async function initializePlayer() {
             const m3u8Content = await fetchM3U8(M3U8_URL);
             const stations = parseM3U8(m3u8Content);
+            const groupedStations = groupStations(stations);
 
-            stations.forEach(station => {
-                stationList.appendChild(createStationElement(station));
-            });
+            for (const [groupName, groupStations] of Object.entries(groupedStations)) {
+                const groupElement = document.createElement('div');
+                groupElement.className = 'group';
+                groupElement.innerHTML = `<div class="group-title">${groupName}</div>`;
+
+                const stationListElement = document.createElement('div');
+                stationListElement.className = 'station-list';
+
+                groupStations.forEach(station => {
+                    stationListElement.appendChild(createStationElement(station));
+                });
+
+                groupElement.appendChild(stationListElement);
+                stationListContainer.appendChild(groupElement);
+            }
 
             if (stations.length > 0) {
                 updateCurrentStation(stations[0]);
