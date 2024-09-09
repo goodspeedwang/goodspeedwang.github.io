@@ -7,51 +7,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
-        .player-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
+        .station-container {
+            padding-bottom: 100px; /* 给播放器留空间 */
         }
-        .current-station {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .current-station img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-right: 10px;
-        }
-        .current-station h1 {
-            color: #333;
-            margin: 0;
+        .group-title {
             font-size: 1.5em;
-        }
-        #audio-player {
-            width: 100%;
-            margin-top: 20px;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
         }
         .station-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .station {
             cursor: pointer;
@@ -68,10 +42,48 @@
             height: 50px;
             object-fit: contain;
         }
+
+        /* 固定播放器 */
+        .player-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .current-station {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        .current-station img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        .current-station h1 {
+            color: #333;
+            margin: 0;
+            font-size: 1.2em;
+        }
+        #audio-player {
+            width: 300px;
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
+    <div class="station-container" id="station-container">
+        <!-- 频道列表将根据group-title插入这里 -->
+    </div>
+
     <div class="player-container">
         <div class="current-station">
             <img id="current-station-logo" src="" alt="">
@@ -80,13 +92,13 @@
         <audio id="audio-player" controls>
             您的浏览器不支持音频元素。
         </audio>
-        <div id="station-list" class="station-list"></div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
         const M3U8_URL = 'https://goodspeedwang.github.io/radio.m3u8';
         const audioPlayer = document.getElementById('audio-player');
-        const stationList = document.getElementById('station-list');
+        const stationContainer = document.getElementById('station-container');
         const currentStationName = document.getElementById('current-station-name');
         const currentStationLogo = document.getElementById('current-station-logo');
 
@@ -97,37 +109,31 @@
         }
 
         function parseM3U8(lines) {
-            const stations = [];
+            const groups = {};
             let currentStation = {};
 
             for (const line of lines) {
                 if (line.startsWith('#EXTINF:')) {
                     const match = line.match(/tvg-logo="([^"]*)"[^,]*,(.*)/);
-                    if (match) {
+                    const groupMatch = line.match(/group-title="([^"]*)"/);
+                    if (match && groupMatch) {
+                        const groupTitle = groupMatch[1];
                         currentStation.logo = match[1];
                         currentStation.name = match[2];
+                        currentStation.group = groupTitle;
                     }
                 } else if (line.trim() && !line.startsWith('#')) {
                     currentStation.url = line.trim();
-                    stations.push(currentStation);
+
+                    if (!groups[currentStation.group]) {
+                        groups[currentStation.group] = [];
+                    }
+                    groups[currentStation.group].push(currentStation);
                     currentStation = {};
                 }
             }
 
-            return stations;
-        }
-
-        async function initializePlayer() {
-            const m3u8Content = await fetchM3U8(M3U8_URL);
-            const stations = parseM3U8(m3u8Content);
-
-            stations.forEach(station => {
-                stationList.appendChild(createStationElement(station));
-            });
-
-            if (stations.length > 0) {
-                updateCurrentStation(stations[0]);
-            }
+            return groups;
         }
 
         function updateCurrentStation(station) {
@@ -161,6 +167,39 @@
                 updateCurrentStation(station);
             });
             return stationElement;
+        }
+
+        function createGroupElement(groupTitle, stations) {
+            const groupContainer = document.createElement('div');
+            const titleElement = document.createElement('h2');
+            titleElement.className = 'group-title';
+            titleElement.textContent = groupTitle;
+
+            const stationList = document.createElement('div');
+            stationList.className = 'station-list';
+
+            stations.forEach(station => {
+                stationList.appendChild(createStationElement(station));
+            });
+
+            groupContainer.appendChild(titleElement);
+            groupContainer.appendChild(stationList);
+            return groupContainer;
+        }
+
+        async function initializePlayer() {
+            const m3u8Content = await fetchM3U8(M3U8_URL);
+            const groups = parseM3U8(m3u8Content);
+
+            for (const groupTitle in groups) {
+                const groupElement = createGroupElement(groupTitle, groups[groupTitle]);
+                stationContainer.appendChild(groupElement);
+            }
+
+            const firstGroup = Object.values(groups)[0];
+            if (firstGroup && firstGroup.length > 0) {
+                updateCurrentStation(firstGroup[0]);
+            }
         }
 
         initializePlayer();
