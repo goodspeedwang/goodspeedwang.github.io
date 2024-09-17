@@ -39,10 +39,12 @@
         </xsl:attribute>
 
 		<a>
+			<xsl:attribute name="href"><xsl:value-of select="地址"/></xsl:attribute>
+			
 			<xsl:if test="boolean(名称/@favicon)">
 				<img class="favicon" src="{名称/@favicon}"/>
 			</xsl:if>
-			<xsl:attribute name="href"><xsl:value-of select="地址"/></xsl:attribute>
+			
 			<xsl:value-of select = "名称"/>
 		</a>
 		</div>
