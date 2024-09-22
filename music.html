@@ -283,6 +283,7 @@
             // 等音频元数据加载完后，再更新时长
             audio.onloadedmetadata = () => {
                 document.getElementById(`song-duration-${index}`).textContent = formatTime(audio.duration);
+                document.getElementById(`duration`).textContent = formatTime(audio.duration);
             };
             audio.play();
             isPlaying = true;
