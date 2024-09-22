@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器 - Spotify 风格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #040404;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .album-list {
+            list-style-type: none;
+        }
+
+        .album-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .album-item:hover,
+        .album-item.active {
+            background-color: #282828;
+        }
+
+        .album-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .album-view {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .album-header {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .album-header img {
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        .album-header-info {
+            flex: 1;
+        }
+
+        .album-header-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .album-header-artist {
+            font-size: 18px;
+            color: #b3b3b3;
+        }
+
+        .play-all-button {
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .play-all-button:hover {
+            background-color: #1ed760;
+        }
+
+        .song-list {
+            margin-top: 20px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .song-item:hover {
+            background-color: #282828;
+        }
+
+        .song-item.active {
+            background-color: #1DB954;
+        }
+
+        .song-number {
+            margin-right: 16px;
+            color: #b3b3b3;
+        }
+
+        .song-title {
+            flex: 1;
+        }
+
+        .song-duration {
+            color: #b3b3b3;
+        }
+
+        .player-bar {
+            background-color: #181818;
+            border-top: 1px solid #282828;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .now-playing {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .now-playing img {
+            width: 56px;
+            height: 56px;
+            margin-right: 16px;
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-name {
+            font-weight: bold;
+        }
+
+        .artist-name {
+            color: #b3b3b3;
+            font-size: 14px;
+        }
+
+        .controls {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            margin: 0 16px;
+            cursor: pointer;
+        }
+
+        .play-pause {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background-color: #535353;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #b3b3b3;
+            position: absolute;
+        }
+
+        .volume-control {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .volume-slider {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul class="album-list" id="album-list"></ul>
+    </div>
+    <div class="main-container">
+        <div class="album-view">
+            <div class="album-header">
+                <img id="album-cover" src="" alt="Album cover">
+                <div class="album-header-info">
+                    <div class="album-header-title" id="album-title"></div>
+                    <div class="album-header-artist" id="album-artist"></div>
+                    <button class="play-all-button" id="play-all">播放全部</button>
+                </div>
+            </div>
+            <div class="song-list" id="song-list"></div>
+        </div>
+        <div class="player-bar">
+            <div class="now-playing">
+                <img id="now-playing-cover" src="" alt="Album cover">
+                <div class="track-info">
+                    <div class="track-name" id="now-playing-name"></div>
+                    <div class="artist-name" id="now-playing-artist"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="control-buttons">
+                    <button class="control-button" id="previous">⯇</button>
+                    <button class="control-button play-pause" id="play-pause">▶</button>
+                    <button class="control-button" id="next">⯈</button>
+                </div>
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            <div class="volume-control">
+                <input type="range" class="volume-slider" min="0" max="100" value="100">
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/mp3.js"></script>
+    <script>
+        let currentAlbum = 0;
+        let currentSong = 0;
+        let isPlaying = false;
+        let audio = new Audio();
+
+        const albumList = document.getElementById('album-list');
+        const songList = document.getElementById('song-list');
+        const playPauseButton = document.getElementById('play-pause');
+        const previousButton = document.getElementById('previous');
+        const nextButton = document.getElementById('next');
+        const progress = document.getElementById('progress');
+        const nowPlayingCover = document.getElementById('now-playing-cover');
+        const nowPlayingName = document.getElementById('now-playing-name');
+        const nowPlayingArtist = document.getElementById('now-playing-artist');
+        const playAllButton = document.getElementById('play-all');
+        const albumCover = document.getElementById('album-cover');
+        const albumTitle = document.getElementById('album-title');
+        const albumArtist = document.getElementById('album-artist');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+
+        function createAlbumList() {
+            ALBUM.forEach((album, index) => {
+                const li = document.createElement('li');
+                li.className = 'album-item';
+                li.innerHTML = `
+                    <img src="${album.cover}" alt="${album.name}">
+                    <span>${album.name}</span>
+                `;
+                li.onclick = () => showAlbum(index);
+                albumList.appendChild(li);
+            });
+        }
+
+        function showAlbum(index) {
+            currentAlbum = index;
+            songList.innerHTML = '';
+            const album = ALBUM[index];
+            albumCover.src = album.cover;
+            albumTitle.textContent = album.name;
+            albumArtist.textContent = album.artist;
+            album.songs.forEach((song, i) => {
+                const songItem = document.createElement('div');
+                songItem.className = 'song-item';
+                songItem.innerHTML = `
+                    <div class="song-number">${i + 1}</div>
+                    <div class="song-title">${song}</div>
+                    <div class="song-duration">3:30</div>
+                `;
+                songItem.onclick = () => playSong(i);
+                songList.appendChild(songItem);
+            });
+            updateNowPlaying();
+            updateAlbumListHighlight();
+        }
+
+        function updateAlbumListHighlight() {
+            const albumItems = document.querySelectorAll('.album-item');
+            albumItems.forEach((item, index) => {
+                if (index === currentAlbum) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        function sanitizeFileName(name) {
+            // 替换常见的问题字符
+            return name.replace(/\//g, "_")
+        }
+
+        function playSong(index) {
+            currentSong = index;
+            const encodedAlbumName = sanitizeFileName(ALBUM[currentAlbum].name);
+            const encodedSongName = sanitizeFileName(ALBUM[currentAlbum].songs[index]);
+            audio.src = `static/song/${encodedAlbumName}/${encodedSongName}.mp3`;
+            audio.play();
+            isPlaying = true;
+            updatePlayPauseButton();
+            updateNowPlaying();
+            updateSongListHighlight();
+        }
+
+        function updateSongListHighlight() {
+            const songItems = document.querySelectorAll('.song-item');
+            songItems.forEach((item, index) => {
+                if (index === currentSong) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function updatePlayPauseButton() {
+            playPauseButton.textContent = isPlaying ? '❚❚' : '▶';
+        }
+
+        function updateNowPlaying() {
+            nowPlayingCover.src = ALBUM[currentAlbum].cover;
+            nowPlayingName.textContent = ALBUM[currentAlbum].songs[currentSong];
+            nowPlayingArtist.textContent = ALBUM[currentAlbum].artist;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+
+        function playNextSong() {
+            currentSong++;
+            if (currentSong >= ALBUM[currentAlbum].songs.length) {
+                currentSong = 0;
+                isPlaying = false;
+                updatePlayPauseButton();
+            } else {
+                playSong(currentSong);
+            }
+        }
+
+        playPauseButton.onclick = () => {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isPlaying = !isPlaying;
+            updatePlayPauseButton();
+        };
+
+        previousButton.onclick = () => {
+            currentSong = (currentSong - 1 + ALBUM[currentAlbum].songs.length) % ALBUM[currentAlbum].songs.length;
+            playSong(currentSong);
+        };
+
+        nextButton.onclick = () => {
+            playNextSong();
+        };
+
+        playAllButton.onclick = () => {
+            currentSong = 0;
+            playSong(currentSong);
+        };
+
+        audio.ontimeupdate = () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = `${percent}%`;
+            currentTimeDisplay.textContent = formatTime(audio.currentTime);
+        };
+
+        audio.onloadedmetadata = () => {
+            durationDisplay.textContent = formatTime(audio.duration);
+        };
+
+        audio.onended = () => {
+            playNextSong();
+        };
+
+        createAlbumList();
+        showAlbum(0);
+    </script>
+</body>
+
+</html>
