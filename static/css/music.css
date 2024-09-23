@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #121212;
+    color: #fff;
+}
+
+#sidebar {
+    width: 300px;
+    background-color: #000;
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 90px;
+    /* 添加底部内边距 */
+}
+
+#main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 90px;
+    /* 添加底部内边距 */
+}
+
+#player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #282828;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    /* 设置固定高度 */
+    box-sizing: border-box;
+    /* 确保padding不会增加元素的总高度 */
+}
+
+.album-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.album-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+.album-item.active {
+    background-color: #282828;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.song-item:hover {
+    background-color: #282828;
+}
+
+.song-item.active {
+    background-color: #1DB954;
+}
+
+.song-number {
+    width: 30px;
+}
+
+.song-title {
+    flex-grow: 1;
+}
+
+.song-duration {
+    width: 50px;
+    text-align: right;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #404040;
+    height: 5px;
+    margin-top: 10px;
+}
+
+#progress {
+    width: 0;
+    height: 100%;
+    background-color: #1DB954;
+}
+
+#album-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#album-cover {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+#now-playing {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+#now-playing-cover {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+#controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+#time-info {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#play-all {
+    background-color: #1DB954;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+}
