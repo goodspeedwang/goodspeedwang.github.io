@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>音乐播放器 - Spotify 风格</title>
-    <link href="https://spotidown.app/img/favicon.ico" rel="icon"/>
+    <link href="https://spotidown.app/img/favicon.ico" rel="icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -280,11 +280,14 @@
             const encodedAlbumName = sanitizeFileName(ALBUM[currentAlbum].name);
             const encodedSongName = sanitizeFileName(ALBUM[currentAlbum].songs[index]);
             audio.src = `static/song/${encodedAlbumName}/${encodedSongName}.mp3`;
-            // 等音频元数据加载完后，再更新时长
+
+            // 更新浏览器标题为当前播放的歌曲名
+            document.title = `${ALBUM[currentAlbum].songs[currentSong]} - ${ALBUM[currentAlbum].artist}`;
+
             audio.onloadedmetadata = () => {
                 document.getElementById(`song-duration-${index}`).textContent = formatTime(audio.duration);
-                document.getElementById(`duration`).textContent = formatTime(audio.duration);
             };
+
             audio.play();
             isPlaying = true;
             updatePlayPauseButton();
