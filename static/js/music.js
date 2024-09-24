@@ -77,6 +77,12 @@ function playSong(index) {
 
     // 更新浏览器标题为当前播放的歌曲名
     document.title = `${ALBUM[currentAlbum].songs[currentSong]} - ${ALBUM[currentAlbum].artist}`;
+    // 检查音频文件路径是否正确
+    console.log(`Playing: ${audio.src}`);
+
+    // 保存当前专辑和歌曲索引到 localStorage
+    localStorage.setItem('currentAlbum', currentAlbum);
+    localStorage.setItem('currentSong', currentSong);
 
     audio.onloadedmetadata = () => {
         document.getElementById(`song-duration-${index}`).textContent = formatTime(audio.duration);
@@ -127,13 +133,22 @@ function playNextSong() {
     }
 }
 
+// 点击播放按钮时，如果还没有设置音频源，则开始播放上次的歌曲
 playPauseButton.onclick = () => {
     if (isPlaying) {
         audio.pause();
+        isPlaying = false;
     } else {
-        audio.play();
+        if (!audio.src) {
+            // 如果还没有加载歌曲，则从上次保存的位置开始播放
+            playSong(currentSong);
+        } else {
+            audio.play().catch(error => {
+                console.error('播放失败:', error);
+            });
+            isPlaying = true;
+        }
     }
-    isPlaying = !isPlaying;
     updatePlayPauseButton();
 };
 
@@ -166,4 +181,20 @@ audio.onended = () => {
 };
 
 createAlbumList();
-showAlbum(0);
+//showAlbum(0);
+
+window.onload = () => {
+    const savedAlbum = localStorage.getItem('currentAlbum');
+    const savedSong = localStorage.getItem('currentSong');
+
+    if (savedAlbum !== null && savedSong !== null) {
+        // 只展示上次播放的专辑和歌曲，不自动播放
+        showAlbum(parseInt(savedAlbum));
+        currentSong = parseInt(savedSong);
+        updateNowPlaying();
+        updateSongListHighlight();
+    } else {
+        // 如果没有保存的专辑和歌曲，则展示第一个专辑
+        showAlbum(0);
+    }
+};
