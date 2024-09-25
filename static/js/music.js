@@ -77,8 +77,6 @@ function playSong(index) {
 
     // 更新浏览器标题为当前播放的歌曲名
     document.title = `${ALBUM[currentAlbum].songs[currentSong]} - ${ALBUM[currentAlbum].artist}`;
-    // 检查音频文件路径是否正确
-    console.log(`Playing: ${audio.src}`);
 
     // 保存当前专辑和歌曲索引到 localStorage
     localStorage.setItem('currentAlbum', currentAlbum);
