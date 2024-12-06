@@ -66,6 +66,7 @@
         <网址><地址>http://web.archive.org/</地址><名称 favicon="https://web-static.archive.org/_static/images/archive.ico">时光倒转</名称></网址>
         <网址><地址>https://shudu.one/sudoku/printable-hard-sudoku.php</地址><名称 favicon="https://shudu.one/favicon.ico">Sudoku</名称></网址>
         <网址><地址>password.html</地址><名称 favicon="/favicon.ico">密码生成</名称></网址>
+        <网址><地址>https://ip125.com/myip/</地址><名称 favicon="https://ip125.com/images/favicon.ico">IP Info</名称></网址>
     </组>
 
     <组 组名="♙ English">
