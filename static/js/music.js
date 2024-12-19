@@ -3,21 +3,21 @@ let currentSong = 0;
 let isPlaying = false;
 let audio = new Audio();
 
-const albumList = document.getElementById('album-list');
-const songList = document.getElementById('song-list');
-const playPauseButton = document.getElementById('play-pause');
-const previousButton = document.getElementById('previous');
-const nextButton = document.getElementById('next');
-const progress = document.getElementById('progress');
-const nowPlayingCover = document.getElementById('now-playing-cover');
-const nowPlayingName = document.getElementById('now-playing-name');
-const nowPlayingArtist = document.getElementById('now-playing-artist');
-const playAllButton = document.getElementById('play-all');
-const albumCover = document.getElementById('album-cover');
-const albumTitle = document.getElementById('album-title');
-const albumArtist = document.getElementById('album-artist');
+const albumList          = document.getElementById('album-list');
+const songList           = document.getElementById('song-list');
+const playPauseButton    = document.getElementById('play-pause');
+const previousButton     = document.getElementById('previous');
+const nextButton         = document.getElementById('next');
+const progress           = document.getElementById('progress');
+const nowPlayingCover    = document.getElementById('now-playing-cover');
+const nowPlayingName     = document.getElementById('now-playing-name');
+const nowPlayingArtist   = document.getElementById('now-playing-artist');
+const playAllButton      = document.getElementById('play-all');
+const albumCover         = document.getElementById('album-cover');
+const albumTitle         = document.getElementById('album-title');
+const albumArtist        = document.getElementById('album-artist');
 const currentTimeDisplay = document.getElementById('current-time');
-const durationDisplay = document.getElementById('duration');
+const durationDisplay    = document.getElementById('duration');
 
 function createAlbumList() {
     ALBUM.forEach((album, index) => {
@@ -33,12 +33,16 @@ function createAlbumList() {
 }
 
 function showAlbum(index) {
+    if (currentAlbum === index) return; // Avoid re-rendering the same album
+
     currentAlbum = index;
     songList.innerHTML = '';
     const album = ALBUM[index];
     albumCover.src = album.cover;
     albumTitle.textContent = album.name;
     albumArtist.textContent = album.artist;
+
+    const fragment = document.createDocumentFragment(); // Use a document fragment for better performance
     album.songs.forEach((song, i) => {
         const songItem = document.createElement('div');
         songItem.className = 'song-item';
@@ -48,8 +52,10 @@ function showAlbum(index) {
                     <div class="song-duration" id="song-duration-${i}">loading...</div>
                 `;
         songItem.onclick = () => playSong(i);
-        songList.appendChild(songItem);
+        fragment.appendChild(songItem);
     });
+    songList.appendChild(fragment); // Append the fragment to the DOM in one go
+
     updateNowPlaying();
     updateAlbumListHighlight();
 }
