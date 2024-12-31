@@ -76,7 +76,7 @@ http://router.home:35455/youtube/m_dhMSvUCIc
 http://router.home:35455/youtube/uAhlVUmupAw
 #EXTINF:-1 tvg-id="6069" tvg-name="东森新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/EBCNews.png" group-title="港台",东森新闻 CH51(Youtube)
 http://router.home:35455/youtube/V1p33hqPrUk
-#EXTINF:-1 tvg-id="75" tvg-name="中国教育3台" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/中国教育3台.png" group-title="港台",三立LIVE新闻(Youtube)
+#EXTINF:-1 tvg-id="75" tvg-name="三立新闻" tvg-logo="" group-title="港台",三立LIVE新闻(Youtube)
 http://router.home:35455/youtube/LjT56QBQ2hI
 #EXTINF:-1 tvg-id="6071" tvg-name="民视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/FTVNews.png" group-title="港台",民视新闻(Youtube)
 http://router.home:35455/youtube/ylYJSBUgaMA
