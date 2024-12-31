@@ -10,10 +10,10 @@ http://[2409:8087:74d6:22::7]:6410/270000001128/9900000510/index.m3u8?
 http://61.221.215.25:8800/hls/9/index.m3u8
 #EXTINF:-1 tvg-id="民视新闻" tvg-name="民视新闻" tvg-logo="https://live.fanmingming.com/tv/民视新闻台.png" group-title="Favorite",民视新闻
 http://38.64.72.148:80/hls/modn/list/4012/chunklist1.m3u8
-#EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="Favorite",武汉新闻综合
-http://stream.appwuhan.com/1tzb/sd/live.m3u8
 #EXTINF:-1 tvg-id="中视" tvg-name="中视" tvg-logo="https://gitee.com/suxuang/TVlogo/raw/main/img/CTV.png" group-title="Favorite",中视
 http://37.27.111.214:8080/live/7/hls.m3u8
+#EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="Favorite",武汉新闻综合
+http://stream.appwuhan.com/1tzb/sd/live.m3u8
 
 #EXTINF:-1,tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://epg.v1.mk/logo/CCTV1.png" group-title="央视",CCTV1
 http://router.home:35455/gaoma/cctv1.m3u8
