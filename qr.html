@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="static/img/qr/favicon.ico" rel="icon"/>
-  <title>QR Code</title>
+  <title>Instagram-style Photo Wall</title>
   <style>
     /* 页面基本样式 */
     body, html {
@@ -45,6 +44,17 @@
       margin: 0 auto; /* 图片居中对齐 */
     }
 
+    /* 添加文字提醒 */
+    .photo-wall .photo {
+      text-align: center; /* 图片和文字居中对齐 */
+    }
+
+    .photo-wall .photo p {
+      font-size: 14px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
     /* 鼠标悬停效果 */
     .photo-wall img:hover {
       transform: scale(1.05); /* 悬停时稍微放大 */
@@ -66,16 +76,34 @@
   <div class="photo-wall">
     <!-- goodspeed 图片 -->
     <div class="goodspeed">
-      <img src="static/img/qr/wechat.goodspeed.jpg" alt="Wechat for Goodspeed">
-      <img src="static/img/qr/meituan.goodspeed.jpg" alt="Meituan for Goodspeed">
-      <img src="static/img/qr/alipay.goodspeed.png" alt="Alipay for Goodspeed">
+      <div class="photo">
+        <img src="static/img/qr/wechat.goodspeed.jpg" alt="Wechat for Goodspeed">
+        <p>Wechat for Goodspeed</p>
+      </div>
+      <div class="photo">
+        <img src="static/img/qr/meituan.goodspeed.jpg" alt="Meituan for Goodspeed">
+        <p>Meituan for Goodspeed</p>
+      </div>
+      <div class="photo">
+        <img src="static/img/qr/alipay.goodspeed.png" alt="Alipay for Goodspeed">
+        <p>Alipay for Goodspeed</p>
+      </div>
     </div>
 
     <!-- tomato 图片 -->
     <div class="tomato">
-      <img src="static/img/qr/wechat.tomato.jpg" alt="Wechat for Tomato">
-      <img src="static/img/qr/meituan.tomato.jpg" alt="Meituan for Tomato">
-      <img src="static/img/qr/alipay.tomato.png" alt="Alipay for Tomato">
+      <div class="photo">
+        <img src="static/img/qr/wechat.tomato.jpg" alt="Wechat for Tomato">
+        <p>Wechat for Tomato</p>
+      </div>
+      <div class="photo">
+        <img src="static/img/qr/meituan.tomato.jpg" alt="Meituan for Tomato">
+        <p>Meituan for Tomato</p>
+      </div>
+      <div class="photo">
+        <img src="static/img/qr/alipay.tomato.png" alt="Alipay for Tomato">
+        <p>Alipay for Tomato</p>
+      </div>
     </div>
   </div>
 </body>
