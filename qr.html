@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="static/img/qr/favicon.ico" rel="icon"/>
+  <title>QR Code</title>
+  <style>
+    /* 页面基本样式 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212; /* 黑色背景 */
+      color: #fff; /* 白色字体 */
+    }
+
+    .photo-wall {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr); /* 分成两行 */
+      grid-gap: 20px; /* 增加间距，避免图片过于拥挤 */
+      width: 100%;
+      height: 100vh;
+      padding: 20px; /* 给整个容器添加内边距 */
+      box-sizing: border-box;
+    }
+
+    /* goodspeed 图片 */
+    .goodspeed, .tomato {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 每行三张图片 */
+      grid-gap: 20px;
+    }
+
+    .photo-wall img {
+      width: 100%; /* 图片宽度始终占满容器 */
+      height: auto; /* 高度自动，保持图片比例 */
+      object-fit: contain; /* 保持图片完整显示，避免变形 */
+      max-width: 300px; /* 设置图片的最大宽度 */
+      max-height: 300px; /* 设置图片的最大高度 */
+      border-radius: 15px; /* 添加圆角效果 */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* 深色阴影，增强层次感 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡动画 */
+      margin: 0 auto; /* 图片居中对齐 */
+    }
+
+    /* 鼠标悬停效果 */
+    .photo-wall img:hover {
+      transform: scale(1.05); /* 悬停时稍微放大 */
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* 增强阴影效果 */
+    }
+
+    /* 响应式布局，优化小屏幕设备 */
+    @media (max-width: 768px) {
+      .photo-wall {
+        grid-template-columns: 1fr; /* 小屏幕时只显示一列 */
+      }
+      .goodspeed, .tomato {
+        grid-template-columns: 1fr; /* 小屏幕时每行一张图片 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="photo-wall">
+    <!-- goodspeed 图片 -->
+    <div class="goodspeed">
+      <img src="static/img/qr/wechat.goodspeed.jpg" alt="Wechat for Goodspeed">
+      <img src="static/img/qr/meituan.goodspeed.jpg" alt="Meituan for Goodspeed">
+      <img src="static/img/qr/alipay.goodspeed.png" alt="Alipay for Goodspeed">
+    </div>
+
+    <!-- tomato 图片 -->
+    <div class="tomato">
+      <img src="static/img/qr/wechat.tomato.jpg" alt="Wechat for Tomato">
+      <img src="static/img/qr/meituan.tomato.jpg" alt="Meituan for Tomato">
+      <img src="static/img/qr/alipay.tomato.png" alt="Alipay for Tomato">
+    </div>
+  </div>
+</body>
+</html>
