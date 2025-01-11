@@ -20,6 +20,7 @@
         <网址><名称 favicon="https://cn.bing.com/th?id=OTT.7A274AA188550691D09FA80F322A58D2&amp;pid=Trans">Translate</名称><地址>https://cn.bing.com/translator</地址></网址>
         <网址><名称 favicon="https://www.notion.so/images/favicon.ico">Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
         <网址><名称 favicon="https://gitpod.io/favicon256.png">Gitpod</名称><地址>https://gitpod.io/workspaces</地址></网址>
+        <网址><名称 favicon="static/img/qr/favicon.ico">QR</名称><地址>qr.html</地址></网址>
     </组>
 
     <组 组名="♕ Life">
