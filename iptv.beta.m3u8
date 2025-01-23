@@ -1,0 +1,89 @@
+#EXTM3U
+
+#EXTINF:-1,tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://epg.v1.mk/logo/CCTV1.png" group-title="央视",CCTV1 综合
+http://router.home:35455/gaoma/cctv1.m3u8
+#EXTINF:-1,tvg-id="CCTV2" tvg-name="cctv2" tvg-logo="https://epg.v1.mk/logo/cctv2.png" group-title="央视",CCTV2 财经
+http://router.home:35455/gaoma/cctv2.m3u8
+#EXTINF:-1,tvg-id="CCTV3" tvg-name="cctv3" tvg-logo="https://epg.v1.mk/logo/cctv3.png" group-title="央视",CCTV3 综艺
+http://router.home:35455/gaoma/cctv3.m3u8
+#EXTINF:-1,tvg-id="CCTV4" tvg-name="cctv4" tvg-logo="https://epg.v1.mk/logo/cctv4.png" group-title="央视",CCTV4 中文国际
+http://router.home:35455/gaoma/cctv4.m3u8
+#EXTINF:-1,tvg-id="CCTV5" tvg-name="cctv5" tvg-logo="https://epg.v1.mk/logo/cctv5.png" group-title="央视",CCTV5 体育
+http://router.home:35455/gaoma/cctv5.m3u8
+#EXTINF:-1,tvg-id="CCTV5+" tvg-name="cctv5+" tvg-logo="https://epg.v1.mk/logo/cctv5+.png" group-title="央视",CCTV5+ 体育赛事
+http://router.home:35455/gaoma/cctv5p.m3u8
+#EXTINF:-1,tvg-id="CCTV6" tvg-name="CCTV6" tvg-logo="https://epg.v1.mk/logo/CCTV6.png" group-title="央视",CCTV-6 电影
+http://router.home:35455/itv/6000000001000004574.m3u8?cdn=wasusyt
+#EXTINF:-1,tvg-id="CCTV7" tvg-name="CCTV7" tvg-logo="https://epg.v1.mk/logo/CCTV7.png" group-title="央视",CCTV7 国防军事
+http://router.home:35455/gaoma/cctv7.m3u8
+#EXTINF:-1,tvg-id="CCTV8" tvg-name="cctv8" tvg-logo="https://epg.v1.mk/logo/cctv8.png" group-title="央视",CCTV8 电视剧
+http://router.home:35455/gaoma/cctv8.m3u8
+#EXTINF:-1,tvg-id="CCTV9" tvg-name="cctv9" tvg-logo="https://epg.v1.mk/logo/cctv9.png" group-title="央视",CCTV9 纪录
+http://router.home:35455/gaoma/cctv9.m3u8
+#EXTINF:-1,tvg-id="CCTV10" tvg-name="cctv10" tvg-logo="https://epg.v1.mk/logo/cctv10.png" group-title="央视",CCTV10 科教
+http://router.home:35455/gaoma/cctv10.m3u8
+#EXTINF:-1,tvg-id="CCTV11" tvg-name="cctv11" tvg-logo="https://epg.v1.mk/logo/cctv11.png" group-title="央视",CCTV11 戏曲
+http://router.home:35455/gaoma/cctv11.m3u8
+#EXTINF:-1,tvg-id="CCTV12" tvg-name="cctv12" tvg-logo="https://epg.v1.mk/logo/cctv12.png" group-title="央视",CCTV12 社会与法
+http://router.home:35455/gaoma/cctv12.m3u8
+#EXTINF:-1,tvg-id="CCTV13" tvg-name="cctv13" tvg-logo="https://epg.v1.mk/logo/cctv13.png" group-title="央视",CCTV13 新闻
+http://router.home:35455/gaoma/cctv13.m3u8
+#EXTINF:-1,tvg-id="CCTV14" tvg-name="cctv14" tvg-logo="https://epg.v1.mk/logo/cctv14.png" group-title="央视",CCTV14 少儿
+http://router.home:35455/gaoma/cctv14.m3u8
+#EXTINF:-1,tvg-id="CCTV15" tvg-name="cctv15" tvg-logo="https://epg.v1.mk/logo/cctv15.png" group-title="央视",CCTV15 音乐
+http://router.home:35455/gaoma/cctv15.m3u8
+#EXTINF:-1,tvg-id="CCTV16" tvg-name="cctv16" tvg-logo="https://epg.v1.mk/logo/cctv16.png" group-title="央视",CCTV16 奥林匹克
+http://router.home:35455/gaoma/cctv16.m3u8
+#EXTINF:-1,tvg-id="CCTV17" tvg-name="cctv17" tvg-logo="https://epg.v1.mk/logo/cctv17.png" group-title="央视",CCTV17 农业农村
+http://router.home:35455/gaoma/cctv17.m3u8
+
+#EXTINF:-1 tvg-id="141" tvg-name="凤凰中文" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzhongwen.png" group-title="港台",凤凰中文
+http://router.home:35455/rptv/HD-10000k-1080P-fhchinese5s.m3u8?license=cntv
+#EXTINF:-1 tvg-id="142" tvg-name="凤凰资讯" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png" group-title="港台",凤凰资讯
+http://router.home:35455/rptv/HD-10000k-1080P-fhzixun5s.m3u8?license=cntv
+#EXTINF:-1 tvg-id="143" tvg-name="凤凰香港" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangxianggang.png" group-title="港台",凤凰香港
+http://router.home:35455/rptv/HD-10000k-1080P-fhhongkong5s.m3u8?license=cntv
+
+
+#EXTINF:-1 tvg-name="TVBS新闻台" tvg-logo="https://gitee.com/suxuang/TVlogo/raw/main/img/TVBS1.png" group-title="港台",TVBS新闻台
+http://61.221.215.25:8800/hls/9/index.m3u8
+
+#EXTINF:-1 tvg-id="RTHKTV31.hk" tvg-logo="https://i.imgur.com/kf818kM.png" group-title="港台",RTHK31
+https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8
+#EXTINF:-1 tvg-id="RTHKTV32.hk" tvg-logo="https://i.imgur.com/MXLuUoU.png" group-title="港台",RTHK32
+https://rthktv32-live.akamaized.net/hls/live/2036819/RTHKTV32/stream5/streamPlaylist.m3u8
+
+#EXTINF:-1 tvg-id="142" tvg-name="凤凰资讯" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png" group-title="港台",凤凰资讯(Youtube)
+http://router.home:35455/youtube/HFib76ySpbU
+#EXTINF:-1 tvg-id="6073" tvg-name="TVBS新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png" group-title="港台",TVBS新闻网(Youtube)
+http://router.home:35455/youtube/m_dhMSvUCIc
+#EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="港台",中天新闻CtiNews(Youtube)
+http://router.home:35455/youtube/vr3XyVCR4T0
+#EXTINF:-1 tvg-id="6069" tvg-name="东森新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/EBCNews.png" group-title="港台",东森新闻(Youtube)
+http://router.home:35455/youtube/V1p33hqPrUk
+#EXTINF:-1 tvg-id="75" tvg-name="三立新闻" tvg-logo="" group-title="港台",三立LIVE新闻(Youtube)
+http://router.home:35455/youtube/MV9mI0GChwo
+#EXTINF:-1 tvg-id="6071" tvg-name="民视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/FTVNews.png" group-title="港台",民视新闻(Youtube)
+http://router.home:35455/youtube/ylYJSBUgaMA
+#EXTINF:-1 tvg-id="574" tvg-name="华视新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/cts_news.png" group-title="港台",华视新闻(Youtube)
+http://router.home:35455/youtube/wM0g8EoUZ_E
+#EXTINF:-1 tvg-id="7176" tvg-name="中视新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/中视新闻.png" group-title="港台",中视新闻(Youtube)
+http://router.home:35455/youtube/TCnaIE_SAtM
+#EXTINF:-1 tvg-id="6143" tvg-name="台视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/台视新闻.png" group-title="港台",台视新闻(Youtube)
+http://router.home:35455/youtube/xL0ch83RAK8
+#EXTINF:-1 tvg-id="6171" tvg-name="寰宇新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/GlobalNews.png" group-title="港台",寰宇新闻(Youtube)
+http://router.home:35455/youtube/6IquAgfvYmc
+#EXTINF:-1 tvg-id="" tvg-name="镜新闻" tvg-logo="" group-title="港台",镜新闻(Youtube)
+http://router.home:35455/youtube/5n0y6b0Q25o
+
+#EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="地方",武汉新闻综合
+http://stream.appwuhan.com/1tzb/sd/live.m3u8
+#EXTINF:-1,tvg-id="湖北卫视" tvg-name="湖北卫视" tvg-logo="https://epg.v1.mk/logo/湖北卫视.png" group-title="地方",湖北卫视-50-FPS
+http://router.home:35455/itv/6000000001000015436.m3u8?cdn=wasusyt
+
+#EXTINF:-1,tvg-id="cgtndocumentary" tvg-name="cgtndocumentary" tvg-logo="https://epg.v1.mk/logo/cgtndocumentary.png" group-title="English",CCTV纪录片
+http://router.home:35455/gaoma/cgtndoc.m3u8
+#EXTINF:-1,tvg-id="CGTNEN" tvg-name="CGTNEN" tvg-logo="https://epg.v1.mk/logo/CGTN.png" group-title="English",CCTV英文
+http://router.home:35455/gaoma/cgtnen.m3u8
+#EXTINF:-1 group-title="English",CNA
+https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
