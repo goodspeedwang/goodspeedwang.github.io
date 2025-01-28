@@ -1,7 +1,7 @@
 #EXTM3U
 
 #EXTINF:-1,tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://epg.v1.mk/logo/CCTV1.png" group-title="央视",CCTV1 综合
-http://router.home:35455/rptv/G_CCTV-1-AVS-4K264.m3u8?license=gitv
+http://router.home:35455/gaoma/cctv1.m3u8
 #EXTINF:-1,tvg-id="CCTV2" tvg-name="cctv2" tvg-logo="https://epg.v1.mk/logo/cctv2.png" group-title="央视",CCTV2 财经
 http://router.home:35455/gaoma/cctv2.m3u8
 #EXTINF:-1,tvg-id="CCTV3" tvg-name="cctv3" tvg-logo="https://epg.v1.mk/logo/cctv3.png" group-title="央视",CCTV3 综艺
