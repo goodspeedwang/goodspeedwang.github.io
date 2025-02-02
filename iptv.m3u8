@@ -88,3 +88,5 @@ http://router.home:35455/itv/7114647837765104058.m3u8?cdn=hnbblive
 http://router.home:35455/itv/7745129417417101820.m3u8?cdn=hnbblive
 #EXTINF:-1 group-title="English",CNA
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+#EXTINF:-1 group-title="English",Global News BC1
+https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/live-audio_1=96000-video=2499968.m3u8
