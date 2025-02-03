@@ -36,6 +36,8 @@ http://router.home:35455/gaoma/cctv15.m3u8
 http://router.home:35455/gaoma/cctv16.m3u8
 #EXTINF:-1,tvg-id="CCTV17" tvg-name="cctv17" tvg-logo="https://epg.v1.mk/logo/cctv17.png" group-title="央视",CCTV17 农业农村
 http://router.home:35455/gaoma/cctv17.m3u8
+#EXTINF:-1 tvg-id="106" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="地方",CCTV4K
+http://router.home:35455/gaoma/cctv4k.m3u8
 #EXTINF:-1,tvg-id="cctv8k" tvg-name="cctv8k" tvg-logo="https://epg.v1.mk/logo/cctv8k.png" group-title="8K频道",CCTV8K
 http://router.home:35455/gaoma/cctv8k_36m.m3u8
 
