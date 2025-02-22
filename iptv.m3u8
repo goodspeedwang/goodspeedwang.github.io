@@ -87,6 +87,9 @@ http://router.home:35455/bptv/10000100000000050000000003887497.m3u8
 http://router.home:35455/bptv/10000100000000050000000003887498.m3u8
 #EXTINF:-1,tvg-id="淘娱乐" tvg-name="淘娱乐" tvg-logo="https://epg.v1.mk/logo/淘娱乐.png" group-title="影视",淘娱乐
 http://router.home:35455/bptv/10000100000000050000000003887499.m3u8
+#EXTINF:-1,tvg-id="BTV-重温经典" tvg-name="BTV-重温经典" tvg-logo="https://epg.v1.mk/logo/BTV-重温经典.png" group-title="影视",BTV-重温经典
+http://router.home:35455/bptv/10000100000000050000000003887494.m3u8
+
 
 
 #EXTINF:-1,tvg-id="北京纪实科教8K" tvg-name="北京纪实科教8K" tvg-logo="https://epg.v1.mk/logo/北京纪实科教8K.png" group-title="北京",北京纪实科教8K
