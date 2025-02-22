@@ -13,7 +13,7 @@ http://router.home:35455/gaoma/cctv5.m3u8
 #EXTINF:-1,tvg-id="CCTV5+" tvg-name="cctv5+" tvg-logo="https://epg.v1.mk/logo/cctv5+.png" group-title="央视",CCTV5+ 体育赛事
 http://router.home:35455/gaoma/cctv5p.m3u8
 #EXTINF:-1,tvg-id="CCTV6" tvg-name="CCTV6" tvg-logo="https://epg.v1.mk/logo/CCTV6.png" group-title="央视",CCTV-6 电影
-http://router.home:35455/itv/1000000005000265006.m3u8?cdn=ystenlive
+http://router.home:35455/bptv/10000100000000050000000003870749.m3u8
 #EXTINF:-1,tvg-id="CCTV7" tvg-name="CCTV7" tvg-logo="https://epg.v1.mk/logo/CCTV7.png" group-title="央视",CCTV7 国防军事
 http://router.home:35455/gaoma/cctv7.m3u8
 #EXTINF:-1,tvg-id="CCTV8" tvg-name="cctv8" tvg-logo="https://epg.v1.mk/logo/cctv8.png" group-title="央视",CCTV8 电视剧
