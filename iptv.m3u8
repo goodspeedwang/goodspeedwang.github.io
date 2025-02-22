@@ -87,18 +87,6 @@ http://router.home:35455/bptv/10000100000000050000000003887497.m3u8
 http://router.home:35455/bptv/10000100000000050000000003887498.m3u8
 #EXTINF:-1,tvg-id="淘娱乐" tvg-name="淘娱乐" tvg-logo="https://epg.v1.mk/logo/淘娱乐.png" group-title="影视",淘娱乐
 http://router.home:35455/bptv/10000100000000050000000003887499.m3u8
-#EXTINF:-1,tvg-id="CHC家庭影院" tvg-name="CHC家庭影院" tvg-logo="https://epg.v1.mk/logo/CHC家庭影院.png" group-title="影视",CHC家庭影院
-https://gdcucc.v1.mk/gdcucc/chcjtyy.m3u8
-#EXTINF:-1,tvg-id="CHC动作电影" tvg-name="CHC动作电影" tvg-logo="https://epg.v1.mk/logo/CHC动作电影.png" group-title="影视",CHC动作电影
-https://gdcucc.v1.mk/gdcucc/chcdzdy.m3u8
-#EXTINF:-1,tvg-id="newtv精品大剧" tvg-name="newtv精品大剧" tvg-logo="https://epg.v1.mk/logo/newtv精品大剧.png" group-title="影视",NewTV-精品大剧
-http://router.home:35455/itv/1000000004000013968.m3u8?cdn=ystenlive
-#EXTINF:-1,tvg-id="newtv超级电视剧" tvg-name="newtv超级电视剧" tvg-logo="https://epg.v1.mk/logo/newtv超级电视剧.png" group-title="影视",NewTV-超级电视剧
-http://router.home:35455/itv/1000000006000268003.m3u8?cdn=ystenlive
-#EXTINF:-1,tvg-id="newtv超级电影" tvg-name="newtv超级电影" tvg-logo="https://epg.v1.mk/logo/newtv超级电影.png" group-title="影视",NewTV-超级电影
-http://router.home:35455/itv/1000000003000012426.m3u8?cdn=ystenlive
-#EXTINF:-1,tvg-id="NEWTV黑莓电影" tvg-name="NEWTV黑莓电影" tvg-logo="https://epg.v1.mk/logo/NEWTV黑莓电影.png" group-title="影视",NewTV-黑莓电影
-http://router.home:35455/itv/1000000004000019624.m3u8?cdn=ystenlive
 
 
 #EXTINF:-1,tvg-id="北京纪实科教8K" tvg-name="北京纪实科教8K" tvg-logo="https://epg.v1.mk/logo/北京纪实科教8K.png" group-title="北京",北京纪实科教8K
@@ -106,7 +94,7 @@ https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 #EXTINF:-1,tvg-id="北京新闻" tvg-name="北京新闻" tvg-logo="https://epg.v1.mk/logo/北京新闻.png" group-title="北京",北京新闻
 http://router.home:35455/bptv/10000100000000050000000003870780.m3u8
 #EXTINF:-1,tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://epg.v1.mk/logo/北京卫视.png" group-title="北京",北京卫视
-http://router.home:35455/itv/6000000001000020451.m3u8?cdn=wasusyt
+http://router.home:35455/bptv/10000100000000050000000003870776.m3u8
 #EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="湖北",武汉新闻综合
 http://stream.appwuhan.com/1tzb/sd/live.m3u8
 #EXTINF:-1,tvg-id="湖北卫视" tvg-name="湖北卫视" tvg-logo="https://epg.v1.mk/logo/湖北卫视.png" group-title="湖北",湖北卫视
