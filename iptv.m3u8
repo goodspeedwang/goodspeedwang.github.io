@@ -46,7 +46,7 @@ http://192.168.100.1:4022/rtp/239.3.1.151:8144
 http://192.168.100.1:4022/rtp/239.3.1.245:2000
 
 #EXTINF:-1 tvg-id="142" tvg-name="凤凰资讯" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png" group-title="港台",凤凰资讯
-http://192.168.100.1:35455/youtube/HFib76ySpbU
+http://192.168.100.1:35455/youtube/BLaQVW5oUGU
 
 #EXTINF:-1 tvg-name="TVBS新闻台" tvg-logo="https://gitee.com/suxuang/TVlogo/raw/main/img/TVBS1.png" group-title="港台",TVBS新闻台
 http://61.221.215.25:8800/hls/9/index.m3u8
