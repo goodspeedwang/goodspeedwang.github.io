@@ -48,15 +48,6 @@ http://192.168.100.1:4022/rtp/239.3.1.245:2000
 #EXTINF:-1 tvg-id="142" tvg-name="凤凰资讯" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png" group-title="港台",凤凰资讯
 http://192.168.100.1:35455/youtube/BLaQVW5oUGU
 
-
-#EXTINF:-1 tvg-name="TVBS新闻台" tvg-logo="https://gitee.com/suxuang/TVlogo/raw/main/img/TVBS1.png" group-title="港台",TVBS新闻台
-http://61.221.215.25:8800/hls/9/index.m3u8
-
-#EXTINF:-1 tvg-id="RTHKTV31.hk" tvg-logo="https://i.imgur.com/kf818kM.png" group-title="港台",RTHK31
-http://php.jdshipin.com/TVOD/iptv.php?id=rthk31
-#EXTINF:-1 tvg-id="RTHKTV32.hk" tvg-logo="https://i.imgur.com/MXLuUoU.png" group-title="港台",RTHK32
-http://php.jdshipin.com/TVOD/iptv.php?id=rthk32
-
 #EXTINF:-1 tvg-id="6073" tvg-name="TVBS新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/TVBS新闻.png" group-title="港台",TVBS新闻网(Youtube)
 http://192.168.100.1:35455/youtube/m_dhMSvUCIc
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="港台",中天新闻CtiNews(Youtube)
