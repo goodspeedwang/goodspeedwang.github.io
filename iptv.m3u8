@@ -70,35 +70,35 @@ http://192.168.100.1:35455/youtube/6IquAgfvYmc
 http://192.168.100.1:35455/youtube/5n0y6b0Q25o
 
 #EXTINF:-1,tvg-id="北京IPTV4K" tvg-name="北京IPTV4K" tvg-logo="https://epg.v1.mk/logo/北京IPTV4K.png" group-title="影视",北京IPTV4K
-http://192.168.100.1:35455/bptv/10000100000000050000000003887500.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.249:8001
 #EXTINF:-1,tvg-id="淘剧场" tvg-name="淘剧场" tvg-logo="https://epg.v1.mk/logo/淘剧场.png" group-title="影视",淘剧场
-http://192.168.100.1:35455/bptv/10000100000000050000000003887497.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.95:8001
 #EXTINF:-1,tvg-id="淘电影" tvg-name="淘电影" tvg-logo="https://epg.v1.mk/logo/淘电影.png" group-title="影视",淘电影
-http://192.168.100.1:35455/bptv/10000100000000050000000003887498.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.250:8001
 #EXTINF:-1,tvg-id="淘娱乐" tvg-name="淘娱乐" tvg-logo="https://epg.v1.mk/logo/淘娱乐.png" group-title="影视",淘娱乐
-http://192.168.100.1:35455/bptv/10000100000000050000000003887499.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.100:8001
 #EXTINF:-1,tvg-id="BTV-重温经典" tvg-name="BTV-重温经典" tvg-logo="https://epg.v1.mk/logo/BTV-重温经典.png" group-title="影视",BTV-重温经典
-http://192.168.100.1:35455/bptv/10000100000000050000000003887494.m3u8
+#http://192.168.100.1:4022/rtp/239.3.1.195:9024
 
 
 
 #EXTINF:-1,tvg-id="北京纪实科教8K" tvg-name="北京纪实科教8K" tvg-logo="https://epg.v1.mk/logo/北京纪实科教8K.png" group-title="北京",北京纪实科教8K
 https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 #EXTINF:-1,tvg-id="北京新闻" tvg-name="北京新闻" tvg-logo="https://epg.v1.mk/logo/北京新闻.png" group-title="北京",北京新闻
-http://192.168.100.1:35455/bptv/10000100000000050000000003870780.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.159:8000
 #EXTINF:-1,tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://epg.v1.mk/logo/北京卫视.png" group-title="北京",北京卫视
-http://192.168.100.1:35455/bptv/10000100000000050000000003870776.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.241:8000
 #EXTINF:-1 tvg-id="1787" tvg-name="武汉新闻综合频道" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/WHTV1.png" group-title="湖北",武汉新闻综合
 http://stream.appwuhan.com/1tzb/sd/live.m3u8
 #EXTINF:-1,tvg-id="湖北卫视" tvg-name="湖北卫视" tvg-logo="https://epg.v1.mk/logo/湖北卫视.png" group-title="湖北",湖北卫视
-http://192.168.100.1:35455/itv/6000000001000015436.m3u8?cdn=wasusyt
+http://192.168.100.1:4022/rtp/239.3.1.138:8044
 
 
 
 #EXTINF:-1,tvg-id="cgtndocumentary" tvg-name="cgtndocumentary" tvg-logo="https://epg.v1.mk/logo/cgtndocumentary.png" group-title="English",CCTV纪录片
-http://192.168.100.1:35455/gaoma/cgtndoc.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.216:4220
 #EXTINF:-1,tvg-id="CGTNEN" tvg-name="CGTNEN" tvg-logo="https://epg.v1.mk/logo/CGTN.png" group-title="English",CCTV英文
-http://192.168.100.1:35455/gaoma/cgtnen.m3u8
+http://192.168.100.1:4022/rtp/239.3.1.215:4220
 #EXTINF:-1 group-title="English",CNA
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
 #EXTINF:-1 group-title="English",Global News BC1
