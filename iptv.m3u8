@@ -40,10 +40,8 @@ http://192.168.100.1:4022/rtp/239.3.1.153:8136
 http://192.168.100.1:4022/rtp/239.3.1.184:8001
 #EXTINF:-1 tvg-id="17" tvg-name="CCTV17" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png" group-title="央视",CCTV-17农业农村
 http://192.168.100.1:4022/rtp/239.3.1.151:8144
-#EXTINF:-1 tvg-id="6" tvg-name="CCTV5+" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png" group-title="央视",CCTV5+
-http://192.168.100.1:4022/rtp/239.3.1.130:8004
-
-
+#EXTINF:-1 tvg-id="106" tvg-name="CCTV4K" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4k.png" group-title="[央视",CCTV-4K 超高清
+http://192.168.100.1:4022/rtp/239.3.1.245:2000
 
 #EXTINF:-1 tvg-id="142" tvg-name="凤凰资讯" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/fenghuangzixun.png" group-title="港台",凤凰资讯
 http://192.168.100.1:35455/youtube/fN9uYWCjQaw
