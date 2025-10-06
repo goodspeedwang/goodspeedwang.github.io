@@ -81,6 +81,8 @@ http://192.168.100.1:4022/rtp/239.3.1.100:8001
 http://192.168.100.1:4022/rtp/239.3.1.115:8000
 #EXTINF:-1,tvg-id="北京新闻" tvg-name="北京新闻" tvg-logo="https://epg.v1.mk/logo/北京新闻.png" group-title="北京",北京新闻
 http://192.168.100.1:4022/rtp/239.3.1.159:8000
+#EXTINF:-1 tvg-id="1875" tvg-name="北京影视" tvg-logo="http://epg.51zmt.top:8000/tb1/sheng/BTV影视.png" group-title="北京",北京影视
+http://192.168.100.1:4022/rtp/239.3.1.158:8000
 #EXTINF:-1,tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://epg.v1.mk/logo/北京卫视.png" group-title="北京",北京卫视
 http://192.168.100.1:4022/rtp/239.3.1.241:8000
 #EXTINF:-1,tvg-id="湖北卫视" tvg-name="湖北卫视" tvg-logo="https://epg.v1.mk/logo/湖北卫视.png" group-title="湖北",湖北卫视
