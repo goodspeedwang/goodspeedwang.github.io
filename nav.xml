@@ -21,6 +21,8 @@
         <网址><名称 favicon="https://www.notion.so/images/favicon.ico">Notion</名称><地址>https://www.notion.so/goodspeedwang/</地址></网址>
         <网址><名称 favicon="https://gitpod.io/favicon256.png">Gitpod</名称><地址>https://gitpod.io/workspaces</地址></网址>
         <网址><名称 favicon="static/img/qr/favicon.ico" hot="true">QR</名称><地址>qr.html</地址></网址>
+        <网址><名称 favicon="https://www.starscube.com/static/bitbug_favicon.ico">考试数据</名称><地址>https://test.k12media.cn/</地址></网址>
+        
     </组>
 
     <组 组名="♕ Life">
