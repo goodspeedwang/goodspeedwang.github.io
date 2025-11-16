@@ -168,6 +168,7 @@
         <网址><地址>https://h5login.qqchess.qq.com/</地址><名称 hot="true" favicon="https://h5login.qqchess.qq.com/favicon.62570.ico">天天象棋</名称></网址>
         <网址><地址>radio.html</地址><名称 hot="true" favicon="https://cdn.instant.audio/favicon.ico">Radio</名称></网址>
         <网址><地址>music.html</地址><名称 hot="true" favicon="https://spotidown.app/img/favicon.ico">Music</名称></网址>
+        <网址><地址>http://192.168.100.1:5140/player</地址><名称 favicon="https://sapi.yangshipin.cn/assets/2022/pcicon/favicon.ico">IPTV</名称></网址>
         
     </组>
     
