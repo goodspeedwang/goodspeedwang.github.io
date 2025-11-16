@@ -100,7 +100,7 @@
         <网址><地址>https://www.perplexity.ai/</地址><名称 favicon="https://www.perplexity.ai/favicon.ico">Perplexity</名称></网址>
         <网址><地址>https://chat.deepseek.com</地址><名称 favicon="https://chat.deepseek.com/favicon.svg">Deepseek</名称></网址>
         <网址><地址>https://raphael.app</地址><名称 favicon="https://raphael.app/favicon.ico">AI-generated Images</名称></网址>
-        <网址><地址>https://www.wenxiaobai.com/</地址><名称 favicon="https://www.wenxiaobai.com/new_favicon.ico">问小白</名称></网址>
+        <网址><地址>https://www.wenxiaobai.com/</地址><名称 favicon="https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.15.12/_next/static/media/new_favicon.6d31cfe4.png">问小白</名称></网址>
         <网址><地址>https://picsart.com/ai-image-enhancer/</地址><名称 favicon="https://pastatic.picsart.com/cms-pastatic/897d8248-6192-4246-93e4-f99389acd13c.png">图片增强</名称></网址>
         <网址><地址>https://www.krea.ai/</地址><名称 favicon="https://www.krea.ai/favicon/favicon-32-dark.png">Krea</名称></网址>
         <网址><地址>https://yuanbao.tencent.com/</地址><名称 favicon="https://cdn-bot.hunyuan.tencent.com/logo.png">元宝</名称></网址>
@@ -159,7 +159,6 @@
 
     <组 组名="♟ Entertain">
         <网址><地址>http://www.dydytt.net/index.htm</地址><名称 hot="true">电影天堂</名称></网址>
-        <网址><地址>https://www.domp4.cc/</地址><名称 favicon="https://www.padmp4.com/favicon.ico">MP4电影</名称></网址>
         <网址><地址>https://www.80sgod.com/</地址><名称 favicon="https://www.80sgod.com/favicon.ico">80s手机电影网</名称></网址>
         <网址><地址>https://www.bugutv.org/</地址><名称 favicon="https://www.bugutv.org/wp-content/uploads/favicon.jpg">布谷TV</名称></网址>
         <网址><地址>https://www.yangshipin.cn/tv/home?pid=600001811</地址><名称 favicon="https://tv.cctv.com/favicon.ico">CCTV</名称></网址>
@@ -177,6 +176,5 @@
         <网址><地址>http://www.elvxing.net/forum-2-1.html</地址><名称>E旅行网</名称></网址>
         <网址><地址>http://www.daoduoduo.com/forum-24-1.html</地址><名称>岛多多</名称></网址>
         <网址><地址>https://www.mafengwo.cn/travel-scenic-spot/mafengwo/11051.html</地址><名称 favicon="https://www.mafengwo.cn/favicon.ico">玛蜂窝</名称></网址>
-        <网址><地址>https://www.fumubang.com/hd/pc40_c40/</地址><名称 favicon="https://www.fumubang.com/favicon.ico">父母邦</名称></网址>
     </组>
 </导航>
