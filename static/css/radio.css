@@ -100,4 +100,13 @@ body {
     color: #1d1d1f;
 }
 
-.curre
+.current-station p {
+    margin: 2px 0 0;
+    font-size: 0.9em;
+    color: #6e6e73;
+}
+
+#audio-player {
+    width: 300px;
+    max-width: 40%;
+}
