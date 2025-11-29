@@ -1,87 +1,103 @@
+/* Apple 风格全局字体 */
 body {
-    font-family: Arial, sans-serif;
-    margin: 10;
-    background-color: #f0f0f0;
+    font-family: "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f7;
 }
 
 .station-container {
-    padding-bottom: 100px;
-    /* 给播放器留空间 */
+    padding: 20px;
+    padding-bottom: 160px; /* 留出播放器空间 */
 }
 
+/* 组标题 */
 .group-title {
-    font-size: 1.5em;
-    margin: 20px 0;
-    color: #333;
+    font-size: 1.6em;
+    margin: 25px 0 15px;
+    color: #1d1d1f;
+    font-weight: 600;
+    padding-left: 5px;
 }
 
+/* 台卡片列表 */
 .station-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 0 auto;
+    gap: 12px;
 }
 
+/* 单个电台卡片 - 更苹果味 */
 .station {
     display: flex;
-    /* 使用 flex 布局 */
     align-items: center;
-    /* 垂直居中 */
     cursor: pointer;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.station img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    margin-right: 10px;
-    /* 图标和文字之间的间距 */
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
 }
 
 .station:hover {
-    background-color: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* 固定播放器 */
+.station img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+/* ===== 固定播放器（苹果风） ===== */
 .player-container {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    max-width: 780px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(18px);
+    padding: 14px 18px;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     display: none;
-    /* 初始隐藏播放器 */
     align-items: center;
-    justify-content: center;
-    z-index: 1000;
+}
+
+/* 毛玻璃效果类 */
+.apple-blur {
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 .current-station {
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-right: 20px;
 }
 
 .current-station img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
     margin-right: 10px;
 }
 
-.current-station h1 {
-    color: #333;
-    margin: 0;
-    font-size: 1.2em;
+/* 文本排版 */
+.station-info {
+    display: flex;
+    flex-direction: column;
 }
 
-#audio-player {
-    width: 300px;
+.current-station h1 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #1d1d1f;
 }
+
+.curre

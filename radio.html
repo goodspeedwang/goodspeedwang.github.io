@@ -5,23 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>电台播放器</title>
+
     <link href="https://cdn.instant.audio/favicon.ico" rel="icon"/>
     <link rel="stylesheet" type="text/css" href="static/css/radio.css" />
+
+    <!-- Apple SF 字体（更苹果味） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/sf-font.min.css">
 </head>
 
 <body>
     <div class="station-container" id="station-container">
-        <!-- 频道列表将根据group-title插入这里 -->
+        <!-- 频道列表自动插入 -->
     </div>
 
-    <div class="player-container" id="player-container">
+    <div class="player-container apple-blur" id="player-container">
         <div class="current-station">
             <img id="current-station-logo" src="" alt="">
-            <h1 id="current-station-name"></h1>
+            <div class="station-info">
+                <h1 id="current-station-name"></h1>
+                <p id="current-station-desc"></p>
+            </div>
         </div>
-        <audio id="audio-player" controls>
-            您的浏览器不支持音频元素。
-        </audio>
+        <audio id="audio-player" controls></audio>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
