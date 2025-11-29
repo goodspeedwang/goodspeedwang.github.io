@@ -3,6 +3,7 @@
     "files.exclude": {
         "**/.unotes": true,
         ".gitignore": true,
+        ".DS_Store": true,
         "CNAME": true,
         "favicon.ico": true,
         "push.sh": true,"push.bat": true,
