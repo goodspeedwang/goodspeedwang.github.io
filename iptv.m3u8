@@ -53,19 +53,9 @@ https://tv.iill.top/4gtv/4gtv-4gtv009
 #EXTINF:-1 tvg-id="6069" tvg-name="东森新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/EBCNews.png" group-title="港台",东森新闻(Youtube)
 http://192.168.100.1:35455/youtube/V1p33hqPrUk
 #EXTINF:-1 tvg-id="75" tvg-name="三立新闻" tvg-logo="" group-title="港台",三立LIVE新闻(Youtube)
-http://192.168.100.1:35455/youtube/MV9mI0GChwo
+https://tv.iill.top/4gtv/4gtv-live089
 #EXTINF:-1 tvg-id="6071" tvg-name="民视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/FTVNews.png" group-title="港台",民视新闻(Youtube)
-http://192.168.100.1:35455/youtube/ylYJSBUgaMA
-#EXTINF:-1 tvg-id="574" tvg-name="华视新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/cts_news.png" group-title="港台",华视新闻(Youtube)
-http://192.168.100.1:35455/youtube/wM0g8EoUZ_E
-#EXTINF:-1 tvg-id="7176" tvg-name="中视新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/中视新闻.png" group-title="港台",中视新闻(Youtube)
-http://192.168.100.1:35455/youtube/TCnaIE_SAtM
-#EXTINF:-1 tvg-id="6143" tvg-name="台视新闻台" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/台视新闻.png" group-title="港台",台视新闻(Youtube)
-http://192.168.100.1:35455/youtube/xL0ch83RAK8
-#EXTINF:-1 tvg-id="6171" tvg-name="寰宇新闻" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/GlobalNews.png" group-title="港台",寰宇新闻(Youtube)
-http://192.168.100.1:35455/youtube/6IquAgfvYmc
-#EXTINF:-1 tvg-id="" tvg-name="镜新闻" tvg-logo="" group-title="港台",镜新闻(Youtube)
-http://192.168.100.1:35455/youtube/5n0y6b0Q25o
+https://tv.iill.top/4gtv/litv-ftv13
 
 #EXTINF:-1,tvg-id="北京IPTV4K" tvg-name="北京IPTV4K" tvg-logo="https://epg.v1.mk/logo/北京IPTV4K.png" group-title="影视",北京IPTV4K
 http://192.168.100.1:5140/rtp/239.3.1.249:8001
