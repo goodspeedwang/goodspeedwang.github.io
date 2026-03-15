@@ -544,17 +544,26 @@ def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], rul
                 if last_part in ['no-resolve', 'no-ip', 'reject', 'direct']:
                     # 代理组在第三个位置
                     proxy_group = rule_parts[2].strip()
-                    if proxy_group not in our_proxy_groups:
+                    # 先将 🔰 选择节点 替换为 Auto-Select
+                    if proxy_group == '🔰 选择节点':
+                        rule_parts[2] = 'Auto-Select'
+                    elif proxy_group not in our_proxy_groups:
                         rule_parts[2] = 'Global-Group'
                 else:
                     # 代理组在最后一个位置
                     proxy_group = last_part
-                    if proxy_group not in our_proxy_groups:
+                    # 先将 🔰 选择节点 替换为 Auto-Select
+                    if proxy_group == '🔰 选择节点':
+                        rule_parts[-1] = 'Auto-Select'
+                    elif proxy_group not in our_proxy_groups:
                         rule_parts[-1] = 'Global-Group'
             elif len(rule_parts) == 3:
                 # 代理组在最后一个位置
                 proxy_group = rule_parts[2].strip()
-                if proxy_group not in our_proxy_groups:
+                # 先将 🔰 选择节点 替换为 Auto-Select
+                if proxy_group == '🔰 选择节点':
+                    rule_parts[2] = 'Auto-Select'
+                elif proxy_group not in our_proxy_groups:
                     rule_parts[2] = 'Global-Group'
             elif len(rule_parts) >= 5:
                 # 更复杂的规则格式，尝试找到代理组
@@ -563,10 +572,17 @@ def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], rul
                 if last_part in ['no-resolve', 'no-ip', 'reject', 'direct']:
                     if len(rule_parts) >= 4:
                         proxy_group = rule_parts[-3].strip()
-                        if proxy_group not in our_proxy_groups:
+                        # 先将 🔰 选择节点 替换为 Auto-Select
+                        if proxy_group == '🔰 选择节点':
+                            rule_parts[-3] = 'Auto-Select'
+                        elif proxy_group not in our_proxy_groups:
                             rule_parts[-3] = 'Global-Group'
                 else:
-                    if proxy_group not in our_proxy_groups:
+                    proxy_group = last_part
+                    # 先将 🔰 选择节点 替换为 Auto-Select
+                    if proxy_group == '🔰 选择节点':
+                        rule_parts[-1] = 'Auto-Select'
+                    elif proxy_group not in our_proxy_groups:
                         rule_parts[-1] = 'Global-Group'
 
             rule = ','.join(rule_parts)
@@ -635,11 +651,36 @@ def merge_subscriptions():
         VIDEO_NAME
     )
 
+    # 创建节点名称映射（原始名称 -> 带前缀的名称）
+    # 用于修复主配置代理组中的节点引用
+    node_name_map = {}
+    for node in main_nodes['hk'] + main_nodes['non_hk']:
+        original_name = node['name'].split(f'{MAIN_NAME} | ')[-1]
+        node_name_map[original_name] = node['name']
+
     # 保留主配置中的代理组（除了我们已有的组）
     our_proxy_group_names = [group['name'] for group in proxy_groups]
     main_proxy_groups = main_config.get('proxy-groups', [])
     for group in main_proxy_groups:
+        # 跳过 🔰 选择节点 组，将其替换为 Auto-Select
+        if group['name'] == '🔰 选择节点':
+            continue
         if group['name'] not in our_proxy_group_names:
+            # 修复代理组中的节点名称，添加前缀
+            group = group.copy()
+            if 'proxies' in group:
+                new_proxies = []
+                for proxy in group['proxies']:
+                    if proxy == '🔰 选择节点':
+                        # 将 🔰 选择节点 替换为 Global-Select（Auto-Select 的别名）
+                        # 因为 url-test 类型不能被直接引用，需要通过 select 类型的组
+                        new_proxies.append('Auto-Select')
+                    elif proxy in node_name_map:
+                        new_proxies.append(node_name_map[proxy])
+                    else:
+                        # 保留DIRECT、REJECT等特殊值，以及其他代理组名称
+                        new_proxies.append(proxy)
+                group['proxies'] = new_proxies
             proxy_groups.append(group)
             our_proxy_group_names.append(group['name'])
 
