@@ -7,6 +7,11 @@
 
 import os
 import sys
+import warnings
+
+# 忽略 urllib3 的 OpenSSL 警告（macOS LibreSSL 兼容性问题）
+warnings.filterwarnings('ignore', message='urllib3 v2 only supports OpenSSL')
+
 import requests
 import yaml
 import re
@@ -428,7 +433,7 @@ def create_proxy_groups(video_nodes: List[Dict[str, Any]],
             'name': 'Video-Auto',
             'type': 'url-test',
             'proxies': video_names if video_names else ['Global-Group'],
-            'url': 'https://www.youtube.com/generate_204',
+            'url': 'http://www.gstatic.com/generate_204',
             'interval': 300
         },
         {
