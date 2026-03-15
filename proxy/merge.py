@@ -26,6 +26,8 @@ VIDEO_URL = os.getenv('VIDEO_CONFIG_URL')
 MAIN_NAME = os.getenv('MAIN_CONFIG_NAME', '主配置')
 VIDEO_NAME = os.getenv('VIDEO_CONFIG_NAME', '视频配置')
 OUTPUT_PATH = os.getenv('OUTPUT_PATH', './merged.yaml')
+USE_CACHE = os.getenv('USE_CACHE', 'false').lower() == 'true'
+CACHE_DIR = './cache'
 
 # 检查必需的环境变量
 if not MAIN_URL or not VIDEO_URL:
@@ -299,14 +301,49 @@ AI_RULES = [
 HK_KEYWORDS = ["HK", "Hong Kong", "香港", "HongKong", "HONG KONG"]
 
 
+def get_china_direct_rules() -> List[str]:
+    """获取国内直连规则列表（最高优先级）"""
+    rules = []
+
+    # 只保留 GEOIP,CN 规则（不包含具体的域名规则）
+    rules.append('GEOIP,CN,DIRECT,no-resolve')
+
+    return rules
+
+
 def download_subscription(url: str, name: str) -> Dict[str, Any]:
     """下载订阅配置"""
+    cache_file = os.path.join(CACHE_DIR, f"{name}.yaml")
+
+    # 检查是否使用缓存
+    if USE_CACHE and os.path.exists(cache_file):
+        print(f"使用缓存的 {name} 订阅...")
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+            print(f"{name} 订阅加载成功（缓存），包含 {len(config.get('proxies', []))} 个节点")
+            return config
+        except Exception as e:
+            print(f"加载缓存失败: {e}，将重新下载")
+
+    # 下载订阅
     print(f"正在下载 {name} 订阅...")
     try:
         response = requests.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         config = yaml.safe_load(response.text)
         print(f"{name} 订阅下载成功，包含 {len(config.get('proxies', []))} 个节点")
+
+        # 保存到缓存
+        if USE_CACHE:
+            try:
+                os.makedirs(CACHE_DIR, exist_ok=True)
+                with open(cache_file, 'w', encoding='utf-8') as f:
+                    yaml.dump(config, f, allow_unicode=True, default_flow_style=False)
+                print(f"{name} 订阅已缓存到: {cache_file}")
+            except Exception as e:
+                print(f"保存缓存失败: {e}")
+
         return config
     except requests.RequestException as e:
         print(f"下载 {name} 订阅失败: {e}")
@@ -400,12 +437,12 @@ def create_proxy_groups(video_nodes: List[Dict[str, Any]],
     return proxy_groups
 
 
-def create_rules(cloudfare_nodes: List[Dict[str, Any]], 
+def create_rules(cloudfare_nodes: List[Dict[str, Any]],
                 ai_select_group: str) -> List[str]:
     """创建规则"""
     rules = []
 
-    # YouTube 规则 - 优先级最高
+    # YouTube 规则
     for rule in YOUTUBE_RULES:
         rules.append(f"{rule},Video-Group")
 
@@ -413,55 +450,36 @@ def create_rules(cloudfare_nodes: List[Dict[str, Any]],
     for rule in AI_RULES:
         rules.append(f"{rule},{ai_select_group}")
 
+    # 不在这里添加 MATCH 规则，它应该在所有规则的最后面
+
     return rules
 
 
 def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our_proxy_groups: List[str]) -> List[str]:
     """过滤并修复原有规则"""
-    # 获取自定义规则中的域名和关键词
-    custom_domains = set()
-    custom_keywords = set()
-
-    for rule in custom_rules:
-        if 'DOMAIN-SUFFIX,' in rule:
-            domain = rule.split('DOMAIN-SUFFIX,')[1].split(',')[0]
-            custom_domains.add(domain)
-        elif 'DOMAIN-KEYWORD,' in rule:
-            keyword = rule.split('DOMAIN-KEYWORD,')[1].split(',')[0]
-            custom_keywords.add(keyword)
-        elif 'DOMAIN,' in rule:
-            domain = rule.split('DOMAIN,')[1].split(',')[0]
-            custom_domains.add(domain)
-
     # 过滤和修复原有规则
     filtered_rules = []
     for rule in original_rules:
         skip = False
-        
-        # 检查是否为自定义规则的域名
-        if 'DOMAIN-SUFFIX,' in rule:
-            domain = rule.split('DOMAIN-SUFFIX,')[1].split(',')[0]
-            if domain in custom_domains:
-                skip = True
-        
-        # 检查是否为自定义规则的关键词
-        elif 'DOMAIN-KEYWORD,' in rule:
-            keyword = rule.split('DOMAIN-KEYWORD,')[1].split(',')[0]
-            if keyword in custom_keywords:
-                skip = True
-        
-        # 检查是否为自定义规则的域名
-        elif 'DOMAIN,' in rule:
-            domain = rule.split('DOMAIN,')[1].split(',')[0]
-            if domain in custom_domains:
-                skip = True
-        
-        # 检查 YouTube 相关规则
-        elif 'youtube' in rule.lower():
+
+        # 跳过原配置中的 GEOIP,CN 规则（我们会添加自己的国内直连规则作为最高优先级）
+        if 'GEOIP,CN' in rule:
             skip = True
-        
-        # 检查 AI 相关规则
-        elif any(keyword in rule.lower() for keyword in ['openai', 'chatgpt', 'claude', 'anthropic', 'gemini', 'bard']):
+
+        # 跳过原配置中的 MATCH 规则（我们会添加自己的 MATCH 规则在最后）
+        if rule.startswith('MATCH,'):
+            skip = True
+
+        # 跳过原配置中的 YouTube 相关规则（我们的自定义规则会覆盖）
+        if 'youtube' in rule.lower():
+            skip = True
+
+        # 跳过原配置中的 AI 服务相关规则（我们的自定义规则会覆盖）
+        if any(keyword in rule.lower() for keyword in ['openai', 'chatgpt', 'claude', 'anthropic', 'gemini', 'bard']):
+            skip = True
+
+        # 检测国内 IP 段（私有 IP）
+        if any(ip in rule for ip in ['IP-CIDR,10.', 'IP-CIDR,172.16.', 'IP-CIDR,192.168.', 'IP-CIDR,127.']):
             skip = True
 
         if not skip:
@@ -470,7 +488,7 @@ def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our
             # 或者: TYPE,MATCH[,OPTION],PROXY-GROUP
             # 需要找到代理组名称（通常是第三个或第四个字段）
             rule_parts = rule.split(',')
-            
+
             # 检查是否有中间字段（如 no-resolve）
             # 如果规则长度是4，且最后一个部分是常见选项，则代理组在第三个位置
             if len(rule_parts) == 4:
@@ -490,7 +508,19 @@ def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our
                 proxy_group = rule_parts[2].strip()
                 if proxy_group not in our_proxy_groups:
                     rule_parts[2] = 'Global-Group'
-            
+            elif len(rule_parts) >= 5:
+                # 更复杂的规则格式，尝试找到代理组
+                # 通常是倒数第一个，或者倒数第三个（如果最后是no-resolve）
+                last_part = rule_parts[-1].strip()
+                if last_part in ['no-resolve', 'no-ip', 'reject', 'direct']:
+                    if len(rule_parts) >= 4:
+                        proxy_group = rule_parts[-3].strip()
+                        if proxy_group not in our_proxy_groups:
+                            rule_parts[-3] = 'Global-Group'
+                else:
+                    if proxy_group not in our_proxy_groups:
+                        rule_parts[-1] = 'Global-Group'
+
             rule = ','.join(rule_parts)
             filtered_rules.append(rule)
 
@@ -554,18 +584,28 @@ def merge_subscriptions():
         VIDEO_NAME
     )
 
+    # 保留主配置中的代理组（除了我们已有的组）
+    our_proxy_group_names = [group['name'] for group in proxy_groups]
+    main_proxy_groups = main_config.get('proxy-groups', [])
+    for group in main_proxy_groups:
+        if group['name'] not in our_proxy_group_names:
+            proxy_groups.append(group)
+            our_proxy_group_names.append(group['name'])
+
     # 创建自定义规则
     custom_rules = create_rules(video_nodes, 'AI-Select')
 
-    # 获取我们的代理组名称
-    our_proxy_groups = [group['name'] for group in proxy_groups]
-
     # 过滤并修复原有规则（使用主配置的规则作为基础）
     original_rules = main_config.get('rules', [])
-    filtered_rules = filter_and_fix_rules(original_rules, custom_rules, our_proxy_groups)
+    filtered_rules = filter_and_fix_rules(original_rules, custom_rules, our_proxy_group_names)
 
-    # 合并规则
-    all_rules = custom_rules + filtered_rules
+    # 合并规则：国内直连规则 + 视频/AI规则 + 其他规则
+    # 国内直连规则放在最前面，确保国内流量优先匹配
+    # 注意：国内域名规则要在 main 配置的域名规则之前，避免被覆盖
+    china_rules = get_china_direct_rules()
+
+    # 将 MATCH 规则放在最后面
+    all_rules = china_rules + custom_rules + filtered_rules + ['MATCH,🐟 漏网之鱼']
 
     # 构建最终配置
     merged_config = {
