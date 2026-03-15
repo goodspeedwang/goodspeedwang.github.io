@@ -300,6 +300,9 @@ AI_RULES = [
 # 香港节点关键词
 HK_KEYWORDS = ["HK", "Hong Kong", "香港", "HongKong", "HONG KONG"]
 
+# rules.conf 文件路径
+RULES_CONF_PATH = './rules.conf'
+
 
 def get_china_direct_rules() -> List[str]:
     """获取国内直连规则列表（最高优先级）"""
@@ -356,6 +359,29 @@ def is_hk_node(node_name: str) -> bool:
         if keyword.lower() in node_name.lower():
             return True
     return False
+
+
+def load_rules_conf() -> List[str]:
+    """加载 rules.conf 文件中的规则"""
+    rules = []
+    if os.path.exists(RULES_CONF_PATH):
+        print(f"加载自定义规则文件: {RULES_CONF_PATH}")
+        try:
+            with open(RULES_CONF_PATH, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    # 跳过空行和注释
+                    if line and not line.startswith('#'):
+                        # 移除行首的 - 前缀（如果有）
+                        if line.startswith('-'):
+                            line = line[1:].strip()
+                        rules.append(line)
+            print(f"已加载 {len(rules)} 条自定义规则")
+        except Exception as e:
+            print(f"加载 rules.conf 失败: {e}")
+    else:
+        print(f"未找到 rules.conf 文件，将不添加自定义规则")
+    return rules
 
 
 def categorize_nodes(proxies: List[Dict[str, Any]], source_name: str) -> Dict[str, List[Dict[str, Any]]]:
@@ -455,8 +481,17 @@ def create_rules(cloudfare_nodes: List[Dict[str, Any]],
     return rules
 
 
-def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our_proxy_groups: List[str]) -> List[str]:
+def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], rules_conf: List[str], our_proxy_groups: List[str]) -> List[str]:
     """过滤并修复原有规则"""
+    # 从 rules.conf 中提取所有匹配目标（域名、IP段等），用于冲突检测
+    rules_conf_targets = set()
+    for rule in rules_conf:
+        parts = rule.split(',')
+        if len(parts) >= 2:
+            # 提取第二个字段作为目标（域名、IP段等）
+            target = parts[1].strip()
+            rules_conf_targets.add(target.lower())
+
     # 过滤和修复原有规则
     filtered_rules = []
     for rule in original_rules:
@@ -481,6 +516,14 @@ def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our
         # 检测国内 IP 段（私有 IP）
         if any(ip in rule for ip in ['IP-CIDR,10.', 'IP-CIDR,172.16.', 'IP-CIDR,192.168.', 'IP-CIDR,127.']):
             skip = True
+
+        # 冲突检测：如果规则的目标与 rules.conf 中的目标相同，则跳过
+        if not skip:
+            parts = rule.split(',')
+            if len(parts) >= 2:
+                target = parts[1].strip()
+                if target.lower() in rules_conf_targets:
+                    skip = True
 
         if not skip:
             # 修复规则：将不存在的代理组替换为 Global-Group
@@ -562,6 +605,9 @@ def save_config_with_flow_style(config: Dict[str, Any], output_path: Path):
 
 def merge_subscriptions():
     """合并订阅配置"""
+    # 加载自定义规则文件（最高优先级）
+    rules_conf = load_rules_conf()
+
     # 下载订阅
     main_config = download_subscription(MAIN_URL, MAIN_NAME)
     video_config = download_subscription(VIDEO_URL, VIDEO_NAME)
@@ -597,15 +643,16 @@ def merge_subscriptions():
 
     # 过滤并修复原有规则（使用主配置的规则作为基础）
     original_rules = main_config.get('rules', [])
-    filtered_rules = filter_and_fix_rules(original_rules, custom_rules, our_proxy_group_names)
+    filtered_rules = filter_and_fix_rules(original_rules, custom_rules, rules_conf, our_proxy_group_names)
 
-    # 合并规则：国内直连规则 + 视频/AI规则 + 其他规则
-    # 国内直连规则放在最前面，确保国内流量优先匹配
+    # 合并规则：rules.conf（最高优先级）+ 国内直连规则 + 视频/AI规则 + 其他规则
+    # rules.conf 的优先级最高，放在最前面
+    # 国内直连规则放在第二位
     # 注意：国内域名规则要在 main 配置的域名规则之前，避免被覆盖
     china_rules = get_china_direct_rules()
 
     # 将 MATCH 规则放在最后面
-    all_rules = china_rules + custom_rules + filtered_rules + ['MATCH,🐟 漏网之鱼']
+    all_rules = rules_conf + china_rules + custom_rules + filtered_rules + ['MATCH,🐟 漏网之鱼']
 
     # 构建最终配置
     merged_config = {
@@ -635,6 +682,8 @@ def merge_subscriptions():
     print(f"    - {MAIN_NAME} 非香港节点: {len(main_nodes['non_hk'])}")
     print(f"  - 代理组数: {len(proxy_groups)}")
     print(f"  - 规则数: {len(all_rules)}")
+    print(f"    - rules.conf 自定义规则: {len(rules_conf)}")
+    print(f"    - 国内直连规则: {len(china_rules)}")
     print(f"    - YouTube 规则: {len(YOUTUBE_RULES)}")
     print(f"    - AI 服务规则: {len(AI_RULES)}")
     print(f"    - 其他规则: {len(filtered_rules)}")
