@@ -16,59 +16,105 @@ from typing import List, Tuple, Dict
 class ChannelTester:
     """频道可用性检测器"""
 
-    def __init__(self, timeout: int = 5, proxy_host: str = "192.168.100.1", proxy_port: int = 5140):
+    def __init__(self, timeout: int = 5, proxy_host: str = "192.168.100.1", proxy_port: int = 5140, strict: bool = False):
         self.timeout = timeout
         self.proxy_host = proxy_host
         self.proxy_port = proxy_port
+        self.strict = strict
 
     def test_http_url(self, url: str) -> Tuple[bool, str]:
         """
         测试HTTP URL是否可用
-        通过检查是否能建立连接并获取HTTP头来判断
+        通过实际读取数据并验证是否包含有效的MPEG-TS流来判断
         """
         try:
-            req = urllib.request.Request(url, method='HEAD')
+            req = urllib.request.Request(url)
             req.add_header('User-Agent', 'VLC/3.0.18 LibVLC/3.0.18')
 
             with urllib.request.urlopen(req, timeout=self.timeout) as response:
-                # 检查返回的内容类型
                 content_type = response.headers.get('Content-Type', '')
 
-                # 视频流通常返回 application/octet-stream 或 video/*
-                if 'video' in content_type or 'octet-stream' in content_type or 'mpeg' in content_type:
-                    return True, f"OK (Content-Type: {content_type})"
+                # 实际读取数据验证是否为有效的视频流
+                # MPEG-TS 流的同步字节是 0x47，每 188 字节出现一次
+                try:
+                    data = response.read(2048)  # 读取前 2KB 数据
 
-                # 即使是404也可能说明服务存在，只是路径不对
-                return True, f"可用 (Status: {response.status})"
+                    if len(data) == 0:
+                        return False, "空台 (无数据)"
+
+                    # 检查是否包含 MPEG-TS 同步字节 0x47
+                    # 有效的 TS 流应该有多个同步字节
+                    sync_count = 0
+                    for i in range(len(data)):
+                        if data[i] == 0x47:
+                            # 检查是否在 188 字节边界上
+                            if i + 188 <= len(data) and data[i + 188] == 0x47:
+                                sync_count += 1
+
+                    if sync_count >= 2:
+                        return True, f"OK ({content_type})"
+                    elif len(data) < 100:
+                        # 数据太少，可能是空台
+                        return False, f"空台 (数据不足: {len(data)}字节)"
+                    else:
+                        # 有数据但没有找到 TS 同步字节，可能是其他格式或有噪声
+                        # 如果数据量足够大，仍然认为可能可用
+                        if len(data) >= 1024:
+                            return True, f"OK ({content_type}, 数据{len(data)}字节)"
+                        return False, f"空台 (无有效TS数据)"
+
+                except socket.timeout:
+                    if self.strict:
+                        return False, "空台 (读取超时)"
+                    return True, "待定 (读取超时，保留)"
 
         except urllib.error.HTTPError as e:
-            # HTTP错误码说明服务存在，只是返回错误
-            if e.code in [404, 400, 503]:
-                return False, f"可能为空台 (HTTP {e.code})"
-            return False, f"HTTP错误: {e.code}"
+            if self.strict:
+                return False, f"空台 (HTTP {e.code})"
+            # 宽松模式：HEAD备选
+            return self._test_with_head(url, f"GET {e.code}")
 
         except urllib.error.URLError as e:
             error_msg = str(e.reason)
 
-            # 连接被拒绝 - 地址不存在
             if 'Connection refused' in error_msg:
                 return False, "连接被拒绝(空台)"
 
-            # 连接超时
             if 'timed out' in error_msg:
-                return False, "连接超时(可能空台)"
+                if self.strict:
+                    return False, "空台 (连接超时)"
+                return self._test_with_head(url, "GET超时")
 
-            # 无路由到主机
             if 'No route to host' in error_msg or 'unreachable' in error_msg:
                 return False, "主机不可达"
 
             return False, f"连接错误: {error_msg[:50]}"
 
         except socket.timeout:
-            return False, "超时(可能空台)"
+            if self.strict:
+                return False, "空台 (GET超时)"
+            return self._test_with_head(url, "GET超时")
 
         except Exception as e:
             return False, f"错误: {str(e)[:50]}"
+
+    def _test_with_head(self, url: str, reason: str) -> Tuple[bool, str]:
+        """使用HEAD请求作为备选检测方法（仅在宽松模式下使用）"""
+        try:
+            req = urllib.request.Request(url, method='HEAD')
+            req.add_header('User-Agent', 'VLC/3.0.18 LibVLC/3.0.18')
+
+            with urllib.request.urlopen(req, timeout=self.timeout) as response:
+                content_type = response.headers.get('Content-Type', '')
+                return True, f"OK ({content_type})"
+
+        except urllib.error.HTTPError as e:
+            if e.code == 503:
+                return True, f"待定 ({reason}->HEAD 503，保留)"
+            return False, f"空台 ({reason}->HEAD {e.code})"
+
+        except Exception as e:
+            return True, f"待定 ({reason}->HEAD失败，保留)"
 
     def test_rtp_url(self, rtp_address: str) -> Tuple[bool, str]:
         """
@@ -221,13 +267,16 @@ def main():
     parser.add_argument('--proxy-host', type=str, default='192.168.100.1', help='udpxy代理地址')
     parser.add_argument('--proxy-port', type=int, default=5140, help='udpxy代理端口')
     parser.add_argument('--workers', '-w', type=int, default=10, help='并发测试数，默认10')
+    parser.add_argument('--strict', '-s', action='store_true',
+                        help='严格模式：只用GET验证数据，能识别真正的空台（需在组播源环境中运行）')
     args = parser.parse_args()
 
     # 创建测试器
     tester = ChannelTester(
         timeout=args.timeout,
         proxy_host=args.proxy_host,
-        proxy_port=args.proxy_port
+        proxy_port=args.proxy_port,
+        strict=args.strict
     )
 
     # 解析频道列表

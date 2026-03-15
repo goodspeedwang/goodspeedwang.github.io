@@ -455,10 +455,90 @@ class IPTVUpdater:
 
         print(f"  保存完成")
 
-    def test_channel_availability(self, channel: Channel, timeout: int = 3) -> Tuple[bool, str]:
+    def test_channel_availability(self, channel: Channel, timeout: int = 3, strict: bool = False) -> Tuple[bool, str]:
         """
         测试单个频道是否可用（是否为空台）
-        通过连接udpxy代理测试RTP地址
+        通过连接udpxy代理测试RTP地址，并实际读取数据验证
+
+        Args:
+            channel: 频道对象
+            timeout: 超时时间(秒)
+            strict: 严格模式 - True时只用GET验证数据，能识别真正的空台；
+                           False时GET失败后用HEAD备选，保留可能有效的频道
+        """
+        url = f"http://{self.PROXY_HOST}:{self.PROXY_PORT}/rtp/{channel.rtp_address}"
+
+        # 第一步：尝试GET请求读取实际数据
+        try:
+            req = urllib.request.Request(url)
+            req.add_header('User-Agent', 'VLC/3.0.18 LibVLC/3.0.18')
+
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                content_type = response.headers.get('Content-Type', '')
+
+                try:
+                    data = response.read(2048)
+
+                    if len(data) == 0:
+                        return False, "空台 (无数据)"
+
+                    # 检查 MPEG-TS 同步字节 0x47
+                    sync_count = 0
+                    for i in range(len(data)):
+                        if data[i] == 0x47:
+                            if i + 188 <= len(data) and data[i + 188] == 0x47:
+                                sync_count += 1
+
+                    if sync_count >= 2:
+                        return True, f"OK ({content_type})"
+                    elif len(data) < 100:
+                        return False, f"空台 (数据不足: {len(data)}字节)"
+                    else:
+                        if len(data) >= 1024:
+                            return True, f"OK ({content_type}, 数据{len(data)}字节)"
+                        return False, f"空台 (无有效TS数据)"
+
+                except socket.timeout:
+                    if strict:
+                        return False, "空台 (读取超时)"
+                    return True, "待定 (读取超时，保留)"
+
+        except urllib.error.HTTPError as e:
+            if strict:
+                # 严格模式：直接判定为空台
+                return False, f"空台 (HTTP {e.code})"
+
+            # 宽松模式：尝试HEAD请求作为备选
+            if e.code == 503:
+                return self._test_with_head(channel, timeout, "GET 503")
+            if e.code in [404, 400, 502]:
+                return False, f"空台 (HTTP {e.code})"
+            return self._test_with_head(channel, timeout, f"GET {e.code}")
+
+        except urllib.error.URLError as e:
+            error_msg = str(e.reason)
+            if 'Connection refused' in error_msg:
+                return False, "连接被拒绝(空台)"
+            if 'timed out' in error_msg:
+                if strict:
+                    return False, "空台 (连接超时)"
+                return self._test_with_head(channel, timeout, "GET超时")
+            if 'No route to host' in error_msg or 'unreachable' in error_msg:
+                return False, "主机不可达"
+            return False, f"连接错误: {error_msg[:50]}"
+
+        except socket.timeout:
+            if strict:
+                return False, "空台 (GET超时)"
+            return self._test_with_head(channel, timeout, "GET超时")
+
+        except Exception as e:
+            return False, f"错误: {str(e)[:50]}"
+
+    def _test_with_head(self, channel: Channel, timeout: int, reason: str) -> Tuple[bool, str]:
+        """
+        使用HEAD请求作为备选检测方法（仅在宽松模式下使用）
+        当GET请求失败时使用，检查udpxy是否能接受该RTP地址
         """
         url = f"http://{self.PROXY_HOST}:{self.PROXY_PORT}/rtp/{channel.rtp_address}"
 
@@ -468,44 +548,32 @@ class IPTVUpdater:
 
             with urllib.request.urlopen(req, timeout=timeout) as response:
                 content_type = response.headers.get('Content-Type', '')
-
-                # 视频流通常返回 application/octet-stream 或 video/*
-                if 'video' in content_type or 'octet-stream' in content_type or 'mpeg' in content_type:
-                    return True, f"OK ({content_type})"
-
-                return True, f"可用 (Status: {response.status})"
+                # HEAD成功，说明udpxy能接受该地址，保留
+                return True, f"OK ({content_type})"
 
         except urllib.error.HTTPError as e:
-            if e.code in [404, 400, 503]:
-                return False, f"空台 (HTTP {e.code})"
-            return False, f"HTTP错误: {e.code}"
-
-        except urllib.error.URLError as e:
-            error_msg = str(e.reason)
-
-            if 'Connection refused' in error_msg:
-                return False, "连接被拒绝(空台)"
-            if 'timed out' in error_msg:
-                return False, "连接超时(空台)"
-            if 'No route to host' in error_msg or 'unreachable' in error_msg:
-                return False, "主机不可达"
-
-            return False, f"连接错误: {error_msg[:50]}"
-
-        except socket.timeout:
-            return False, "超时(空台)"
+            if e.code == 503:
+                # HEAD也返回503，可能是网络环境问题，保留
+                return True, f"待定 ({reason}->HEAD 503，保留)"
+            return False, f"空台 ({reason}->HEAD {e.code})"
 
         except Exception as e:
-            return False, f"错误: {str(e)[:50]}"
+            # HEAD失败，保守起见保留
+            return True, f"待定 ({reason}->HEAD失败，保留)"
 
-    def filter_unavailable_channels(self, timeout: int = 3, max_workers: int = 20) -> List[Channel]:
+    def filter_unavailable_channels(self, timeout: int = 3, max_workers: int = 20, strict: bool = False) -> List[Channel]:
         """
         批量检测频道可用性，过滤掉空台
         返回可用频道列表
+
+        Args:
+            timeout: 超时时间(秒)
+            max_workers: 并发数
+            strict: 严格模式 - True时能识别真正的空台，False时保留可能有效的频道
         """
         print(f"\n开始检测频道可用性...")
         print(f"代理: http://{self.PROXY_HOST}:{self.PROXY_PORT}")
-        print(f"超时: {timeout}秒, 并发: {max_workers}")
+        print(f"超时: {timeout}秒, 并发: {max_workers}, 严格模式: {strict}")
         print("-" * 60)
 
         available_channels = []
@@ -514,7 +582,7 @@ class IPTVUpdater:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             # 提交所有检测任务
             future_to_channel = {
-                executor.submit(self.test_channel_availability, ch, timeout): ch
+                executor.submit(self.test_channel_availability, ch, timeout, strict): ch
                 for ch in self.processed_channels
             }
 
@@ -575,7 +643,7 @@ class IPTVUpdater:
         print("\n" + "=" * 60)
 
     def run(self, local_file: Optional[str] = None, test_channels: bool = False,
-            test_timeout: int = 3, test_workers: int = 20) -> None:
+            test_timeout: int = 3, test_workers: int = 20, strict: bool = False) -> None:
         """运行更新流程"""
         print("=" * 60)
         print("IPTV频道列表更新")
@@ -594,7 +662,7 @@ class IPTVUpdater:
         # 4. 检测频道可用性（可选）
         if test_channels:
             self.processed_channels = self.filter_unavailable_channels(
-                timeout=test_timeout, max_workers=test_workers
+                timeout=test_timeout, max_workers=test_workers, strict=strict
             )
             if not self.processed_channels:
                 print("\n警告: 没有可用频道！请检查网络连接和代理配置。")
@@ -635,6 +703,8 @@ def main():
                         help='检测超时时间(秒)，默认3秒')
     parser.add_argument('--test-workers', type=int, default=20,
                         help='检测并发数，默认20')
+    parser.add_argument('--strict', '-s', action='store_true',
+                        help='严格模式：只用GET验证数据，能识别真正的空台（需在组播源环境中运行）')
     parser.add_argument('--proxy-host', type=str, default='192.168.100.1',
                         help='udpxy代理地址，默认192.168.100.1')
     parser.add_argument('--proxy-port', type=int, default=5140,
@@ -654,7 +724,8 @@ def main():
         local_file=args.local,
         test_channels=args.test,
         test_timeout=args.test_timeout,
-        test_workers=args.test_workers
+        test_workers=args.test_workers,
+        strict=args.strict
     )
 
 
