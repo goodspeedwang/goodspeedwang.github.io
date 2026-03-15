@@ -1,0 +1,615 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+代理订阅合并工具
+用于合并两个 Clash 订阅，并自定义路由规则
+"""
+
+import os
+import sys
+import requests
+import yaml
+import re
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+from io import StringIO
+import json
+from datetime import datetime
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv()
+
+# 配置（从环境变量读取）
+MAIN_URL = os.getenv('MAIN_CONFIG_URL')
+VIDEO_URL = os.getenv('VIDEO_CONFIG_URL')
+MAIN_NAME = os.getenv('MAIN_CONFIG_NAME', '主配置')
+VIDEO_NAME = os.getenv('VIDEO_CONFIG_NAME', '视频配置')
+OUTPUT_PATH = os.getenv('OUTPUT_PATH', './merged.yaml')
+
+# 检查必需的环境变量
+if not MAIN_URL or not VIDEO_URL:
+    raise ValueError(
+        "请设置环境变量 MAIN_CONFIG_URL 和 VIDEO_CONFIG_URL。\n"
+        "复制 .env.example 为 .env 并填入真实的订阅链接。"
+    )
+
+# 请求头
+HEADERS = {
+    'User-Agent': 'Clash/1.18.0'
+}
+
+# YouTube 规则（2025-06-06 更新）
+YOUTUBE_RULES = [
+    # DOMAIN-SUFFIX (179条)
+    "DOMAIN-SUFFIX,ggpht.cn",
+    "DOMAIN-SUFFIX,ggpht.com",
+    "DOMAIN-SUFFIX,googlevideo.com",
+    "DOMAIN-SUFFIX,gvt1.com",
+    "DOMAIN-SUFFIX,gvt2.com",
+    "DOMAIN-SUFFIX,video.google.com",
+    "DOMAIN-SUFFIX,wide-youtube.l.google.com",
+    "DOMAIN-SUFFIX,withyoutube.com",
+    "DOMAIN-SUFFIX,youtu.be",
+    "DOMAIN-SUFFIX,youtube",
+    "DOMAIN-SUFFIX,youtube-nocookie.com",
+    "DOMAIN-SUFFIX,youtube-ui.l.google.com",
+    "DOMAIN-SUFFIX,youtube.ae",
+    "DOMAIN-SUFFIX,youtube.al",
+    "DOMAIN-SUFFIX,youtube.am",
+    "DOMAIN-SUFFIX,youtube.at",
+    "DOMAIN-SUFFIX,youtube.az",
+    "DOMAIN-SUFFIX,youtube.ba",
+    "DOMAIN-SUFFIX,youtube.be",
+    "DOMAIN-SUFFIX,youtube.bg",
+    "DOMAIN-SUFFIX,youtube.bh",
+    "DOMAIN-SUFFIX,youtube.bo",
+    "DOMAIN-SUFFIX,youtube.by",
+    "DOMAIN-SUFFIX,youtube.ca",
+    "DOMAIN-SUFFIX,youtube.cat",
+    "DOMAIN-SUFFIX,youtube.ch",
+    "DOMAIN-SUFFIX,youtube.cl",
+    "DOMAIN-SUFFIX,youtube.co",
+    "DOMAIN-SUFFIX,youtube.co.ae",
+    "DOMAIN-SUFFIX,youtube.co.at",
+    "DOMAIN-SUFFIX,youtube.co.cr",
+    "DOMAIN-SUFFIX,youtube.co.hu",
+    "DOMAIN-SUFFIX,youtube.co.id",
+    "DOMAIN-SUFFIX,youtube.co.il",
+    "DOMAIN-SUFFIX,youtube.co.in",
+    "DOMAIN-SUFFIX,youtube.co.jp",
+    "DOMAIN-SUFFIX,youtube.co.ke",
+    "DOMAIN-SUFFIX,youtube.co.kr",
+    "DOMAIN-SUFFIX,youtube.co.ma",
+    "DOMAIN-SUFFIX,youtube.co.nz",
+    "DOMAIN-SUFFIX,youtube.co.th",
+    "DOMAIN-SUFFIX,youtube.co.tz",
+    "DOMAIN-SUFFIX,youtube.co.ug",
+    "DOMAIN-SUFFIX,youtube.co.uk",
+    "DOMAIN-SUFFIX,youtube.co.ve",
+    "DOMAIN-SUFFIX,youtube.co.za",
+    "DOMAIN-SUFFIX,youtube.co.zw",
+    "DOMAIN-SUFFIX,youtube.com",
+    "DOMAIN-SUFFIX,youtube.com.ar",
+    "DOMAIN-SUFFIX,youtube.com.au",
+    "DOMAIN-SUFFIX,youtube.com.az",
+    "DOMAIN-SUFFIX,youtube.com.bd",
+    "DOMAIN-SUFFIX,youtube.com.bh",
+    "DOMAIN-SUFFIX,youtube.com.bo",
+    "DOMAIN-SUFFIX,youtube.com.br",
+    "DOMAIN-SUFFIX,youtube.com.by",
+    "DOMAIN-SUFFIX,youtube.com.co",
+    "DOMAIN-SUFFIX,youtube.com.do",
+    "DOMAIN-SUFFIX,youtube.com.ec",
+    "DOMAIN-SUFFIX,youtube.com.ee",
+    "DOMAIN-SUFFIX,youtube.com.eg",
+    "DOMAIN-SUFFIX,youtube.com.es",
+    "DOMAIN-SUFFIX,youtube.com.gh",
+    "DOMAIN-SUFFIX,youtube.com.gr",
+    "DOMAIN-SUFFIX,youtube.com.gt",
+    "DOMAIN-SUFFIX,youtube.com.hk",
+    "DOMAIN-SUFFIX,youtube.com.hn",
+    "DOMAIN-SUFFIX,youtube.com.hr",
+    "DOMAIN-SUFFIX,youtube.com.jm",
+    "DOMAIN-SUFFIX,youtube.com.jo",
+    "DOMAIN-SUFFIX,youtube.com.kw",
+    "DOMAIN-SUFFIX,youtube.com.lb",
+    "DOMAIN-SUFFIX,youtube.com.lv",
+    "DOMAIN-SUFFIX,youtube.com.ly",
+    "DOMAIN-SUFFIX,youtube.com.mk",
+    "DOMAIN-SUFFIX,youtube.com.mt",
+    "DOMAIN-SUFFIX,youtube.com.mx",
+    "DOMAIN-SUFFIX,youtube.com.my",
+    "DOMAIN-SUFFIX,youtube.com.ng",
+    "DOMAIN-SUFFIX,youtube.com.ni",
+    "DOMAIN-SUFFIX,youtube.com.om",
+    "DOMAIN-SUFFIX,youtube.com.pa",
+    "DOMAIN-SUFFIX,youtube.com.pe",
+    "DOMAIN-SUFFIX,youtube.com.ph",
+    "DOMAIN-SUFFIX,youtube.com.pk",
+    "DOMAIN-SUFFIX,youtube.com.pt",
+    "DOMAIN-SUFFIX,youtube.com.py",
+    "DOMAIN-SUFFIX,youtube.com.qa",
+    "DOMAIN-SUFFIX,youtube.com.ro",
+    "DOMAIN-SUFFIX,youtube.com.sa",
+    "DOMAIN-SUFFIX,youtube.com.sg",
+    "DOMAIN-SUFFIX,youtube.com.sv",
+    "DOMAIN-SUFFIX,youtube.com.tn",
+    "DOMAIN-SUFFIX,youtube.com.tr",
+    "DOMAIN-SUFFIX,youtube.com.tw",
+    "DOMAIN-SUFFIX,youtube.com.ua",
+    "DOMAIN-SUFFIX,youtube.com.uy",
+    "DOMAIN-SUFFIX,youtube.com.ve",
+    "DOMAIN-SUFFIX,youtube.cr",
+    "DOMAIN-SUFFIX,youtube.cz",
+    "DOMAIN-SUFFIX,youtube.de",
+    "DOMAIN-SUFFIX,youtube.dk",
+    "DOMAIN-SUFFIX,youtube.ee",
+    "DOMAIN-SUFFIX,youtube.es",
+    "DOMAIN-SUFFIX,youtube.fi",
+    "DOMAIN-SUFFIX,youtube.fr",
+    "DOMAIN-SUFFIX,youtube.ge",
+    "DOMAIN-SUFFIX,youtube.googleapis.com",
+    "DOMAIN-SUFFIX,youtube.gr",
+    "DOMAIN-SUFFIX,youtube.gt",
+    "DOMAIN-SUFFIX,youtube.hk",
+    "DOMAIN-SUFFIX,youtube.hr",
+    "DOMAIN-SUFFIX,youtube.hu",
+    "DOMAIN-SUFFIX,youtube.ie",
+    "DOMAIN-SUFFIX,youtube.in",
+    "DOMAIN-SUFFIX,youtube.iq",
+    "DOMAIN-SUFFIX,youtube.is",
+    "DOMAIN-SUFFIX,youtube.it",
+    "DOMAIN-SUFFIX,youtube.jo",
+    "DOMAIN-SUFFIX,youtube.jp",
+    "DOMAIN-SUFFIX,youtube.kr",
+    "DOMAIN-SUFFIX,youtube.kz",
+    "DOMAIN-SUFFIX,youtube.la",
+    "DOMAIN-SUFFIX,youtube.lk",
+    "DOMAIN-SUFFIX,youtube.lt",
+    "DOMAIN-SUFFIX,youtube.lu",
+    "DOMAIN-SUFFIX,youtube.lv",
+    "DOMAIN-SUFFIX,youtube.ly",
+    "DOMAIN-SUFFIX,youtube.ma",
+    "DOMAIN-SUFFIX,youtube.md",
+    "DOMAIN-SUFFIX,youtube.me",
+    "DOMAIN-SUFFIX,youtube.mk",
+    "DOMAIN-SUFFIX,youtube.mn",
+    "DOMAIN-SUFFIX,youtube.mx",
+    "DOMAIN-SUFFIX,youtube.my",
+    "DOMAIN-SUFFIX,youtube.ng",
+    "DOMAIN-SUFFIX,youtube.ni",
+    "DOMAIN-SUFFIX,youtube.nl",
+    "DOMAIN-SUFFIX,youtube.no",
+    "DOMAIN-SUFFIX,youtube.pa",
+    "DOMAIN-SUFFIX,youtube.pe",
+    "DOMAIN-SUFFIX,youtube.ph",
+    "DOMAIN-SUFFIX,youtube.pk",
+    "DOMAIN-SUFFIX,youtube.pl",
+    "DOMAIN-SUFFIX,youtube.pr",
+    "DOMAIN-SUFFIX,youtube.pt",
+    "DOMAIN-SUFFIX,youtube.qa",
+    "DOMAIN-SUFFIX,youtube.ro",
+    "DOMAIN-SUFFIX,youtube.rs",
+    "DOMAIN-SUFFIX,youtube.ru",
+    "DOMAIN-SUFFIX,youtube.sa",
+    "DOMAIN-SUFFIX,youtube.se",
+    "DOMAIN-SUFFIX,youtube.sg",
+    "DOMAIN-SUFFIX,youtube.si",
+    "DOMAIN-SUFFIX,youtube.sk",
+    "DOMAIN-SUFFIX,youtube.sn",
+    "DOMAIN-SUFFIX,youtube.soy",
+    "DOMAIN-SUFFIX,youtube.sv",
+    "DOMAIN-SUFFIX,youtube.tn",
+    "DOMAIN-SUFFIX,youtube.tv",
+    "DOMAIN-SUFFIX,youtube.ua",
+    "DOMAIN-SUFFIX,youtube.ug",
+    "DOMAIN-SUFFIX,youtube.uy",
+    "DOMAIN-SUFFIX,youtube.vn",
+    "DOMAIN-SUFFIX,youtubeeducation.com",
+    "DOMAIN-SUFFIX,youtubeembeddedplayer.googleapis.com",
+    "DOMAIN-SUFFIX,youtubefanfest.com",
+    "DOMAIN-SUFFIX,youtubegaming.com",
+    "DOMAIN-SUFFIX,youtubego.co.id",
+    "DOMAIN-SUFFIX,youtubego.co.in",
+    "DOMAIN-SUFFIX,youtubego.com",
+    "DOMAIN-SUFFIX,youtubego.com.br",
+    "DOMAIN-SUFFIX,youtubego.id",
+    "DOMAIN-SUFFIX,youtubego.in",
+    "DOMAIN-SUFFIX,youtubei.googleapis.com",
+    "DOMAIN-SUFFIX,youtubekids.com",
+    "DOMAIN-SUFFIX,youtubemobilesupport.com",
+    "DOMAIN-SUFFIX,yt.be",
+    "DOMAIN-SUFFIX,ytimg.com",
+    # DOMAIN-KEYWORD
+    "DOMAIN-KEYWORD,youtube",
+    # X.com 视频
+    "DOMAIN-SUFFIX,video.twimg.com",
+    "DOMAIN-SUFFIX,pscp.tv",
+    "DOMAIN-KEYWORD,video.twimg.com",
+    # IP-CIDR
+    "IP-CIDR,172.110.32.0/21",
+    "IP-CIDR,216.73.80.0/20",
+    "IP-CIDR6,2620:120:e000::/40",
+]
+
+# AI 服务规则（2025-06-06 更新）
+AI_RULES = [
+    # OpenAI / ChatGPT (35条)
+    "DOMAIN,browser-intake-datadoghq.com",
+    "DOMAIN,chat.openai.com.cdn.cloudflare.net",
+    "DOMAIN,openai-api.arkoselabs.com",
+    "DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net",
+    "DOMAIN,openaicomproductionae4b.blob.core.windows.net",
+    "DOMAIN,production-openaicom-storage.azureedge.net",
+    "DOMAIN,static.cloudflareinsights.com",
+    "DOMAIN-SUFFIX,ai.com",
+    "DOMAIN-SUFFIX,algolia.net",
+    "DOMAIN-SUFFIX,api.statsig.com",
+    "DOMAIN-SUFFIX,auth0.com",
+    "DOMAIN-SUFFIX,chatgpt.com",
+    "DOMAIN-SUFFIX,chatgpt.livekit.cloud",
+    "DOMAIN-SUFFIX,client-api.arkoselabs.com",
+    "DOMAIN-SUFFIX,events.statsigapi.net",
+    "DOMAIN-SUFFIX,featuregates.org",
+    "DOMAIN-SUFFIX,host.livekit.cloud",
+    "DOMAIN-SUFFIX,identrust.com",
+    "DOMAIN-SUFFIX,intercom.io",
+    "DOMAIN-SUFFIX,intercomcdn.com",
+    "DOMAIN-SUFFIX,launchdarkly.com",
+    "DOMAIN-SUFFIX,oaistatic.com",
+    "DOMAIN-SUFFIX,oaiusercontent.com",
+    "DOMAIN-SUFFIX,observeit.net",
+    "DOMAIN-SUFFIX,openai.com",
+    "DOMAIN-SUFFIX,openaiapi-site.azureedge.net",
+    "DOMAIN-SUFFIX,openaicom.imgix.net",
+    "DOMAIN-SUFFIX,segment.io",
+    "DOMAIN-SUFFIX,sentry.io",
+    "DOMAIN-SUFFIX,stripe.com",
+    "DOMAIN-SUFFIX,turn.livekit.cloud",
+    "DOMAIN-KEYWORD,openai",
+    "IP-CIDR,24.199.123.28/32",
+    "IP-CIDR,64.23.132.171/32",
+    "IP-ASN,20473",
+    # Gemini / Google AI (13条)
+    "DOMAIN,ai.google.dev",
+    "DOMAIN,alkalimakersuite-pa.clients6.google.com",
+    "DOMAIN,makersuite.google.com",
+    "DOMAIN-SUFFIX,bard.google.com",
+    "DOMAIN-SUFFIX,deepmind.com",
+    "DOMAIN-SUFFIX,deepmind.google",
+    "DOMAIN-SUFFIX,gemini.google.com",
+    "DOMAIN-SUFFIX,generativeai.google",
+    "DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com",
+    "DOMAIN-SUFFIX,apis.google.com",
+    "DOMAIN-KEYWORD,colab",
+    "DOMAIN-KEYWORD,developerprofiles",
+    "DOMAIN-KEYWORD,generativelanguage",
+    # Anthropic / Claude (3条，2025-06-06 更新)
+    "DOMAIN,cdn.usefathom.com",
+    "DOMAIN-SUFFIX,anthropic.com",
+    "DOMAIN-SUFFIX,claude.ai",
+    # Grok / X.AI (新增)
+    "DOMAIN-SUFFIX,x.ai",
+    "DOMAIN-SUFFIX,grok.com",
+    "DOMAIN-KEYWORD,grok",
+]
+
+# 香港节点关键词
+HK_KEYWORDS = ["HK", "Hong Kong", "香港", "HongKong", "HONG KONG"]
+
+
+def download_subscription(url: str, name: str) -> Dict[str, Any]:
+    """下载订阅配置"""
+    print(f"正在下载 {name} 订阅...")
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=30)
+        response.raise_for_status()
+        config = yaml.safe_load(response.text)
+        print(f"{name} 订阅下载成功，包含 {len(config.get('proxies', []))} 个节点")
+        return config
+    except requests.RequestException as e:
+        print(f"下载 {name} 订阅失败: {e}")
+        raise
+
+
+def is_hk_node(node_name: str) -> bool:
+    """判断是否为香港节点"""
+    for keyword in HK_KEYWORDS:
+        if keyword.lower() in node_name.lower():
+            return True
+    return False
+
+
+def categorize_nodes(proxies: List[Dict[str, Any]], source_name: str) -> Dict[str, List[Dict[str, Any]]]:
+    """分类节点：香港节点和非香港节点"""
+    hk_nodes = []
+    non_hk_nodes = []
+
+    for proxy in proxies:
+        # 修改节点名称，添加来源前缀
+        proxy = proxy.copy()
+        original_name = proxy.get('name', '')
+        proxy['name'] = f"{source_name} | {original_name}"
+
+        if is_hk_node(original_name):
+            hk_nodes.append(proxy)
+        else:
+            non_hk_nodes.append(proxy)
+
+    return {
+        'hk': hk_nodes,
+        'non_hk': non_hk_nodes
+    }
+
+
+def create_proxy_groups(video_nodes: List[Dict[str, Any]],
+                       main_non_hk_nodes: List[Dict[str, Any]],
+                       all_nodes: List[Dict[str, Any]],
+                       main_name: str,
+                       video_name: str) -> List[Dict[str, Any]]:
+    """创建代理组"""
+    video_names = [node['name'] for node in video_nodes]
+    main_non_hk_names = [node['name'] for node in main_non_hk_nodes]
+    all_names = [node['name'] for node in all_nodes]
+
+    proxy_groups = [
+        {
+            'name': 'Auto-Select',
+            'type': 'url-test',
+            'proxies': all_names if all_names else ['Global-Group'],
+            'url': 'https://www.cloudflare.com/cdn-cgi/trace',
+            'interval': 300
+        },
+        {
+            'name': 'Video-Auto',
+            'type': 'url-test',
+            'proxies': video_names if video_names else ['Global-Group'],
+            'url': 'https://www.youtube.com/generate_204',
+            'interval': 300
+        },
+        {
+            'name': 'Video-Group',
+            'type': 'select',
+            'proxies': ['Video-Auto', 'DIRECT', *video_names, 'Global-Group']
+        },
+        {
+            'name': 'AI-NonHK-Group',
+            'type': 'select',
+            'proxies': ['DIRECT', *main_non_hk_names, 'Global-Group']
+        },
+        {
+            'name': 'AI-Select',
+            'type': 'url-test',
+            'proxies': main_non_hk_names if main_non_hk_names else ['Global-Group'],
+            'url': 'https://www.cloudflare.com/cdn-cgi/trace',
+            'interval': 300
+        },
+        {
+            'name': 'Global-Group',
+            'type': 'select',
+            'proxies': ['Auto-Select', 'DIRECT', *all_names]
+        },
+        {
+            'name': '🐟 漏网之鱼',
+            'type': 'select',
+            'proxies': ['Global-Group']
+        },
+    ]
+
+    return proxy_groups
+
+
+def create_rules(cloudfare_nodes: List[Dict[str, Any]], 
+                ai_select_group: str) -> List[str]:
+    """创建规则"""
+    rules = []
+
+    # YouTube 规则 - 优先级最高
+    for rule in YOUTUBE_RULES:
+        rules.append(f"{rule},Video-Group")
+
+    # AI 服务规则
+    for rule in AI_RULES:
+        rules.append(f"{rule},{ai_select_group}")
+
+    return rules
+
+
+def filter_and_fix_rules(original_rules: List[str], custom_rules: List[str], our_proxy_groups: List[str]) -> List[str]:
+    """过滤并修复原有规则"""
+    # 获取自定义规则中的域名和关键词
+    custom_domains = set()
+    custom_keywords = set()
+
+    for rule in custom_rules:
+        if 'DOMAIN-SUFFIX,' in rule:
+            domain = rule.split('DOMAIN-SUFFIX,')[1].split(',')[0]
+            custom_domains.add(domain)
+        elif 'DOMAIN-KEYWORD,' in rule:
+            keyword = rule.split('DOMAIN-KEYWORD,')[1].split(',')[0]
+            custom_keywords.add(keyword)
+        elif 'DOMAIN,' in rule:
+            domain = rule.split('DOMAIN,')[1].split(',')[0]
+            custom_domains.add(domain)
+
+    # 过滤和修复原有规则
+    filtered_rules = []
+    for rule in original_rules:
+        skip = False
+        
+        # 检查是否为自定义规则的域名
+        if 'DOMAIN-SUFFIX,' in rule:
+            domain = rule.split('DOMAIN-SUFFIX,')[1].split(',')[0]
+            if domain in custom_domains:
+                skip = True
+        
+        # 检查是否为自定义规则的关键词
+        elif 'DOMAIN-KEYWORD,' in rule:
+            keyword = rule.split('DOMAIN-KEYWORD,')[1].split(',')[0]
+            if keyword in custom_keywords:
+                skip = True
+        
+        # 检查是否为自定义规则的域名
+        elif 'DOMAIN,' in rule:
+            domain = rule.split('DOMAIN,')[1].split(',')[0]
+            if domain in custom_domains:
+                skip = True
+        
+        # 检查 YouTube 相关规则
+        elif 'youtube' in rule.lower():
+            skip = True
+        
+        # 检查 AI 相关规则
+        elif any(keyword in rule.lower() for keyword in ['openai', 'chatgpt', 'claude', 'anthropic', 'gemini', 'bard']):
+            skip = True
+
+        if not skip:
+            # 修复规则：将不存在的代理组替换为 Global-Group
+            # 规则格式: TYPE,MATCH,PROXY-GROUP[,OPTION]
+            # 或者: TYPE,MATCH[,OPTION],PROXY-GROUP
+            # 需要找到代理组名称（通常是第三个或第四个字段）
+            rule_parts = rule.split(',')
+            
+            # 检查是否有中间字段（如 no-resolve）
+            # 如果规则长度是4，且最后一个部分是常见选项，则代理组在第三个位置
+            if len(rule_parts) == 4:
+                last_part = rule_parts[-1].strip()
+                if last_part in ['no-resolve', 'no-ip', 'reject', 'direct']:
+                    # 代理组在第三个位置
+                    proxy_group = rule_parts[2].strip()
+                    if proxy_group not in our_proxy_groups:
+                        rule_parts[2] = 'Global-Group'
+                else:
+                    # 代理组在最后一个位置
+                    proxy_group = last_part
+                    if proxy_group not in our_proxy_groups:
+                        rule_parts[-1] = 'Global-Group'
+            elif len(rule_parts) == 3:
+                # 代理组在最后一个位置
+                proxy_group = rule_parts[2].strip()
+                if proxy_group not in our_proxy_groups:
+                    rule_parts[2] = 'Global-Group'
+            
+            rule = ','.join(rule_parts)
+            filtered_rules.append(rule)
+
+    return filtered_rules
+
+
+def format_proxy_yaml(proxy: Dict[str, Any]) -> str:
+    """将代理配置格式化为 Flow Style 的 YAML 字符串"""
+    return "  " + yaml.dump(proxy, allow_unicode=True, default_flow_style=True, sort_keys=False).strip()
+
+
+def save_config_with_flow_style(config: Dict[str, Any], output_path: Path):
+    """保存配置，proxies 使用 Flow Style（和 ikuuu 一致的格式）"""
+    with open(output_path, 'w', encoding='utf-8') as f:
+        # 写入基本配置（使用小写的 true/false）
+        f.write(f"port: {config['port']}\n")
+        f.write(f"socks-port: {config['socks-port']}\n")
+        f.write(f"allow-lan: {str(config['allow_lan']).lower()}\n")
+        f.write(f"mode: {config['mode']}\n")
+        f.write(f"log-level: {config['log_level']}\n")
+        f.write(f"external-controller: {config['external_controller']}\n")
+        f.write(f"unified-delay: {str(config['unified_delay']).lower()}\n")
+        
+        # 写入 proxies（使用 Flow Style，单行格式）
+        f.write("proxies:\n")
+        for proxy in config['proxies']:
+            # 转换为单行 YAML
+            proxy_str = yaml.dump(proxy, allow_unicode=True, default_flow_style=True, sort_keys=False, width=2147483647)
+            proxy_str = proxy_str.replace('\n', ' ')  # 将多行合并为一行
+            proxy_str = ' '.join(proxy_str.split())  # 去除多余空格
+            f.write(f"  - {proxy_str}\n")
+        
+        # 写入其他配置
+        f.write(yaml.dump({'proxy-groups': config['proxy_groups']}, allow_unicode=True, default_flow_style=False, sort_keys=False))
+        f.write("rules:\n")
+        for rule in config['rules']:
+            f.write(f"  - {rule}\n")
+
+
+def merge_subscriptions():
+    """合并订阅配置"""
+    # 下载订阅
+    main_config = download_subscription(MAIN_URL, MAIN_NAME)
+    video_config = download_subscription(VIDEO_URL, VIDEO_NAME)
+
+    # 分类节点（主配置用于 AI 服务）
+    main_nodes = categorize_nodes(main_config.get('proxies', []), MAIN_NAME)
+    video_nodes = [node.copy() for node in video_config.get('proxies', [])]
+    for node in video_nodes:
+        node['name'] = f"{VIDEO_NAME} | {node['name']}"
+
+    # 合并所有节点
+    all_proxies = video_nodes + main_nodes['hk'] + main_nodes['non_hk']
+
+    # 创建代理组
+    proxy_groups = create_proxy_groups(
+        video_nodes,
+        main_nodes['non_hk'],
+        all_proxies,
+        MAIN_NAME,
+        VIDEO_NAME
+    )
+
+    # 创建自定义规则
+    custom_rules = create_rules(video_nodes, 'AI-Select')
+
+    # 获取我们的代理组名称
+    our_proxy_groups = [group['name'] for group in proxy_groups]
+
+    # 过滤并修复原有规则（使用主配置的规则作为基础）
+    original_rules = main_config.get('rules', [])
+    filtered_rules = filter_and_fix_rules(original_rules, custom_rules, our_proxy_groups)
+
+    # 合并规则
+    all_rules = custom_rules + filtered_rules
+
+    # 构建最终配置
+    merged_config = {
+        'port': 7890,
+        'socks-port': 7891,
+        'allow_lan': False,
+        'mode': 'Rule',
+        'log_level': 'info',
+        'external_controller': '127.0.0.1:9090',
+        'unified_delay': True,
+        'proxies': all_proxies,
+        'proxy_groups': proxy_groups,
+        'rules': all_rules
+    }
+
+    # 保存配置（使用 Flow Style 格式）
+    output_path = Path(OUTPUT_PATH)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    save_config_with_flow_style(merged_config, output_path)
+
+    print(f"\n配置已保存到: {OUTPUT_PATH}")
+    print(f"统计信息:")
+    print(f"  - 总节点数: {len(all_proxies)}")
+    print(f"    - {VIDEO_NAME} 节点: {len(video_nodes)}")
+    print(f"    - {MAIN_NAME} 香港节点: {len(main_nodes['hk'])}")
+    print(f"    - {MAIN_NAME} 非香港节点: {len(main_nodes['non_hk'])}")
+    print(f"  - 代理组数: {len(proxy_groups)}")
+    print(f"  - 规则数: {len(all_rules)}")
+    print(f"    - YouTube 规则: {len(YOUTUBE_RULES)}")
+    print(f"    - AI 服务规则: {len(AI_RULES)}")
+    print(f"    - 其他规则: {len(filtered_rules)}")
+
+
+def main():
+    """主函数"""
+    try:
+        merge_subscriptions()
+        print("\n合并完成！")
+    except Exception as e:
+        print(f"\n错误: {e}")
+        import traceback
+        traceback.print_exc()
+
+
+if __name__ == "__main__":
+    main()
