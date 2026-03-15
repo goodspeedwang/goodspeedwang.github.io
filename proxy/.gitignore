@@ -4,6 +4,9 @@
 # 生成的配置文件
 merged.yaml
 
+# 订阅缓存目录
+cache/
+
 # 规则缓存目录
 rules_cache/
 
