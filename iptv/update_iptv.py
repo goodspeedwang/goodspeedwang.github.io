@@ -616,6 +616,12 @@ class IPTVUpdater:
         print("-" * 60)
         print(f"检测完成: 可用 {len(available_channels)} 个, 空台 {unavailable_count} 个")
 
+        # 重新按分组排序（as_completed顺序是随机的）
+        available_channels.sort(key=lambda c: (
+            self.GROUP_ORDER.get(c.group_title, 99),
+            self._get_channel_sort_key(c)
+        ))
+
         return available_channels
 
     def print_log(self) -> None:
