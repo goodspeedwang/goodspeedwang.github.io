@@ -1,8 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-更新 rules.conf：扫描 nav.xml，自动添加可直连的国外站点
-用法: python3 update_rules.py [--dry-run]
+================================================================================
+脚本名称: update_rules.py
+作用: 扫描 nav.xml 中的站点，自动识别可直连的国外站点并添加到 rules.conf
+
+工作流程:
+1. 从 nav.xml 提取所有域名
+2. 过滤掉：
+   - 已存在于 rules.conf 的域名
+   - 需要代理的站点（Google/Twitter/AI等）
+   - 中国域名（.cn/.com.cn等，通过 GEOIP,CN 自动直连）
+   - DNS解析到国内IP的站点
+3. 将符合条件的国外可直连站点添加到 rules.conf
+
+用法:
+  python3 update_rules.py --dry-run    # 预览模式，查看会添加哪些站点
+  python3 update_rules.py              # 执行添加
+
+注意事项:
+  - 需要在 proxy/ 目录下运行
+  - 依赖 dig 命令（系统自带）
+  - DIRECT_SITES 白名单需要手动维护，添加已知可直连的国外站点
+================================================================================
 """
 
 import xml.etree.ElementTree as ET
