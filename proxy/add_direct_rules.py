@@ -44,6 +44,9 @@ PRIVATE_SITES = {
     '192.168.100.1', '127.0.0.1', 'localhost',
 }
 
+# 中国域名后缀（会通过 GEOIP,CN 自动直连）
+CN_SUFFIXES = ('.cn', '.com.cn', '.net.cn', '.org.cn', '.gov.cn', '.edu.cn', '.mil.cn')
+
 
 def extract_domains_from_nav(xml_path):
     """从 nav.xml 提取所有域名"""
@@ -110,12 +113,18 @@ def main():
     
     # 找出需要添加的站点
     to_add = []
+    skipped_cn = []
     for domain in nav_domains:
         if domain in existing_rules:
             continue
         if domain in PRIVATE_SITES:
             continue
         if domain in PROXY_SITES:
+            continue
+        
+        # 跳过中国域名（会通过 GEOIP,CN 自动直连）
+        if any(domain.endswith(suffix) for suffix in CN_SUFFIXES):
+            skipped_cn.append(domain)
             continue
         
         # 检查是否在 DIRECT_SITES 中（包括子域名匹配）
@@ -132,6 +141,13 @@ def main():
             print(f"  - DOMAIN-SUFFIX,{domain},DIRECT")
         else:
             print(f"  - DOMAIN,{domain},DIRECT")
+    
+    if skipped_cn:
+        print(f"\n跳过 {len(skipped_cn)} 个中国域名（GEOIP,CN自动直连）:")
+        for domain in sorted(skipped_cn)[:10]:  # 只显示前10个
+            print(f"  - {domain}")
+        if len(skipped_cn) > 10:
+            print(f"  ... 还有 {len(skipped_cn)-10} 个")
     
     if not to_add:
         print("没有需要添加的新站点")
