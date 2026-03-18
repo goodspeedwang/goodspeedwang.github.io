@@ -302,6 +302,21 @@ AI_RULES = [
     "DOMAIN-KEYWORD,grok",
 ]
 
+# 广告屏蔽规则（X/Twitter）
+AD_BLOCK_RULES = [
+    # X/Twitter 广告
+    "DOMAIN-SUFFIX,ads.twitter.com",
+    "DOMAIN-SUFFIX,ads-api.twitter.com",
+    "DOMAIN-SUFFIX,analytics.twitter.com",
+    "DOMAIN-SUFFIX,scribe.twitter.com",
+    "DOMAIN-SUFFIX,syndication.twitter.com",
+    "DOMAIN-SUFFIX,advertising.twitter.com",
+    "DOMAIN-SUFFIX,ads.x.com",
+    "DOMAIN-SUFFIX,analytics.x.com",
+    "DOMAIN-KEYWORD,ads-twitter",
+    "DOMAIN-KEYWORD,twitterads",
+]
+
 # 香港节点关键词
 HK_KEYWORDS = ["HK", "Hong Kong", "香港", "HongKong", "HONG KONG"]
 
@@ -687,18 +702,21 @@ def merge_subscriptions():
     # 创建自定义规则
     custom_rules = create_rules(video_nodes, 'AI-Select')
 
+    # 创建广告屏蔽规则（指向 REJECT）
+    ad_block_rules = [f"{rule},REJECT" for rule in AD_BLOCK_RULES]
+
     # 过滤并修复原有规则（使用主配置的规则作为基础）
     original_rules = main_config.get('rules', [])
     filtered_rules = filter_and_fix_rules(original_rules, custom_rules, rules_conf, our_proxy_group_names)
 
-    # 合并规则：rules.conf（最高优先级）+ 国内直连规则 + 视频/AI规则 + 其他规则
+    # 合并规则：rules.conf（最高优先级）+ 国内直连规则 + 广告屏蔽 + 视频/AI规则 + 其他规则
     # rules.conf 的优先级最高，放在最前面
     # 国内直连规则放在第二位
-    # 注意：国内域名规则要在 main 配置的域名规则之前，避免被覆盖
+    # 广告屏蔽规则放在第三位（在代理规则之前）
     china_rules = get_china_direct_rules()
 
     # 将 MATCH 规则放在最后面
-    all_rules = rules_conf + china_rules + custom_rules + filtered_rules + ['MATCH,🐟 漏网之鱼']
+    all_rules = rules_conf + china_rules + ad_block_rules + custom_rules + filtered_rules + ['MATCH,🐟 漏网之鱼']
 
     # 构建最终配置
     merged_config = {
@@ -730,6 +748,7 @@ def merge_subscriptions():
     print(f"  - 规则数: {len(all_rules)}")
     print(f"    - rules.conf 自定义规则: {len(rules_conf)}")
     print(f"    - 国内直连规则: {len(china_rules)}")
+    print(f"    - 广告屏蔽规则: {len(AD_BLOCK_RULES)}")
     print(f"    - YouTube 规则: {len(YOUTUBE_RULES)}")
     print(f"    - AI 服务规则: {len(AI_RULES)}")
     print(f"    - 其他规则: {len(filtered_rules)}")
