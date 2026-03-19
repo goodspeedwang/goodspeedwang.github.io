@@ -288,23 +288,6 @@ AI_RULES = [
     "DOMAIN-KEYWORD,grok",
 ]
 
-# Gemini 规则（Gemini 已支持香港，走 Auto-Select 即可）
-GEMINI_RULES = [
-    "DOMAIN,ai.google.dev",
-    "DOMAIN,alkalimakersuite-pa.clients6.google.com",
-    "DOMAIN,makersuite.google.com",
-    "DOMAIN-SUFFIX,bard.google.com",
-    "DOMAIN-SUFFIX,deepmind.com",
-    "DOMAIN-SUFFIX,deepmind.google",
-    "DOMAIN-SUFFIX,gemini.google.com",
-    "DOMAIN-SUFFIX,generativeai.google",
-    "DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com",
-    "DOMAIN-SUFFIX,apis.google.com",
-    "DOMAIN-KEYWORD,colab",
-    "DOMAIN-KEYWORD,developerprofiles",
-    "DOMAIN-KEYWORD,generativelanguage",
-]
-
 # 广告屏蔽规则（X/Twitter）
 AD_BLOCK_RULES = [
     # X/Twitter 广告
@@ -498,11 +481,8 @@ def create_rules(ai_select_group: str) -> List[str]:
     for rule in YOUTUBE_RULES:
         rules.append(f"{rule},Video-Group")
 
-    # Gemini 规则（已支持香港，走 Auto-Select）
-    for rule in GEMINI_RULES:
-        rules.append(f"{rule},Auto-Select")
-
     # AI 服务规则（OpenAI/Claude/Grok，走非香港节点）
+    # 注意：Gemini 已支持香港，不添加显式规则，走默认 Auto-Select 即可
     for rule in AI_RULES:
         rules.append(f"{rule},{ai_select_group}")
 
@@ -760,9 +740,9 @@ def merge_subscriptions():
     print(f"    - 国内直连规则: {len(china_rules)}")
     print(f"    - 广告屏蔽规则: {len(AD_BLOCK_RULES)}")
     print(f"    - YouTube 规则: {len(YOUTUBE_RULES)}")
-    print(f"    - Gemini 规则: {len(GEMINI_RULES)} (走 Auto-Select)")
-    print(f"    - AI 服务规则: {len(AI_RULES)} (走 AI-Select)")
+    print(f"    - AI 服务规则: {len(AI_RULES)} (OpenAI/Claude/Grok，走 AI-Select)")
     print(f"    - 其他规则: {len(filtered_rules)}")
+    print(f"  - 注意: Gemini 走默认 Auto-Select（已支持香港）")
 
 
 def main():
