@@ -135,14 +135,22 @@ class ConfigMerger:
                 'name': 'Video-Auto',
                 'type': 'url-test',
                 'proxies': video_names or ['Global-Group'],
-                'url': 'http://www.gstatic.com/generate_204',
+                'url': 'https://www.youtube.com/generate_204',
                 'interval': 300,
                 'lazy': False
             },
             {
                 'name': 'Video-Group',
                 'type': 'select',
-                'proxies': ['Video-Auto', 'DIRECT', *video_names, 'Global-Group']
+                'proxies': ['Video-Fallback', 'Video-Auto', 'DIRECT', *video_names, 'Global-Group']
+            },
+            {
+                'name': 'Video-Fallback',
+                'type': 'fallback',
+                'proxies': ['Video-Auto', 'Auto-Select'],
+                'url': 'https://www.youtube.com/generate_204',
+                'interval': 300,
+                'lazy': False
             },
             {
                 'name': 'AI-NonHK-Group',
