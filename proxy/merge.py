@@ -278,7 +278,18 @@ AI_RULES = [
     "IP-CIDR,24.199.123.28/32",
     "IP-CIDR,64.23.132.171/32",
     "IP-ASN,20473",
-    # Gemini / Google AI (13条)
+    # Anthropic / Claude (3条，2025-06-06 更新)
+    "DOMAIN,cdn.usefathom.com",
+    "DOMAIN-SUFFIX,anthropic.com",
+    "DOMAIN-SUFFIX,claude.ai",
+    # Grok / X.AI (新增)
+    "DOMAIN-SUFFIX,x.ai",
+    "DOMAIN-SUFFIX,grok.com",
+    "DOMAIN-KEYWORD,grok",
+]
+
+# Gemini 规则（Gemini 已支持香港，走 Auto-Select 即可）
+GEMINI_RULES = [
     "DOMAIN,ai.google.dev",
     "DOMAIN,alkalimakersuite-pa.clients6.google.com",
     "DOMAIN,makersuite.google.com",
@@ -292,14 +303,6 @@ AI_RULES = [
     "DOMAIN-KEYWORD,colab",
     "DOMAIN-KEYWORD,developerprofiles",
     "DOMAIN-KEYWORD,generativelanguage",
-    # Anthropic / Claude (3条，2025-06-06 更新)
-    "DOMAIN,cdn.usefathom.com",
-    "DOMAIN-SUFFIX,anthropic.com",
-    "DOMAIN-SUFFIX,claude.ai",
-    # Grok / X.AI (新增)
-    "DOMAIN-SUFFIX,x.ai",
-    "DOMAIN-SUFFIX,grok.com",
-    "DOMAIN-KEYWORD,grok",
 ]
 
 # 广告屏蔽规则（X/Twitter）
@@ -427,20 +430,24 @@ def categorize_nodes(proxies: List[Dict[str, Any]], source_name: str) -> Dict[st
 
 
 def create_proxy_groups(video_nodes: List[Dict[str, Any]],
+                       main_hk_nodes: List[Dict[str, Any]],
                        main_non_hk_nodes: List[Dict[str, Any]],
-                       all_nodes: List[Dict[str, Any]],
                        main_name: str,
                        video_name: str) -> List[Dict[str, Any]]:
     """创建代理组"""
     video_names = [node['name'] for node in video_nodes]
+    main_hk_names = [node['name'] for node in main_hk_nodes]
     main_non_hk_names = [node['name'] for node in main_non_hk_nodes]
-    all_names = [node['name'] for node in all_nodes]
+    # Auto-Select 只包含主配置节点（香港+非香港）
+    main_all_names = main_hk_names + main_non_hk_names
+    # 所有节点（主+视频）
+    all_names = main_all_names + video_names
 
     proxy_groups = [
         {
             'name': 'Auto-Select',
             'type': 'url-test',
-            'proxies': all_names if all_names else ['Global-Group'],
+            'proxies': main_all_names if main_all_names else ['Global-Group'],
             'url': 'https://www.cloudflare.com/cdn-cgi/trace',
             'interval': 300
         },
@@ -483,8 +490,7 @@ def create_proxy_groups(video_nodes: List[Dict[str, Any]],
     return proxy_groups
 
 
-def create_rules(cloudfare_nodes: List[Dict[str, Any]],
-                ai_select_group: str) -> List[str]:
+def create_rules(ai_select_group: str) -> List[str]:
     """创建规则"""
     rules = []
 
@@ -492,7 +498,11 @@ def create_rules(cloudfare_nodes: List[Dict[str, Any]],
     for rule in YOUTUBE_RULES:
         rules.append(f"{rule},Video-Group")
 
-    # AI 服务规则
+    # Gemini 规则（已支持香港，走 Auto-Select）
+    for rule in GEMINI_RULES:
+        rules.append(f"{rule},Auto-Select")
+
+    # AI 服务规则（OpenAI/Claude/Grok，走非香港节点）
     for rule in AI_RULES:
         rules.append(f"{rule},{ai_select_group}")
 
@@ -660,8 +670,8 @@ def merge_subscriptions():
     # 创建代理组
     proxy_groups = create_proxy_groups(
         video_nodes,
+        main_nodes['hk'],
         main_nodes['non_hk'],
-        all_proxies,
         MAIN_NAME,
         VIDEO_NAME
     )
@@ -700,7 +710,7 @@ def merge_subscriptions():
             our_proxy_group_names.append(group['name'])
 
     # 创建自定义规则
-    custom_rules = create_rules(video_nodes, 'AI-Select')
+    custom_rules = create_rules('AI-Select')
 
     # 创建广告屏蔽规则（指向 REJECT）
     ad_block_rules = [f"{rule},REJECT" for rule in AD_BLOCK_RULES]
@@ -750,7 +760,8 @@ def merge_subscriptions():
     print(f"    - 国内直连规则: {len(china_rules)}")
     print(f"    - 广告屏蔽规则: {len(AD_BLOCK_RULES)}")
     print(f"    - YouTube 规则: {len(YOUTUBE_RULES)}")
-    print(f"    - AI 服务规则: {len(AI_RULES)}")
+    print(f"    - Gemini 规则: {len(GEMINI_RULES)} (走 Auto-Select)")
+    print(f"    - AI 服务规则: {len(AI_RULES)} (走 AI-Select)")
     print(f"    - 其他规则: {len(filtered_rules)}")
 
 
