@@ -128,14 +128,16 @@ class ConfigMerger:
                 'type': 'url-test',
                 'proxies': main_all or ['Global-Group'],
                 'url': 'https://www.cloudflare.com/cdn-cgi/trace',
-                'interval': 300
+                'interval': 300,
+                'lazy': False
             },
             {
                 'name': 'Video-Auto',
                 'type': 'url-test',
                 'proxies': video_names or ['Global-Group'],
                 'url': 'http://www.gstatic.com/generate_204',
-                'interval': 300
+                'interval': 300,
+                'lazy': False
             },
             {
                 'name': 'Video-Group',
@@ -152,7 +154,8 @@ class ConfigMerger:
                 'type': 'url-test',
                 'proxies': main_non_hk_names or ['Global-Group'],
                 'url': 'https://www.cloudflare.com/cdn-cgi/trace',
-                'interval': 300
+                'interval': 300,
+                'lazy': False
             },
             {
                 'name': 'Global-Group',
@@ -258,7 +261,7 @@ class ConfigMerger:
                 f.write(f"  - {proxy_str}\n")
             
             # Proxy-groups
-            f.write(yaml.dump({'proxy-groups': config['proxy-groups']}, 
+            f.write(yaml.dump({'proxy-groups': config['proxy_groups']}, 
                             allow_unicode=True, default_flow_style=False))
             
             # Rules
