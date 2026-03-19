@@ -5,9 +5,9 @@
 ## 功能特性
 
 - ✅ 自动合并主配置和视频配置
-- ✅ YouTube 流量走视频配置节点（自动选择最快）
+- ✅ 视频流量主备模式（YouTube/X.com，Video 节点为主，Main 节点为备）
 - ✅ AI 服务走主配置非香港节点（自动选择最快）
-- ✅ 其他外网走所有节点中的最快节点
+- ✅ 其他外网走主配置节点中的最快节点
 - ✅ 支持新增：Grok、X.com 视频
 - ✅ 自动每5分钟检测节点延迟并切换
 - ✅ 配置安全：敏感信息存储在环境变量中
@@ -65,9 +65,10 @@ python3 check_security.py
 
 | 代理组 | 类型 | 说明 | 默认选项 |
 |--------|------|------|----------|
-| **Auto-Select** | url-test | 所有节点自动选择 | - |
+| **Auto-Select** | url-test | 主配置节点自动选择 | - |
 | **Video-Auto** | url-test | 视频配置节点自动选择 | - |
-| **Video-Group** | select | 视频手动切换 | Video-Auto |
+| **Video-Group** | select | 视频手动切换 | Video-Fallback |
+| **Video-Fallback** | fallback | 视频主备（Video主，Main备） | - |
 | **AI-Select** | url-test | 主配置非香港节点自动选择 | - |
 | **AI-NonHK-Group** | select | AI 手动切换 | - |
 | **Global-Group** | select | 全局手动切换 | Auto-Select |
@@ -75,10 +76,13 @@ python3 check_security.py
 
 ## 路由规则
 
-### YouTube 路由（46条规则）
-- 目标：Video-Group（视频配置自动选择）
-- 包含：youtube.com, googlevideo.com, ytimg.com 等
-- X.com 视频也走此路由
+### 视频路由（186条规则）
+- 目标：Video-Group（默认 Video-Fallback）
+  - 默认：Video-Fallback（主备模式）
+    - 主：Video 配置节点（优先使用）
+    - 备：Main 配置节点（Video 不可用时启用）
+  - 可手动：切换到 Video-Auto 或特定节点
+- 包含：YouTube、X.com/Twitter 视频等
 
 ### AI 服务路由（54条规则）
 - 目标：AI-Select（主配置非香港自动选择）
