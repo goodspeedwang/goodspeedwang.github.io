@@ -77,7 +77,7 @@
     </组>
 
     <组 组名="♚ AI">
-        <网址><地址>http://www.cnblogs.com/</地址><名称 favicon="https://assets.cnblogs.com/favicon.svg?v=2">博客园</名称></网址>
+        <网址><地址>http://www.cnblogs.com/</地址><名称 favicon="https://assets.cnblogs.com/favicon_v3_2.ico">博客园</名称></网址>
 
         <网址><地址>https://gemini.google.com/</地址><名称>Gemini</名称></网址>
         <网址><地址>https://chatgpt.com/</地址><名称 favicon="https://cdn.oaistatic.com/assets/favicon-o20kmmos.svg">Chatgpt</名称></网址>
@@ -86,7 +86,7 @@
 
 
         <网址><地址>https://yuanbao.tencent.com/</地址><名称 favicon="https://cdn-bot.hunyuan.tencent.com/logo.png">元宝</名称></网址>
-        <网址><地址>https://chat.deepseek.com</地址><名称 favicon="https://chat.deepseek.com/favicon.svg">Deepseek</名称></网址>
+        <网址><地址>https://chat.deepseek.com</地址><名称 favicon="https://fe-static.deepseek.com/chat/favicon.svg">Deepseek</名称></网址>
         <网址><地址>https://www.doubao.com/chat/</地址><名称 favicon="https://grok.com/images/favicon.ico">豆包</名称></网址>
         <网址><地址>https://www.codebuddy.cn/agents</地址><名称 favicon="https://acc-1258344699.cos.accelerate.myqcloud.com/web/agents/69aa6e59b2a4bb1319e6cb0d7c49bb4722321a74/assets/favicon.svg">Codebuddy</名称></网址>
         
@@ -96,12 +96,8 @@
         <网址><地址>https://www.perplexity.ai/</地址><名称 favicon="https://www.perplexity.ai/favicon.ico">Perplexity</名称></网址>
         
         <网址><地址>https://raphael.app</地址><名称 favicon="https://raphael.app/favicon.ico">AI-generated Images</名称></网址>
-        <网址><地址>https://www.wenxiaobai.com/</地址><名称 favicon="https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.15.12/_next/static/media/new_favicon.6d31cfe4.png">问小白</名称></网址>
-        <网址><地址>https://picsart.com/ai-image-enhancer/</地址><名称 favicon="https://pastatic.picsart.com/cms-pastatic/897d8248-6192-4246-93e4-f99389acd13c.png">图片增强</名称></网址>
-        <网址><地址>https://www.krea.ai/</地址><名称 favicon="https://www.krea.ai/favicon/favicon-32-dark.png">Krea</名称></网址>
-        
-        
-        
+        <网址><地址>https://www.wenxiaobai.com/</address><名称 favicon="https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.15.12/_next/static/media/new_favicon.6d31cfe4.png">问小白</名称></网址>
+        <网址><地址>https://picsart.com/ai-image-enhancer/</address><名称 favicon="https://pastatic.picsart.com/cms-pastatic/897d8248-6192-4246-93e4-f99389acd13c.png">图片增强</名称></网址>
     </组>
     
     <组 组名="♛ Book">
