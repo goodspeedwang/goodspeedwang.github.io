@@ -219,7 +219,7 @@
         <div class="btn-group">
             <button class="btn-primary" onclick="loadFromDirectory()">📂 选择图片文件夹</button>
         </div>
-        <p class="shortcuts">← → 键切换图片</p>
+        <p class="shortcuts">← → 或 ↑ ↓ 键切换图片</p>
     </div>
 
     <div class="controls" id="controls" style="display: none;">
@@ -376,11 +376,11 @@
         // 键盘事件
         document.addEventListener('keydown', function(e) {
             if (document.getElementById('configPanel').style.display !== 'none') return;
-            
-            if (e.key === 'ArrowLeft') {
+
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
                 failedCount = 0;
                 showImage(currentIndex - 1);
-            } else if (e.key === 'ArrowRight') {
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                 failedCount = 0;
                 showImage(currentIndex + 1);
             }
