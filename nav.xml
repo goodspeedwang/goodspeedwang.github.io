@@ -38,6 +38,7 @@
         <网址><名称 favicon="https://img.ixintu.com/upload/jpg/20210522/b466594a956f6023b62f5672c59a07dd_48198_800_800.jpg!ys">小红书</名称><地址>https://www.xiaohongshu.com/explore</地址></网址>
         <网址><名称 favicon="https://my.hiksemi.cn/web/easyconnect/favicon.svg">海康</名称><地址>https://my.hiksemi.cn/</地址></网址>
         <网址><名称 favicon="https://aqicn.org/images/favicon.ico">空气质量</名称><地址>https://aqicn.org/city/beijing/chaoyangaotizhongxin/</地址></网址>
+        <网址><名称 favicon="https://storage.googleapis.com/gweb-mobius-cdn/photos/uploads/383ce0413fa82bcaf6de49fd7997678b21b9762e.svg">Photo</名称><地址>photo.html</地址></网址>
     </组>
 
     <组 组名="♖ Media">
