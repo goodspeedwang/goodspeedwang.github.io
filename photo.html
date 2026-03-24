@@ -216,10 +216,14 @@
 <body>
     <div class="config-panel" id="configPanel">
         <h2>📷 图片浏览器</h2>
-        <div class="btn-group">
-            <button class="btn-primary" onclick="loadFromDirectory()">📂 选择图片文件夹</button>
+        <div class="btn-group" style="flex-direction: column; gap: 12px;">
+            <button class="btn-primary" id="btnCache" onclick="loadFromCache()">📂 使用上次文件夹</button>
+            <button class="btn-secondary" onclick="loadFromDirectory()">🔄 选择新文件夹</button>
         </div>
         <p class="shortcuts">← → 或 ↑ ↓ 键切换图片</p>
+        <div id="scanStatus" style="margin-top: 15px; display: none;">
+            <p id="scanText" style="color: #4a9eff;">🔄 正在扫描文件...</p>
+        </div>
     </div>
 
     <div class="controls" id="controls" style="display: none;">
@@ -249,37 +253,236 @@
         let allImages = [];
         let currentIndex = 0;
         let isExcitingMode = false;
+        let cachedDirHandle = null;
+
+        // IndexedDB 操作
+        const DB_NAME = 'PhotoGalleryDB';
+        const STORE_NAME = 'galleryCache';
+
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, 1);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME);
+                    }
+                };
+            });
+        }
+
+        async function saveCache(dirHandle, imageList) {
+            const db = await openDB();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                store.put({ dirHandle, imageList, timestamp: Date.now() }, 'cache');
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        }
+
+        async function getCache() {
+            const db = await openDB();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const request = store.get('cache');
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // 页面加载时检查缓存
+        async function checkCache() {
+            const btnCache = document.getElementById('btnCache');
+            if (!('showDirectoryPicker' in window)) {
+                btnCache.style.display = 'none';
+                return;
+            }
+            try {
+                const cache = await getCache();
+                if (cache && cache.dirHandle) {
+                    btnCache.style.opacity = '1';
+                } else {
+                    btnCache.style.opacity = '0.5';
+                }
+            } catch (e) {
+                btnCache.style.opacity = '0.5';
+            }
+        }
+        checkCache();
+
+        async function loadFromCache() {
+            if (!('showDirectoryPicker' in window)) {
+                alert('当前浏览器不支持缓存功能');
+                loadFromDirectory();
+                return;
+            }
+
+            try {
+                const cache = await getCache();
+                if (cache && cache.dirHandle && cache.imageList) {
+                    const permission = await cache.dirHandle.requestPermission({ mode: 'read' });
+                    if (permission === 'granted') {
+                        cachedDirHandle = cache.dirHandle;
+                        await loadImagesFromCache(cache.dirHandle, cache.imageList);
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.log('缓存读取失败', e);
+            }
+            loadFromDirectory();
+        }
+
+        async function loadImagesFromCache(dirHandle, imageList) {
+            document.getElementById('scanStatus').style.display = 'block';
+            document.getElementById('scanText').textContent = '⚡ 从缓存加载中...';
+
+            images = imageList.map(item => ({
+                name: item.name,
+                path: item.path,
+                file: null,
+                url: null
+            }));
+            allImages = [...images];
+
+            window.fileStats = { total: imageList.length, images: imageList.length };
+            console.log(`从缓存加载 ${images.length} 张图片`);
+
+            document.getElementById('scanStatus').style.display = 'none';
+            startGallery();
+        }
+
+        async function getFileFromPath(dirHandle, path) {
+            const parts = path.split('/').filter(p => p);
+            let current = dirHandle;
+            for (let i = 0; i < parts.length - 1; i++) {
+                current = await current.getDirectoryHandle(parts[i]);
+            }
+            return await current.getFileHandle(parts[parts.length - 1]);
+        }
+
+        async function pickDirectory() {
+            if ('showDirectoryPicker' in window) {
+                try {
+                    const dirHandle = await window.showDirectoryPicker();
+                    cachedDirHandle = dirHandle;
+                    await loadFromDirHandle(dirHandle);
+                    return true;
+                } catch (e) {
+                    if (e.name === 'AbortError') return false;
+                    console.log('File System Access API 失败', e);
+                }
+            }
+            return false;
+        }
+
+        async function loadFromDirHandle(dirHandle) {
+            document.getElementById('scanStatus').style.display = 'block';
+            document.getElementById('scanText').textContent = '🔄 正在扫描文件夹...';
+
+            const files = [];
+            const imageList = [];
+
+            await scanDirectory(dirHandle, files, '', imageList);
+
+            if (imageList.length > 0) {
+                await saveCache(dirHandle, imageList);
+                document.getElementById('btnCache').style.opacity = '1';
+            }
+
+            processFiles(files);
+        }
+
+        async function scanDirectory(dirHandle, files, path, imageList) {
+            for await (const entry of dirHandle.values()) {
+                if (entry.kind === 'file') {
+                    const name = entry.name.toLowerCase();
+                    if (/\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name) && !name.startsWith('._')) {
+                        const file = await entry.getFile();
+                        files.push(file);
+                        imageList.push({ name: entry.name, path: path + entry.name });
+                    }
+                } else if (entry.kind === 'directory') {
+                    await scanDirectory(entry, files, path + entry.name + '/', imageList);
+                }
+            }
+        }
 
         function loadFromDirectory() {
-            const picker = document.getElementById('directoryPicker');
-            // 重置 input 以允许重新选择相同目录
-            picker.value = '';
-            picker.click();
+            pickDirectory().then(success => {
+                if (!success) {
+                    const picker = document.getElementById('directoryPicker');
+                    picker.value = '';
+                    document.getElementById('scanStatus').style.display = 'block';
+                    document.getElementById('scanText').textContent = '🔄 正在扫描文件...';
+                    picker.click();
+                }
+            });
         }
-        
-        // 目录选择事件
+
+        // 目录选择事件（传统方式回退）
         document.getElementById('directoryPicker').addEventListener('change', function(e) {
             const files = Array.from(e.target.files);
-            // 过滤图片文件，排除系统文件和缩略图
-            const imageFiles = files.filter(f => {
-                const name = f.name.toLowerCase();
-                return /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name) 
-                    && !name.startsWith('.')
-                    && name !== 'thumbs.db';
-            });
-            
-            if (imageFiles.length > 0) {
-                images = imageFiles.map(f => ({
-                    name: f.name,
-                    url: URL.createObjectURL(f)
-                }));
-                allImages = [...images];
-                console.log(`已加载 ${images.length} 张图片`);
-                startGallery();
-            } else {
-                alert('未找到图片文件！');
-            }
+            processFiles(files);
         });
+
+        function processFiles(files) {
+            const totalFiles = files.length;
+            document.getElementById('scanText').textContent = `🔄 扫描完成，正在分析 ${totalFiles} 个文件...`;
+
+            setTimeout(() => {
+                const stats = { total: totalFiles, images: 0, other: 0 };
+                const filteredFiles = [];
+
+                const imageFiles = files.filter(f => {
+                    const name = f.name.toLowerCase();
+                    const originalName = f.name;
+                    const isMacResource = name.startsWith('._');
+                    const isImage = /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name);
+
+                    if (isMacResource) {
+                        filteredFiles.push({ name: originalName, reason: 'macOS资源文件' });
+                        return false;
+                    }
+
+                    if (isImage) {
+                        stats.images++;
+                        return true;
+                    } else {
+                        stats.other++;
+                        filteredFiles.push({ name: originalName, reason: '非图片格式' });
+                        return false;
+                    }
+                });
+
+                if (filteredFiles.length > 0) {
+                    console.group(`📁 已过滤文件 (${filteredFiles.length} 个)`);
+                    console.table(filteredFiles);
+                    console.groupEnd();
+                }
+
+                if (imageFiles.length > 0) {
+                    images = imageFiles.map(f => ({
+                        name: f.name,
+                        file: f,
+                        url: null
+                    }));
+                    allImages = [...images];
+                    window.fileStats = stats;
+                    console.log(`已找到 ${images.length} 张图片`);
+                    document.getElementById('scanStatus').style.display = 'none';
+                    startGallery();
+                } else {
+                    document.getElementById('scanStatus').style.display = 'none';
+                    alert(`未找到图片文件！\n\n总文件数：${stats.total}`);
+                }
+            }, 50);
+        }
 
         function startGallery() {
             document.getElementById('configPanel').style.display = 'none';
@@ -309,50 +512,104 @@
         }
 
         let failedCount = 0;
+        const urlCache = new Map();
+        const MAX_CACHE_SIZE = 20;
 
-        function showImage(index, skipFailed = false) {
+        async function getImageUrl(imgObj) {
+            if (imgObj.url) return imgObj.url;
+
+            if (urlCache.has(imgObj.name)) {
+                imgObj.url = urlCache.get(imgObj.name);
+                return imgObj.url;
+            }
+
+            let file = imgObj.file;
+
+            // 从目录句柄获取文件（缓存场景）
+            if (!file && imgObj.path && cachedDirHandle) {
+                try {
+                    const fileHandle = await getFileFromPath(cachedDirHandle, imgObj.path);
+                    file = await fileHandle.getFile();
+                    imgObj.file = file;
+                } catch (e) {
+                    console.error('获取文件失败:', imgObj.path, e);
+                    return null;
+                }
+            }
+
+            if (!file) return null;
+
+            const url = URL.createObjectURL(file);
+            imgObj.url = url;
+
+            urlCache.set(imgObj.name, url);
+            if (urlCache.size > MAX_CACHE_SIZE) {
+                const firstKey = urlCache.keys().next().value;
+                const oldUrl = urlCache.get(firstKey);
+                URL.revokeObjectURL(oldUrl);
+                urlCache.delete(firstKey);
+                const img = images.find(i => i.name === firstKey);
+                if (img) img.url = null;
+            }
+
+            return url;
+        }
+
+        async function showImage(index, skipFailed = false) {
             if (images.length === 0) {
-                document.getElementById('imageContainer').innerHTML = 
+                document.getElementById('imageContainer').innerHTML =
                     '<div class="no-images"><h3>没有找到图片</h3><p>请检查文件列表或切换精彩模式</p></div>';
                 return;
             }
 
             currentIndex = (index + images.length) % images.length;
             const img = images[currentIndex];
-            
+
             const imageEl = document.getElementById('currentImage');
             imageEl.classList.add('loading');
-            imageEl.src = img.url;
-            imageEl.style.display = 'block';
-            
+
+            const url = await getImageUrl(img);
+            if (url) {
+                imageEl.src = url;
+                imageEl.style.display = 'block';
+            }
+
             imageEl.onload = () => {
                 imageEl.classList.remove('loading');
                 failedCount = 0;
+                preloadNearbyImages();
             };
-            
+
             imageEl.onerror = () => {
                 imageEl.classList.remove('loading');
-                console.error('加载失败:', img.name, img.url);
-                
-                // 显示错误信息
-                document.getElementById('imageInfo').innerHTML = 
+                console.error('加载失败:', img.name);
+
+                document.getElementById('imageInfo').innerHTML =
                     `<span style="color: #ff6b6b;">⚠ 加载失败: ${img.name}</span> <span style="color: #888;">(自动跳过中...)</span>`;
-                
-                // 自动跳过失败的图片
+
                 if (skipFailed) return;
-                
+
                 failedCount++;
                 if (failedCount < images.length) {
-                    // 避免无限循环，最多跳过图片总数的次数
                     setTimeout(() => showImage(currentIndex + 1, true), 500);
                 } else {
-                    document.getElementById('imageInfo').innerHTML = 
+                    document.getElementById('imageInfo').innerHTML =
                         '<span style="color: #ff6b6b;">⚠ 多张图片加载失败，请检查文件格式</span>';
                 }
             };
 
-            document.getElementById('imageInfo').textContent = 
-                `${currentIndex + 1} / ${images.length} - ${img.name}`;
+            const sourceInfo = window.fileStats ? ` (从 ${window.fileStats.total} 个文件中)` : '';
+            document.getElementById('imageInfo').textContent =
+                `${currentIndex + 1} / ${images.length}${sourceInfo} - ${img.name}`;
+        }
+
+        async function preloadNearbyImages() {
+            for (let i = 1; i <= 2; i++) {
+                const nextIdx = (currentIndex + i) % images.length;
+                const prevIdx = (currentIndex - i + images.length) % images.length;
+                await getImageUrl(images[nextIdx]);
+                await getImageUrl(images[prevIdx]);
+            }
         }
 
         function showConfig() {
@@ -385,17 +642,6 @@
                 showImage(currentIndex + 1);
             }
         });
-
-        // 图片预加载
-        function preloadImages() {
-            const nextIndex = (currentIndex + 1) % images.length;
-            const prevIndex = (currentIndex - 1 + images.length) % images.length;
-            
-            [nextIndex, prevIndex].forEach(idx => {
-                const img = new Image();
-                img.src = images[idx].url;
-            });
-        }
     </script>
 </body>
 </html>
