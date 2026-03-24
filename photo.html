@@ -280,7 +280,11 @@
         // 加载目录列表
         async function loadFolders() {
             try {
-                const response = await fetch(window.location.href);
+                // 获取当前目录（去掉 photo.html）
+                const currentUrl = window.location.href;
+                const dirUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+
+                const response = await fetch(dirUrl);
                 const html = await response.text();
 
                 const parser = new DOMParser();
@@ -292,6 +296,7 @@
 
                 links.forEach(link => {
                     const href = link.getAttribute('href');
+                    // 排除 photo.html 自己
                     if (href && href.endsWith('/')) {
                         // 这是子目录
                         const folderName = decodeURIComponent(href.replace(/\/$/, ''));
