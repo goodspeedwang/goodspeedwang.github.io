@@ -17,143 +17,172 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        .controls {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            z-index: 100;
+        /* 左侧目录面板 */
+        .sidebar {
+            width: 250px;
+            background: #252525;
+            border-right: 1px solid #333;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            align-items: flex-end;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px 0 0 10px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
-        .controls.collapsed {
-            transform: translateY(-50%) translateX(calc(100% - 30px));
+        .sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a9eff;
         }
 
-        .controls-toggle {
-            position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 60px;
-            border-radius: 10px 0 0 10px;
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .folder-item {
+            padding: 10px 15px;
             cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .controls-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            min-width: 160px;
-        }
-
-        .controls label {
+            border-bottom: 1px solid #2a2a2a;
             display: flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
-            font-size: 13px;
+            transition: background 0.2s;
+        }
+
+        .folder-item:hover {
+            background: #2a2a2a;
+        }
+
+        .folder-item.active {
+            background: #3a3a3a;
+            color: #4a9eff;
+        }
+
+        .folder-icon {
+            font-size: 16px;
+        }
+
+        .folder-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 13px;
         }
 
-        .controls input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
+        .folder-count {
+            font-size: 11px;
+            color: #666;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 10px;
         }
 
-        .controls button {
+        /* 右侧主区域 */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* 顶部工具栏 */
+        .toolbar {
+            padding: 10px 15px;
+            background: #222;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toolbar-title {
+            font-size: 14px;
+            color: #ccc;
+            flex: 1;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toolbar button {
             background: #4a9eff;
             border: none;
             color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 6px 12px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             transition: background 0.3s;
-            white-space: nowrap;
         }
 
-        .controls button:hover {
+        .toolbar button:hover {
             background: #3a8eef;
         }
 
+        .toolbar label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* 图片容器 */
         .image-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            width: 100%;
+            background: #1a1a1a;
         }
 
         #currentImage {
-            max-width: 98vw;
-            max-height: 96vh;
+            max-width: 100%;
+            max-height: calc(100vh - 120px);
             object-fit: contain;
             border-radius: 5px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease;
         }
 
+        /* 底部信息栏 */
         .info {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.6);
             padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 13px;
-            backdrop-filter: blur(10px);
-            opacity: 0.7;
-            transition: opacity 0.3s;
+            background: #222;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .info:hover {
-            opacity: 1;
+        .info-right {
+            color: #666;
         }
 
+        /* 加载状态 */
         .loading {
             opacity: 0.5;
         }
 
         .no-images {
             text-align: center;
-            color: #888;
+            color: #666;
         }
 
         .no-images h3 {
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .shortcuts {
-            font-size: 12px;
             color: #888;
-            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
+        /* 加载屏幕 */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -169,88 +198,184 @@
 
         .loading-screen p {
             color: #4a9eff;
-            font-size: 18px;
+            font-size: 16px;
+        }
+
+        /* 错误提示 */
+        .error-message {
+            color: #ff6b6b;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 滚动条美化 */
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track {
+            background: #252525;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 3px;
+        }
+
+        /* 提示文字 */
+        .hint {
+            color: #666;
+            font-size: 12px;
+            padding: 10px 15px;
+            border-bottom: 1px solid #2a2a2a;
         }
     </style>
 </head>
 <body>
     <div class="loading-screen" id="loadingScreen">
-        <p>🔄 正在加载图片列表...</p>
+        <p>🔄 正在加载目录...</p>
     </div>
 
-    <div class="controls" id="controls" style="display: none;">
-        <button class="controls-toggle" onclick="toggleControls()">☰</button>
-        <div class="controls-inner">
-            <label>
-                <input type="checkbox" id="excitingMode">
-                🌟 精彩模式
-            </label>
-            <button onclick="shuffleImages()">🔀 随机排序</button>
+    <!-- 左侧目录 -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">📁 目录列表</div>
+        <div class="hint">点击目录查看图片</div>
+        <div class="sidebar-content" id="folderList"></div>
+    </div>
+
+    <!-- 右侧主区域 -->
+    <div class="main">
+        <div class="toolbar" id="toolbar" style="display: none;">
+            <div class="toolbar-title" id="toolbarTitle">未选择目录</div>
+            <div class="toolbar-actions">
+                <label>
+                    <input type="checkbox" id="excitingMode">
+                    🌟 精彩模式
+                </label>
+                <button onclick="shuffleImages()">🔀 随机</button>
+            </div>
+        </div>
+
+        <div class="image-container" id="imageContainer">
+            <div class="no-images">
+                <h3>请从左侧选择目录</h3>
+                <p>← → 或 ↑ ↓ 键切换图片</p>
+            </div>
+        </div>
+
+        <div class="info" id="info" style="display: none;">
+            <span id="imageInfo">-</span>
+            <span class="info-right" id="imageHint">← → 或 ↑ ↓ 键切换</span>
         </div>
     </div>
 
-    <div class="image-container" id="imageContainer" style="display: none;">
-        <img id="currentImage" src="" alt="">
-    </div>
-
-    <div class="info" id="info" style="display: none;">
-        <span id="imageInfo"></span>
-    </div>
-
     <script>
+        let folders = [];
         let images = [];
         let allImages = [];
         let currentIndex = 0;
+        let currentFolder = null;
         let isExcitingMode = false;
 
-        // 页面加载时自动获取图片列表
-        async function loadImages() {
+        // 加载目录列表
+        async function loadFolders() {
             try {
                 const response = await fetch(window.location.href);
                 const html = await response.text();
 
-                // 解析 HTML 中的图片链接
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 const links = doc.querySelectorAll('a');
 
-                const imageUrls = [];
+                folders = [];
+
                 links.forEach(link => {
                     const href = link.getAttribute('href');
-                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
-                        imageUrls.push({
-                            name: decodeURIComponent(href),
+                    if (href && href.endsWith('/')) {
+                        // 这是目录
+                        const folderName = decodeURIComponent(href.replace(/\/$/, ''));
+                        folders.push({
+                            name: folderName,
                             url: href
                         });
                     }
                 });
 
-                if (imageUrls.length > 0) {
-                    images = imageUrls;
-                    allImages = [...images];
-                    console.log(`已加载 ${images.length} 张图片`);
-                    startGallery();
+                if (folders.length > 0) {
+                    renderFolders();
+                    document.getElementById('loadingScreen').style.display = 'none';
                 } else {
                     document.getElementById('loadingScreen').innerHTML =
-                        '<div class="no-images"><h3>未找到图片</h3><p>当前目录没有图片文件</p><p class="shortcuts">← → 或 ↑ ↓ 键切换图片</p></div>';
+                        '<div class="error-message"><h3>未找到目录</h3><p>请将此文件放在包含图片子目录的文件夹中</p></div>';
                 }
             } catch (e) {
                 console.error('加载失败:', e);
                 document.getElementById('loadingScreen').innerHTML =
-                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+                    '<div class="error-message"><h3>加载失败</h3><p>请通过 HTTP 服务器访问（python -m http.server 8080）</p></div>';
             }
         }
 
-        // 页面加载完成后自动执行
-        loadImages();
+        // 渲染目录列表
+        function renderFolders() {
+            const container = document.getElementById('folderList');
+            container.innerHTML = folders.map(folder => `
+                <div class="folder-item" onclick="selectFolder('${folder.url}', this)">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">${folder.name}</span>
+                </div>
+            `).join('');
+        }
 
-        function startGallery() {
-            document.getElementById('loadingScreen').style.display = 'none';
-            document.getElementById('controls').style.display = 'flex';
-            document.getElementById('imageContainer').style.display = 'flex';
-            document.getElementById('info').style.display = 'block';
+        // 选择目录
+        async function selectFolder(folderUrl, element) {
+            // 更新选中状态
+            document.querySelectorAll('.folder-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
 
-            shuffleImages();
+            currentFolder = folderUrl;
+            const folderName = decodeURIComponent(folderUrl.replace(/\/$/, ''));
+
+            document.getElementById('toolbarTitle').textContent = `📁 ${folderName}`;
+            document.getElementById('toolbar').style.display = 'flex';
+            document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
+
+            try {
+                const response = await fetch(folderUrl);
+                const html = await response.text();
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const links = doc.querySelectorAll('a');
+
+                images = [];
+
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    // 只加载图片，排除子目录和非图片文件
+                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.endsWith('/')) {
+                        // 排除 macOS 资源文件
+                        if (!href.startsWith('._')) {
+                            images.push({
+                                name: decodeURIComponent(href),
+                                url: folderUrl + href
+                            });
+                        }
+                    }
+                });
+
+                if (images.length > 0) {
+                    allImages = [...images];
+                    shuffleImages();
+                } else {
+                    document.getElementById('imageContainer').innerHTML =
+                        '<div class="no-images"><h3>目录中没有图片</h3></div>';
+                    document.getElementById('info').style.display = 'none';
+                }
+            } catch (e) {
+                console.error('加载目录失败:', e);
+                document.getElementById('imageContainer').innerHTML =
+                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+            }
         }
 
         function shuffleImages() {
@@ -265,9 +390,7 @@
         }
 
         function filterExciting(imgs) {
-            return imgs.filter(img =>
-                /nude|bikini/i.test(img.name)
-            );
+            return imgs.filter(img => /nude|bikini/i.test(img.name));
         }
 
         let failedCount = 0;
@@ -275,17 +398,17 @@
         function showImage(index, skipFailed = false) {
             if (images.length === 0) {
                 document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>没有找到图片</h3><p>请检查文件列表或切换精彩模式</p></div>';
+                    '<div class="no-images"><h3>没有找到图片</h3></div>';
                 return;
             }
 
             currentIndex = (index + images.length) % images.length;
             const img = images[currentIndex];
 
+            const container = document.getElementById('imageContainer');
+            container.innerHTML = `<img id="currentImage" src="${img.url}" alt="">`;
             const imageEl = document.getElementById('currentImage');
             imageEl.classList.add('loading');
-            imageEl.src = img.url;
-            imageEl.style.display = 'block';
 
             imageEl.onload = () => {
                 imageEl.classList.remove('loading');
@@ -295,34 +418,24 @@
             imageEl.onerror = () => {
                 imageEl.classList.remove('loading');
                 console.error('加载失败:', img.name);
-
-                document.getElementById('imageInfo').innerHTML =
-                    `<span style="color: #ff6b6b;">⚠ 加载失败: ${img.name}</span> <span style="color: #888;">(自动跳过中...)</span>`;
-
-                if (skipFailed) return;
-
                 failedCount++;
-                if (failedCount < images.length) {
+
+                if (!skipFailed && failedCount < images.length) {
                     setTimeout(() => showImage(currentIndex + 1, true), 500);
-                } else {
-                    document.getElementById('imageInfo').innerHTML =
-                        '<span style="color: #ff6b6b;">⚠ 多张图片加载失败</span>';
                 }
             };
 
+            document.getElementById('info').style.display = 'flex';
             document.getElementById('imageInfo').textContent =
                 `${currentIndex + 1} / ${images.length} - ${img.name}`;
-        }
-
-        function toggleControls() {
-            const controls = document.getElementById('controls');
-            controls.classList.toggle('collapsed');
         }
 
         // 精彩模式切换
         document.getElementById('excitingMode').addEventListener('change', function(e) {
             isExcitingMode = e.target.checked;
-            shuffleImages();
+            if (images.length > 0) {
+                shuffleImages();
+            }
         });
 
         // 键盘事件
@@ -337,6 +450,9 @@
                 showImage(currentIndex + 1);
             }
         });
+
+        // 页面加载
+        loadFolders();
     </script>
 </body>
 </html>
