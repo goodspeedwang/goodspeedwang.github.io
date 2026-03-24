@@ -709,7 +709,10 @@
                     <input type="checkbox" id="excitingMode">
                     精彩模式
                 </label>
-                <button class="action-btn primary" onclick="shuffleImages()">随机排序</button>
+                <label>
+                    <input type="checkbox" id="shuffleMode" checked>
+                    随机排序
+                </label>
             </div>
         </div>
     </div>
@@ -728,6 +731,7 @@
         let currentIndex = 0;
         let currentFolder = null;
         let isExcitingMode = false;
+        let isShuffleMode = true;
         let isDarkMode = true;
         let isFullscreen = false;
         let baseUrl = '';
@@ -1195,15 +1199,41 @@
         }
 
         // ========== 图片显示 ==========
-        function shuffleImages() {
-            const toShuffle = isExcitingMode ? filterExciting(allImages) : [...allImages];
-            for (let i = toShuffle.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [toShuffle[i], toShuffle[j]] = [toShuffle[j], toShuffle[i]];
+        function applyImageOrder() {
+            // 获取当前图片URL，用于定位
+            const currentImg = images[currentIndex];
+            const currentUrl = currentImg ? currentImg.url : null;
+            
+            let ordered = isExcitingMode ? filterExciting(allImages) : [...allImages];
+            
+            if (isShuffleMode) {
+                // 随机排序
+                for (let i = ordered.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
+                }
             }
-            images = toShuffle;
+            // 非随机模式保持原始顺序
+            
+            images = ordered;
+            
+            // 尝试保持当前图片位置
+            if (currentUrl) {
+                const newIndex = images.findIndex(img => img.url === currentUrl);
+                if (newIndex !== -1) {
+                    currentIndex = newIndex;
+                    showImage(currentIndex);
+                    return;
+                }
+            }
+            
             currentIndex = 0;
             showImage(0);
+        }
+
+        // 保留原函数名以兼容
+        function shuffleImages() {
+            applyImageOrder();
         }
 
         function filterExciting(imgs) {
@@ -1427,7 +1457,12 @@
         // ========== 事件监听 ==========
         document.getElementById('excitingMode').addEventListener('change', function(e) {
             isExcitingMode = e.target.checked;
-            if (images.length > 0) shuffleImages();
+            if (allImages.length > 0) applyImageOrder();
+        });
+
+        document.getElementById('shuffleMode').addEventListener('change', function(e) {
+            isShuffleMode = e.target.checked;
+            if (allImages.length > 0) applyImageOrder();
         });
 
         document.getElementById('darkModeToggle').addEventListener('change', function(e) {
