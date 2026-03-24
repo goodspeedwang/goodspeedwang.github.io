@@ -359,6 +359,7 @@
             document.getElementById('toolbarTitle').textContent = `${folder.url === '' ? '📷' : '📁'} ${folder.name}`;
             document.getElementById('toolbar').style.display = 'flex';
             document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
+            document.getElementById('info').style.display = 'none';
 
             // 如果是"当前目录"且已有图片列表
             if (folder.url === '' && folder.images) {
@@ -368,9 +369,87 @@
                 return;
             }
 
-            // 从子目录加载图片
+            // 从子目录加载
             try {
                 const response = await fetch(folder.url);
+                const html = await response.text();
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const links = doc.querySelectorAll('a');
+
+                const subFolders = [];
+                images = [];
+
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && href.endsWith('/')) {
+                        // 这是子目录
+                        const folderName = decodeURIComponent(href.replace(/\/$/, ''));
+                        subFolders.push({
+                            name: folderName,
+                            url: folder.url + href
+                        });
+                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
+                        // 这是图片
+                        images.push({
+                            name: decodeURIComponent(href),
+                            url: folder.url + href
+                        });
+                    }
+                });
+
+                // 如果有子目录，在右侧显示子目录列表
+                if (subFolders.length > 0) {
+                    renderSubFolders(subFolders, folder.name);
+                } else if (images.length > 0) {
+                    // 只有图片，显示图片
+                    allImages = [...images];
+                    shuffleImages();
+                } else {
+                    document.getElementById('imageContainer').innerHTML =
+                        '<div class="no-images"><h3>目录为空</h3></div>';
+                }
+            } catch (e) {
+                console.error('加载目录失败:', e);
+                document.getElementById('imageContainer').innerHTML =
+                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+            }
+        }
+
+        // 渲染子目录列表（在右侧显示）
+        function renderSubFolders(subFolders, parentName) {
+            const container = document.getElementById('imageContainer');
+            container.innerHTML = `
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; justify-content: flex-start; width: 100%;">
+                    ${subFolders.map(f => `
+                        <div class="subfolder-item" onclick="selectSubFolder('${f.url}', '${f.name}')" style="
+                            width: 150px;
+                            height: 120px;
+                            background: #2a2a2a;
+                            border-radius: 8px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            transition: background 0.2s;
+                        " onmouseover="this.style.background='#3a3a3a'" onmouseout="this.style.background='#2a2a2a'">
+                            <span style="font-size: 40px; margin-bottom: 10px;">📁</span>
+                            <span style="font-size: 12px; text-align: center; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px;">${f.name}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            document.getElementById('toolbarTitle').textContent = `📁 ${parentName} / 选择子目录`;
+        }
+
+        // 选择子目录
+        async function selectSubFolder(folderUrl, folderName) {
+            document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
+
+            try {
+                const response = await fetch(folderUrl);
                 const html = await response.text();
 
                 const parser = new DOMParser();
@@ -381,17 +460,15 @@
 
                 links.forEach(link => {
                     const href = link.getAttribute('href');
-                    // 只加载图片，排除子目录和非图片文件
-                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.endsWith('/')) {
-                        // 排除 macOS 资源文件
-                        if (!href.startsWith('._')) {
-                            images.push({
-                                name: decodeURIComponent(href),
-                                url: folder.url + href
-                            });
-                        }
+                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
+                        images.push({
+                            name: decodeURIComponent(href),
+                            url: folderUrl + href
+                        });
                     }
                 });
+
+                document.getElementById('toolbarTitle').textContent = `📁 ${folderName}`;
 
                 if (images.length > 0) {
                     allImages = [...images];
@@ -399,12 +476,11 @@
                 } else {
                     document.getElementById('imageContainer').innerHTML =
                         '<div class="no-images"><h3>目录中没有图片</h3></div>';
-                    document.getElementById('info').style.display = 'none';
                 }
             } catch (e) {
-                console.error('加载目录失败:', e);
+                console.error('加载失败:', e);
                 document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+                    '<div class="no-images"><h3>加载失败</h3></div>';
             }
         }
 
