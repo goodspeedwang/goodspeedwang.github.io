@@ -1,10 +1,12 @@
-<html lang="zh-CN" data-theme="dark"><head>
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <style>
+        /* ========== 主题变量 ========== */
         :root {
-            /* 暗黑模式（默认） */
             --bg-primary: #1c1c1e;
             --bg-secondary: #2c2c2e;
             --bg-tertiary: #3a3a3c;
@@ -18,7 +20,6 @@
         }
 
         [data-theme="light"] {
-            /* 亮色模式 */
             --bg-primary: #f5f5f7;
             --bg-secondary: #ffffff;
             --bg-tertiary: #e8e8ed;
@@ -31,6 +32,7 @@
             --input-bg: #f5f5f7;
         }
 
+        /* ========== 全局样式 ========== */
         * {
             margin: 0;
             padding: 0;
@@ -47,7 +49,7 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* 左侧导航栏 */
+        /* ========== 左侧导航栏 ========== */
         .sidebar {
             width: 280px;
             background: var(--bg-secondary);
@@ -105,6 +107,20 @@
             padding: 12px;
         }
 
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background: var(--hover-bg);
+            border-radius: 3px;
+        }
+
+        /* ========== 文件夹树 ========== */
         .tree-item {
             margin-bottom: 2px;
         }
@@ -202,7 +218,7 @@
             display: block;
         }
 
-        /* 主区域 */
+        /* ========== 主区域 ========== */
         .main {
             flex: 1;
             display: flex;
@@ -216,7 +232,6 @@
             margin-left: 0;
         }
 
-        /* 展开按钮 */
         .expand-btn {
             position: fixed;
             left: 16px;
@@ -245,7 +260,7 @@
             display: flex;
         }
 
-        /* 图片容器 */
+        /* ========== 图片容器 ========== */
         .image-container {
             flex: 1;
             display: flex;
@@ -258,7 +273,6 @@
             transition: background 0.3s;
         }
 
-        /* 单张图片居中 */
         .image-container.centered {
             justify-content: center;
             align-items: center;
@@ -277,7 +291,7 @@
             max-width: calc(100vw - 80px);
         }
 
-        /* 图片信息悬浮层 - 固定在窗口左下角 */
+        /* ========== 图片信息悬浮层 ========== */
         .image-overlay {
             position: fixed;
             left: 296px;
@@ -308,7 +322,7 @@
             white-space: nowrap;
         }
 
-        /* 右侧操作栏 */
+        /* ========== 右侧操作栏 ========== */
         .action-panel {
             position: fixed;
             right: 20px;
@@ -397,7 +411,7 @@
             background: #0062cc;
         }
 
-        /* 文件夹网格 */
+        /* ========== 文件夹网格 ========== */
         .folder-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -460,8 +474,10 @@
             margin-top: 4px;
         }
 
-        /* 其他 */
-        .loading { opacity: 0.6; }
+        /* ========== 状态提示 ========== */
+        .loading {
+            opacity: 0.6;
+        }
 
         .no-images {
             text-align: center;
@@ -500,11 +516,7 @@
             text-align: center;
         }
 
-        .sidebar-content::-webkit-scrollbar { width: 6px; }
-        .sidebar-content::-webkit-scrollbar-track { background: transparent; }
-        .sidebar-content::-webkit-scrollbar-thumb { background: var(--hover-bg); border-radius: 3px; }
-
-        /* 全屏模式 */
+        /* ========== 全屏模式 ========== */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
@@ -530,10 +542,10 @@
         }
 
         .fullscreen-info {
-            display: none; /* 全屏时不显示信息 */
+            display: none;
         }
 
-        /* 视频容器 */
+        /* ========== 视频播放 ========== */
         .video-wrapper {
             position: relative;
             display: flex;
@@ -541,7 +553,6 @@
             align-items: center;
         }
 
-        /* 视频进度条 */
         .video-progress {
             width: 100%;
             height: 3px;
@@ -565,7 +576,6 @@
             transition: width 0.1s linear;
         }
 
-        /* 视频控制条 */
         .video-controls {
             display: flex;
             align-items: center;
@@ -603,10 +613,12 @@
     </style>
 </head>
 <body>
+    <!-- 加载屏幕 -->
     <div class="loading-screen" id="loadingScreen" style="display: none;">
         <p>正在加载...</p>
     </div>
 
+    <!-- 展开按钮 -->
     <button class="expand-btn" id="expandBtn" onclick="toggleSidebar()">☰</button>
 
     <!-- 左侧导航 -->
@@ -621,70 +633,63 @@
     <!-- 主区域 -->
     <div class="main" id="main">
         <div class="image-container" id="imageContainer">
-                <div class="folder-grid">
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/58/', '58', '0')">
-                            <div class="folder-card-preview" id="preview-0">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">58</div>
-                                <div class="folder-card-count" id="count-0">加载中...</div>
-                            </div>
-                        </div>
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/allinone/', 'allinone', '1')">
-                            <div class="folder-card-preview" id="preview-1">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">allinone</div>
-                                <div class="folder-card-count" id="count-1">加载中...</div>
-                            </div>
-                        </div>
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/hot/', 'hot', '2')">
-                            <div class="folder-card-preview" id="preview-2">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">hot</div>
-                                <div class="folder-card-count" id="count-2">加载中...</div>
-                            </div>
-                        </div>
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/meituan/', 'meituan', '3')">
-                            <div class="folder-card-preview" id="preview-3">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">meituan</div>
-                                <div class="folder-card-count" id="count-3">加载中...</div>
-                            </div>
-                        </div>
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/other/', 'other', '4')">
-                            <div class="folder-card-preview" id="preview-4">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">other</div>
-                                <div class="folder-card-count" id="count-4">加载中...</div>
-                            </div>
-                        </div>
-                    
-                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/vancl/', 'vancl', '5')">
-                            <div class="folder-card-preview" id="preview-5">
-                                <span class="placeholder">📁</span>
-                            </div>
-                            <div class="folder-card-info">
-                                <div class="folder-card-name">vancl</div>
-                                <div class="folder-card-count" id="count-5">加载中...</div>
-                            </div>
-                        </div>
-                    
+            <div class="folder-grid">
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/58/', '58', '0')">
+                    <div class="folder-card-preview" id="preview-0">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">58</div>
+                        <div class="folder-card-count" id="count-0">加载中...</div>
+                    </div>
+                </div>
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/allinone/', 'allinone', '1')">
+                    <div class="folder-card-preview" id="preview-1">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">allinone</div>
+                        <div class="folder-card-count" id="count-1">加载中...</div>
+                    </div>
+                </div>
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/hot/', 'hot', '2')">
+                    <div class="folder-card-preview" id="preview-2">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">hot</div>
+                        <div class="folder-card-count" id="count-2">加载中...</div>
+                    </div>
+                </div>
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/meituan/', 'meituan', '3')">
+                    <div class="folder-card-preview" id="preview-3">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">meituan</div>
+                        <div class="folder-card-count" id="count-3">加载中...</div>
+                    </div>
+                </div>
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/other/', 'other', '4')">
+                    <div class="folder-card-preview" id="preview-4">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">other</div>
+                        <div class="folder-card-count" id="count-4">加载中...</div>
+                    </div>
+                </div>
+                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/vancl/', 'vancl', '5')">
+                    <div class="folder-card-preview" id="preview-5">
+                        <span class="placeholder">📁</span>
+                    </div>
+                    <div class="folder-card-info">
+                        <div class="folder-card-name">vancl</div>
+                        <div class="folder-card-count" id="count-5">加载中...</div>
+                    </div>
                 </div>
             </div>
+        </div>
 
         <!-- 图片信息悬浮层 -->
         <div class="image-overlay" id="imageOverlay" style="display: none;">
@@ -716,24 +721,27 @@
     </div>
 
     <script>
+        // ========== 全局变量 ==========
         let folderTree = [];
         let images = [];
         let allImages = [];
         let currentIndex = 0;
         let currentFolder = null;
         let isExcitingMode = false;
-        let isDarkMode = true; // 默认暗黑模式
+        let isDarkMode = true;
         let isFullscreen = false;
         let baseUrl = '';
-        const CACHE_PREFIX = 'gallery_cache_';
-        const CACHE_EXPIRE = 7 * 24 * 60 * 60 * 1000; // 7天过期
-        const PREVIEW_CACHE_PREFIX = 'gallery_preview_';
-        const PREVIEW_CACHE_EXPIRE = 30 * 24 * 60 * 60 * 1000; // 30天过期（预览图缓存更长）
+        let failedCount = 0;
 
-        // 初始化主题
+        const CACHE_PREFIX = 'gallery_cache_';
+        const CACHE_EXPIRE = 7 * 24 * 60 * 60 * 1000; // 7天
+        const PREVIEW_CACHE_PREFIX = 'gallery_preview_';
+        const PREVIEW_CACHE_EXPIRE = 30 * 24 * 60 * 60 * 1000; // 30天
+
+        // ========== 主题管理 ==========
         function initTheme() {
             const savedTheme = localStorage.getItem('gallery_theme');
-            isDarkMode = savedTheme !== 'light'; // 默认暗黑模式，只有明确设置为light才使用亮色
+            isDarkMode = savedTheme !== 'light';
             applyTheme();
             document.getElementById('darkModeToggle').checked = isDarkMode;
         }
@@ -748,6 +756,7 @@
             applyTheme();
         }
 
+        // ========== 缓存管理 ==========
         function getCache(key) {
             try {
                 const cached = localStorage.getItem(CACHE_PREFIX + key);
@@ -758,7 +767,7 @@
                 const { data, timestamp } = JSON.parse(cached);
                 const age = Date.now() - timestamp;
                 const ageHours = (age / (60 * 60 * 1000)).toFixed(2);
-                
+
                 if (age < CACHE_EXPIRE) {
                     console.log(`  [缓存] ${key}: 命中 (年龄: ${ageHours}小时)`);
                     return data;
@@ -777,13 +786,12 @@
                 const start = performance.now();
                 localStorage.setItem(CACHE_PREFIX + key, JSON.stringify({ data, timestamp: Date.now() }));
                 console.log(`  [缓存] ${key}: 保存完成 (${(performance.now() - start).toFixed(2)}ms)`);
-            } catch (e) { 
+            } catch (e) {
                 console.log(`  [缓存] ${key}: 保存失败，清理旧缓存...`);
-                clearOldCache(); 
+                clearOldCache();
             }
         }
 
-        // 预览图专用缓存（更长过期时间）
         function getPreviewCache(url) {
             try {
                 const cached = localStorage.getItem(PREVIEW_CACHE_PREFIX + url);
@@ -791,7 +799,7 @@
                 const { data, timestamp } = JSON.parse(cached);
                 const age = Date.now() - timestamp;
                 const ageDays = (age / (24 * 60 * 60 * 1000)).toFixed(1);
-                
+
                 if (age < PREVIEW_CACHE_EXPIRE) {
                     console.log(`  [预览缓存] 命中 (年龄: ${ageDays}天)`);
                     return data;
@@ -808,7 +816,9 @@
         function setPreviewCache(url, data) {
             try {
                 localStorage.setItem(PREVIEW_CACHE_PREFIX + url, JSON.stringify({ data, timestamp: Date.now() }));
-            } catch (e) { clearOldCache(); }
+            } catch (e) {
+                clearOldCache();
+            }
         }
 
         function clearOldCache() {
@@ -816,6 +826,7 @@
             keys.slice(0, Math.floor(keys.length / 2)).forEach(k => localStorage.removeItem(k));
         }
 
+        // ========== UI 控制函数 ==========
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const main = document.getElementById('main');
@@ -829,10 +840,10 @@
             document.getElementById('actionContent').classList.toggle('visible');
         }
 
+        // ========== 文件夹加载 ==========
         async function loadFolders() {
             try {
                 const currentUrl = window.location.href;
-                // 处理 viewer.html 路径，获取基础 URL
                 let path = currentUrl;
                 if (path.includes('/viewer.html')) {
                     path = path.substring(0, path.lastIndexOf('/viewer.html') + 1);
@@ -854,7 +865,7 @@
                 const response = await fetch(baseUrl);
                 const html = await response.text();
                 const { images: currentDirImages, folders } = extractItems(html, baseUrl);
-                
+
                 folderTree = folders.map(f => ({
                     name: f.name,
                     url: f.url,
@@ -898,6 +909,7 @@
             }
         }
 
+        // ========== 文件夹树渲染 ==========
         function renderFolderTree() {
             document.getElementById('folderList').innerHTML = renderTreeItems(folderTree, '', true);
         }
@@ -907,18 +919,17 @@
                 const path = parentPath ? `${parentPath}/${index}` : `${index}`;
                 const hasChildren = item.children !== null && item.children !== undefined && item.children.length > 0;
                 const isExpanded = item.expanded ? 'expanded' : '';
-                // 如果还没加载，也显示箭头（因为可能还有子文件夹）
                 const hasSubfolders = item.hasSubfolders;
                 const showToggle = hasChildren || hasSubfolders || !item.loaded;
 
                 return `
                     <div class="tree-item" data-path="${path}">
                         <div class="folder-item ${item.active ? 'active' : ''}" onclick="selectFolderItem('${item.url}', '${item.name}', '${path}')">
-                            <span class="folder-toggle ${isExpanded} ${!showToggle ? 'hidden' : ''}" 
+                            <span class="folder-toggle ${isExpanded} ${!showToggle ? 'hidden' : ''}"
                                   onclick="event.stopPropagation(); toggleFolder('${path}')">▶</span>
                             <div class="folder-icon">
-                                ${item.previewImage ? 
-                                    `<img src="${item.previewImage}" onerror="this.parentElement.innerHTML='📁'">` : 
+                                ${item.previewImage ?
+                                    `<img src="${item.previewImage}" onerror="this.parentElement.innerHTML='📁'">` :
                                     (item.isCurrent ? '📷' : '📁')}
                             </div>
                             <span class="folder-name">${item.name}</span>
@@ -942,7 +953,6 @@
                 return;
             }
 
-            // 先渲染 HTML
             container.innerHTML = `
                 <div class="folder-grid">
                     ${folders.map((f, i) => `
@@ -959,12 +969,10 @@
                 </div>
             `;
 
-            // DOM 渲染完成后再加载预览
             folders.forEach((f, i) => loadFolderPreview(f, hasCurrentDir ? i + 1 : i));
         }
 
         async function loadFolderPreview(folder, index) {
-            // 先检查预览缓存（30天过期，快速显示）
             const previewCache = getPreviewCache(folder.url);
             if (previewCache) {
                 updateFolderPreview(index, previewCache.previewUrl, previewCache.count);
@@ -972,10 +980,9 @@
                 folder.imageCount = previewCache.count;
                 renderFolderTree();
             } else {
-                // 再检查普通缓存
                 const cacheKey = 'folder_' + folder.url;
                 const cached = getCache(cacheKey);
-                
+
                 if (cached && cached.images && cached.images.length > 0) {
                     const firstImg = cached.images[0];
                     updateFolderPreview(index, firstImg.url, cached.images.length);
@@ -984,20 +991,18 @@
                     renderFolderTree();
                 }
             }
-            
-            // 异步更新缓存
+
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
                 const { images: foundImages, folders: subFolders } = extractItems(html, folder.url);
-                
+
                 folder.hasSubfolders = subFolders && subFolders.length > 0;
                 const cacheKey = 'folder_' + folder.url;
                 setCache(cacheKey, { images: foundImages, folders: subFolders });
-                
+
                 if (foundImages.length > 0) {
                     const firstImg = foundImages[0];
-                    // 更新预览缓存
                     setPreviewCache(folder.url, { previewUrl: firstImg.url, count: foundImages.length });
                     updateFolderPreview(index, firstImg.url, foundImages.length);
                     folder.previewImage = firstImg.url;
@@ -1020,17 +1025,16 @@
             }
         }
 
+        // ========== 文件夹树操作 ==========
         async function toggleFolder(path) {
             const item = getTreeItemByPath(path);
             if (!item || item.isCurrent) return;
 
             if (!item.loaded) {
-                // 先尝试从缓存读取
                 const cacheKey = 'subfolders_' + item.url;
                 const cached = getCache(cacheKey);
-                
+
                 if (cached && cached.children) {
-                    // 恢复子文件夹，确保 loaded 为 false 以便后续展开
                     item.children = cached.children.map(c => ({
                         ...c,
                         loaded: false,
@@ -1041,14 +1045,12 @@
                     item.expanded = true;
                     renderFolderTree();
                     console.log('📦 使用子文件夹缓存:', item.name);
-                    
-                    // 检查是否有子文件夹缺少预览图，如有则异步更新
+
                     const needUpdate = item.children.some(c => !c.previewImage && !c.hasSubfolders);
                     if (needUpdate) {
                         updateSubFoldersCache(item, path, cacheKey);
                     }
                 } else {
-                    // 没有缓存，直接加载
                     await loadSubFolders(item, path);
                     item.expanded = true;
                     renderFolderTree();
@@ -1064,7 +1066,7 @@
                 const response = await fetch(item.url);
                 const html = await response.text();
                 const { folders: subFolders } = extractItems(html, item.url);
-                
+
                 item.children = subFolders.map(f => ({
                     name: f.name,
                     url: f.url,
@@ -1075,29 +1077,24 @@
                     hasSubfolders: false
                 }));
                 item.loaded = true;
-                
-                // 立即显示（无预览），然后并行加载所有预览
+
                 renderFolderTree();
-                
-                // 并行加载所有子文件夹的预览和子文件夹信息
+
                 await Promise.all(item.children.map(async (child, i) => {
                     await loadSubFolderPreviewFast(child);
                 }));
-                
-                // 缓存包含预览信息的子文件夹列表
+
                 const cacheKey = 'subfolders_' + item.url;
                 setCache(cacheKey, { children: item.children });
                 renderFolderTree();
-                
+
             } catch (e) {
                 item.children = [];
                 item.loaded = true;
             }
         }
 
-        // 快速加载子文件夹预览（并行使用）
         async function loadSubFolderPreviewFast(folder) {
-            // 先检查预览缓存
             const previewCache = getPreviewCache(folder.url);
             if (previewCache) {
                 folder.previewImage = previewCache.previewUrl;
@@ -1106,11 +1103,10 @@
                 renderFolderTree();
                 return;
             }
-            
-            // 再检查普通缓存
+
             const cacheKey = 'folder_' + folder.url;
             const cached = getCache(cacheKey);
-            
+
             if (cached) {
                 if (cached.images && cached.images.length > 0) {
                     folder.previewImage = cached.images[0].url;
@@ -1121,29 +1117,27 @@
                 }
                 renderFolderTree();
             }
-            
-            // 异步更新
+
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
                 const { images: foundImages, folders: foundFolders } = extractItems(html, folder.url);
-                
+
                 const hasSubfolders = foundFolders && foundFolders.length > 0;
-                
+
                 if (foundImages.length > 0) {
                     folder.previewImage = foundImages[0].url;
                     folder.imageCount = foundImages.length;
                 }
                 folder.hasSubfolders = hasSubfolders;
-                
-                // 更新预览缓存（包含子文件夹信息）
-                setPreviewCache(folder.url, { 
-                    previewUrl: folder.previewImage, 
+
+                setPreviewCache(folder.url, {
+                    previewUrl: folder.previewImage,
                     count: folder.imageCount,
                     hasSubfolders: hasSubfolders
                 });
                 setCache(cacheKey, { images: foundImages, folders: foundFolders });
-                
+
                 renderFolderTree();
             } catch (e) {}
         }
@@ -1153,8 +1147,7 @@
                 const response = await fetch(item.url);
                 const html = await response.text();
                 const { folders: subFolders } = extractItems(html, item.url);
-                
-                // 创建新的子文件夹列表，保留已有信息
+
                 const newChildren = subFolders.map(f => {
                     const existingChild = item.children?.find(c => c.url === f.url);
                     return {
@@ -1167,21 +1160,19 @@
                         hasSubfolders: existingChild?.hasSubfolders || false
                     };
                 });
-                
+
                 item.children = newChildren;
                 renderFolderTree();
-                
-                // 并行加载新子文件夹的预览
+
                 await Promise.all(item.children.map(async (child) => {
                     if (!child.previewImage || !child.hasSubfolders) {
                         await loadSubFolderPreviewFast(child);
                     }
                 }));
-                
-                // 更新缓存
+
                 setCache(cacheKey, { children: newChildren });
                 console.log('✅ 子文件夹缓存已更新:', item.name);
-                
+
             } catch (e) {
                 console.error('更新子文件夹缓存失败:', e);
             }
@@ -1198,16 +1189,15 @@
             return null;
         }
 
-        // 在树中查找文件夹URL，返回路径
         function findFolderInTree(url, items = folderTree, path = '') {
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
                 const currentPath = path ? `${path}/${i}` : `${i}`;
-                
+
                 if (item.url === url) {
                     return currentPath;
                 }
-                
+
                 if (item.children && item.children.length > 0) {
                     const found = findFolderInTree(url, item.children, currentPath);
                     if (found) return found;
@@ -1216,11 +1206,10 @@
             return null;
         }
 
-        // 展开到指定路径的所有父文件夹
         function expandPathToFolder(path) {
             const indices = path.split('/').map(Number);
             let current = folderTree;
-            
+
             for (let i = 0; i < indices.length - 1; i++) {
                 const item = current[indices[i]];
                 if (item) {
@@ -1230,11 +1219,16 @@
             }
         }
 
+        function clearActive(item) {
+            item.active = false;
+            if (item.children) item.children.forEach(clearActive);
+        }
+
+        // ========== 文件夹选择 ==========
         async function selectFolderItem(url, name, path) {
             console.log(`📁 点击文件夹: ${name}, URL: ${url}`);
             const startTime = performance.now();
-            
-            // 清除之前的active状态
+
             folderTree.forEach(clearActive);
             const item = getTreeItemByPath(path);
             if (item) item.active = true;
@@ -1253,7 +1247,7 @@
 
             const cacheKey = 'folder_' + url;
             const cached = getCache(cacheKey);
-            
+
             if (cached) {
                 console.log(`📦 找到缓存: ${name}, 图片数: ${cached.images?.length || 0}, 子文件夹数: ${cached.folders?.length || 0}`);
                 displayFolderContent(cached.images, cached.folders, name, url);
@@ -1267,11 +1261,7 @@
             console.log(`⏱️ 总耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
         }
 
-        function clearActive(item) {
-            item.active = false;
-            if (item.children) item.children.forEach(clearActive);
-        }
-
+        // ========== 内容解析 ==========
         function extractItems(html, url) {
             const images = [];
             const folders = [];
@@ -1282,19 +1272,14 @@
                 const href = match[1];
                 if (!href) continue;
 
-                // 跳过上级目录和当前目录
                 if (href === '../' || href === './') continue;
 
-                // 处理相对路径
                 let fullUrl;
                 if (href.startsWith('http')) {
-                    // 绝对路径，直接使用
                     fullUrl = href;
                 } else if (href.startsWith('/')) {
-                    // 根路径，拼接 baseUrl
                     fullUrl = baseUrl + href.substring(1);
                 } else {
-                    // 相对路径，拼接当前 url
                     fullUrl = url + href;
                 }
 
@@ -1307,9 +1292,9 @@
             return { images, folders };
         }
 
+        // ========== 文件夹内容显示 ==========
         function displayFolderContent(imgs, folders, name, url) {
             if (imgs && imgs.length > 0) {
-                // 给每张图片添加原始索引
                 images = imgs.map((img, i) => ({ ...img, originalIndex: i + 1 }));
                 allImages = [...images];
                 shuffleImages();
@@ -1321,10 +1306,9 @@
         }
 
         async function loadAndDisplayFolder(url, name, hasCache = false) {
-            // 如果有缓存，延迟执行网络请求（优先使用缓存）
             if (hasCache) {
                 console.log(`🌐 [后台] ${name} 缓存已存在，延迟更新...`);
-                await new Promise(resolve => setTimeout(resolve, 500)); // 延迟500ms，让用户先看到内容
+                await new Promise(resolve => setTimeout(resolve, 500));
             } else {
                 console.log(`🌐 [前台] ${name} 无缓存，立即加载...`);
             }
@@ -1347,17 +1331,17 @@
                 const extractStart = performance.now();
                 const { images: foundImages, folders: foundFolders } = extractItems(html, url);
                 console.log(`🔍 解析完成: 图片=${foundImages.length}, 文件夹=${foundFolders.length}, 示例图片:`, foundImages.slice(0, 3).map(i => i.url));
-                
+
                 const cacheStart = performance.now();
                 setCache('folder_' + url, { images: foundImages, folders: foundFolders });
                 console.log(`💾 缓存保存: 耗时: ${(performance.now() - cacheStart).toFixed(2)}ms`);
-                
+
                 if (!hasCache) {
                     displayFolderContent(foundImages, foundFolders, name, url);
                 } else {
                     console.log(`🔄 缓存已存在，仅更新缓存，不重新渲染`);
                 }
-                
+
                 console.log(`✅ 网络请求总耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
             } catch (e) {
                 clearTimeout(timeoutId);
@@ -1372,18 +1356,15 @@
         function renderSubFolders(subFolders, parentName, parentUrl) {
             const container = document.getElementById('imageContainer');
             container.classList.remove('centered');
-            
-            // 为每个子文件夹生成唯一ID
+
             const subFolderIds = subFolders.map((f, i) => `subfolder_${Date.now()}_${i}`);
-            
-            // 异步加载预览图
+
             subFolders.forEach((f, i) => {
                 loadSubFolderCardPreview(f, subFolderIds[i]);
             });
-            
-            // 转义单引号
+
             const escapeUrl = url => url.replace(/'/g, "\\'");
-            
+
             container.innerHTML = `
                 <div class="folder-grid">
                     ${subFolders.map((f, i) => `
@@ -1401,28 +1382,24 @@
         }
 
         async function loadSubFolderCardPreview(folder, elementId) {
-            // 先检查预览缓存（30天过期）
             const previewCache = getPreviewCache(folder.url);
             if (previewCache) {
                 updateSubFolderCardPreview(elementId, previewCache.previewUrl);
             } else {
-                // 再检查普通缓存
                 const cacheKey = 'folder_' + folder.url;
                 const cached = getCache(cacheKey);
-                
+
                 if (cached && cached.images && cached.images.length > 0) {
                     updateSubFolderCardPreview(elementId, cached.images[0].url);
                 }
             }
-            
-            // 异步更新
+
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
                 const { images: foundImages } = extractItems(html, folder.url);
-                
+
                 if (foundImages.length > 0) {
-                    // 更新预览缓存
                     setPreviewCache(folder.url, { previewUrl: foundImages[0].url, count: foundImages.length });
                     setCache('folder_' + folder.url, { images: foundImages, folders: [] });
                     updateSubFolderCardPreview(elementId, foundImages[0].url);
@@ -1438,40 +1415,34 @@
         }
 
         async function selectSubFolder(folderUrl, folderName, parentUrl) {
-            // 清除之前的active状态
             folderTree.forEach(clearActive);
-            
-            // 尝试在导航树中找到并选中该文件夹
+
             let foundPath = findFolderInTree(folderUrl);
-            
+
             if (!foundPath && parentUrl) {
-                // 如果没找到，先确保父文件夹已加载并展开
                 const parentPath = findFolderInTree(parentUrl);
                 if (parentPath) {
                     const parentItem = getTreeItemByPath(parentPath);
                     if (parentItem && !parentItem.loaded) {
-                        // 加载父文件夹的子文件夹
                         await loadSubFolders(parentItem, parentPath);
                     }
                     parentItem.expanded = true;
                     foundPath = findFolderInTree(folderUrl);
                 }
             }
-            
+
             if (foundPath) {
-                // 展开到该文件夹的路径
                 expandPathToFolder(foundPath);
-                // 选中该文件夹
                 const item = getTreeItemByPath(foundPath);
                 if (item) item.active = true;
                 renderFolderTree();
             }
-            
-            // 加载文件夹内容
+
             document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
             await loadAndDisplayFolder(folderUrl, folderName);
         }
 
+        // ========== 图片显示 ==========
         function shuffleImages() {
             const toShuffle = isExcitingMode ? filterExciting(allImages) : [...allImages];
             for (let i = toShuffle.length - 1; i > 0; i--) {
@@ -1487,11 +1458,9 @@
             return imgs.filter(img => /nude|bikini/i.test(img.name));
         }
 
-        let failedCount = 0;
-
         function showImage(index, skipFailed = false) {
             const container = document.getElementById('imageContainer');
-            
+
             if (images.length === 0) {
                 container.innerHTML = '<div class="no-images"><h3>没有图片</h3></div>';
                 container.classList.remove('centered');
@@ -1501,19 +1470,16 @@
 
             currentIndex = (index + images.length) % images.length;
             const img = images[currentIndex];
-            
-            // 文件名去掉最后一个扩展名
+
             const displayName = img.name.replace(/\.[^.]+$/, '');
-            // 检测是否为视频文件
             const isVideo = /\.mp4$/i.test(img.name);
 
             container.classList.add('centered');
-            
+
             if (isVideo) {
-                // 显示视频元素，自动播放，静音，带进度条和静音按钮
                 container.innerHTML = `
                     <div class="video-wrapper">
-                        <video id="currentVideo" src="${img.url}" autoplay muted loop playsinline 
+                        <video id="currentVideo" src="${img.url}" autoplay muted loop playsinline
                                style="max-width: calc(100vw - 360px); max-height: calc(100vh - 150px); border-radius: 12px; box-shadow: 0 20px 60px var(--shadow-color);">
                         </video>
                         <div class="video-controls">
@@ -1524,36 +1490,33 @@
                         </div>
                     </div>
                 `;
-                
+
                 const videoEl = document.getElementById('currentVideo');
                 const progressBar = document.getElementById('videoProgressBar');
                 const muteBtn = document.getElementById('videoMuteBtn');
-                
+
                 videoEl.onloadeddata = () => {
                     failedCount = 0;
                 };
-                
+
                 videoEl.onerror = () => {
                     failedCount++;
                     if (!skipFailed && failedCount < images.length) {
                         setTimeout(() => showImage(currentIndex + 1, true), 500);
                     }
                 };
-                
-                // 更新进度条
+
                 videoEl.addEventListener('timeupdate', function() {
                     if (videoEl.duration) {
                         const progress = (videoEl.currentTime / videoEl.duration) * 100;
                         progressBar.style.width = progress + '%';
                     }
                 });
-                
-                // 清理
+
                 videoEl.addEventListener('ended', function() {
                     progressBar.style.width = '0%';
                 });
-                
-                // 静音/取消静音切换
+
                 muteBtn.addEventListener('click', function() {
                     videoEl.muted = !videoEl.muted;
                     if (videoEl.muted) {
@@ -1566,15 +1529,13 @@
                         muteBtn.textContent = '有声';
                     }
                 });
-                
-                // 双击进入全屏模式
+
                 videoEl.addEventListener('dblclick', function() {
                     enterFullscreen(img.url, displayName, img.originalIndex);
                 });
             } else {
-                // 显示图片
                 container.innerHTML = `<img id="currentImage" src="${img.url}" alt="" class="loading">`;
-                
+
                 const imageEl = document.getElementById('currentImage');
 
                 imageEl.onload = () => {
@@ -1590,13 +1551,11 @@
                     }
                 };
 
-                // 双击进入全屏模式
                 imageEl.addEventListener('dblclick', function() {
                     enterFullscreen(img.url, displayName, img.originalIndex);
                 });
             }
-            
-            // 更新悬浮信息
+
             const overlay = document.getElementById('imageOverlay');
             overlay.style.display = 'block';
             overlay.innerHTML = `
@@ -1607,59 +1566,39 @@
             document.getElementById('actionPanel').style.display = 'flex';
         }
 
-        document.getElementById('excitingMode').addEventListener('change', function(e) {
-            isExcitingMode = e.target.checked;
-            if (images.length > 0) shuffleImages();
-        });
-
-        // 全屏模式功能
-        async function enterFullscreen(imgUrl, displayName, index) {
+        // ========== 全屏模式辅助函数 ==========
+        function restoreFullscreenOverlay() {
             const overlay = document.getElementById('fullscreenOverlay');
-            const isVideo = /\.mp4$/i.test(imgUrl);
-            
-            // 根据类型显示不同的内容
-            if (isVideo) {
-                overlay.innerHTML = `
-                    <video id="fullscreenVideo" src="${imgUrl}" autoplay muted loop playsinline
-                           style="max-width: 100vw; max-height: 100vh; object-fit: contain;">
-                    </video>
-                `;
-            } else {
-                overlay.innerHTML = `<img id="fullscreenImage" src="${imgUrl}" alt="" style="max-width: 100vw; max-height: 100vh; object-fit: contain;">`;
-            }
-            
-            overlay.classList.add('visible');
-            isFullscreen = true;
-            
-            // 请求浏览器全屏
+            overlay.innerHTML = `
+                <img id="fullscreenImage" src="" alt="">
+                <div class="fullscreen-info" id="fullscreenInfo"></div>
+            `;
+        }
+
+        function getBrowserFullscreenElement() {
+            return document.fullscreenElement ||
+                   document.webkitFullscreenElement ||
+                   document.mozFullScreenElement ||
+                   document.msFullscreenElement;
+        }
+
+        async function requestBrowserFullscreen(element) {
             try {
-                if (overlay.requestFullscreen) {
-                    await overlay.requestFullscreen();
-                } else if (overlay.webkitRequestFullscreen) {
-                    await overlay.webkitRequestFullscreen();
-                } else if (overlay.mozRequestFullScreen) {
-                    await overlay.mozRequestFullScreen();
-                } else if (overlay.msRequestFullscreen) {
-                    await overlay.msRequestFullscreen();
+                if (element.requestFullscreen) {
+                    await element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) {
+                    await element.webkitRequestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    await element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) {
+                    await element.msRequestFullscreen();
                 }
             } catch (e) {
                 console.log('无法进入全屏:', e);
             }
         }
 
-        async function exitFullscreen() {
-            if (!isFullscreen) return;
-            const overlay = document.getElementById('fullscreenOverlay');
-            overlay.classList.remove('visible');
-            isFullscreen = false;
-            
-            // 恢复原始 HTML 结构
-            overlay.innerHTML = `
-                <img id="fullscreenImage" src="" alt="">
-                <div class="fullscreen-info" id="fullscreenInfo"></div>
-            `;
-            
-            // 退出浏览器全屏
+        async function exitBrowserFullscreen() {
             try {
                 if (document.exitFullscreen) {
                     await document.exitFullscreen();
@@ -1675,68 +1614,53 @@
             }
         }
 
-        // 全屏层双击退出
-        document.getElementById('fullscreenOverlay').addEventListener('dblclick', exitFullscreen);
-        
-        // 监听浏览器全屏状态变化（用户按 ESC 或点击浏览器全屏按钮）
-        document.addEventListener('fullscreenchange', onFullscreenChange);
-        document.addEventListener('webkitfullscreenchange', onFullscreenChange);
-        document.addEventListener('mozfullscreenchange', onFullscreenChange);
-        document.addEventListener('MSFullscreenChange', onFullscreenChange);
-        
+        // ========== 全屏模式 ==========
+        async function enterFullscreen(imgUrl, displayName, index) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const isVideo = /\.mp4$/i.test(imgUrl);
+
+            if (isVideo) {
+                overlay.innerHTML = `
+                    <video id="fullscreenVideo" src="${imgUrl}" autoplay muted loop playsinline
+                           style="max-width: 100vw; max-height: 100vh; object-fit: contain;">
+                    </video>
+                `;
+            } else {
+                overlay.innerHTML = `<img id="fullscreenImage" src="${imgUrl}" alt="" style="max-width: 100vw; max-height: 100vh; object-fit: contain;">`;
+            }
+
+            overlay.classList.add('visible');
+            isFullscreen = true;
+
+            await requestBrowserFullscreen(overlay);
+        }
+
+        async function exitFullscreen() {
+            if (!isFullscreen) return;
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('visible');
+            isFullscreen = false;
+
+            restoreFullscreenOverlay();
+            await exitBrowserFullscreen();
+        }
+
         function onFullscreenChange() {
-            const isBrowserFullscreen = document.fullscreenElement || 
-                                       document.webkitFullscreenElement || 
-                                       document.mozFullScreenElement || 
-                                       document.msFullscreenElement;
-            
-            // 如果浏览器退出全屏但我们的 overlay 还在显示，也退出应用全屏模式
-            if (!isBrowserFullscreen && isFullscreen) {
+            if (!getBrowserFullscreenElement() && isFullscreen) {
                 const overlay = document.getElementById('fullscreenOverlay');
                 overlay.classList.remove('visible');
                 isFullscreen = false;
-                // 恢复原始 HTML 结构
-                overlay.innerHTML = `
-                    <img id="fullscreenImage" src="" alt="">
-                    <div class="fullscreen-info" id="fullscreenInfo"></div>
-                `;
+                restoreFullscreenOverlay();
             }
         }
 
-        document.addEventListener('keydown', function(e) {
-            // ESC 键退出全屏
-            if (e.key === 'Escape' && isFullscreen) {
-                exitFullscreen();
-                return;
-            }
-            
-            if (images.length === 0) return;
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                failedCount = 0;
-                showImage(currentIndex - 1);
-                // 全屏模式下也更新全屏图片
-                if (isFullscreen) {
-                    updateFullscreenImage();
-                }
-            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                failedCount = 0;
-                showImage(currentIndex + 1);
-                // 全屏模式下也更新全屏图片
-                if (isFullscreen) {
-                    updateFullscreenImage();
-                }
-            }
-        });
-
-        // 更新全屏显示的图片
         function updateFullscreenImage() {
             if (!isFullscreen || images.length === 0) return;
-            
+
             const img = images[currentIndex];
             const overlay = document.getElementById('fullscreenOverlay');
             const isVideo = /\.mp4$/i.test(img.name);
-            
-            // 根据类型更新内容
+
             if (isVideo) {
                 overlay.innerHTML = `
                     <video id="fullscreenVideo" src="${img.url}" autoplay muted loop playsinline
@@ -1748,15 +1672,50 @@
             }
         }
 
+        // ========== 事件监听 ==========
+        document.getElementById('excitingMode').addEventListener('change', function(e) {
+            isExcitingMode = e.target.checked;
+            if (images.length > 0) shuffleImages();
+        });
+
         document.getElementById('darkModeToggle').addEventListener('change', function(e) {
             isDarkMode = e.target.checked;
             localStorage.setItem('gallery_theme', isDarkMode ? 'dark' : 'light');
             applyTheme();
         });
 
+        document.getElementById('fullscreenOverlay').addEventListener('dblclick', exitFullscreen);
+
+        document.addEventListener('fullscreenchange', onFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+        document.addEventListener('mozfullscreenchange', onFullscreenChange);
+        document.addEventListener('MSFullscreenChange', onFullscreenChange);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isFullscreen) {
+                exitFullscreen();
+                return;
+            }
+
+            if (images.length === 0) return;
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                failedCount = 0;
+                showImage(currentIndex - 1);
+                if (isFullscreen) {
+                    updateFullscreenImage();
+                }
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                failedCount = 0;
+                showImage(currentIndex + 1);
+                if (isFullscreen) {
+                    updateFullscreenImage();
+                }
+            }
+        });
+
+        // ========== 初始化 ==========
         initTheme();
         loadFolders();
     </script>
-
-
-</body></html>
+</body>
+</html>
