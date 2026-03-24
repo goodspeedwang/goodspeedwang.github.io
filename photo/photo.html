@@ -733,11 +733,6 @@
         let baseUrl = '';
         let failedCount = 0;
 
-        const CACHE_PREFIX = 'gallery_cache_';
-        const CACHE_EXPIRE = 7 * 24 * 60 * 60 * 1000; // 7天
-        const PREVIEW_CACHE_PREFIX = 'gallery_preview_';
-        const PREVIEW_CACHE_EXPIRE = 30 * 24 * 60 * 60 * 1000; // 30天
-
         // ========== 主题管理 ==========
         function initTheme() {
             const savedTheme = localStorage.getItem('gallery_theme');
@@ -754,76 +749,6 @@
             isDarkMode = !isDarkMode;
             localStorage.setItem('gallery_theme', isDarkMode ? 'dark' : 'light');
             applyTheme();
-        }
-
-        // ========== 缓存管理 ==========
-        function getCache(key) {
-            try {
-                const cached = localStorage.getItem(CACHE_PREFIX + key);
-                if (!cached) {
-                    console.log(`  [缓存] ${key}: 无缓存`);
-                    return null;
-                }
-                const { data, timestamp } = JSON.parse(cached);
-                const age = Date.now() - timestamp;
-                const ageHours = (age / (60 * 60 * 1000)).toFixed(2);
-
-                if (age < CACHE_EXPIRE) {
-                    console.log(`  [缓存] ${key}: 命中 (年龄: ${ageHours}小时)`);
-                    return data;
-                } else {
-                    console.log(`  [缓存] ${key}: 已过期 (年龄: ${ageHours}小时)`);
-                    return null;
-                }
-            } catch (e) {
-                console.log(`  [缓存] ${key}: 读取错误`, e);
-                return null;
-            }
-        }
-
-        function setCache(key, data) {
-            try {
-                const start = performance.now();
-                localStorage.setItem(CACHE_PREFIX + key, JSON.stringify({ data, timestamp: Date.now() }));
-                console.log(`  [缓存] ${key}: 保存完成 (${(performance.now() - start).toFixed(2)}ms)`);
-            } catch (e) {
-                console.log(`  [缓存] ${key}: 保存失败，清理旧缓存...`);
-                clearOldCache();
-            }
-        }
-
-        function getPreviewCache(url) {
-            try {
-                const cached = localStorage.getItem(PREVIEW_CACHE_PREFIX + url);
-                if (!cached) return null;
-                const { data, timestamp } = JSON.parse(cached);
-                const age = Date.now() - timestamp;
-                const ageDays = (age / (24 * 60 * 60 * 1000)).toFixed(1);
-
-                if (age < PREVIEW_CACHE_EXPIRE) {
-                    console.log(`  [预览缓存] 命中 (年龄: ${ageDays}天)`);
-                    return data;
-                } else {
-                    console.log(`  [预览缓存] 已过期 (年龄: ${ageDays}天)`);
-                    return null;
-                }
-            } catch (e) {
-                console.log(`  [预览缓存] 读取错误`, e);
-                return null;
-            }
-        }
-
-        function setPreviewCache(url, data) {
-            try {
-                localStorage.setItem(PREVIEW_CACHE_PREFIX + url, JSON.stringify({ data, timestamp: Date.now() }));
-            } catch (e) {
-                clearOldCache();
-            }
-        }
-
-        function clearOldCache() {
-            const keys = Object.keys(localStorage).filter(k => k.startsWith(CACHE_PREFIX) || k.startsWith(PREVIEW_CACHE_PREFIX));
-            keys.slice(0, Math.floor(keys.length / 2)).forEach(k => localStorage.removeItem(k));
         }
 
         // ========== UI 控制函数 ==========
@@ -851,16 +776,6 @@
                     path = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
                 }
                 baseUrl = path;
-                const cacheKey = 'folders_' + baseUrl;
-
-                const cached = getCache(cacheKey);
-                if (cached) {
-                    folderTree = cached.folderTree;
-                    renderFolderTree();
-                    renderInitialFolders();
-                    document.getElementById('loadingScreen').style.display = 'none';
-                    console.log('📦 使用缓存数据');
-                }
 
                 const response = await fetch(baseUrl);
                 const html = await response.text();
@@ -888,24 +803,15 @@
                 }
 
                 if (folderTree.length > 0) {
-                    setCache(cacheKey, { folderTree });
-                    if (!cached) {
-                        renderFolderTree();
-                        renderInitialFolders();
-                        document.getElementById('loadingScreen').style.display = 'none';
-                    } else {
-                        renderFolderTree();
-                        renderInitialFolders();
-                        console.log('✅ 缓存已更新');
-                    }
-                } else if (!cached) {
+                    renderFolderTree();
+                    renderInitialFolders();
+                    document.getElementById('loadingScreen').style.display = 'none';
+                } else {
                     document.getElementById('loadingScreen').innerHTML = '<div class="error-message"><h3>未找到图片</h3></div>';
                 }
             } catch (e) {
                 console.error('加载失败:', e);
-                if (!getCache('folders_' + baseUrl)) {
-                    document.getElementById('loadingScreen').innerHTML = '<div class="error-message"><h3>加载失败</h3><p>请使用 HTTP 服务器访问</p></div>';
-                }
+                document.getElementById('loadingScreen').innerHTML = '<div class="error-message"><h3>加载失败</h3><p>请使用 HTTP 服务器访问</p></div>';
             }
         }
 
@@ -973,39 +879,16 @@
         }
 
         async function loadFolderPreview(folder, index) {
-            const previewCache = getPreviewCache(folder.url);
-            if (previewCache) {
-                updateFolderPreview(index, previewCache.previewUrl, previewCache.count);
-                folder.previewImage = previewCache.previewUrl;
-                folder.imageCount = previewCache.count;
-                renderFolderTree();
-            } else {
-                const cacheKey = 'folder_' + folder.url;
-                const cached = getCache(cacheKey);
-
-                if (cached && cached.images && cached.images.length > 0) {
-                    const firstImg = cached.images[0];
-                    updateFolderPreview(index, firstImg.url, cached.images.length);
-                    folder.previewImage = firstImg.url;
-                    folder.imageCount = cached.images.length;
-                    renderFolderTree();
-                }
-            }
-
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
                 const { images: foundImages, folders: subFolders } = extractItems(html, folder.url);
 
                 folder.hasSubfolders = subFolders && subFolders.length > 0;
-                const cacheKey = 'folder_' + folder.url;
-                setCache(cacheKey, { images: foundImages, folders: subFolders });
 
                 if (foundImages.length > 0) {
-                    const firstImg = foundImages[0];
-                    setPreviewCache(folder.url, { previewUrl: firstImg.url, count: foundImages.length });
-                    updateFolderPreview(index, firstImg.url, foundImages.length);
-                    folder.previewImage = firstImg.url;
+                    updateFolderPreview(index, foundImages[0].url, foundImages.length);
+                    folder.previewImage = foundImages[0].url;
                     folder.imageCount = foundImages.length;
                     renderFolderTree();
                 }
@@ -1031,30 +914,9 @@
             if (!item || item.isCurrent) return;
 
             if (!item.loaded) {
-                const cacheKey = 'subfolders_' + item.url;
-                const cached = getCache(cacheKey);
-
-                if (cached && cached.children) {
-                    item.children = cached.children.map(c => ({
-                        ...c,
-                        loaded: false,
-                        children: c.children || null,
-                        expanded: false
-                    }));
-                    item.loaded = true;
-                    item.expanded = true;
-                    renderFolderTree();
-                    console.log('📦 使用子文件夹缓存:', item.name);
-
-                    const needUpdate = item.children.some(c => !c.previewImage && !c.hasSubfolders);
-                    if (needUpdate) {
-                        updateSubFoldersCache(item, path, cacheKey);
-                    }
-                } else {
-                    await loadSubFolders(item, path);
-                    item.expanded = true;
-                    renderFolderTree();
-                }
+                await loadSubFolders(item, path);
+                item.expanded = true;
+                renderFolderTree();
             } else {
                 item.expanded = !item.expanded;
                 renderFolderTree();
@@ -1080,12 +942,10 @@
 
                 renderFolderTree();
 
-                await Promise.all(item.children.map(async (child, i) => {
+                await Promise.all(item.children.map(async (child) => {
                     await loadSubFolderPreviewFast(child);
                 }));
 
-                const cacheKey = 'subfolders_' + item.url;
-                setCache(cacheKey, { children: item.children });
                 renderFolderTree();
 
             } catch (e) {
@@ -1095,29 +955,6 @@
         }
 
         async function loadSubFolderPreviewFast(folder) {
-            const previewCache = getPreviewCache(folder.url);
-            if (previewCache) {
-                folder.previewImage = previewCache.previewUrl;
-                folder.imageCount = previewCache.count;
-                folder.hasSubfolders = previewCache.hasSubfolders || false;
-                renderFolderTree();
-                return;
-            }
-
-            const cacheKey = 'folder_' + folder.url;
-            const cached = getCache(cacheKey);
-
-            if (cached) {
-                if (cached.images && cached.images.length > 0) {
-                    folder.previewImage = cached.images[0].url;
-                    folder.imageCount = cached.images.length;
-                }
-                if (cached.folders) {
-                    folder.hasSubfolders = cached.folders.length > 0;
-                }
-                renderFolderTree();
-            }
-
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
@@ -1131,51 +968,8 @@
                 }
                 folder.hasSubfolders = hasSubfolders;
 
-                setPreviewCache(folder.url, {
-                    previewUrl: folder.previewImage,
-                    count: folder.imageCount,
-                    hasSubfolders: hasSubfolders
-                });
-                setCache(cacheKey, { images: foundImages, folders: foundFolders });
-
                 renderFolderTree();
             } catch (e) {}
-        }
-
-        async function updateSubFoldersCache(item, path, cacheKey) {
-            try {
-                const response = await fetch(item.url);
-                const html = await response.text();
-                const { folders: subFolders } = extractItems(html, item.url);
-
-                const newChildren = subFolders.map(f => {
-                    const existingChild = item.children?.find(c => c.url === f.url);
-                    return {
-                        name: f.name,
-                        url: f.url,
-                        children: null,
-                        loaded: false,
-                        previewImage: existingChild?.previewImage || null,
-                        imageCount: existingChild?.imageCount || 0,
-                        hasSubfolders: existingChild?.hasSubfolders || false
-                    };
-                });
-
-                item.children = newChildren;
-                renderFolderTree();
-
-                await Promise.all(item.children.map(async (child) => {
-                    if (!child.previewImage || !child.hasSubfolders) {
-                        await loadSubFolderPreviewFast(child);
-                    }
-                }));
-
-                setCache(cacheKey, { children: newChildren });
-                console.log('✅ 子文件夹缓存已更新:', item.name);
-
-            } catch (e) {
-                console.error('更新子文件夹缓存失败:', e);
-            }
         }
 
         function getTreeItemByPath(path) {
@@ -1245,19 +1039,8 @@
                 return;
             }
 
-            const cacheKey = 'folder_' + url;
-            const cached = getCache(cacheKey);
-
-            if (cached) {
-                console.log(`📦 找到缓存: ${name}, 图片数: ${cached.images?.length || 0}, 子文件夹数: ${cached.folders?.length || 0}`);
-                displayFolderContent(cached.images, cached.folders, name, url);
-                console.log(`⏱️ 缓存渲染耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
-            } else {
-                console.log(`❌ 无缓存: ${name}, 开始加载...`);
-                document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
-            }
-
-            await loadAndDisplayFolder(url, name, !!cached);
+            document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
+            await loadAndDisplayFolder(url, name);
             console.log(`⏱️ 总耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
         }
 
@@ -1284,7 +1067,7 @@
                 }
 
                 if (href.endsWith('/')) {
-                    folders.push({ name: decodeURIComponent(href.replace(/\/$/, '')), url: fullUrl });
+                    folders.push({ name: decodeURIComponent(href.replace(/\/$/, '').split('/').pop()), url: fullUrl });
                 } else if (/\.(jpg|jpeg|png|gif|webp|bmp|mp4)$/i.test(href) && !href.startsWith('._')) {
                     images.push({ name: decodeURIComponent(href), url: fullUrl });
                 }
@@ -1305,13 +1088,8 @@
             }
         }
 
-        async function loadAndDisplayFolder(url, name, hasCache = false) {
-            if (hasCache) {
-                console.log(`🌐 [后台] ${name} 缓存已存在，延迟更新...`);
-                await new Promise(resolve => setTimeout(resolve, 500));
-            } else {
-                console.log(`🌐 [前台] ${name} 无缓存，立即加载...`);
-            }
+        async function loadAndDisplayFolder(url, name) {
+            console.log(`🌐 加载文件夹: ${name}`);
 
             const networkStart = performance.now();
             const controller = new AbortController();
@@ -1324,32 +1102,20 @@
 
                 clearTimeout(timeoutId);
 
-                const parseStart = performance.now();
                 const html = await response.text();
-                console.log(`📄 HTML文本获取: ${html.length} 字符, 前200字符: ${html.substring(0, 200)}...`);
+                console.log(`📄 HTML文本获取: ${html.length} 字符`);
 
-                const extractStart = performance.now();
                 const { images: foundImages, folders: foundFolders } = extractItems(html, url);
-                console.log(`🔍 解析完成: 图片=${foundImages.length}, 文件夹=${foundFolders.length}, 示例图片:`, foundImages.slice(0, 3).map(i => i.url));
+                console.log(`🔍 解析完成: 图片=${foundImages.length}, 文件夹=${foundFolders.length}`);
 
-                const cacheStart = performance.now();
-                setCache('folder_' + url, { images: foundImages, folders: foundFolders });
-                console.log(`💾 缓存保存: 耗时: ${(performance.now() - cacheStart).toFixed(2)}ms`);
-
-                if (!hasCache) {
-                    displayFolderContent(foundImages, foundFolders, name, url);
-                } else {
-                    console.log(`🔄 缓存已存在，仅更新缓存，不重新渲染`);
-                }
+                displayFolderContent(foundImages, foundFolders, name, url);
 
                 console.log(`✅ 网络请求总耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
             } catch (e) {
                 clearTimeout(timeoutId);
                 console.error('❌ 加载失败:', e);
-                if (!hasCache) {
-                    document.getElementById('imageContainer').innerHTML =
-                        '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
-                }
+                document.getElementById('imageContainer').innerHTML =
+                    '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
             }
         }
 
@@ -1382,26 +1148,12 @@
         }
 
         async function loadSubFolderCardPreview(folder, elementId) {
-            const previewCache = getPreviewCache(folder.url);
-            if (previewCache) {
-                updateSubFolderCardPreview(elementId, previewCache.previewUrl);
-            } else {
-                const cacheKey = 'folder_' + folder.url;
-                const cached = getCache(cacheKey);
-
-                if (cached && cached.images && cached.images.length > 0) {
-                    updateSubFolderCardPreview(elementId, cached.images[0].url);
-                }
-            }
-
             try {
                 const response = await fetch(folder.url);
                 const html = await response.text();
                 const { images: foundImages } = extractItems(html, folder.url);
 
                 if (foundImages.length > 0) {
-                    setPreviewCache(folder.url, { previewUrl: foundImages[0].url, count: foundImages.length });
-                    setCache('folder_' + folder.url, { images: foundImages, folders: [] });
                     updateSubFolderCardPreview(elementId, foundImages[0].url);
                 }
             } catch (e) {}
