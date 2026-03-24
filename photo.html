@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: #1a1a1a;
             color: #fff;
@@ -20,7 +20,7 @@
             flex-direction: column;
             align-items: center;
         }
-        
+
         .controls {
             position: fixed;
             top: 50%;
@@ -37,11 +37,11 @@
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
         }
-        
+
         .controls.collapsed {
             transform: translateY(-50%) translateX(calc(100% - 30px));
         }
-        
+
         .controls-toggle {
             position: absolute;
             left: -30px;
@@ -60,14 +60,14 @@
             justify-content: center;
             backdrop-filter: blur(10px);
         }
-        
+
         .controls-inner {
             display: flex;
             flex-direction: column;
             gap: 10px;
             min-width: 160px;
         }
-        
+
         .controls label {
             display: flex;
             align-items: center;
@@ -76,13 +76,13 @@
             font-size: 13px;
             white-space: nowrap;
         }
-        
+
         .controls input[type="checkbox"] {
             width: 16px;
             height: 16px;
             cursor: pointer;
         }
-        
+
         .controls button {
             background: #4a9eff;
             border: none;
@@ -94,11 +94,11 @@
             transition: background 0.3s;
             white-space: nowrap;
         }
-        
+
         .controls button:hover {
             background: #3a8eef;
         }
-        
+
         .image-container {
             flex: 1;
             display: flex;
@@ -107,7 +107,7 @@
             padding: 20px;
             width: 100%;
         }
-        
+
         #currentImage {
             max-width: 98vw;
             max-height: 96vh;
@@ -116,7 +116,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease;
         }
-        
+
         .info {
             position: fixed;
             bottom: 20px;
@@ -129,112 +129,63 @@
             opacity: 0.7;
             transition: opacity 0.3s;
         }
-        
+
         .info:hover {
             opacity: 1;
         }
-        
-        .config-panel {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #2a2a2a;
-            padding: 30px;
-            border-radius: 10px;
-            z-index: 200;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-        }
-        
-        .config-panel h2 {
-            margin-bottom: 20px;
-            color: #4a9eff;
-        }
-        
-        .config-panel p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            color: #ccc;
-        }
-        
-        .config-panel .btn-group {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .config-panel button {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background: #4a9eff;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #3a8eef;
-        }
-        
-        .btn-secondary {
-            background: #555;
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: #666;
-        }
-        
+
         .loading {
             opacity: 0.5;
         }
-        
+
         .no-images {
             text-align: center;
             color: #888;
         }
-        
+
         .no-images h3 {
             margin-bottom: 10px;
             color: #fff;
         }
-        
+
         .shortcuts {
             font-size: 12px;
             color: #888;
             margin-top: 10px;
         }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-screen p {
+            color: #4a9eff;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-    <div class="config-panel" id="configPanel">
-        <h2>📷 图片浏览器</h2>
-        <div class="btn-group" style="flex-direction: column; gap: 12px;">
-            <button class="btn-primary" id="btnCache" onclick="loadFromCache()">📂 使用上次文件夹</button>
-            <button class="btn-secondary" onclick="loadFromDirectory()">🔄 选择新文件夹</button>
-        </div>
-        <p class="shortcuts">← → 或 ↑ ↓ 键切换图片</p>
-        <div id="scanStatus" style="margin-top: 15px; display: none;">
-            <p id="scanText" style="color: #4a9eff;">🔄 正在扫描文件...</p>
-        </div>
+    <div class="loading-screen" id="loadingScreen">
+        <p>🔄 正在加载图片列表...</p>
     </div>
 
     <div class="controls" id="controls" style="display: none;">
         <button class="controls-toggle" onclick="toggleControls()">☰</button>
         <div class="controls-inner">
             <label>
-                <input type="checkbox" id="excitingMode"> 
+                <input type="checkbox" id="excitingMode">
                 🌟 精彩模式
             </label>
             <button onclick="shuffleImages()">🔀 随机排序</button>
-            <button onclick="showConfig()">⚙ 设置</button>
         </div>
     </div>
 
@@ -246,252 +197,60 @@
         <span id="imageInfo"></span>
     </div>
 
-    <input type="file" id="directoryPicker" webkitdirectory multiple style="display: none;">
-
     <script>
         let images = [];
         let allImages = [];
         let currentIndex = 0;
         let isExcitingMode = false;
-        let cachedDirHandle = null;
 
-        // IndexedDB 操作
-        const DB_NAME = 'PhotoGalleryDB';
-        const STORE_NAME = 'galleryCache';
-
-        function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, 1);
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => resolve(request.result);
-                request.onupgradeneeded = (e) => {
-                    const db = e.target.result;
-                    if (!db.objectStoreNames.contains(STORE_NAME)) {
-                        db.createObjectStore(STORE_NAME);
-                    }
-                };
-            });
-        }
-
-        async function saveCache(dirHandle, imageList) {
-            const db = await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction(STORE_NAME, 'readwrite');
-                const store = tx.objectStore(STORE_NAME);
-                store.put({ dirHandle, imageList, timestamp: Date.now() }, 'cache');
-                tx.oncomplete = () => resolve();
-                tx.onerror = () => reject(tx.error);
-            });
-        }
-
-        async function getCache() {
-            const db = await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction(STORE_NAME, 'readonly');
-                const store = tx.objectStore(STORE_NAME);
-                const request = store.get('cache');
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        // 页面加载时检查缓存
-        async function checkCache() {
-            const btnCache = document.getElementById('btnCache');
-            if (!('showDirectoryPicker' in window)) {
-                btnCache.style.display = 'none';
-                return;
-            }
+        // 页面加载时自动获取图片列表
+        async function loadImages() {
             try {
-                const cache = await getCache();
-                if (cache && cache.dirHandle) {
-                    btnCache.style.opacity = '1';
-                } else {
-                    btnCache.style.opacity = '0.5';
-                }
-            } catch (e) {
-                btnCache.style.opacity = '0.5';
-            }
-        }
-        checkCache();
+                const response = await fetch(window.location.href);
+                const html = await response.text();
 
-        async function loadFromCache() {
-            if (!('showDirectoryPicker' in window)) {
-                alert('当前浏览器不支持缓存功能');
-                loadFromDirectory();
-                return;
-            }
+                // 解析 HTML 中的图片链接
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const links = doc.querySelectorAll('a');
 
-            try {
-                const cache = await getCache();
-                if (cache && cache.dirHandle && cache.imageList) {
-                    const permission = await cache.dirHandle.requestPermission({ mode: 'read' });
-                    if (permission === 'granted') {
-                        cachedDirHandle = cache.dirHandle;
-                        await loadImagesFromCache(cache.dirHandle, cache.imageList);
-                        return;
-                    }
-                }
-            } catch (e) {
-                console.log('缓存读取失败', e);
-            }
-            loadFromDirectory();
-        }
-
-        async function loadImagesFromCache(dirHandle, imageList) {
-            document.getElementById('scanStatus').style.display = 'block';
-            document.getElementById('scanText').textContent = '⚡ 从缓存加载中...';
-
-            images = imageList.map(item => ({
-                name: item.name,
-                path: item.path,
-                file: null,
-                url: null
-            }));
-            allImages = [...images];
-
-            window.fileStats = { total: imageList.length, images: imageList.length };
-            console.log(`从缓存加载 ${images.length} 张图片`);
-
-            document.getElementById('scanStatus').style.display = 'none';
-            startGallery();
-        }
-
-        async function getFileFromPath(dirHandle, path) {
-            const parts = path.split('/').filter(p => p);
-            let current = dirHandle;
-            for (let i = 0; i < parts.length - 1; i++) {
-                current = await current.getDirectoryHandle(parts[i]);
-            }
-            return await current.getFileHandle(parts[parts.length - 1]);
-        }
-
-        async function pickDirectory() {
-            if ('showDirectoryPicker' in window) {
-                try {
-                    const dirHandle = await window.showDirectoryPicker();
-                    cachedDirHandle = dirHandle;
-                    await loadFromDirHandle(dirHandle);
-                    return true;
-                } catch (e) {
-                    if (e.name === 'AbortError') return false;
-                    console.log('File System Access API 失败', e);
-                }
-            }
-            return false;
-        }
-
-        async function loadFromDirHandle(dirHandle) {
-            document.getElementById('scanStatus').style.display = 'block';
-            document.getElementById('scanText').textContent = '🔄 正在扫描文件夹...';
-
-            const files = [];
-            const imageList = [];
-
-            await scanDirectory(dirHandle, files, '', imageList);
-
-            if (imageList.length > 0) {
-                await saveCache(dirHandle, imageList);
-                document.getElementById('btnCache').style.opacity = '1';
-            }
-
-            processFiles(files);
-        }
-
-        async function scanDirectory(dirHandle, files, path, imageList) {
-            for await (const entry of dirHandle.values()) {
-                if (entry.kind === 'file') {
-                    const name = entry.name.toLowerCase();
-                    if (/\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name) && !name.startsWith('._')) {
-                        const file = await entry.getFile();
-                        files.push(file);
-                        imageList.push({ name: entry.name, path: path + entry.name });
-                    }
-                } else if (entry.kind === 'directory') {
-                    await scanDirectory(entry, files, path + entry.name + '/', imageList);
-                }
-            }
-        }
-
-        function loadFromDirectory() {
-            pickDirectory().then(success => {
-                if (!success) {
-                    const picker = document.getElementById('directoryPicker');
-                    picker.value = '';
-                    document.getElementById('scanStatus').style.display = 'block';
-                    document.getElementById('scanText').textContent = '🔄 正在扫描文件...';
-                    picker.click();
-                }
-            });
-        }
-
-        // 目录选择事件（传统方式回退）
-        document.getElementById('directoryPicker').addEventListener('change', function(e) {
-            const files = Array.from(e.target.files);
-            processFiles(files);
-        });
-
-        function processFiles(files) {
-            const totalFiles = files.length;
-            document.getElementById('scanText').textContent = `🔄 扫描完成，正在分析 ${totalFiles} 个文件...`;
-
-            setTimeout(() => {
-                const stats = { total: totalFiles, images: 0, other: 0 };
-                const filteredFiles = [];
-
-                const imageFiles = files.filter(f => {
-                    const name = f.name.toLowerCase();
-                    const originalName = f.name;
-                    const isMacResource = name.startsWith('._');
-                    const isImage = /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name);
-
-                    if (isMacResource) {
-                        filteredFiles.push({ name: originalName, reason: 'macOS资源文件' });
-                        return false;
-                    }
-
-                    if (isImage) {
-                        stats.images++;
-                        return true;
-                    } else {
-                        stats.other++;
-                        filteredFiles.push({ name: originalName, reason: '非图片格式' });
-                        return false;
+                const imageUrls = [];
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
+                        imageUrls.push({
+                            name: decodeURIComponent(href),
+                            url: href
+                        });
                     }
                 });
 
-                if (filteredFiles.length > 0) {
-                    console.group(`📁 已过滤文件 (${filteredFiles.length} 个)`);
-                    console.table(filteredFiles);
-                    console.groupEnd();
-                }
-
-                if (imageFiles.length > 0) {
-                    images = imageFiles.map(f => ({
-                        name: f.name,
-                        file: f,
-                        url: null
-                    }));
+                if (imageUrls.length > 0) {
+                    images = imageUrls;
                     allImages = [...images];
-                    window.fileStats = stats;
-                    console.log(`已找到 ${images.length} 张图片`);
-                    document.getElementById('scanStatus').style.display = 'none';
+                    console.log(`已加载 ${images.length} 张图片`);
                     startGallery();
                 } else {
-                    document.getElementById('scanStatus').style.display = 'none';
-                    alert(`未找到图片文件！\n\n总文件数：${stats.total}`);
+                    document.getElementById('loadingScreen').innerHTML =
+                        '<div class="no-images"><h3>未找到图片</h3><p>当前目录没有图片文件</p><p class="shortcuts">← → 或 ↑ ↓ 键切换图片</p></div>';
                 }
-            }, 50);
+            } catch (e) {
+                console.error('加载失败:', e);
+                document.getElementById('loadingScreen').innerHTML =
+                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+            }
         }
 
+        // 页面加载完成后自动执行
+        loadImages();
+
         function startGallery() {
-            document.getElementById('configPanel').style.display = 'none';
+            document.getElementById('loadingScreen').style.display = 'none';
             document.getElementById('controls').style.display = 'flex';
             document.getElementById('imageContainer').style.display = 'flex';
             document.getElementById('info').style.display = 'block';
-            
+
             shuffleImages();
-            showImage(0);
         }
 
         function shuffleImages() {
@@ -506,56 +265,14 @@
         }
 
         function filterExciting(imgs) {
-            return imgs.filter(img => 
+            return imgs.filter(img =>
                 /nude|bikini/i.test(img.name)
             );
         }
 
         let failedCount = 0;
-        const urlCache = new Map();
-        const MAX_CACHE_SIZE = 20;
 
-        async function getImageUrl(imgObj) {
-            if (imgObj.url) return imgObj.url;
-
-            if (urlCache.has(imgObj.name)) {
-                imgObj.url = urlCache.get(imgObj.name);
-                return imgObj.url;
-            }
-
-            let file = imgObj.file;
-
-            // 从目录句柄获取文件（缓存场景）
-            if (!file && imgObj.path && cachedDirHandle) {
-                try {
-                    const fileHandle = await getFileFromPath(cachedDirHandle, imgObj.path);
-                    file = await fileHandle.getFile();
-                    imgObj.file = file;
-                } catch (e) {
-                    console.error('获取文件失败:', imgObj.path, e);
-                    return null;
-                }
-            }
-
-            if (!file) return null;
-
-            const url = URL.createObjectURL(file);
-            imgObj.url = url;
-
-            urlCache.set(imgObj.name, url);
-            if (urlCache.size > MAX_CACHE_SIZE) {
-                const firstKey = urlCache.keys().next().value;
-                const oldUrl = urlCache.get(firstKey);
-                URL.revokeObjectURL(oldUrl);
-                urlCache.delete(firstKey);
-                const img = images.find(i => i.name === firstKey);
-                if (img) img.url = null;
-            }
-
-            return url;
-        }
-
-        async function showImage(index, skipFailed = false) {
+        function showImage(index, skipFailed = false) {
             if (images.length === 0) {
                 document.getElementById('imageContainer').innerHTML =
                     '<div class="no-images"><h3>没有找到图片</h3><p>请检查文件列表或切换精彩模式</p></div>';
@@ -567,17 +284,12 @@
 
             const imageEl = document.getElementById('currentImage');
             imageEl.classList.add('loading');
-
-            const url = await getImageUrl(img);
-            if (url) {
-                imageEl.src = url;
-                imageEl.style.display = 'block';
-            }
+            imageEl.src = img.url;
+            imageEl.style.display = 'block';
 
             imageEl.onload = () => {
                 imageEl.classList.remove('loading');
                 failedCount = 0;
-                preloadNearbyImages();
             };
 
             imageEl.onerror = () => {
@@ -594,29 +306,12 @@
                     setTimeout(() => showImage(currentIndex + 1, true), 500);
                 } else {
                     document.getElementById('imageInfo').innerHTML =
-                        '<span style="color: #ff6b6b;">⚠ 多张图片加载失败，请检查文件格式</span>';
+                        '<span style="color: #ff6b6b;">⚠ 多张图片加载失败</span>';
                 }
             };
 
-            const sourceInfo = window.fileStats ? ` (从 ${window.fileStats.total} 个文件中)` : '';
             document.getElementById('imageInfo').textContent =
-                `${currentIndex + 1} / ${images.length}${sourceInfo} - ${img.name}`;
-        }
-
-        async function preloadNearbyImages() {
-            for (let i = 1; i <= 2; i++) {
-                const nextIdx = (currentIndex + i) % images.length;
-                const prevIdx = (currentIndex - i + images.length) % images.length;
-                await getImageUrl(images[nextIdx]);
-                await getImageUrl(images[prevIdx]);
-            }
-        }
-
-        function showConfig() {
-            document.getElementById('configPanel').style.display = 'block';
-            document.getElementById('controls').style.display = 'none';
-            document.getElementById('imageContainer').style.display = 'none';
-            document.getElementById('info').style.display = 'none';
+                `${currentIndex + 1} / ${images.length} - ${img.name}`;
         }
 
         function toggleControls() {
@@ -632,7 +327,7 @@
 
         // 键盘事件
         document.addEventListener('keydown', function(e) {
-            if (document.getElementById('configPanel').style.display !== 'none') return;
+            if (images.length === 0) return;
 
             if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
                 failedCount = 0;
