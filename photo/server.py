@@ -54,14 +54,13 @@ def build_directory_html(dirpath, url_path):
     dirs, files = list_dir(dirpath)
     display_name = url_path.rstrip("/").split("/")[-1] if url_path else "/"
     title = f"Directory listing for {display_name}"
-    prefix = '/' + url_path + '/' if url_path else '/'
     rows = []
     if url_path:
         rows.append('<li><a href="../">../</a></li>')
     for name in dirs:
-        rows.append(f'<li><a href="{prefix}{quote(name)}/">{name}/</a></li>')
+        rows.append(f'<li><a href="{quote(name)}/">{name}/</a></li>')
     for name in files:
-        rows.append(f'<li><a href="{prefix}{quote(name)}">{name}</a></li>')
+        rows.append(f'<li><a href="{quote(name)}">{name}</a></li>')
     body = f"""<!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -189,7 +188,11 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', stat.st_size)
         self.send_header('Last-Modified', last_modified)
         self.send_header('ETag', etag)
-        self.send_header('Cache-Control', 'no-cache')
+        # 媒体文件缓存一年，HTML 不缓存
+        if ext in MEDIA_EXTENSIONS:
+            self.send_header('Cache-Control', 'max-age=31536000, immutable')
+        else:
+            self.send_header('Cache-Control', 'no-cache')
         self.send_cors()
         self.end_headers()
 
