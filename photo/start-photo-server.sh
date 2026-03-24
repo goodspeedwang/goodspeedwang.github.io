@@ -1,17 +1,9 @@
 #!/bin/bash
-
-MOUNT_POINT="/Volumes/Home1"
 SERVER_PORT=8080
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TARGET_DIR="$MOUNT_POINT/Photo/other/weiyun/Photo/girl"
-
-cd "$TARGET_DIR" || exit 1
-
-# 复制 photo.html（静默）
-cp "$SCRIPT_DIR/photo.html" . 2>/dev/null
+TARGET_DIR="/Volumes/Home1/Photo/other/weiyun/Photo/girl"
 
 echo "🚀 启动 HTTP 服务器 (端口 $SERVER_PORT)..."
-python3 -m http.server $SERVER_PORT &
+python server.py $SERVER_PORT $TARGET_DIR &
 SERVER_PID=$!
 sleep 1
 
