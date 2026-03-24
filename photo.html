@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN" data-theme="dark"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <style>
+        :root {
+            /* 暗黑模式（默认） */
+            --bg-primary: #1c1c1e;
+            --bg-secondary: #2c2c2e;
+            --bg-tertiary: #3a3a3c;
+            --text-primary: #f5f5f7;
+            --text-secondary: #98989d;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --hover-bg: rgba(255, 255, 255, 0.08);
+            --card-bg: #2c2c2e;
+            --input-bg: #3a3a3c;
+        }
+
+        [data-theme="light"] {
+            /* 亮色模式 */
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e8e8ed;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --hover-bg: rgba(0, 0, 0, 0.05);
+            --card-bg: #ffffff;
+            --input-bg: #f5f5f7;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,57 +38,142 @@
         }
 
         body {
-            background: #1a1a1a;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
             min-height: 100vh;
             display: flex;
+            font-size: 17px;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* 左侧目录面板 */
+        /* 左侧导航栏 */
         .sidebar {
-            width: 250px;
-            background: #252525;
-            border-right: 1px solid #333;
+            width: 280px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             flex-shrink: 0;
+            transition: transform 0.3s ease, width 0.3s ease, background 0.3s;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 100;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-280px);
         }
 
         .sidebar-header {
-            padding: 15px;
-            border-bottom: 1px solid #333;
-            font-size: 14px;
+            padding: 20px;
+            font-size: 22px;
             font-weight: 600;
-            color: #4a9eff;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--input-bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .sidebar-toggle:hover {
+            background: var(--bg-tertiary);
         }
 
         .sidebar-content {
             flex: 1;
             overflow-y: auto;
+            padding: 12px;
+        }
+
+        .tree-item {
+            margin-bottom: 2px;
         }
 
         .folder-item {
-            padding: 10px 15px;
+            padding: 10px 12px;
             cursor: pointer;
-            border-bottom: 1px solid #2a2a2a;
             display: flex;
             align-items: center;
             gap: 8px;
+            border-radius: 10px;
             transition: background 0.2s;
         }
 
         .folder-item:hover {
-            background: #2a2a2a;
+            background: var(--hover-bg);
         }
 
         .folder-item.active {
-            background: #3a3a3a;
-            color: #4a9eff;
+            background: #007aff;
+            color: white;
+        }
+
+        .folder-item.active .folder-count {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .folder-item.active .folder-toggle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .folder-toggle {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .folder-toggle.expanded {
+            transform: rotate(90deg);
+        }
+
+        .folder-toggle.hidden {
+            visibility: hidden;
         }
 
         .folder-icon {
-            font-size: 16px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .folder-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .folder-name {
@@ -70,443 +181,1295 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .folder-count {
             font-size: 11px;
-            color: #666;
-            background: #333;
-            padding: 2px 6px;
+            color: var(--text-secondary);
+            background: var(--hover-bg);
+            padding: 2px 7px;
             border-radius: 10px;
         }
 
-        /* 右侧主区域 */
+        .folder-children {
+            display: none;
+            padding-left: 12px;
+        }
+
+        .folder-children.expanded {
+            display: block;
+        }
+
+        /* 主区域 */
         .main {
             flex: 1;
             display: flex;
             flex-direction: column;
             min-width: 0;
+            margin-left: 280px;
+            transition: margin-left 0.3s ease;
         }
 
-        /* 顶部工具栏 */
-        .toolbar {
-            padding: 10px 15px;
-            background: #222;
-            border-bottom: 1px solid #333;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .main.expanded {
+            margin-left: 0;
         }
 
-        .toolbar-title {
-            font-size: 14px;
-            color: #ccc;
-            flex: 1;
-        }
-
-        .toolbar-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .toolbar button {
-            background: #4a9eff;
+        /* 展开按钮 */
+        .expand-btn {
+            position: fixed;
+            left: 16px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             border: none;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px var(--shadow-color);
             cursor: pointer;
-            font-size: 12px;
-            transition: background 0.3s;
-        }
-
-        .toolbar button:hover {
-            background: #3a8eef;
-        }
-
-        .toolbar label {
-            display: flex;
+            display: none;
             align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            cursor: pointer;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            z-index: 99;
+            transition: all 0.2s;
+        }
+
+        .expand-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .expand-btn.visible {
+            display: flex;
         }
 
         /* 图片容器 */
         .image-container {
             flex: 1;
             display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 40px;
+            background: var(--bg-primary);
+            position: relative;
+            min-height: 100vh;
+            transition: background 0.3s;
+        }
+
+        /* 单张图片居中 */
+        .image-container.centered {
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            background: #1a1a1a;
         }
 
         #currentImage {
-            max-width: 100%;
-            max-height: calc(100vh - 120px);
+            max-width: calc(100vw - 360px);
+            max-height: calc(100vh - 100px);
             object-fit: contain;
-            border-radius: 5px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px var(--shadow-color);
             transition: opacity 0.3s ease;
         }
 
-        /* 底部信息栏 */
-        .info {
-            padding: 8px 15px;
-            background: #222;
-            border-top: 1px solid #333;
+        .main.expanded #currentImage {
+            max-width: calc(100vw - 80px);
+        }
+
+        /* 图片信息悬浮层 - 固定在窗口左下角 */
+        .image-overlay {
+            position: fixed;
+            left: 296px;
+            bottom: 20px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 50;
+            transition: left 0.3s ease;
+            max-width: 400px;
+        }
+
+        .main.expanded .image-overlay {
+            left: 20px;
+        }
+
+        .image-overlay .image-count {
             font-size: 12px;
-            color: #888;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2px;
+        }
+
+        .image-overlay .image-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* 右侧操作栏 */
+        .action-panel {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 50;
         }
 
-        .info-right {
-            color: #666;
+        .action-panel-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px var(--shadow-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
         }
 
-        /* 加载状态 */
-        .loading {
-            opacity: 0.5;
+        .action-panel-toggle:hover {
+            background: var(--bg-tertiary);
         }
+
+        .action-panel-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 16px var(--shadow-color);
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 160px;
+            transition: background 0.3s;
+        }
+
+        .action-panel-content.visible {
+            display: flex;
+        }
+
+        .action-panel-content label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .action-panel-content input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #007aff;
+        }
+
+        .action-btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .action-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .action-btn.primary {
+            background: #007aff;
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background: #0062cc;
+        }
+
+        /* 文件夹网格 */
+        .folder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            padding: 30px;
+            width: 100%;
+            align-content: start;
+        }
+
+        .folder-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .folder-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow-color);
+        }
+
+        .folder-card-preview {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .folder-card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .folder-card-preview .placeholder {
+            font-size: 48px;
+        }
+
+        .folder-card-info {
+            padding: 16px;
+        }
+
+        .folder-card-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .folder-card-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* 其他 */
+        .loading { opacity: 0.6; }
 
         .no-images {
             text-align: center;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .no-images h3 {
-            color: #888;
-            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
         }
 
-        /* 加载屏幕 */
         .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #1a1a1a;
+            background: var(--bg-primary);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            transition: background 0.3s;
         }
 
         .loading-screen p {
-            color: #4a9eff;
-            font-size: 16px;
+            color: var(--text-secondary);
+            font-size: 17px;
         }
 
-        /* 错误提示 */
         .error-message {
-            color: #ff6b6b;
-            padding: 20px;
+            color: #ff3b30;
+            padding: 30px;
             text-align: center;
         }
 
-        /* 滚动条美化 */
-        .sidebar-content::-webkit-scrollbar {
-            width: 6px;
+        .sidebar-content::-webkit-scrollbar { width: 6px; }
+        .sidebar-content::-webkit-scrollbar-track { background: transparent; }
+        .sidebar-content::-webkit-scrollbar-thumb { background: var(--hover-bg); border-radius: 3px; }
+
+        /* 全屏模式 */
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
         }
 
-        .sidebar-content::-webkit-scrollbar-track {
-            background: #252525;
+        .fullscreen-overlay.visible {
+            display: flex;
         }
 
-        .sidebar-content::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 3px;
+        .fullscreen-overlay img {
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: contain;
         }
 
-        /* 提示文字 */
-        .hint {
-            color: #666;
-            font-size: 12px;
-            padding: 10px 15px;
-            border-bottom: 1px solid #2a2a2a;
+        .fullscreen-info {
+            display: none; /* 全屏时不显示信息 */
+        }
+
+        /* 视频容器 */
+        .video-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 视频进度条 */
+        .video-progress {
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .video-progress:hover {
+            opacity: 1;
+        }
+
+        .video-progress-bar {
+            height: 100%;
+            background: #007aff;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* 视频控制条 */
+        .video-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            width: 100%;
+        }
+
+        .video-mute-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-mute-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+
+        .video-mute-btn.muted::before {
+            content: "🔇";
+        }
+
+        .video-mute-btn.unmuted::before {
+            content: "🔊";
         }
     </style>
 </head>
 <body>
-    <div class="loading-screen" id="loadingScreen">
-        <p>🔄 正在加载目录...</p>
+    <div class="loading-screen" id="loadingScreen" style="display: none;">
+        <p>正在加载...</p>
     </div>
 
-    <!-- 左侧目录 -->
+    <button class="expand-btn" id="expandBtn" onclick="toggleSidebar()">☰</button>
+
+    <!-- 左侧导航 -->
     <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">📁 目录列表</div>
-        <div class="hint">点击目录查看图片</div>
+        <div class="sidebar-header">
+            <span>相册</span>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">‹</button>
+        </div>
         <div class="sidebar-content" id="folderList"></div>
     </div>
 
-    <!-- 右侧主区域 -->
-    <div class="main">
-        <div class="toolbar" id="toolbar" style="display: none;">
-            <div class="toolbar-title" id="toolbarTitle">未选择目录</div>
-            <div class="toolbar-actions">
+    <!-- 主区域 -->
+    <div class="main" id="main">
+        <div class="image-container" id="imageContainer">
+                <div class="folder-grid">
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/58/', '58', '0')">
+                            <div class="folder-card-preview" id="preview-0">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">58</div>
+                                <div class="folder-card-count" id="count-0">加载中...</div>
+                            </div>
+                        </div>
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/allinone/', 'allinone', '1')">
+                            <div class="folder-card-preview" id="preview-1">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">allinone</div>
+                                <div class="folder-card-count" id="count-1">加载中...</div>
+                            </div>
+                        </div>
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/hot/', 'hot', '2')">
+                            <div class="folder-card-preview" id="preview-2">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">hot</div>
+                                <div class="folder-card-count" id="count-2">加载中...</div>
+                            </div>
+                        </div>
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/meituan/', 'meituan', '3')">
+                            <div class="folder-card-preview" id="preview-3">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">meituan</div>
+                                <div class="folder-card-count" id="count-3">加载中...</div>
+                            </div>
+                        </div>
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/other/', 'other', '4')">
+                            <div class="folder-card-preview" id="preview-4">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">other</div>
+                                <div class="folder-card-count" id="count-4">加载中...</div>
+                            </div>
+                        </div>
+                    
+                        <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/vancl/', 'vancl', '5')">
+                            <div class="folder-card-preview" id="preview-5">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">vancl</div>
+                                <div class="folder-card-count" id="count-5">加载中...</div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+
+        <!-- 图片信息悬浮层 -->
+        <div class="image-overlay" id="imageOverlay" style="display: none;">
+            <div class="image-count">- / -</div>
+            <div class="image-name">-</div>
+        </div>
+
+        <!-- 右侧操作栏 -->
+        <div class="action-panel" id="actionPanel" style="display: none;">
+            <button class="action-panel-toggle" onclick="toggleActionPanel()">⚙</button>
+            <div class="action-panel-content" id="actionContent">
+                <label>
+                    <input type="checkbox" id="darkModeToggle" checked="">
+                    暗黑模式
+                </label>
                 <label>
                     <input type="checkbox" id="excitingMode">
-                    🌟 精彩模式
+                    精彩模式
                 </label>
-                <button onclick="shuffleImages()">🔀 随机</button>
+                <button class="action-btn primary" onclick="shuffleImages()">随机排序</button>
             </div>
-        </div>
-
-        <div class="image-container" id="imageContainer">
-            <div class="no-images">
-                <h3>请从左侧选择目录</h3>
-                <p>← → 或 ↑ ↓ 键切换图片</p>
-            </div>
-        </div>
-
-        <div class="info" id="info" style="display: none;">
-            <span id="imageInfo">-</span>
-            <span class="info-right" id="imageHint">← → 或 ↑ ↓ 键切换</span>
         </div>
     </div>
 
+    <!-- 全屏模式 -->
+    <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <img id="fullscreenImage" src="" alt="">
+        <div class="fullscreen-info" id="fullscreenInfo"></div>
+    </div>
+
     <script>
-        let folders = [];
+        let folderTree = [];
         let images = [];
         let allImages = [];
         let currentIndex = 0;
         let currentFolder = null;
         let isExcitingMode = false;
+        let isDarkMode = true; // 默认暗黑模式
+        let isFullscreen = false;
+        let baseUrl = '';
+        const CACHE_PREFIX = 'gallery_cache_';
+        const CACHE_EXPIRE = 7 * 24 * 60 * 60 * 1000; // 7天过期
+        const PREVIEW_CACHE_PREFIX = 'gallery_preview_';
+        const PREVIEW_CACHE_EXPIRE = 30 * 24 * 60 * 60 * 1000; // 30天过期（预览图缓存更长）
 
-        // 加载目录列表
-        async function loadFolders() {
+        // 初始化主题
+        function initTheme() {
+            const savedTheme = localStorage.getItem('gallery_theme');
+            isDarkMode = savedTheme !== 'light'; // 默认暗黑模式，只有明确设置为light才使用亮色
+            applyTheme();
+            document.getElementById('darkModeToggle').checked = isDarkMode;
+        }
+
+        function applyTheme() {
+            document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('gallery_theme', isDarkMode ? 'dark' : 'light');
+            applyTheme();
+        }
+
+        function getCache(key) {
             try {
-                // 获取当前目录（去掉 photo.html）
-                const currentUrl = window.location.href;
-                const dirUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-
-                const response = await fetch(dirUrl);
-                const html = await response.text();
-
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const links = doc.querySelectorAll('a');
-
-                folders = [];
-                let currentDirImages = [];
-
-                links.forEach(link => {
-                    const href = link.getAttribute('href');
-                    // 排除 photo.html 自己
-                    if (href && href.endsWith('/')) {
-                        // 这是子目录
-                        const folderName = decodeURIComponent(href.replace(/\/$/, ''));
-                        folders.push({
-                            name: folderName,
-                            url: href
-                        });
-                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
-                        // 当前目录的图片
-                        currentDirImages.push({
-                            name: decodeURIComponent(href),
-                            url: href
-                        });
-                    }
-                });
-
-                // 如果当前目录有图片，添加"当前目录"选项
-                if (currentDirImages.length > 0) {
-                    folders.unshift({
-                        name: '当前目录',
-                        url: '',
-                        images: currentDirImages
-                    });
+                const cached = localStorage.getItem(CACHE_PREFIX + key);
+                if (!cached) {
+                    console.log(`  [缓存] ${key}: 无缓存`);
+                    return null;
                 }
-
-                if (folders.length > 0) {
-                    renderFolders();
-                    document.getElementById('loadingScreen').style.display = 'none';
+                const { data, timestamp } = JSON.parse(cached);
+                const age = Date.now() - timestamp;
+                const ageHours = (age / (60 * 60 * 1000)).toFixed(2);
+                
+                if (age < CACHE_EXPIRE) {
+                    console.log(`  [缓存] ${key}: 命中 (年龄: ${ageHours}小时)`);
+                    return data;
                 } else {
-                    document.getElementById('loadingScreen').innerHTML =
-                        '<div class="error-message"><h3>未找到图片</h3><p>当前目录和子目录都没有图片文件</p></div>';
+                    console.log(`  [缓存] ${key}: 已过期 (年龄: ${ageHours}小时)`);
+                    return null;
                 }
             } catch (e) {
-                console.error('加载失败:', e);
-                document.getElementById('loadingScreen').innerHTML =
-                    '<div class="error-message"><h3>加载失败</h3><p>请通过 HTTP 服务器访问（python -m http.server 8080）</p></div>';
+                console.log(`  [缓存] ${key}: 读取错误`, e);
+                return null;
             }
         }
 
-        // 渲染目录列表
-        function renderFolders() {
-            const container = document.getElementById('folderList');
-            container.innerHTML = folders.map((folder, index) => `
-                <div class="folder-item" onclick="selectFolder(${index}, this)">
-                    <span class="folder-icon">${folder.url === '' ? '📷' : '📁'}</span>
-                    <span class="folder-name">${folder.name}</span>
-                </div>
-            `).join('');
+        function setCache(key, data) {
+            try {
+                const start = performance.now();
+                localStorage.setItem(CACHE_PREFIX + key, JSON.stringify({ data, timestamp: Date.now() }));
+                console.log(`  [缓存] ${key}: 保存完成 (${(performance.now() - start).toFixed(2)}ms)`);
+            } catch (e) { 
+                console.log(`  [缓存] ${key}: 保存失败，清理旧缓存...`);
+                clearOldCache(); 
+            }
         }
 
-        // 选择目录
-        async function selectFolder(folderIndex, element) {
-            // 更新选中状态
-            document.querySelectorAll('.folder-item').forEach(el => el.classList.remove('active'));
-            element.classList.add('active');
+        // 预览图专用缓存（更长过期时间）
+        function getPreviewCache(url) {
+            try {
+                const cached = localStorage.getItem(PREVIEW_CACHE_PREFIX + url);
+                if (!cached) return null;
+                const { data, timestamp } = JSON.parse(cached);
+                const age = Date.now() - timestamp;
+                const ageDays = (age / (24 * 60 * 60 * 1000)).toFixed(1);
+                
+                if (age < PREVIEW_CACHE_EXPIRE) {
+                    console.log(`  [预览缓存] 命中 (年龄: ${ageDays}天)`);
+                    return data;
+                } else {
+                    console.log(`  [预览缓存] 已过期 (年龄: ${ageDays}天)`);
+                    return null;
+                }
+            } catch (e) {
+                console.log(`  [预览缓存] 读取错误`, e);
+                return null;
+            }
+        }
 
-            const folder = folders[folderIndex];
-            currentFolder = folder.name;
+        function setPreviewCache(url, data) {
+            try {
+                localStorage.setItem(PREVIEW_CACHE_PREFIX + url, JSON.stringify({ data, timestamp: Date.now() }));
+            } catch (e) { clearOldCache(); }
+        }
 
-            document.getElementById('toolbarTitle').textContent = `${folder.url === '' ? '📷' : '📁'} ${folder.name}`;
-            document.getElementById('toolbar').style.display = 'flex';
-            document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
-            document.getElementById('info').style.display = 'none';
+        function clearOldCache() {
+            const keys = Object.keys(localStorage).filter(k => k.startsWith(CACHE_PREFIX) || k.startsWith(PREVIEW_CACHE_PREFIX));
+            keys.slice(0, Math.floor(keys.length / 2)).forEach(k => localStorage.removeItem(k));
+        }
 
-            // 如果是"当前目录"且已有图片列表
-            if (folder.url === '' && folder.images) {
-                images = [...folder.images];
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main');
+            const expandBtn = document.getElementById('expandBtn');
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+            expandBtn.classList.toggle('visible', sidebar.classList.contains('collapsed'));
+        }
+
+        function toggleActionPanel() {
+            document.getElementById('actionContent').classList.toggle('visible');
+        }
+
+        async function loadFolders() {
+            try {
+                const currentUrl = window.location.href;
+                // 处理 viewer.html 路径，获取基础 URL
+                let path = currentUrl;
+                if (path.includes('/viewer.html')) {
+                    path = path.substring(0, path.lastIndexOf('/viewer.html') + 1);
+                } else {
+                    path = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+                }
+                baseUrl = path;
+                const cacheKey = 'folders_' + baseUrl;
+
+                const cached = getCache(cacheKey);
+                if (cached) {
+                    folderTree = cached.folderTree;
+                    renderFolderTree();
+                    renderInitialFolders();
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    console.log('📦 使用缓存数据');
+                }
+
+                const response = await fetch(baseUrl);
+                const html = await response.text();
+                const { images: currentDirImages, folders } = extractItems(html, baseUrl);
+                
+                folderTree = folders.map(f => ({
+                    name: f.name,
+                    url: f.url,
+                    children: null,
+                    loaded: false,
+                    previewImage: null,
+                    imageCount: 0
+                }));
+
+                if (currentDirImages.length > 0) {
+                    folderTree.unshift({
+                        name: '当前目录',
+                        url: '',
+                        images: currentDirImages,
+                        isCurrent: true,
+                        loaded: true,
+                        previewImage: currentDirImages[0].url,
+                        imageCount: currentDirImages.length
+                    });
+                }
+
+                if (folderTree.length > 0) {
+                    setCache(cacheKey, { folderTree });
+                    if (!cached) {
+                        renderFolderTree();
+                        renderInitialFolders();
+                        document.getElementById('loadingScreen').style.display = 'none';
+                    } else {
+                        renderFolderTree();
+                        renderInitialFolders();
+                        console.log('✅ 缓存已更新');
+                    }
+                } else if (!cached) {
+                    document.getElementById('loadingScreen').innerHTML = '<div class="error-message"><h3>未找到图片</h3></div>';
+                }
+            } catch (e) {
+                console.error('加载失败:', e);
+                if (!getCache('folders_' + baseUrl)) {
+                    document.getElementById('loadingScreen').innerHTML = '<div class="error-message"><h3>加载失败</h3><p>请使用 HTTP 服务器访问</p></div>';
+                }
+            }
+        }
+
+        function renderFolderTree() {
+            document.getElementById('folderList').innerHTML = renderTreeItems(folderTree, '', true);
+        }
+
+        function renderTreeItems(items, parentPath, isRoot = false) {
+            return items.map((item, index) => {
+                const path = parentPath ? `${parentPath}/${index}` : `${index}`;
+                const hasChildren = item.children !== null && item.children !== undefined && item.children.length > 0;
+                const isExpanded = item.expanded ? 'expanded' : '';
+                // 如果还没加载，也显示箭头（因为可能还有子文件夹）
+                const hasSubfolders = item.hasSubfolders;
+                const showToggle = hasChildren || hasSubfolders || !item.loaded;
+
+                return `
+                    <div class="tree-item" data-path="${path}">
+                        <div class="folder-item ${item.active ? 'active' : ''}" onclick="selectFolderItem('${item.url}', '${item.name}', '${path}')">
+                            <span class="folder-toggle ${isExpanded} ${!showToggle ? 'hidden' : ''}" 
+                                  onclick="event.stopPropagation(); toggleFolder('${path}')">▶</span>
+                            <div class="folder-icon">
+                                ${item.previewImage ? 
+                                    `<img src="${item.previewImage}" onerror="this.parentElement.innerHTML='📁'">` : 
+                                    (item.isCurrent ? '📷' : '📁')}
+                            </div>
+                            <span class="folder-name">${item.name}</span>
+                            ${item.imageCount ? `<span class="folder-count">${item.imageCount}</span>` : ''}
+                        </div>
+                        ${hasChildren ? `<div class="folder-children ${isExpanded}">${renderTreeItems(item.children, path)}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function renderInitialFolders() {
+            const container = document.getElementById('imageContainer');
+            container.classList.remove('centered');
+
+            const hasCurrentDir = folderTree.length > 0 && folderTree[0].isCurrent;
+            const folders = hasCurrentDir ? folderTree.slice(1) : folderTree;
+
+            if (folders.length === 0) {
+                container.innerHTML = '<div class="no-images"><h3>没有找到相册</h3></div>';
+                return;
+            }
+
+            // 先渲染 HTML
+            container.innerHTML = `
+                <div class="folder-grid">
+                    ${folders.map((f, i) => `
+                        <div class="folder-card" onclick="selectFolderItem('${f.url}', '${f.name}', '${hasCurrentDir ? i + 1 : i}')">
+                            <div class="folder-card-preview" id="preview-${hasCurrentDir ? i + 1 : i}">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">${f.name}</div>
+                                <div class="folder-card-count" id="count-${hasCurrentDir ? i + 1 : i}">加载中...</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // DOM 渲染完成后再加载预览
+            folders.forEach((f, i) => loadFolderPreview(f, hasCurrentDir ? i + 1 : i));
+        }
+
+        async function loadFolderPreview(folder, index) {
+            // 先检查预览缓存（30天过期，快速显示）
+            const previewCache = getPreviewCache(folder.url);
+            if (previewCache) {
+                updateFolderPreview(index, previewCache.previewUrl, previewCache.count);
+                folder.previewImage = previewCache.previewUrl;
+                folder.imageCount = previewCache.count;
+                renderFolderTree();
+            } else {
+                // 再检查普通缓存
+                const cacheKey = 'folder_' + folder.url;
+                const cached = getCache(cacheKey);
+                
+                if (cached && cached.images && cached.images.length > 0) {
+                    const firstImg = cached.images[0];
+                    updateFolderPreview(index, firstImg.url, cached.images.length);
+                    folder.previewImage = firstImg.url;
+                    folder.imageCount = cached.images.length;
+                    renderFolderTree();
+                }
+            }
+            
+            // 异步更新缓存
+            try {
+                const response = await fetch(folder.url);
+                const html = await response.text();
+                const { images: foundImages, folders: subFolders } = extractItems(html, folder.url);
+                
+                folder.hasSubfolders = subFolders && subFolders.length > 0;
+                const cacheKey = 'folder_' + folder.url;
+                setCache(cacheKey, { images: foundImages, folders: subFolders });
+                
+                if (foundImages.length > 0) {
+                    const firstImg = foundImages[0];
+                    // 更新预览缓存
+                    setPreviewCache(folder.url, { previewUrl: firstImg.url, count: foundImages.length });
+                    updateFolderPreview(index, firstImg.url, foundImages.length);
+                    folder.previewImage = firstImg.url;
+                    folder.imageCount = foundImages.length;
+                    renderFolderTree();
+                }
+            } catch (e) {
+                console.error('加载预览失败:', folder.name);
+            }
+        }
+
+        function updateFolderPreview(index, imgUrl, count) {
+            const previewEl = document.getElementById(`preview-${index}`);
+            const countEl = document.getElementById(`count-${index}`);
+            if (previewEl) {
+                previewEl.innerHTML = `<img src="${imgUrl}" onerror="this.parentElement.innerHTML='<span class=\\'placeholder\\'>📁</span>'">`;
+            }
+            if (countEl) {
+                countEl.textContent = `${count} 张图片`;
+            }
+        }
+
+        async function toggleFolder(path) {
+            const item = getTreeItemByPath(path);
+            if (!item || item.isCurrent) return;
+
+            if (!item.loaded) {
+                // 先尝试从缓存读取
+                const cacheKey = 'subfolders_' + item.url;
+                const cached = getCache(cacheKey);
+                
+                if (cached && cached.children) {
+                    // 恢复子文件夹，确保 loaded 为 false 以便后续展开
+                    item.children = cached.children.map(c => ({
+                        ...c,
+                        loaded: false,
+                        children: c.children || null,
+                        expanded: false
+                    }));
+                    item.loaded = true;
+                    item.expanded = true;
+                    renderFolderTree();
+                    console.log('📦 使用子文件夹缓存:', item.name);
+                    
+                    // 检查是否有子文件夹缺少预览图，如有则异步更新
+                    const needUpdate = item.children.some(c => !c.previewImage && !c.hasSubfolders);
+                    if (needUpdate) {
+                        updateSubFoldersCache(item, path, cacheKey);
+                    }
+                } else {
+                    // 没有缓存，直接加载
+                    await loadSubFolders(item, path);
+                    item.expanded = true;
+                    renderFolderTree();
+                }
+            } else {
+                item.expanded = !item.expanded;
+                renderFolderTree();
+            }
+        }
+
+        async function loadSubFolders(item, path) {
+            try {
+                const response = await fetch(item.url);
+                const html = await response.text();
+                const { folders: subFolders } = extractItems(html, item.url);
+                
+                item.children = subFolders.map(f => ({
+                    name: f.name,
+                    url: f.url,
+                    children: null,
+                    loaded: false,
+                    previewImage: null,
+                    imageCount: 0,
+                    hasSubfolders: false
+                }));
+                item.loaded = true;
+                
+                // 立即显示（无预览），然后并行加载所有预览
+                renderFolderTree();
+                
+                // 并行加载所有子文件夹的预览和子文件夹信息
+                await Promise.all(item.children.map(async (child, i) => {
+                    await loadSubFolderPreviewFast(child);
+                }));
+                
+                // 缓存包含预览信息的子文件夹列表
+                const cacheKey = 'subfolders_' + item.url;
+                setCache(cacheKey, { children: item.children });
+                renderFolderTree();
+                
+            } catch (e) {
+                item.children = [];
+                item.loaded = true;
+            }
+        }
+
+        // 快速加载子文件夹预览（并行使用）
+        async function loadSubFolderPreviewFast(folder) {
+            // 先检查预览缓存
+            const previewCache = getPreviewCache(folder.url);
+            if (previewCache) {
+                folder.previewImage = previewCache.previewUrl;
+                folder.imageCount = previewCache.count;
+                folder.hasSubfolders = previewCache.hasSubfolders || false;
+                renderFolderTree();
+                return;
+            }
+            
+            // 再检查普通缓存
+            const cacheKey = 'folder_' + folder.url;
+            const cached = getCache(cacheKey);
+            
+            if (cached) {
+                if (cached.images && cached.images.length > 0) {
+                    folder.previewImage = cached.images[0].url;
+                    folder.imageCount = cached.images.length;
+                }
+                if (cached.folders) {
+                    folder.hasSubfolders = cached.folders.length > 0;
+                }
+                renderFolderTree();
+            }
+            
+            // 异步更新
+            try {
+                const response = await fetch(folder.url);
+                const html = await response.text();
+                const { images: foundImages, folders: foundFolders } = extractItems(html, folder.url);
+                
+                const hasSubfolders = foundFolders && foundFolders.length > 0;
+                
+                if (foundImages.length > 0) {
+                    folder.previewImage = foundImages[0].url;
+                    folder.imageCount = foundImages.length;
+                }
+                folder.hasSubfolders = hasSubfolders;
+                
+                // 更新预览缓存（包含子文件夹信息）
+                setPreviewCache(folder.url, { 
+                    previewUrl: folder.previewImage, 
+                    count: folder.imageCount,
+                    hasSubfolders: hasSubfolders
+                });
+                setCache(cacheKey, { images: foundImages, folders: foundFolders });
+                
+                renderFolderTree();
+            } catch (e) {}
+        }
+
+        async function updateSubFoldersCache(item, path, cacheKey) {
+            try {
+                const response = await fetch(item.url);
+                const html = await response.text();
+                const { folders: subFolders } = extractItems(html, item.url);
+                
+                // 创建新的子文件夹列表，保留已有信息
+                const newChildren = subFolders.map(f => {
+                    const existingChild = item.children?.find(c => c.url === f.url);
+                    return {
+                        name: f.name,
+                        url: f.url,
+                        children: null,
+                        loaded: false,
+                        previewImage: existingChild?.previewImage || null,
+                        imageCount: existingChild?.imageCount || 0,
+                        hasSubfolders: existingChild?.hasSubfolders || false
+                    };
+                });
+                
+                item.children = newChildren;
+                renderFolderTree();
+                
+                // 并行加载新子文件夹的预览
+                await Promise.all(item.children.map(async (child) => {
+                    if (!child.previewImage || !child.hasSubfolders) {
+                        await loadSubFolderPreviewFast(child);
+                    }
+                }));
+                
+                // 更新缓存
+                setCache(cacheKey, { children: newChildren });
+                console.log('✅ 子文件夹缓存已更新:', item.name);
+                
+            } catch (e) {
+                console.error('更新子文件夹缓存失败:', e);
+            }
+        }
+
+        function getTreeItemByPath(path) {
+            const indices = path.split('/').map(Number);
+            let current = folderTree;
+            for (let i = 0; i < indices.length; i++) {
+                if (i === indices.length - 1) return current[indices[i]];
+                current = current[indices[i]]?.children;
+                if (!current) return null;
+            }
+            return null;
+        }
+
+        // 在树中查找文件夹URL，返回路径
+        function findFolderInTree(url, items = folderTree, path = '') {
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                const currentPath = path ? `${path}/${i}` : `${i}`;
+                
+                if (item.url === url) {
+                    return currentPath;
+                }
+                
+                if (item.children && item.children.length > 0) {
+                    const found = findFolderInTree(url, item.children, currentPath);
+                    if (found) return found;
+                }
+            }
+            return null;
+        }
+
+        // 展开到指定路径的所有父文件夹
+        function expandPathToFolder(path) {
+            const indices = path.split('/').map(Number);
+            let current = folderTree;
+            
+            for (let i = 0; i < indices.length - 1; i++) {
+                const item = current[indices[i]];
+                if (item) {
+                    item.expanded = true;
+                    current = item.children;
+                }
+            }
+        }
+
+        async function selectFolderItem(url, name, path) {
+            console.log(`📁 点击文件夹: ${name}, URL: ${url}`);
+            const startTime = performance.now();
+            
+            // 清除之前的active状态
+            folderTree.forEach(clearActive);
+            const item = getTreeItemByPath(path);
+            if (item) item.active = true;
+            renderFolderTree();
+
+            currentFolder = name;
+            document.getElementById('actionPanel').style.display = 'none';
+
+            if (item.isCurrent && item.images) {
+                console.log(`✅ 当前目录，直接使用内存中的 ${item.images.length} 张图片`);
+                images = item.images.map((img, i) => ({ ...img, originalIndex: i + 1 }));
                 allImages = [...images];
                 shuffleImages();
                 return;
             }
 
-            // 从子目录加载 - 使用 AbortController 设置超时
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000);
+            const cacheKey = 'folder_' + url;
+            const cached = getCache(cacheKey);
+            
+            if (cached) {
+                console.log(`📦 找到缓存: ${name}, 图片数: ${cached.images?.length || 0}, 子文件夹数: ${cached.folders?.length || 0}`);
+                displayFolderContent(cached.images, cached.folders, name, url);
+                console.log(`⏱️ 缓存渲染耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
+            } else {
+                console.log(`❌ 无缓存: ${name}, 开始加载...`);
+                document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
+            }
 
-            try {
-                const response = await fetch(folder.url, { signal: controller.signal });
-                clearTimeout(timeoutId);
-                const html = await response.text();
+            await loadAndDisplayFolder(url, name, !!cached);
+            console.log(`⏱️ 总耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
+        }
 
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const links = doc.querySelectorAll('a');
+        function clearActive(item) {
+            item.active = false;
+            if (item.children) item.children.forEach(clearActive);
+        }
 
-                const subFolders = [];
-                images = [];
+        function extractItems(html, url) {
+            const images = [];
+            const folders = [];
+            const linkRegex = /<a[^>]+href=["']([^"']+)["'][^>]*>/gi;
+            let match;
 
-                // 先检查是否有子目录
-                for (const link of links) {
-                    const href = link.getAttribute('href');
-                    if (href && href.endsWith('/')) {
-                        const folderName = decodeURIComponent(href.replace(/\/$/, ''));
-                        subFolders.push({
-                            name: folderName,
-                            url: folder.url + href
-                        });
-                    }
-                }
+            while ((match = linkRegex.exec(html)) !== null) {
+                const href = match[1];
+                if (!href) continue;
 
-                // 如果有子目录，直接显示子目录，不解析图片（加速）
-                if (subFolders.length > 0) {
-                    renderSubFolders(subFolders, folder.name, folder.url);
-                    return;
-                }
+                // 跳过上级目录和当前目录
+                if (href === '../' || href === './') continue;
 
-                // 没有子目录，才解析图片
-                for (const link of links) {
-                    const href = link.getAttribute('href');
-                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
-                        images.push({
-                            name: decodeURIComponent(href),
-                            url: folder.url + href
-                        });
-                    }
-                }
-
-                if (images.length > 0) {
-                    allImages = [...images];
-                    shuffleImages();
+                // 处理相对路径
+                let fullUrl;
+                if (href.startsWith('http')) {
+                    // 绝对路径，直接使用
+                    fullUrl = href;
+                } else if (href.startsWith('/')) {
+                    // 根路径，拼接 baseUrl
+                    fullUrl = baseUrl + href.substring(1);
                 } else {
-                    document.getElementById('imageContainer').innerHTML =
-                        '<div class="no-images"><h3>目录为空</h3></div>';
+                    // 相对路径，拼接当前 url
+                    fullUrl = url + href;
                 }
-            } catch (e) {
-                clearTimeout(timeoutId);
-                console.error('加载目录失败:', e);
-                document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
+
+                if (href.endsWith('/')) {
+                    folders.push({ name: decodeURIComponent(href.replace(/\/$/, '')), url: fullUrl });
+                } else if (/\.(jpg|jpeg|png|gif|webp|bmp|mp4)$/i.test(href) && !href.startsWith('._')) {
+                    images.push({ name: decodeURIComponent(href), url: fullUrl });
+                }
+            }
+            return { images, folders };
+        }
+
+        function displayFolderContent(imgs, folders, name, url) {
+            if (imgs && imgs.length > 0) {
+                // 给每张图片添加原始索引
+                images = imgs.map((img, i) => ({ ...img, originalIndex: i + 1 }));
+                allImages = [...images];
+                shuffleImages();
+            } else if (folders && folders.length > 0) {
+                renderSubFolders(folders, name, url);
+            } else {
+                document.getElementById('imageContainer').innerHTML = '<div class="no-images"><h3>目录为空</h3></div>';
             }
         }
 
-        // 渲染子目录列表（在右侧显示）
+        async function loadAndDisplayFolder(url, name, hasCache = false) {
+            // 如果有缓存，延迟执行网络请求（优先使用缓存）
+            if (hasCache) {
+                console.log(`🌐 [后台] ${name} 缓存已存在，延迟更新...`);
+                await new Promise(resolve => setTimeout(resolve, 500)); // 延迟500ms，让用户先看到内容
+            } else {
+                console.log(`🌐 [前台] ${name} 无缓存，立即加载...`);
+            }
+
+            const networkStart = performance.now();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 60000);
+
+            try {
+                console.log(`📡 请求URL: ${url}`);
+                const response = await fetch(url, { signal: controller.signal });
+                console.log(`⬇️ 响应状态: ${response.status}, 耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
+
+                clearTimeout(timeoutId);
+
+                const parseStart = performance.now();
+                const html = await response.text();
+                console.log(`📄 HTML文本获取: ${html.length} 字符, 前200字符: ${html.substring(0, 200)}...`);
+
+                const extractStart = performance.now();
+                const { images: foundImages, folders: foundFolders } = extractItems(html, url);
+                console.log(`🔍 解析完成: 图片=${foundImages.length}, 文件夹=${foundFolders.length}, 示例图片:`, foundImages.slice(0, 3).map(i => i.url));
+                
+                const cacheStart = performance.now();
+                setCache('folder_' + url, { images: foundImages, folders: foundFolders });
+                console.log(`💾 缓存保存: 耗时: ${(performance.now() - cacheStart).toFixed(2)}ms`);
+                
+                if (!hasCache) {
+                    displayFolderContent(foundImages, foundFolders, name, url);
+                } else {
+                    console.log(`🔄 缓存已存在，仅更新缓存，不重新渲染`);
+                }
+                
+                console.log(`✅ 网络请求总耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
+            } catch (e) {
+                clearTimeout(timeoutId);
+                console.error('❌ 加载失败:', e);
+                if (!hasCache) {
+                    document.getElementById('imageContainer').innerHTML =
+                        '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
+                }
+            }
+        }
+
         function renderSubFolders(subFolders, parentName, parentUrl) {
             const container = document.getElementById('imageContainer');
+            container.classList.remove('centered');
+            
+            // 为每个子文件夹生成唯一ID
+            const subFolderIds = subFolders.map((f, i) => `subfolder_${Date.now()}_${i}`);
+            
+            // 异步加载预览图
+            subFolders.forEach((f, i) => {
+                loadSubFolderCardPreview(f, subFolderIds[i]);
+            });
+            
+            // 转义单引号
+            const escapeUrl = url => url.replace(/'/g, "\\'");
+            
             container.innerHTML = `
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; justify-content: flex-start; width: 100%; align-content: flex-start;">
-                    ${subFolders.map(f => `
-                        <div class="subfolder-item" onclick="selectSubFolder('${f.url}', '${f.name}')" style="
-                            width: 150px;
-                            height: 120px;
-                            background: #2a2a2a;
-                            border-radius: 8px;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            cursor: pointer;
-                            transition: background 0.2s;
-                        " onmouseover="this.style.background='#3a3a3a'" onmouseout="this.style.background='#2a2a2a'">
-                            <span style="font-size: 40px; margin-bottom: 10px;">📁</span>
-                            <span style="font-size: 12px; text-align: center; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px;">${f.name}</span>
+                <div class="folder-grid">
+                    ${subFolders.map((f, i) => `
+                        <div class="folder-card" onclick="selectSubFolder('${escapeUrl(f.url)}', '${f.name}', '${escapeUrl(parentUrl)}')">
+                            <div class="folder-card-preview" id="${subFolderIds[i]}">
+                                <span class="placeholder">📁</span>
+                            </div>
+                            <div class="folder-card-info">
+                                <div class="folder-card-name">${f.name}</div>
+                            </div>
                         </div>
                     `).join('')}
                 </div>
             `;
-            document.getElementById('toolbarTitle').textContent = `📁 ${parentName} / 选择子目录`;
         }
 
-        // 选择子目录
-        async function selectSubFolder(folderUrl, folderName) {
-            document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
-
-            try {
-                const response = await fetch(folderUrl);
-                const html = await response.text();
-
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const links = doc.querySelectorAll('a');
-
-                const subFolders = [];
-                images = [];
-
-                links.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href && href.endsWith('/')) {
-                        // 继续有子目录
-                        subFolders.push({
-                            name: decodeURIComponent(href.replace(/\/$/, '')),
-                            url: folderUrl + href
-                        });
-                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
-                        images.push({
-                            name: decodeURIComponent(href),
-                            url: folderUrl + href
-                        });
-                    }
-                });
-
-                // 如果还有子目录，继续显示子目录列表
-                if (subFolders.length > 0) {
-                    renderSubFolders(subFolders, folderName, folderUrl);
-                    return;
+        async function loadSubFolderCardPreview(folder, elementId) {
+            // 先检查预览缓存（30天过期）
+            const previewCache = getPreviewCache(folder.url);
+            if (previewCache) {
+                updateSubFolderCardPreview(elementId, previewCache.previewUrl);
+            } else {
+                // 再检查普通缓存
+                const cacheKey = 'folder_' + folder.url;
+                const cached = getCache(cacheKey);
+                
+                if (cached && cached.images && cached.images.length > 0) {
+                    updateSubFolderCardPreview(elementId, cached.images[0].url);
                 }
-
-                document.getElementById('toolbarTitle').textContent = `📁 ${folderName}`;
-
-                if (images.length > 0) {
-                    allImages = [...images];
-                    shuffleImages();
-                } else {
-                    document.getElementById('imageContainer').innerHTML =
-                        '<div class="no-images"><h3>目录中没有图片</h3></div>';
-                }
-            } catch (e) {
-                console.error('加载失败:', e);
-                document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>加载失败</h3></div>';
             }
+            
+            // 异步更新
+            try {
+                const response = await fetch(folder.url);
+                const html = await response.text();
+                const { images: foundImages } = extractItems(html, folder.url);
+                
+                if (foundImages.length > 0) {
+                    // 更新预览缓存
+                    setPreviewCache(folder.url, { previewUrl: foundImages[0].url, count: foundImages.length });
+                    setCache('folder_' + folder.url, { images: foundImages, folders: [] });
+                    updateSubFolderCardPreview(elementId, foundImages[0].url);
+                }
+            } catch (e) {}
+        }
+
+        function updateSubFolderCardPreview(elementId, imgUrl) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.innerHTML = `<img src="${imgUrl}" onerror="this.parentElement.innerHTML='<span class=\\'placeholder\\'>📁</span>'">`;
+            }
+        }
+
+        async function selectSubFolder(folderUrl, folderName, parentUrl) {
+            // 清除之前的active状态
+            folderTree.forEach(clearActive);
+            
+            // 尝试在导航树中找到并选中该文件夹
+            let foundPath = findFolderInTree(folderUrl);
+            
+            if (!foundPath && parentUrl) {
+                // 如果没找到，先确保父文件夹已加载并展开
+                const parentPath = findFolderInTree(parentUrl);
+                if (parentPath) {
+                    const parentItem = getTreeItemByPath(parentPath);
+                    if (parentItem && !parentItem.loaded) {
+                        // 加载父文件夹的子文件夹
+                        await loadSubFolders(parentItem, parentPath);
+                    }
+                    parentItem.expanded = true;
+                    foundPath = findFolderInTree(folderUrl);
+                }
+            }
+            
+            if (foundPath) {
+                // 展开到该文件夹的路径
+                expandPathToFolder(foundPath);
+                // 选中该文件夹
+                const item = getTreeItemByPath(foundPath);
+                if (item) item.active = true;
+                renderFolderTree();
+            }
+            
+            // 加载文件夹内容
+            document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
+            await loadAndDisplayFolder(folderUrl, folderName);
         }
 
         function shuffleImages() {
@@ -527,63 +1490,273 @@
         let failedCount = 0;
 
         function showImage(index, skipFailed = false) {
+            const container = document.getElementById('imageContainer');
+            
             if (images.length === 0) {
-                document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>没有找到图片</h3></div>';
+                container.innerHTML = '<div class="no-images"><h3>没有图片</h3></div>';
+                container.classList.remove('centered');
+                document.getElementById('imageOverlay').style.display = 'none';
                 return;
             }
 
             currentIndex = (index + images.length) % images.length;
             const img = images[currentIndex];
+            
+            // 文件名去掉最后一个扩展名
+            const displayName = img.name.replace(/\.[^.]+$/, '');
+            // 检测是否为视频文件
+            const isVideo = /\.mp4$/i.test(img.name);
 
-            const container = document.getElementById('imageContainer');
-            container.innerHTML = `<img id="currentImage" src="${img.url}" alt="">`;
-            const imageEl = document.getElementById('currentImage');
-            imageEl.classList.add('loading');
+            container.classList.add('centered');
+            
+            if (isVideo) {
+                // 显示视频元素，自动播放，静音，带进度条和静音按钮
+                container.innerHTML = `
+                    <div class="video-wrapper">
+                        <video id="currentVideo" src="${img.url}" autoplay muted loop playsinline 
+                               style="max-width: calc(100vw - 360px); max-height: calc(100vh - 150px); border-radius: 12px; box-shadow: 0 20px 60px var(--shadow-color);">
+                        </video>
+                        <div class="video-controls">
+                            <button class="video-mute-btn muted" id="videoMuteBtn">静音</button>
+                            <div class="video-progress" style="flex: 1;">
+                                <div class="video-progress-bar" id="videoProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                const videoEl = document.getElementById('currentVideo');
+                const progressBar = document.getElementById('videoProgressBar');
+                const muteBtn = document.getElementById('videoMuteBtn');
+                
+                videoEl.onloadeddata = () => {
+                    failedCount = 0;
+                };
+                
+                videoEl.onerror = () => {
+                    failedCount++;
+                    if (!skipFailed && failedCount < images.length) {
+                        setTimeout(() => showImage(currentIndex + 1, true), 500);
+                    }
+                };
+                
+                // 更新进度条
+                videoEl.addEventListener('timeupdate', function() {
+                    if (videoEl.duration) {
+                        const progress = (videoEl.currentTime / videoEl.duration) * 100;
+                        progressBar.style.width = progress + '%';
+                    }
+                });
+                
+                // 清理
+                videoEl.addEventListener('ended', function() {
+                    progressBar.style.width = '0%';
+                });
+                
+                // 静音/取消静音切换
+                muteBtn.addEventListener('click', function() {
+                    videoEl.muted = !videoEl.muted;
+                    if (videoEl.muted) {
+                        muteBtn.classList.remove('unmuted');
+                        muteBtn.classList.add('muted');
+                        muteBtn.textContent = '静音';
+                    } else {
+                        muteBtn.classList.remove('muted');
+                        muteBtn.classList.add('unmuted');
+                        muteBtn.textContent = '有声';
+                    }
+                });
+                
+                // 双击进入全屏模式
+                videoEl.addEventListener('dblclick', function() {
+                    enterFullscreen(img.url, displayName, img.originalIndex);
+                });
+            } else {
+                // 显示图片
+                container.innerHTML = `<img id="currentImage" src="${img.url}" alt="" class="loading">`;
+                
+                const imageEl = document.getElementById('currentImage');
 
-            imageEl.onload = () => {
-                imageEl.classList.remove('loading');
-                failedCount = 0;
-            };
+                imageEl.onload = () => {
+                    imageEl.classList.remove('loading');
+                    failedCount = 0;
+                };
 
-            imageEl.onerror = () => {
-                imageEl.classList.remove('loading');
-                console.error('加载失败:', img.name);
-                failedCount++;
+                imageEl.onerror = () => {
+                    imageEl.classList.remove('loading');
+                    failedCount++;
+                    if (!skipFailed && failedCount < images.length) {
+                        setTimeout(() => showImage(currentIndex + 1, true), 500);
+                    }
+                };
 
-                if (!skipFailed && failedCount < images.length) {
-                    setTimeout(() => showImage(currentIndex + 1, true), 500);
-                }
-            };
+                // 双击进入全屏模式
+                imageEl.addEventListener('dblclick', function() {
+                    enterFullscreen(img.url, displayName, img.originalIndex);
+                });
+            }
+            
+            // 更新悬浮信息
+            const overlay = document.getElementById('imageOverlay');
+            overlay.style.display = 'block';
+            overlay.innerHTML = `
+                <div class="image-count">${img.originalIndex} / ${images.length}</div>
+                <div class="image-name">${displayName}</div>
+            `;
 
-            document.getElementById('info').style.display = 'flex';
-            document.getElementById('imageInfo').textContent =
-                `${currentIndex + 1} / ${images.length} - ${img.name}`;
+            document.getElementById('actionPanel').style.display = 'flex';
         }
 
-        // 精彩模式切换
         document.getElementById('excitingMode').addEventListener('change', function(e) {
             isExcitingMode = e.target.checked;
-            if (images.length > 0) {
-                shuffleImages();
-            }
+            if (images.length > 0) shuffleImages();
         });
 
-        // 键盘事件
-        document.addEventListener('keydown', function(e) {
-            if (images.length === 0) return;
+        // 全屏模式功能
+        async function enterFullscreen(imgUrl, displayName, index) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const isVideo = /\.mp4$/i.test(imgUrl);
+            
+            // 根据类型显示不同的内容
+            if (isVideo) {
+                overlay.innerHTML = `
+                    <video id="fullscreenVideo" src="${imgUrl}" autoplay muted loop playsinline
+                           style="max-width: 100vw; max-height: 100vh; object-fit: contain;">
+                    </video>
+                `;
+            } else {
+                overlay.innerHTML = `<img id="fullscreenImage" src="${imgUrl}" alt="" style="max-width: 100vw; max-height: 100vh; object-fit: contain;">`;
+            }
+            
+            overlay.classList.add('visible');
+            isFullscreen = true;
+            
+            // 请求浏览器全屏
+            try {
+                if (overlay.requestFullscreen) {
+                    await overlay.requestFullscreen();
+                } else if (overlay.webkitRequestFullscreen) {
+                    await overlay.webkitRequestFullscreen();
+                } else if (overlay.mozRequestFullScreen) {
+                    await overlay.mozRequestFullScreen();
+                } else if (overlay.msRequestFullscreen) {
+                    await overlay.msRequestFullscreen();
+                }
+            } catch (e) {
+                console.log('无法进入全屏:', e);
+            }
+        }
 
+        async function exitFullscreen() {
+            if (!isFullscreen) return;
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('visible');
+            isFullscreen = false;
+            
+            // 恢复原始 HTML 结构
+            overlay.innerHTML = `
+                <img id="fullscreenImage" src="" alt="">
+                <div class="fullscreen-info" id="fullscreenInfo"></div>
+            `;
+            
+            // 退出浏览器全屏
+            try {
+                if (document.exitFullscreen) {
+                    await document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    await document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    await document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    await document.msExitFullscreen();
+                }
+            } catch (e) {
+                console.log('无法退出全屏:', e);
+            }
+        }
+
+        // 全屏层双击退出
+        document.getElementById('fullscreenOverlay').addEventListener('dblclick', exitFullscreen);
+        
+        // 监听浏览器全屏状态变化（用户按 ESC 或点击浏览器全屏按钮）
+        document.addEventListener('fullscreenchange', onFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+        document.addEventListener('mozfullscreenchange', onFullscreenChange);
+        document.addEventListener('MSFullscreenChange', onFullscreenChange);
+        
+        function onFullscreenChange() {
+            const isBrowserFullscreen = document.fullscreenElement || 
+                                       document.webkitFullscreenElement || 
+                                       document.mozFullScreenElement || 
+                                       document.msFullscreenElement;
+            
+            // 如果浏览器退出全屏但我们的 overlay 还在显示，也退出应用全屏模式
+            if (!isBrowserFullscreen && isFullscreen) {
+                const overlay = document.getElementById('fullscreenOverlay');
+                overlay.classList.remove('visible');
+                isFullscreen = false;
+                // 恢复原始 HTML 结构
+                overlay.innerHTML = `
+                    <img id="fullscreenImage" src="" alt="">
+                    <div class="fullscreen-info" id="fullscreenInfo"></div>
+                `;
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            // ESC 键退出全屏
+            if (e.key === 'Escape' && isFullscreen) {
+                exitFullscreen();
+                return;
+            }
+            
+            if (images.length === 0) return;
             if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
                 failedCount = 0;
                 showImage(currentIndex - 1);
+                // 全屏模式下也更新全屏图片
+                if (isFullscreen) {
+                    updateFullscreenImage();
+                }
             } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                 failedCount = 0;
                 showImage(currentIndex + 1);
+                // 全屏模式下也更新全屏图片
+                if (isFullscreen) {
+                    updateFullscreenImage();
+                }
             }
         });
 
-        // 页面加载
+        // 更新全屏显示的图片
+        function updateFullscreenImage() {
+            if (!isFullscreen || images.length === 0) return;
+            
+            const img = images[currentIndex];
+            const overlay = document.getElementById('fullscreenOverlay');
+            const isVideo = /\.mp4$/i.test(img.name);
+            
+            // 根据类型更新内容
+            if (isVideo) {
+                overlay.innerHTML = `
+                    <video id="fullscreenVideo" src="${img.url}" autoplay muted loop playsinline
+                           style="max-width: 100vw; max-height: 100vh; object-fit: contain;">
+                    </video>
+                `;
+            } else {
+                overlay.innerHTML = `<img id="fullscreenImage" src="${img.url}" alt="" style="max-width: 100vw; max-height: 100vh; object-fit: contain;">`;
+            }
+        }
+
+        document.getElementById('darkModeToggle').addEventListener('change', function(e) {
+            isDarkMode = e.target.checked;
+            localStorage.setItem('gallery_theme', isDarkMode ? 'dark' : 'light');
+            applyTheme();
+        });
+
+        initTheme();
         loadFolders();
     </script>
-</body>
-</html>
+
+
+</body></html>
