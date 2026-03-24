@@ -369,9 +369,13 @@
                 return;
             }
 
-            // 从子目录加载
+            // 从子目录加载 - 使用 AbortController 设置超时
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
+
             try {
-                const response = await fetch(folder.url);
+                const response = await fetch(folder.url, { signal: controller.signal });
+                clearTimeout(timeoutId);
                 const html = await response.text();
 
                 const parser = new DOMParser();
@@ -381,29 +385,36 @@
                 const subFolders = [];
                 images = [];
 
-                links.forEach(link => {
+                // 先检查是否有子目录
+                for (const link of links) {
                     const href = link.getAttribute('href');
                     if (href && href.endsWith('/')) {
-                        // 这是子目录
                         const folderName = decodeURIComponent(href.replace(/\/$/, ''));
                         subFolders.push({
                             name: folderName,
                             url: folder.url + href
                         });
-                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
-                        // 这是图片
+                    }
+                }
+
+                // 如果有子目录，直接显示子目录，不解析图片（加速）
+                if (subFolders.length > 0) {
+                    renderSubFolders(subFolders, folder.name, folder.url);
+                    return;
+                }
+
+                // 没有子目录，才解析图片
+                for (const link of links) {
+                    const href = link.getAttribute('href');
+                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
                         images.push({
                             name: decodeURIComponent(href),
                             url: folder.url + href
                         });
                     }
-                });
+                }
 
-                // 如果有子目录，在右侧显示子目录列表
-                if (subFolders.length > 0) {
-                    renderSubFolders(subFolders, folder.name);
-                } else if (images.length > 0) {
-                    // 只有图片，显示图片
+                if (images.length > 0) {
                     allImages = [...images];
                     shuffleImages();
                 } else {
@@ -411,17 +422,18 @@
                         '<div class="no-images"><h3>目录为空</h3></div>';
                 }
             } catch (e) {
+                clearTimeout(timeoutId);
                 console.error('加载目录失败:', e);
                 document.getElementById('imageContainer').innerHTML =
-                    '<div class="no-images"><h3>加载失败</h3><p>' + e.message + '</p></div>';
+                    '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
             }
         }
 
         // 渲染子目录列表（在右侧显示）
-        function renderSubFolders(subFolders, parentName) {
+        function renderSubFolders(subFolders, parentName, parentUrl) {
             const container = document.getElementById('imageContainer');
             container.innerHTML = `
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; justify-content: flex-start; width: 100%;">
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; justify-content: flex-start; width: 100%; align-content: flex-start;">
                     ${subFolders.map(f => `
                         <div class="subfolder-item" onclick="selectSubFolder('${f.url}', '${f.name}')" style="
                             width: 150px;
@@ -456,17 +468,30 @@
                 const doc = parser.parseFromString(html, 'text/html');
                 const links = doc.querySelectorAll('a');
 
+                const subFolders = [];
                 images = [];
 
                 links.forEach(link => {
                     const href = link.getAttribute('href');
-                    if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
+                    if (href && href.endsWith('/')) {
+                        // 继续有子目录
+                        subFolders.push({
+                            name: decodeURIComponent(href.replace(/\/$/, '')),
+                            url: folderUrl + href
+                        });
+                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
                         images.push({
                             name: decodeURIComponent(href),
                             url: folderUrl + href
                         });
                     }
                 });
+
+                // 如果还有子目录，继续显示子目录列表
+                if (subFolders.length > 0) {
+                    renderSubFolders(subFolders, folderName, folderUrl);
+                    return;
+                }
 
                 document.getElementById('toolbarTitle').textContent = `📁 ${folderName}`;
 
