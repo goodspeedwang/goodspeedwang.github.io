@@ -288,25 +288,41 @@
                 const links = doc.querySelectorAll('a');
 
                 folders = [];
+                let currentDirImages = [];
 
                 links.forEach(link => {
                     const href = link.getAttribute('href');
                     if (href && href.endsWith('/')) {
-                        // 这是目录
+                        // 这是子目录
                         const folderName = decodeURIComponent(href.replace(/\/$/, ''));
                         folders.push({
                             name: folderName,
                             url: href
                         });
+                    } else if (href && /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(href) && !href.startsWith('._')) {
+                        // 当前目录的图片
+                        currentDirImages.push({
+                            name: decodeURIComponent(href),
+                            url: href
+                        });
                     }
                 });
+
+                // 如果当前目录有图片，添加"当前目录"选项
+                if (currentDirImages.length > 0) {
+                    folders.unshift({
+                        name: '当前目录',
+                        url: '',
+                        images: currentDirImages
+                    });
+                }
 
                 if (folders.length > 0) {
                     renderFolders();
                     document.getElementById('loadingScreen').style.display = 'none';
                 } else {
                     document.getElementById('loadingScreen').innerHTML =
-                        '<div class="error-message"><h3>未找到目录</h3><p>请将此文件放在包含图片子目录的文件夹中</p></div>';
+                        '<div class="error-message"><h3>未找到图片</h3><p>当前目录和子目录都没有图片文件</p></div>';
                 }
             } catch (e) {
                 console.error('加载失败:', e);
@@ -318,29 +334,38 @@
         // 渲染目录列表
         function renderFolders() {
             const container = document.getElementById('folderList');
-            container.innerHTML = folders.map(folder => `
-                <div class="folder-item" onclick="selectFolder('${folder.url}', this)">
-                    <span class="folder-icon">📁</span>
+            container.innerHTML = folders.map((folder, index) => `
+                <div class="folder-item" onclick="selectFolder(${index}, this)">
+                    <span class="folder-icon">${folder.url === '' ? '📷' : '📁'}</span>
                     <span class="folder-name">${folder.name}</span>
                 </div>
             `).join('');
         }
 
         // 选择目录
-        async function selectFolder(folderUrl, element) {
+        async function selectFolder(folderIndex, element) {
             // 更新选中状态
             document.querySelectorAll('.folder-item').forEach(el => el.classList.remove('active'));
             element.classList.add('active');
 
-            currentFolder = folderUrl;
-            const folderName = decodeURIComponent(folderUrl.replace(/\/$/, ''));
+            const folder = folders[folderIndex];
+            currentFolder = folder.name;
 
-            document.getElementById('toolbarTitle').textContent = `📁 ${folderName}`;
+            document.getElementById('toolbarTitle').textContent = `${folder.url === '' ? '📷' : '📁'} ${folder.name}`;
             document.getElementById('toolbar').style.display = 'flex';
             document.getElementById('imageContainer').innerHTML = '<p style="color: #666;">加载中...</p>';
 
+            // 如果是"当前目录"且已有图片列表
+            if (folder.url === '' && folder.images) {
+                images = [...folder.images];
+                allImages = [...images];
+                shuffleImages();
+                return;
+            }
+
+            // 从子目录加载图片
             try {
-                const response = await fetch(folderUrl);
+                const response = await fetch(folder.url);
                 const html = await response.text();
 
                 const parser = new DOMParser();
@@ -357,7 +382,7 @@
                         if (!href.startsWith('._')) {
                             images.push({
                                 name: decodeURIComponent(href),
-                                url: folderUrl + href
+                                url: folder.url + href
                             });
                         }
                     }
