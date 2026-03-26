@@ -874,6 +874,9 @@
                 </div>
             `;
 
+            // 重置标题
+            document.title = 'Gallery';
+
             folders.forEach((f, i) => loadFolderPreview(f, hasCurrentDir ? i + 1 : i));
         }
 
@@ -1130,6 +1133,9 @@
                     `).join('')}
                 </div>
             `;
+
+            // 更新标题显示父文件夹名
+            document.title = parentName || 'Gallery';
         }
 
         async function loadSubFolderCardPreview(folder, elementId) {
@@ -1333,6 +1339,9 @@
                 <div class="image-count">${img.originalIndex} / ${images.length}</div>
                 <div class="image-name">${displayName}</div>
             `;
+
+            // 更新浏览器标题
+            document.title = displayName;
 
             document.getElementById('actionPanel').style.display = 'flex';
         }
