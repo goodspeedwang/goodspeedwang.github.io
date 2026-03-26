@@ -1480,20 +1480,25 @@
 
         /**
          * 获取同组的所有图片（按排序规则排序）
+         * 注意：从当前显示的 imageGroups 中获取，以支持精彩模式过滤
          */
         function getImageGroup(currentImg) {
             if (!currentImg) return [];
             const baseName = getImageBaseName(currentImg.name);
             if (!baseName) return [currentImg];
 
-            // 从 allImages 中获取
-            const group = allImages.filter(img => {
+            // 从当前显示的 imageGroups 中查找
+            const group = imageGroups.find(g => g.baseName === baseName);
+            if (group) {
+                return group.images;
+            }
+
+            // 兜底：从 allImages 中获取
+            const fallbackGroup = allImages.filter(img => {
                 const imgBaseName = getImageBaseName(img.name);
                 return imgBaseName === baseName;
             });
-
-            // 使用统一的排序函数
-            return sortGroupImages(group);
+            return sortGroupImages(fallbackGroup);
         }
 
         function showImage(index, skipFailed = false) {
