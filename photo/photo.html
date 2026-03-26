@@ -750,12 +750,6 @@
             document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
         }
 
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            localStorage.setItem('gallery_theme', isDarkMode ? 'dark' : 'light');
-            applyTheme();
-        }
-
         // ========== UI 控制函数 ==========
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -892,8 +886,9 @@
                 folder.hasSubfolders = subFolders && subFolders.length > 0;
 
                 if (foundImages.length > 0) {
-                    updateFolderPreview(index, foundImages[0].url, foundImages.length);
-                    folder.previewImage = foundImages[0].url;
+                    const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
+                    updateFolderPreview(index, randomImg.url, foundImages.length);
+                    folder.previewImage = randomImg.url;
                     folder.imageCount = foundImages.length;
                     renderFolderTree();
                 }
@@ -968,7 +963,8 @@
                 const hasSubfolders = foundFolders && foundFolders.length > 0;
 
                 if (foundImages.length > 0) {
-                    folder.previewImage = foundImages[0].url;
+                    const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
+                    folder.previewImage = randomImg.url;
                     folder.imageCount = foundImages.length;
                 }
                 folder.hasSubfolders = hasSubfolders;
@@ -1025,9 +1021,6 @@
 
         // ========== 文件夹选择 ==========
         async function selectFolderItem(url, name, path) {
-            console.log(`📁 点击文件夹: ${name}, URL: ${url}`);
-            const startTime = performance.now();
-
             folderTree.forEach(clearActive);
             const item = getTreeItemByPath(path);
             if (item) item.active = true;
@@ -1037,7 +1030,6 @@
             document.getElementById('actionPanel').style.display = 'none';
 
             if (item.isCurrent && item.images) {
-                console.log(`✅ 当前目录，直接使用内存中的 ${item.images.length} 张图片`);
                 images = item.images.map((img, i) => ({ ...img, originalIndex: i + 1 }));
                 allImages = [...images];
                 shuffleImages();
@@ -1046,7 +1038,6 @@
 
             document.getElementById('imageContainer').innerHTML = '<p style="color: #86868b;">加载中...</p>';
             await loadAndDisplayFolder(url, name);
-            console.log(`⏱️ 总耗时: ${(performance.now() - startTime).toFixed(2)}ms`);
         }
 
         // ========== 内容解析 ==========
@@ -1063,7 +1054,7 @@
                 if (href === '../' || href === './') continue;
 
                 let fullUrl;
-                if (href.startsWith('http')) {
+                if (href.startsWith('http://') || href.startsWith('https://')) {
                     fullUrl = href;
                 } else if (href.startsWith('/')) {
                     fullUrl = baseUrl + href.substring(1);
@@ -1094,31 +1085,20 @@
         }
 
         async function loadAndDisplayFolder(url, name) {
-            console.log(`🌐 加载文件夹: ${name}`);
-
-            const networkStart = performance.now();
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 60000);
 
             try {
-                console.log(`📡 请求URL: ${url}`);
                 const response = await fetch(url, { signal: controller.signal });
-                console.log(`⬇️ 响应状态: ${response.status}, 耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
-
                 clearTimeout(timeoutId);
 
                 const html = await response.text();
-                console.log(`📄 HTML文本获取: ${html.length} 字符`);
-
                 const { images: foundImages, folders: foundFolders } = extractItems(html, url);
-                console.log(`🔍 解析完成: 图片=${foundImages.length}, 文件夹=${foundFolders.length}`);
 
                 displayFolderContent(foundImages, foundFolders, name, url);
-
-                console.log(`✅ 网络请求总耗时: ${(performance.now() - networkStart).toFixed(2)}ms`);
             } catch (e) {
                 clearTimeout(timeoutId);
-                console.error('❌ 加载失败:', e);
+                console.error('加载失败:', e);
                 document.getElementById('imageContainer').innerHTML =
                     '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
             }
@@ -1159,7 +1139,8 @@
                 const { images: foundImages } = extractItems(html, folder.url);
 
                 if (foundImages.length > 0) {
-                    updateSubFolderCardPreview(elementId, foundImages[0].url);
+                    const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
+                    updateSubFolderCardPreview(elementId, randomImg.url);
                 }
             } catch (e) {}
         }
@@ -1200,17 +1181,24 @@
         }
 
         // ========== 图片显示 ==========
-        function applyImageOrder() {
-            // 获取当前图片URL，用于定位
+        function randomInt(max) {
+            // 使用加密随机数生成器
+            const array = new Uint32Array(1);
+            crypto.getRandomValues(array);
+            return array[0] % max;
+        }
+
+        function applyImageOrder(keepPosition = false) {
+            // 获取当前图片URL，用于定位（仅在切换排序模式时保持位置）
             const currentImg = images[currentIndex];
-            const currentUrl = currentImg ? currentImg.url : null;
+            const currentUrl = keepPosition && currentImg ? currentImg.url : null;
             
             let ordered = isExcitingMode ? filterExciting(allImages) : [...allImages];
             
             if (isShuffleMode) {
-                // 随机排序
+                // 随机排序（使用加密随机数）
                 for (let i = ordered.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
+                    const j = randomInt(i + 1);
                     [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
                 }
             }
@@ -1218,7 +1206,7 @@
             
             images = ordered;
             
-            // 尝试保持当前图片位置
+            // 仅在切换排序模式时保持当前图片位置（keepPosition=true）
             if (currentUrl) {
                 const newIndex = images.findIndex(img => img.url === currentUrl);
                 if (newIndex !== -1) {
@@ -1458,12 +1446,12 @@
         // ========== 事件监听 ==========
         document.getElementById('excitingMode').addEventListener('change', function(e) {
             isExcitingMode = e.target.checked;
-            if (allImages.length > 0) applyImageOrder();
+            if (allImages.length > 0) applyImageOrder(true);
         });
 
         document.getElementById('shuffleMode').addEventListener('change', function(e) {
             isShuffleMode = e.target.checked;
-            if (allImages.length > 0) applyImageOrder();
+            if (allImages.length > 0) applyImageOrder(true);
         });
 
         document.getElementById('darkModeToggle').addEventListener('change', function(e) {
