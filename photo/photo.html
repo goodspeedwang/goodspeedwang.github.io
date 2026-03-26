@@ -1309,12 +1309,11 @@
                 images: [...group.images]
             }));
 
-            // 精彩模式：过滤组内图片，移除空组
+            // 精彩模式：过滤掉没有精彩图片的组，但保留组内所有图片
             if (isExcitingMode) {
-                imageGroups = imageGroups.map(group => ({
-                    ...group,
-                    images: filterExciting(group.images)
-                })).filter(group => group.images.length > 0);
+                imageGroups = imageGroups.filter(group =>
+                    group.images.some(img => /nude|bikini|remove/i.test(img.name))
+                );
             }
 
             // 对每个组内的图片进行排序
@@ -1461,16 +1460,26 @@
             applyImageOrder();
         }
 
-        function filterExciting(imgs) {
-            return imgs.filter(img => /nude|bikini|remove/i.test(img.name));
-        }
-
         // ========== 图片组功能 ==========
         /**
-         * 提取图片基础名称（第一个点号前的部分）
+         * 提取图片基础名称（用于分组）
+         * 普通图片：第一个点号前的部分
+         * 小红书图片（包含"来自小红书"）：用用户名分组（下划线分隔的第三部分）
+         * 例如：享受皇帝岛的每一天🐚🫧_1_屁屁吃猪_来自小红书网页版 -> 屁屁吃猪
          */
         function getImageBaseName(filename) {
             const nameWithoutExt = filename.replace(/\.[^.]+$/, '');
+            
+            // 小红书图片特殊处理：按用户名分组
+            if (nameWithoutExt.includes('来自小红书')) {
+                const parts = nameWithoutExt.split('_');
+                // 格式：标题_序号_用户名_来源
+                if (parts.length >= 3) {
+                    return parts[2]; // 返回用户名
+                }
+            }
+            
+            // 普通图片：第一个点号前的部分
             const firstDotIndex = nameWithoutExt.indexOf('.');
             if (firstDotIndex === -1) {
                 return nameWithoutExt;
@@ -1830,10 +1839,11 @@
                     ? (currentGroupIdx - 1 + totalGroups) % totalGroups
                     : (currentGroupIdx + 1) % totalGroups;
 
-                // 获取目标组的第一张图片
+                // 获取目标组，随机选择组内一张图片
                 const targetGroup = imageGroups[targetGroupIdx];
                 if (targetGroup && targetGroup.images.length > 0) {
-                    const targetImg = targetGroup.images[0];
+                    const randomIdx = Math.floor(Math.random() * targetGroup.images.length);
+                    const targetImg = targetGroup.images[randomIdx];
                     const targetIndex = images.findIndex(img => img.url === targetImg.url);
                     if (targetIndex !== -1) {
                         showImage(targetIndex);
