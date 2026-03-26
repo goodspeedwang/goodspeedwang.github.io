@@ -16,9 +16,9 @@ import os
 import sys
 import hashlib
 import mimetypes
+import calendar
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from email.utils import formatdate, parsedate
-from datetime import datetime, timezone
 from urllib.parse import unquote, quote
 
 MEDIA_EXTENSIONS = {
@@ -127,8 +127,9 @@ class Handler(BaseHTTPRequestHandler):
         if if_modified_since and not if_none_match:
             try:
                 since = parsedate(if_modified_since)
-                since_ts = datetime(*since[:6], tzinfo=timezone.utc).timestamp()
-                if stat.st_mtime <= since_ts:
+                since_ts = calendar.timegm(since[:6])
+                # 用整数秒比较，忽略微秒差异
+                if int(stat.st_mtime) <= since_ts:
                     self.send_response(304)
                     self.send_header('Last-Modified', last_modified)
                     self.send_cors()
@@ -143,6 +144,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', len(body))
         self.send_header('Last-Modified', last_modified)
         self.send_header('ETag', etag)
+        self.send_header('Cache-Control', 'no-cache')
         self.send_cors()
         self.end_headers()
         self.wfile.write(body)
@@ -173,8 +175,9 @@ class Handler(BaseHTTPRequestHandler):
         if if_modified_since and not if_none_match:
             try:
                 since = parsedate(if_modified_since)
-                since_ts = datetime(*since[:6], tzinfo=timezone.utc).timestamp()
-                if stat.st_mtime <= since_ts:
+                since_ts = calendar.timegm(since[:6])
+                # 用整数秒比较，忽略微秒差异
+                if int(stat.st_mtime) <= since_ts:
                     self.send_response(304)
                     self.send_header('Last-Modified', last_modified)
                     self.send_cors()
