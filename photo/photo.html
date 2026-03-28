@@ -699,64 +699,7 @@
 
     <!-- 主区域 -->
     <div class="main" id="main">
-        <div class="image-container" id="imageContainer">
-            <div class="folder-grid">
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/58/', '58', '0')">
-                    <div class="folder-card-preview" id="preview-0">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">58</div>
-                        <div class="folder-card-count" id="count-0">加载中...</div>
-                    </div>
-                </div>
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/allinone/', 'allinone', '1')">
-                    <div class="folder-card-preview" id="preview-1">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">allinone</div>
-                        <div class="folder-card-count" id="count-1">加载中...</div>
-                    </div>
-                </div>
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/hot/', 'hot', '2')">
-                    <div class="folder-card-preview" id="preview-2">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">hot</div>
-                        <div class="folder-card-count" id="count-2">加载中...</div>
-                    </div>
-                </div>
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/meituan/', 'meituan', '3')">
-                    <div class="folder-card-preview" id="preview-3">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">meituan</div>
-                        <div class="folder-card-count" id="count-3">加载中...</div>
-                    </div>
-                </div>
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/other/', 'other', '4')">
-                    <div class="folder-card-preview" id="preview-4">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">other</div>
-                        <div class="folder-card-count" id="count-4">加载中...</div>
-                    </div>
-                </div>
-                <div class="folder-card" onclick="selectFolderItem('http://localhost:8080/vancl/', 'vancl', '5')">
-                    <div class="folder-card-preview" id="preview-5">
-                        <span class="placeholder">📁</span>
-                    </div>
-                    <div class="folder-card-info">
-                        <div class="folder-card-name">vancl</div>
-                        <div class="folder-card-count" id="count-5">加载中...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="image-container" id="imageContainer"></div>
 
         <!-- 图片信息悬浮层 -->
         <div class="image-overlay" id="imageOverlay" style="display: none;">
@@ -812,6 +755,9 @@
         let isFullscreen = false;
         let baseUrl = '';
         let failedCount = 0;
+        const htmlCache = new Map();
+        let pendingTreeRender = false;
+        const FOLDER_LOAD_TIMEOUT_MS = 60000;
 
         // ========== 主题管理 ==========
         function initTheme() {
@@ -839,20 +785,66 @@
             document.getElementById('actionContent').classList.toggle('visible');
         }
 
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function escapeJsString(value) {
+            return String(value ?? '')
+                .replace(/\\/g, '\\\\')
+                .replace(/'/g, "\\'");
+        }
+
+        function safeDecodeURIComponent(value) {
+            try {
+                return decodeURIComponent(value);
+            } catch (e) {
+                return value;
+            }
+        }
+
+        function scheduleTreeRender() {
+            if (pendingTreeRender) return;
+            pendingTreeRender = true;
+            requestAnimationFrame(() => {
+                pendingTreeRender = false;
+                renderFolderTree();
+            });
+        }
+
+        async function fetchFolderHtml(url, options = {}) {
+            const { useCache = true, timeout = FOLDER_LOAD_TIMEOUT_MS } = options;
+
+            if (useCache && htmlCache.has(url)) {
+                return htmlCache.get(url);
+            }
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                const html = await response.text();
+                if (useCache) {
+                    htmlCache.set(url, html);
+                }
+                return html;
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
+
         // ========== 文件夹加载 ==========
         async function loadFolders() {
             try {
-                const currentUrl = window.location.href;
-                let path = currentUrl;
-                if (path.includes('/viewer.html')) {
-                    path = path.substring(0, path.lastIndexOf('/viewer.html') + 1);
-                } else {
-                    path = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-                }
-                baseUrl = path;
+                baseUrl = new URL('./', window.location.href).href;
 
-                const response = await fetch(baseUrl);
-                const html = await response.text();
+                const html = await fetchFolderHtml(baseUrl, { useCache: false });
                 const { images: currentDirImages, folders } = extractItems(html, baseUrl);
 
                 folderTree = folders.map(f => ({
@@ -901,18 +893,22 @@
                 const isExpanded = item.expanded ? 'expanded' : '';
                 const hasSubfolders = item.hasSubfolders;
                 const showToggle = hasChildren || hasSubfolders || !item.loaded;
+                const safePath = escapeJsString(path);
+                const safeUrl = escapeJsString(item.url);
+                const safeName = escapeJsString(item.name);
+                const displayName = escapeHtml(item.name);
 
                 return `
                     <div class="tree-item" data-path="${path}">
-                        <div class="folder-item ${item.active ? 'active' : ''}" onclick="selectFolderItem('${item.url}', '${item.name}', '${path}')">
+                        <div class="folder-item ${item.active ? 'active' : ''}" onclick="selectFolderItem('${safeUrl}', '${safeName}', '${safePath}')">
                             <span class="folder-toggle ${isExpanded} ${!showToggle ? 'hidden' : ''}"
-                                  onclick="event.stopPropagation(); toggleFolder('${path}')">▶</span>
+                                  onclick="event.stopPropagation(); toggleFolder('${safePath}')">▶</span>
                             <div class="folder-icon">
                                 ${item.previewImage ?
-                                    `<img src="${item.previewImage}" onerror="this.parentElement.innerHTML='📁'">` :
+                                    `<img src="${escapeHtml(item.previewImage)}" onerror="this.parentElement.innerHTML='📁'">` :
                                     (item.isCurrent ? '📷' : '📁')}
                             </div>
-                            <span class="folder-name">${item.name}</span>
+                            <span class="folder-name">${displayName}</span>
                             ${item.imageCount ? `<span class="folder-count">${item.imageCount}</span>` : ''}
                         </div>
                         ${hasChildren ? `<div class="folder-children ${isExpanded}">${renderTreeItems(item.children, path)}</div>` : ''}
@@ -925,6 +921,10 @@
             // 清理图片组缩略图面板
             const groupPanel = document.getElementById('imageGroupPanel');
             if (groupPanel) groupPanel.remove();
+
+            // 隐藏图片信息和操作面板
+            document.getElementById('imageOverlay').style.display = 'none';
+            document.getElementById('actionPanel').style.display = 'none';
 
             const container = document.getElementById('imageContainer');
             container.classList.remove('centered');
@@ -940,12 +940,12 @@
             container.innerHTML = `
                 <div class="folder-grid">
                     ${folders.map((f, i) => `
-                        <div class="folder-card" onclick="selectFolderItem('${f.url}', '${f.name}', '${hasCurrentDir ? i + 1 : i}')">
+                        <div class="folder-card" onclick="selectFolderItem('${escapeJsString(f.url)}', '${escapeJsString(f.name)}', '${hasCurrentDir ? i + 1 : i}')">
                             <div class="folder-card-preview" id="preview-${hasCurrentDir ? i + 1 : i}">
                                 <span class="placeholder">📁</span>
                             </div>
                             <div class="folder-card-info">
-                                <div class="folder-card-name">${f.name}</div>
+                                <div class="folder-card-name">${escapeHtml(f.name)}</div>
                                 <div class="folder-card-count" id="count-${hasCurrentDir ? i + 1 : i}">加载中...</div>
                             </div>
                         </div>
@@ -961,8 +961,7 @@
 
         async function loadFolderPreview(folder, index) {
             try {
-                const response = await fetch(folder.url);
-                const html = await response.text();
+                const html = await fetchFolderHtml(folder.url);
                 const { images: foundImages, folders: subFolders } = extractItems(html, folder.url);
 
                 folder.hasSubfolders = subFolders && subFolders.length > 0;
@@ -972,7 +971,7 @@
                     updateFolderPreview(index, randomImg.url, foundImages.length);
                     folder.previewImage = randomImg.url;
                     folder.imageCount = foundImages.length;
-                    renderFolderTree();
+                    scheduleTreeRender();
                 }
             } catch (e) {
                 console.error('加载预览失败:', folder.name);
@@ -1007,8 +1006,7 @@
 
         async function loadSubFolders(item, path) {
             try {
-                const response = await fetch(item.url);
-                const html = await response.text();
+                const html = await fetchFolderHtml(item.url);
                 const { folders: subFolders } = extractItems(html, item.url);
 
                 item.children = subFolders.map(f => ({
@@ -1028,7 +1026,7 @@
                     await loadSubFolderPreviewFast(child);
                 }));
 
-                renderFolderTree();
+                scheduleTreeRender();
 
             } catch (e) {
                 item.children = [];
@@ -1038,8 +1036,7 @@
 
         async function loadSubFolderPreviewFast(folder) {
             try {
-                const response = await fetch(folder.url);
-                const html = await response.text();
+                const html = await fetchFolderHtml(folder.url);
                 const { images: foundImages, folders: foundFolders } = extractItems(html, folder.url);
 
                 const hasSubfolders = foundFolders && foundFolders.length > 0;
@@ -1051,7 +1048,7 @@
                 }
                 folder.hasSubfolders = hasSubfolders;
 
-                renderFolderTree();
+                scheduleTreeRender();
             } catch (e) {}
         }
 
@@ -1140,18 +1137,22 @@
                 if (href === '../' || href === './') continue;
 
                 let fullUrl;
-                if (href.startsWith('http://') || href.startsWith('https://')) {
-                    fullUrl = href;
-                } else if (href.startsWith('/')) {
-                    fullUrl = baseUrl + href.substring(1);
-                } else {
-                    fullUrl = url + href;
+                try {
+                    fullUrl = new URL(href, url).href;
+                } catch (e) {
+                    continue;
                 }
 
+                const parsedUrl = new URL(fullUrl);
+                const pathname = parsedUrl.pathname || '';
+                const fileName = pathname.split('/').pop() || '';
+                if (fileName.startsWith('._')) continue;
+
                 if (href.endsWith('/')) {
-                    folders.push({ name: decodeURIComponent(href.replace(/\/$/, '').split('/').pop()), url: fullUrl });
-                } else if (/\.(jpg|jpeg|png|gif|webp|bmp|mp4)$/i.test(href) && !href.startsWith('._')) {
-                    images.push({ name: decodeURIComponent(href), url: fullUrl });
+                    const folderName = safeDecodeURIComponent((pathname.replace(/\/$/, '').split('/').pop() || ''));
+                    folders.push({ name: folderName, url: fullUrl });
+                } else if (/\.(jpg|jpeg|png|gif|webp|bmp|mp4)$/i.test(pathname)) {
+                    images.push({ name: safeDecodeURIComponent(fileName), url: fullUrl });
                 }
             }
             return { images, folders };
@@ -1176,19 +1177,12 @@
         }
 
         async function loadAndDisplayFolder(url, name) {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 60000);
-
             try {
-                const response = await fetch(url, { signal: controller.signal });
-                clearTimeout(timeoutId);
-
-                const html = await response.text();
+                const html = await fetchFolderHtml(url);
                 const { images: foundImages, folders: foundFolders } = extractItems(html, url);
 
                 displayFolderContent(foundImages, foundFolders, name, url);
             } catch (e) {
-                clearTimeout(timeoutId);
                 console.error('加载失败:', e);
                 document.getElementById('imageContainer').innerHTML =
                     '<div class="no-images"><h3>加载失败</h3><p>' + (e.name === 'AbortError' ? '请求超时' : e.message) + '</p></div>';
@@ -1200,31 +1194,33 @@
             const groupPanel = document.getElementById('imageGroupPanel');
             if (groupPanel) groupPanel.remove();
 
+            // 隐藏图片信息和操作面板
+            document.getElementById('imageOverlay').style.display = 'none';
+            document.getElementById('actionPanel').style.display = 'none';
+
             const container = document.getElementById('imageContainer');
             container.classList.remove('centered');
 
             const subFolderIds = subFolders.map((f, i) => `subfolder_${Date.now()}_${i}`);
 
-            subFolders.forEach((f, i) => {
-                loadSubFolderCardPreview(f, subFolderIds[i]);
-            });
-
-            const escapeUrl = url => url.replace(/'/g, "\\'");
-
             container.innerHTML = `
                 <div class="folder-grid">
                     ${subFolders.map((f, i) => `
-                        <div class="folder-card" onclick="selectSubFolder('${escapeUrl(f.url)}', '${f.name}', '${escapeUrl(parentUrl)}')">
+                        <div class="folder-card" onclick="selectSubFolder('${escapeJsString(f.url)}', '${escapeJsString(f.name)}', '${escapeJsString(parentUrl)}')">
                             <div class="folder-card-preview" id="${subFolderIds[i]}">
                                 <span class="placeholder">📁</span>
                             </div>
                             <div class="folder-card-info">
-                                <div class="folder-card-name">${f.name}</div>
+                                <div class="folder-card-name">${escapeHtml(f.name)}</div>
                             </div>
                         </div>
                     `).join('')}
                 </div>
             `;
+
+            subFolders.forEach((f, i) => {
+                loadSubFolderCardPreview(f, subFolderIds[i]);
+            });
 
             // 更新标题显示父文件夹名
             document.title = parentName || 'Gallery';
@@ -1232,8 +1228,7 @@
 
         async function loadSubFolderCardPreview(folder, elementId) {
             try {
-                const response = await fetch(folder.url);
-                const html = await response.text();
+                const html = await fetchFolderHtml(folder.url);
                 const { images: foundImages } = extractItems(html, folder.url);
 
                 if (foundImages.length > 0) {
@@ -1464,18 +1459,18 @@
         /**
          * 提取图片基础名称（用于分组）
          * 普通图片：第一个点号前的部分
-         * 小红书图片（包含"来自小红书"）：用用户名分组（下划线分隔的第三部分）
+         * 小红书图片（包含"来自小红书"）：按用户名分组（下划线分隔的倒数第二个）
          * 例如：享受皇帝岛的每一天🐚🫧_1_屁屁吃猪_来自小红书网页版 -> 屁屁吃猪
+         *      长发还是短发_3_一二_来自小红书网页版 -> 一二
          */
         function getImageBaseName(filename) {
             const nameWithoutExt = filename.replace(/\.[^.]+$/, '');
             
-            // 小红书图片特殊处理：按用户名分组
+            // 小红书图片特殊处理：按用户名分组（倒数第二个下划线分隔）
             if (nameWithoutExt.includes('来自小红书')) {
                 const parts = nameWithoutExt.split('_');
-                // 格式：标题_序号_用户名_来源
-                if (parts.length >= 3) {
-                    return parts[2]; // 返回用户名
+                if (parts.length >= 2) {
+                    return parts[parts.length - 2]; // 返回倒数第二个（用户名）
                 }
             }
             
@@ -1523,7 +1518,8 @@
             currentIndex = (index + images.length) % images.length;
             const img = images[currentIndex];
 
-            const displayName = img.name.replace(/\.[^.]+$/, '');
+            // 去掉扩展名和小红书后缀（如：_来自小红书网页版）
+            const displayName = img.name.replace(/\.[^.]+$/, '').replace(/_来自小红书.*$/, '');
             const isVideo = /\.mp4$/i.test(img.name);
 
             container.classList.add('centered');
