@@ -647,14 +647,17 @@
             border: 2px solid transparent;
             transition: all 0.2s;
             flex-shrink: 0;
+            opacity: 0.5 !important;
         }
 
         .group-thumbnail:hover {
+            opacity: 1 !important;
             transform: scale(1.05);
             border-color: var(--text-secondary);
         }
 
         .group-thumbnail.active {
+            opacity: 1 !important;
             border-color: #007aff;
             box-shadow: 0 0 8px rgba(0, 122, 255, 0.5);
         }
@@ -857,6 +860,8 @@
                 }));
 
                 if (currentDirImages.length > 0) {
+                    // 计算当前目录的图片组数量
+                    const groupCount = new Set(currentDirImages.map(img => getImageBaseName(img.name))).size;
                     folderTree.unshift({
                         name: '当前目录',
                         url: '',
@@ -864,7 +869,7 @@
                         isCurrent: true,
                         loaded: true,
                         previewImage: currentDirImages[0].url,
-                        imageCount: currentDirImages.length
+                        imageCount: groupCount
                     });
                 }
 
@@ -968,9 +973,11 @@
 
                 if (foundImages.length > 0) {
                     const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
-                    updateFolderPreview(index, randomImg.url, foundImages.length);
+                    // 计算图片组数量（而不是图片数量）
+                    const groupCount = new Set(foundImages.map(img => getImageBaseName(img.name))).size;
+                    updateFolderPreview(index, randomImg.url, groupCount);
                     folder.previewImage = randomImg.url;
-                    folder.imageCount = foundImages.length;
+                    folder.imageCount = groupCount;
                     scheduleTreeRender();
                 }
             } catch (e) {
@@ -985,7 +992,7 @@
                 previewEl.innerHTML = `<img src="${imgUrl}" onerror="this.parentElement.innerHTML='<span class=\\'placeholder\\'>📁</span>'">`;
             }
             if (countEl) {
-                countEl.textContent = `${count} 张图片`;
+                countEl.textContent = `${count} 组`;
             }
         }
 
@@ -1044,7 +1051,8 @@
                 if (foundImages.length > 0) {
                     const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
                     folder.previewImage = randomImg.url;
-                    folder.imageCount = foundImages.length;
+                    // 计算图片组数量（而不是图片数量）
+                    folder.imageCount = new Set(foundImages.map(img => getImageBaseName(img.name))).size;
                 }
                 folder.hasSubfolders = hasSubfolders;
 
@@ -1168,12 +1176,34 @@
                 // 初始化原始图片组
                 allImageGroups = buildImageGroups(allImages);
 
+                // 更新目录树中的组数显示
+                const treeItem = findTreeItemByUrl(url);
+                if (treeItem) {
+                    treeItem.imageCount = allImageGroups.length;
+                    renderFolderTree();
+                }
+
                 shuffleImages();
             } else if (folders && folders.length > 0) {
                 renderSubFolders(folders, name, url);
             } else {
                 document.getElementById('imageContainer').innerHTML = '<div class="no-images"><h3>目录为空</h3></div>';
             }
+        }
+
+        // 根据URL查找目录树中的项
+        function findTreeItemByUrl(url) {
+            function search(items) {
+                for (const item of items) {
+                    if (item.url === url) return item;
+                    if (item.children) {
+                        const found = search(item.children);
+                        if (found) return found;
+                    }
+                }
+                return null;
+            }
+            return search(folderTree);
         }
 
         async function loadAndDisplayFolder(url, name) {
@@ -1681,6 +1711,14 @@
             });
 
             document.body.appendChild(panel);
+
+            // 滚动到当前选中的缩略图
+            requestAnimationFrame(() => {
+                const activeThumb = panel.querySelector('.group-thumbnail.active');
+                if (activeThumb) {
+                    activeThumb.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+                }
+            });
         }
 
         // ========== 全屏模式辅助函数 ==========
@@ -1849,25 +1887,46 @@
                     }
                 }
             }
-            // 上下键：切换图片组内的图片
+            // 上下键：切换图片组内的图片（组内只有一张时，切换到下一个组）
             else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 e.preventDefault();
+                failedCount = 0;
                 const currentImg = images[currentIndex];
                 const group = getImageGroup(currentImg);
 
+                // 组内有多张图片时，切换组内图片
                 if (group.length > 1) {
-                    const currentGroupIndex = group.findIndex(img => img.url === currentImg.url);
-                    const newGroupIndex = e.key === 'ArrowUp'
-                        ? (currentGroupIndex - 1 + group.length) % group.length
-                        : (currentGroupIndex + 1) % group.length;
+                    const currentGroupIdx = group.findIndex(img => img.url === currentImg.url);
+                    const newGroupIdx = e.key === 'ArrowUp'
+                        ? (currentGroupIdx - 1 + group.length) % group.length
+                        : (currentGroupIdx + 1) % group.length;
 
-                    const targetImg = group[newGroupIndex];
+                    const targetImg = group[newGroupIdx];
                     const targetIndex = images.findIndex(img => img.url === targetImg.url);
                     if (targetIndex !== -1) {
-                        failedCount = 0;
                         showImage(targetIndex);
                         if (isFullscreen) {
                             updateFullscreenImage();
+                        }
+                    }
+                } else {
+                    // 组内只有一张图片时，切换到上/下一个组
+                    const currentGroupIdx = currentImg.groupIndex;
+                    const totalGroups = imageGroups.length;
+                    const targetGroupIdx = e.key === 'ArrowUp'
+                        ? (currentGroupIdx - 1 + totalGroups) % totalGroups
+                        : (currentGroupIdx + 1) % totalGroups;
+
+                    const targetGroup = imageGroups[targetGroupIdx];
+                    if (targetGroup && targetGroup.images.length > 0) {
+                        const randomIdx = Math.floor(Math.random() * targetGroup.images.length);
+                        const targetImg = targetGroup.images[randomIdx];
+                        const targetIndex = images.findIndex(img => img.url === targetImg.url);
+                        if (targetIndex !== -1) {
+                            showImage(targetIndex);
+                            if (isFullscreen) {
+                                updateFullscreenImage();
+                            }
                         }
                     }
                 }
