@@ -1,4 +1,4 @@
-const M3U8_URL = 'https://goodspeedwang.github.io/radio.m3u8';
+const M3U8_URL = 'https://goodspeedwang.github.io/radio/radio.m3u8';
 
 const audioPlayer = document.getElementById('audio-player');
 const stationContainer = document.getElementById('station-container');
