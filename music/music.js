@@ -316,18 +316,20 @@ const MusicPlayerApp = (() => {
 
     function updateRepeatButton() {
         elements.repeatButton.classList.remove('active');
+        delete elements.repeatButton.dataset.one;
 
         switch (state.repeatMode) {
             case REPEAT_MODES.off:
-                elements.repeatButton.textContent = '🔁';
+                elements.repeatButton.textContent = '↻';
                 break;
             case REPEAT_MODES.all:
-                elements.repeatButton.textContent = '🔁';
+                elements.repeatButton.textContent = '↻';
                 elements.repeatButton.classList.add('active');
                 break;
             case REPEAT_MODES.one:
-                elements.repeatButton.textContent = '🔂';
+                elements.repeatButton.textContent = '↻';
                 elements.repeatButton.classList.add('active');
+                elements.repeatButton.dataset.one = 'true';
                 break;
         }
     }
@@ -403,7 +405,11 @@ const MusicPlayerApp = (() => {
     }
 
     function updatePlayPauseButton() {
-        elements.playPauseButton.textContent = state.isPlaying ? '❚❚' : '▶';
+        if (state.isPlaying) {
+            elements.playPauseButton.innerHTML = '<span class="pause-icon">❚❚</span>';
+        } else {
+            elements.playPauseButton.innerHTML = '▶';
+        }
     }
 
     function updateDurationDisplay(durationText) {
