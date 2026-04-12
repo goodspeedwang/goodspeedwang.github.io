@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SONG_ROOT = REPO_ROOT / "static" / "song"
-OUTPUT_FILE = REPO_ROOT / "static" / "js" / "song-duration-data.js"
+SONG_ROOT = REPO_ROOT / "songs"
+OUTPUT_FILE = REPO_ROOT / "song-duration-data.js"
 
 
 def format_duration(seconds: float) -> str:

@@ -138,7 +138,7 @@ const MusicPlayerApp = (() => {
 
         const currentAlbum = getCurrentAlbum();
         const currentSong = getCurrentSongName();
-        audio.src = `static/song/${buildSongFilePath(currentAlbum.name, currentSong)}`;
+        audio.src = `songs/${buildSongFilePath(currentAlbum.name, currentSong)}`;
 
         syncDocumentTitle();
         persistPlaybackState();
