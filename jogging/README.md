@@ -125,7 +125,7 @@ pip install -r requirements.txt
 
 # 将 FIT 文件放入 data 目录（至少两个）
 # 运行分析
-python analyze_running.py
+python analyze_jogging.py
 
 # 生成 HTML 报告（以较新日期命名，如 20260404.html）
 ```
@@ -133,7 +133,7 @@ python analyze_running.py
 ## 项目结构
 
 ```
-├── analyze_running.py   # 主脚本（~950 行，6 层架构）
+├── analyze_jogging.py   # 主脚本（~950 行，6 层架构）
 ├── index.html           # 导航页（核心指标汇总表）
 ├── requirements.txt     # Python 依赖（fitparse）
 ├── data/                # FIT 文件目录（git 忽略）
