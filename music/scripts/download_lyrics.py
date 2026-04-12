@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 """
 歌词下载脚本
-使用 lrclib.net API 自动下载歌词并保存为 .lrc 文件
-歌词文件保存在对应的 MP3 同目录下
+使用多个 API 源自动下载歌词并保存为 .lrc 文件
+支持源: lrclib.net, 网易云音乐, QQ音乐, 歌词.ovh
 
 使用方法:
-    python3 download_lyrics.py [--dry-run]
+    python3 download_lyrics.py [--dry-run] [--album "专辑名"]
 """
 
 import os
@@ -23,12 +23,16 @@ MUSIC_DIR = SCRIPT_DIR.parent
 SONGS_DIR = MUSIC_DIR / "songs"
 ALBUM_JS_PATH = MUSIC_DIR / "album.js"
 
-# lrclib API
+# 各歌词源 API
 LRCLIB_SEARCH_URL = "https://lrclib.net/api/search"
 LRCLIB_GET_URL = "https://lrclib.net/api/get"
+NETEASE_API = "https://music.163.com/api/search/get?s_type=1&limit=5&offset=0="
+LYRICS_OVH_API = "https://api.lyrics.ovh/v1/"
+# QQ音乐歌词API（通过 c.y.qq.com 接口）
+QQ_SEARCH_URL = "https://c.y.qq.com/soso/fcgi-bin/client_search_cp?w="
 
 # 请求间隔（秒），避免请求过快
-REQUEST_DELAY = 0.5
+REQUEST_DELAY = 0.8
 
 
 def parse_album_js(file_path):
@@ -65,73 +69,336 @@ def sanitize_filename(name):
     return name.replace('/', '_').replace('\\', '_')
 
 
+# 繁体转简体映射表（常用字）
+T2S_MAP = {
+    '愛': '爱', '國': '国', '際': '际', '語': '语', '詞': '词',
+    '長': '长', '開': '开', '間': '间', '東': '东', '車': '车',
+    '專': '专', '業': '业', '為': '为', '學': '学', '習': '习',
+    '樂': '乐', '應': '应', '點': '点', '頭': '头', '體': '体',
+    '書': '书', '畫': '画', '電': '电', '腦': '脑', '機': '机',
+    '門': '门', '關': '关', '鄉': '乡', '場': '场', '動': '动',
+    '對': '对', '時': '时', '條': '条', '幾': '几', '並': '并',
+    '來': '来', '見': '见', '現': '现', '義': '义', '認': '认',
+    '說': '说', '語': '语', '讀': '读', '詩': '诗', '誰': '谁',
+    '讓': '让', '這': '这', '進': '进', '遠': '远', '還': '还',
+    '邊': '边', '過': '过', '運': '运', '會': '会', '傷': '伤',
+    '備': '备', '樂': '乐', '夢': '梦', '與': '与', '雖': '虽',
+    '風': '风', '飛': '飞', '馬': '马', '魚': '鱼', '鳥': '鸟',
+    '麵': '面', '館': '馆', '園': '园', '圓': '圆', '圖': '图',
+    '聲': '声', '聽': '听', '臉': '脸', '舊': '旧', '萬': '万',
+    '葉': '叶', '號': '号', '歲': '岁', '歡': '欢', '氣': '气',
+    '無': '无', '燈': '灯', '煙': '烟', '愛': '爱', '當': '当',
+    '憂': '忧', '懷': '怀', '戀': '恋', '擁': '拥', '斷': '断',
+    '親': '亲', '記': '记', '設': '设', '許': '许', '評': '评',
+    '詞': '词', '論': '论', '責': '责', '費': '费', '貸': '贷',
+    '貿': '贸', '資': '资', '賣': '卖', '質': '质', '輕': '轻',
+    '過': '过', '達': '达', '違': '违', '遺': '遗', '鄰': '邻',
+    '醉': '醉', '鍾': '钟', '閃': '闪', '陽': '阳', '隨': '随',
+    '難': '难', '願': '愿', '類': '类', '離': '离', '韓': '韩',
+    '音': '音', '響': '响', '順': '顺', '預': '预', '領': '领',
+    '頻': '频', '顆': '颗', '題': '题', '額': '额', '風': '风',
+    '飯': '饭', '飾': '饰', '餘': '余', '養': '养', '駕': '驾',
+    '髮': '发', '鬧': '闹', '龜': '龟', '戲': '戏', '獨': '独',
+    '獎': '奖', '環': '环', '癡': '痴', '確': '确', '禪': '禅',
+    '窮': '穷', '競': '竞', '築': '筑', '範': '范', '練': '练',
+    '網': '网', '緣': '缘', '總': '总', '縮': '缩', '縱': '纵',
+    '繁': '繁', '繼': '继', '續': '续', '羅': '罗', '習': '习',
+    '臺': '台', '艷': '艳', '藝': '艺', '處': '处', '複': '复',
+    '視': '视', '規': '规', '觀': '观', '調': '调', '講': '讲',
+    '購': '购', '費': '费', '質': '质', '變': '变', '讓': '让',
+    '豐': '丰', '貝': '贝', '負': '负', '財': '财', '貢': '贡',
+    '貴': '贵', '買': '买', '費': '费', '貯': '贮', '貿': '贸',
+    '賀': '贺', '賓': '宾', '賒': '赊', '贅': '赘', '贏': '赢',
+    '贈': '赠', '贶': '贶', '贇': '贇', '贈': '赠', '贳': '贳',
+}
+
+
+def to_simplified(text):
+    """繁体中文转简体中文"""
+    for t, s in T2S_MAP.items():
+        text = text.replace(t, s)
+    return text
+
+
 def clean_song_name(name):
     """清理歌曲名，去掉常见的后缀"""
-    # 去掉 " - Live"、" - ..." 等后缀
     import re
-    # 匹配 " - Live"、" - 电影..."、" - 电视剧..." 等
-    cleaned = re.sub(r'\s*-\s*(Live|電影|电影|電視劇|电视剧|主題曲|插曲|國語|国语).*$', '', name, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*-\s*(Live|電影|电影|電視劇|电视剧|主題曲|插曲|國語|国语|Encore|Talking).*$', '', name, flags=re.IGNORECASE)
     return cleaned.strip()
 
 
 def search_lyrics(song_name, artist, album_name=None):
-    """搜索歌词"""
+    """搜索歌词，依次尝试多个来源"""
     # 清理歌曲名
     clean_name = clean_song_name(song_name)
     
-    # 尝试多种搜索方式
+    # 来源1: lrclib.net（同步/普通歌词）
+    result = _search_lrclib(song_name, clean_name, artist)
+    if result:
+        lyrics = result.get('syncedLyrics') or result.get('plainLyrics')
+        if lyrics:
+            return lyrics
+    
+    # 来源2: 网易云音乐 API
+    lyrics = _search_netease(clean_name, artist, album_name)
+    if lyrics:
+        return lyrics
+    
+    # 来源3: QQ音乐
+    lyrics = _search_qq_music(clean_name, artist, album_name)
+    if lyrics:
+        return lyrics
+    
+    # 来源4: 歌词.ovh
+    lyrics = _search_lyrics_ovh(clean_name, artist)
+    if lyrics:
+        return lyrics
+
+    return None
+
+
+def _search_lrclib(song_name, clean_name, artist):
+    """lrclib.net 搜索"""
+    # 同时用繁体和简体搜索
+    simplified_name = to_simplified(clean_name)
+    simplified_artist = to_simplified(artist)
+    
     search_queries = [
-        f"{clean_name} {artist}",  # 歌曲名 + 歌手
-        f"{song_name} {artist}",   # 原始歌曲名 + 歌手
-        clean_name,                 # 只用歌曲名
+        f"{clean_name} {artist}",              # 繁体
+        f"{simplified_name} {simplified_artist}",  # 简体
+        f"{simplified_name} {artist}",          # 简体名+原歌手
+        f"{song_name} {simplified_artist}",     # 原名+简体歌手
+        simplified_name,                         # 只用简体名
+        clean_name,                              # 只用繁体名
     ]
     
     for query in search_queries:
         url = f"{LRCLIB_SEARCH_URL}?q={urllib.parse.quote(query)}"
-
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=5) as response:
+            with urllib.request.urlopen(req, timeout=8) as response:
                 data = json.loads(response.read().decode('utf-8'))
-
                 if not data:
                     continue
-
-                # 优先选择有同步歌词的结果
+                # 优先选择有同步歌词且歌手匹配的结果
                 for result in data:
                     if result.get('syncedLyrics'):
-                        # 检查歌曲名和歌手是否匹配
-                        if artist.lower() in result.get('artistName', '').lower():
+                        if artist.lower() in result.get('artistName', '').lower() or \
+                           simplified_artist.lower() in result.get('artistName', '').lower():
                             return result
-
-                # 如果没有同步歌词，选择普通歌词
+                # 选择有普通歌词且歌手匹配的
                 for result in data:
                     if result.get('plainLyrics'):
-                        if artist.lower() in result.get('artistName', '').lower():
+                        if artist.lower() in result.get('artistName', '').lower() or \
+                           simplified_artist.lower() in result.get('artistName', '').lower():
                             return result
-
-                # 返回第一个结果
                 return data[0]
-
-        except urllib.error.URLError:
+        except (urllib.error.URLError, Exception):
             continue
-        except Exception:
-            continue
-    
     return None
 
 
-def get_lyrics_direct(artist, album, title):
-    """直接获取歌词"""
+def _get_lrclib_direct(artist, album, title):
+    """lrclib.net 直接获取"""
     url = f"{LRCLIB_GET_URL}/{urllib.parse.quote(artist)}/{urllib.parse.quote(album)}/{urllib.parse.quote(title)}"
-
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             data = json.loads(response.read().decode('utf-8'))
-            return data if data.get('syncedLyrics') or data.get('plainLyrics') else None
-    except:
-        return None
+            if data.get('syncedLyrics') or data.get('plainLyrics'):
+                return data
+    except Exception:
+        pass
+    return None
+
+
+def _search_netease(song_name, artist, album_name=None):
+    """网易云音乐 API 搜索（使用简体中文）"""
+    s_name = to_simplified(song_name)
+    s_artist = to_simplified(artist)
+    query = s_name + " " + s_artist
+    url = NETEASE_API + urllib.parse.quote(query)
+
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0',
+            'Referer': 'https://music.163.com/',
+        })
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
+
+        songs = data.get('result', {}).get('songs', [])
+        if not songs:
+            return None
+
+        # 遍历搜索结果，放宽匹配条件
+        for s in songs[:5]:
+            s_artist_list = [a['name'] for a in s.get('artists', [])]
+            s_title = s.get('name', '')
+
+            # 检查歌手是否包含目标歌手（或简体版本）
+            s_artist_str = ', '.join(s_artist_list)
+            artist_match = (
+                artist in s_artist_str or
+                s_artist_str in artist or
+                to_simplified(artist) in to_simplified(s_artist_str) or
+                any(to_simplified(a) in to_simplified(artist) or to_simplified(artist) in to_simplified(a)
+                    for a in s_artist_list)
+            )
+
+            # 检查歌曲名是否相似（去掉后缀后比较）
+            title_clean = re.sub(r'\s*[-（(].*$', '', s_title).strip()
+            name_clean = re.sub(r'\s*[-（(].*$', '', s_name).strip()
+            stitle_clean = re.sub(r'\s*[-（(].*$', '', to_simplified(s_title)).strip()
+            sname_clean = to_simplified(name_clean)
+
+            # 歌名匹配：任一方向包含关系，或简化后包含
+            title_match = (
+                sname_clean in stitle_clean or
+                stitle_clean in sname_clean or
+                len(set(sname_clean) & set(stitle_clean)) > min(len(stitle_clean), len(sname_clean)) * 0.5
+            )
+
+            if artist_match or title_match:
+                lrc_id = s.get('id')
+                if lrc_id:
+                    lrc_text = _fetch_netease_lrc(lrc_id)
+                    if lrc_text:
+                        return lrc_text
+
+        # 最后尝试第一个结果
+        first_song = songs[0]
+        if first_song.get('id'):
+            return _fetch_netease_lrc(first_song['id'])
+
+    except Exception:
+        pass
+    return None
+
+
+def _fetch_netease_lrc(song_id):
+    """获取网易云歌词"""
+    url = f"https://music.163.com/api/song/lyric?id={song_id}&lv=-1&tv=-1"
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0',
+            'Referer': 'https://music.163.com/',
+        })
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
+        
+        lrc = data.get('lrc', {})
+        if lrc and lrc.get('lyric'):
+            return lrc['lyric']
+    except Exception:
+        pass
+    return None
+
+
+def _search_lyrics_ovh(song_name, artist):
+    """lyrics.ovh 搜索"""
+    s_name = to_simplified(song_name)
+    s_artist = to_simplified(artist)
+    
+    # 尝试多种组合
+    queries = [
+        (s_artist, s_name),
+        (s_artist, song_name),
+        (artist, s_name),
+    ]
+    
+    for q_artist, q_title in queries:
+        url = f"{LYRICS_OVH_API}{urllib.parse.quote(q_artist)}/{urllib.parse.quote(q_title)}"
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=8) as response:
+                text = response.read().decode('utf-8')
+                if text and text != 'Not Found' and len(text) > 20:
+                    lines = text.strip().split('\n')
+                    lrc_lines = []
+                    for line in lines:
+                        line = line.strip()
+                        if line:
+                            lrc_lines.append(line)
+                    if lrc_lines:
+                        return '\n'.join(lrc_lines)
+        except Exception:
+            pass
+    return None
+
+
+def _search_qq_music(song_name, artist, album_name=None):
+    """QQ音乐搜索歌词（使用 c.y.qq.com API）"""
+    s_name = to_simplified(song_name)
+    s_artist = to_simplified(artist)
+    
+    # QQ音乐搜索接口返回 JSONP 格式，需要特殊处理
+    query = s_name + " " + s_artist
+    url = f"https://c.y.qq.com/soso/fcgi-bin/client_search_cp?w={urllib.parse.quote(query)}&format=json&n=3&t=0"
+    
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+            'Referer': 'https://y.qq.com/',
+        })
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
+        
+        songs = data.get('data', {}).get('song', {}).get('list', [])
+        if not songs:
+            # 尝试只搜歌名
+            url2 = f"https://c.y.qq.com/soso/fcgi-bin/client_search_cp?w={urllib.parse.quote(s_name)}&format=json&n=5&t=0"
+            req2 = urllib.request.Request(url2, headers={
+                'User-Agent': 'Mozilla/5.0',
+                'Referer': 'https://y.qq.com/',
+            })
+            with urllib.request.urlopen(req2, timeout=8) as response2:
+                data2 = json.loads(response2.read().decode('utf-8'))
+            songs = data2.get('data', {}).get('song', {}).get('list', [])
+        
+        if not songs:
+            return None
+        
+        for song in songs[:5]:
+            mid = song.get('mid') or song.get('songmid')
+            if not mid:
+                continue
+            
+            # 获取歌词
+            lyrics = _fetch_qq_lyrics(mid)
+            if lyrics:
+                return lyrics
+        
+        # 尝试第一首
+        first_mid = songs[0].get('mid') or songs[0].get('songmid')
+        if first_mid:
+            return _fetch_qq_lyrics(first_mid)
+
+    except Exception:
+        pass
+    return None
+
+
+def _fetch_qq_lyrics(song_mid):
+    """获取QQ音乐歌词"""
+    url = f"https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_yqq.fcg?songmid={song_mid}&format=json"
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+            'Referer': 'https://y.qq.com/',
+        })
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
+        
+        lyric_str = data.get('lyric', '')
+        if lyric_str:
+            import base64
+            decoded = base64.b64decode(lyric_str).decode('utf-8')
+            if decoded and len(decoded) > 20:
+                return decoded
+    except Exception:
+        pass
+    return None
 
 
 def lrc_to_js_content(lrc_text):
@@ -150,7 +417,9 @@ def save_lyrics(lrc_file, lyrics):
     js_content = f"window.LYRICS = '{lrc_to_js_content(lyrics)}';\n"
     with open(js_file, 'w', encoding='utf-8') as f:
         f.write(js_content)
-    """下载所有歌词"""
+
+
+def download_lyrics(albums, dry_run=False):
     total = 0
     success = 0
     skipped = 0
@@ -186,25 +455,21 @@ def save_lyrics(lrc_file, lyrics):
 
             print(f"  [下载] {song_name}...", end=" ")
 
-            # 搜索歌词
-            result = search_lyrics(song_name, artist, album_name)
+            # 搜索歌词（依次尝试 lrclib, 网易云, lyrics.ovh）
+            lyrics = search_lyrics(song_name, artist, album_name)
 
-            if not result:
-                # 尝试直接获取
-                result = get_lyrics_direct(artist, album_name, song_name)
-
-            if result:
-                # 优先使用同步歌词，否则使用普通歌词
-                lyrics = result.get('syncedLyrics') or result.get('plainLyrics')
-
-                if lyrics:
-                    # 保存歌词文件 (.lrc + .js)
-                    save_lyrics(lrc_file, lyrics)
-                    print(f"✓")
-                    success += 1
+            if lyrics:
+                # 保存歌词文件 (.lrc + .js)
+                save_lyrics(lrc_file, lyrics)
+                source = ""
+                if "163" in str(lyrics):
+                    source = " [网易云]"
+                elif len(lyrics) > 0 and not lyrics.startswith('['):
+                    source = " [lyrics.ovh]"
                 else:
-                    print(f"✗ (无歌词内容)")
-                    failed += 1
+                    source = " [lrclib]"
+                print(f"✓{source}")
+                success += 1
             else:
                 print(f"✗ (未找到)")
                 failed += 1
