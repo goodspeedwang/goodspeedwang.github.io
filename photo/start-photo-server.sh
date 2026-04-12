@@ -1,9 +1,10 @@
 #!/bin/bash
 SERVER_PORT=8080
 TARGET_DIR="/Volumes/Home1/Photo/other/weiyun/Photo/girl"
+SERVER_DIR="/Users/goodspeedwang/Document/code/private/goodspeedwang.github.io/photo/server.py"
 
 echo "🚀 启动 HTTP 服务器 (端口 $SERVER_PORT)..."
-python server.py $SERVER_PORT $TARGET_DIR &
+python3 $SERVER_DIR $SERVER_PORT $TARGET_DIR &
 SERVER_PID=$!
 sleep 1
 
