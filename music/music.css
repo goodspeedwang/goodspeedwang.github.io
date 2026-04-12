@@ -2,27 +2,119 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
     height: 100vh;
     background-color: #121212;
     color: #fff;
-}
-
-#sidebar {
-    width: 300px;
-    background-color: #000;
-    padding: 20px;
-    overflow-y: auto;
-    padding-bottom: 90px;
-    /* 添加底部内边距 */
+    overflow: hidden;
 }
 
 #main-content {
-    flex-grow: 1;
-    padding: 20px;
+    display: flex;
+    height: 100vh;
+    padding: 16px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* 左侧专辑导航 - 竖排 */
+#album-nav {
+    width: 280px;
+    flex-shrink: 0;
     overflow-y: auto;
-    padding-bottom: 90px;
-    /* 添加底部内边距 */
+}
+
+#album-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+#album-nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+#album-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+#album-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.album-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.album-item img {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.album-item span {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.album-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.album-item.active span {
+    color: #1DB954;
+}
+
+/* 右侧内容区 */
+#content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow-y: auto;
+}
+
+/* 中间+右侧并排 */
+#top-row {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* 中间面板 */
+#center-panel {
+    width: 380px;
+    flex-shrink: 0;
+}
+
+/* 右侧歌词面板 */
+#lyrics-panel {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+#lyrics-panel.hidden {
+    display: none;
 }
 
 #player {
@@ -51,22 +143,6 @@ body {
     gap: 8px;
 }
 
-.album-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.album-item img {
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
-}
-
-.album-item.active {
-    background-color: #282828;
-}
 
 .song-item {
     display: flex;
@@ -124,13 +200,14 @@ body {
 #album-info {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 #album-cover {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin-right: 20px;
+    border-radius: 8px;
 }
 
 #now-playing {
@@ -245,15 +322,19 @@ button.active {
     position: relative;
 }
 
-#repeat[data-one="true"]::after {
-    content: '1';
-    font-size: 8px;
+#shuffle.active::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #1DB954;
+    border-radius: 50%;
     position: absolute;
-    bottom: 4px;
-    right: 4px;
-    color: #1DB954;
-    font-weight: bold;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+
 
 #play-all {
     background-color: #1DB954;
@@ -263,4 +344,163 @@ button.active {
     font-size: 16px;
     cursor: pointer;
     border-radius: 20px;
+}
+
+#other-albums {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#other-albums h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+#other-albums-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.other-album-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.other-album-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.other-album-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.other-album-info {
+    overflow: hidden;
+}
+
+.other-album-name {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+.other-album-artist {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+}
+
+.no-other-albums {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* 歌词面板 */
+#lyrics-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+    transition: color 0.2s;
+}
+
+#lyrics-btn:hover {
+    color: #fff;
+}
+
+#lyrics-btn.active {
+    color: #1DB954;
+}
+
+#lyrics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+#lyrics-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#close-lyrics {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+#close-lyrics:hover {
+    color: #fff;
+}
+
+#lyrics-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    line-height: 2;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+#lyrics-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lyrics-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+#lyrics-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.lyrics-line {
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.lyrics-line.active {
+    color: #1DB954;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.lyrics-line:hover {
+    color: #fff;
+}
+
+.no-lyrics {
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
 }

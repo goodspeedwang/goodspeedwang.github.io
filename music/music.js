@@ -23,6 +23,8 @@ const MusicPlayerApp = (() => {
         shuffleMode: false,
         repeatMode: REPEAT_MODES.all,
         shuffledIndices: [],
+        currentLyrics: [],  // 当前歌词 [{time: 秒, text: 歌词}]
+        showLyrics: true,  // 是否显示歌词面板
     };
 
     const elements = {
@@ -43,6 +45,10 @@ const MusicPlayerApp = (() => {
         progress: document.getElementById('progress'),
         currentTimeDisplay: document.getElementById('current-time'),
         durationDisplay: document.getElementById('duration'),
+        otherAlbumsList: document.getElementById('other-albums-list'),
+        lyricsPanel: document.getElementById('lyrics-panel'),
+        lyricsContent: document.getElementById('lyrics-content'),
+        lyricsBtn: document.getElementById('lyrics-btn'),
     };
 
     function initialize() {
@@ -60,6 +66,7 @@ const MusicPlayerApp = (() => {
         elements.playAllButton.addEventListener('click', playAlbumFromStart);
         elements.shuffleButton.addEventListener('click', toggleShuffle);
         elements.repeatButton.addEventListener('click', toggleRepeat);
+        elements.lyricsBtn.addEventListener('click', toggleLyricsPanel);
     }
 
     function bindAudioEvents() {
@@ -81,10 +88,17 @@ const MusicPlayerApp = (() => {
 
             refreshNowPlayingPanel();
             updateSongSelectionHighlight();
+
+            // 恢复歌词显示
+            const currentAlbum = getCurrentAlbum();
+            loadLyrics(currentAlbum.name, getCurrentSongName());
+
             return;
         }
 
         showAlbum(0);
+        // 默认专辑也加载第一首歌歌词
+        loadLyrics(getCurrentAlbum().name, getCurrentSongName());
     }
 
     function restorePlaybackSettings() {
@@ -116,6 +130,19 @@ const MusicPlayerApp = (() => {
         elements.albumList.replaceChildren(albumListFragment);
     }
 
+    function syncLyricsHeightWithSongList() {
+        const albumInfo = elements.albumInfo;
+        const lyricsPanel = elements.lyricsPanel;
+        if (albumInfo && lyricsPanel) {
+            lyricsPanel.style.marginTop = albumInfo.offsetHeight + 'px';
+        }
+        const songList = elements.songList;
+        const lyricsContent = elements.lyricsContent;
+        if (songList && lyricsContent) {
+            lyricsContent.style.maxHeight = songList.offsetHeight + 'px';
+        }
+    }
+
     function showAlbum(albumIndex) {
         if (!isValidAlbumIndex(albumIndex) || state.currentAlbumIndex === albumIndex) {
             return;
@@ -130,9 +157,13 @@ const MusicPlayerApp = (() => {
 
         renderAlbumDetails();
         renderSongList();
+        renderOtherAlbums();
         refreshNowPlayingPanel();
         updateAlbumSelectionHighlight();
         updateSongSelectionHighlight();
+
+        // 等待 DOM 渲染完成后再对齐高度
+        requestAnimationFrame(() => syncLyricsHeightWithSongList());
     }
 
     function renderAlbumDetails() {
@@ -161,6 +192,36 @@ const MusicPlayerApp = (() => {
         elements.songList.replaceChildren(songListFragment);
     }
 
+    function renderOtherAlbums() {
+        const currentAlbum = getCurrentAlbum();
+        const currentArtist = currentAlbum.artist;
+
+        // 查找同歌手的其他专辑
+        const otherAlbums = ALBUM.map((album, index) => ({ ...album, index }))
+            .filter(album => album.artist === currentArtist && album.index !== state.currentAlbumIndex);
+
+        if (otherAlbums.length === 0) {
+            elements.otherAlbumsList.innerHTML = '<p class="no-other-albums">暂无其他专辑</p>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        otherAlbums.forEach(album => {
+            const albumCard = document.createElement('div');
+            albumCard.className = 'other-album-card';
+            albumCard.innerHTML = `
+                <img src="${album.cover}" alt="${album.name}">
+                <div class="other-album-info">
+                    <div class="other-album-name">${album.name}</div>
+                </div>
+            `;
+            albumCard.addEventListener('click', () => showAlbum(album.index));
+            fragment.appendChild(albumCard);
+        });
+
+        elements.otherAlbumsList.replaceChildren(fragment);
+    }
+
     function playSong(songIndex) {
         if (!isValidSongIndex(state.currentAlbumIndex, songIndex)) {
             return;
@@ -185,6 +246,9 @@ const MusicPlayerApp = (() => {
             updatePlayPauseButton();
             console.error('播放失败:', error);
         });
+
+        // 加载歌词
+        loadLyrics(currentAlbum.name, currentSong);
     }
 
     function playNextSong() {
@@ -312,6 +376,11 @@ const MusicPlayerApp = (() => {
 
     function updateShuffleButton() {
         elements.shuffleButton.classList.toggle('active', state.shuffleMode);
+        if (state.shuffleMode) {
+            elements.shuffleButton.textContent = '🔀';
+        } else {
+            elements.shuffleButton.textContent = '🔀';
+        }
     }
 
     function updateRepeatButton() {
@@ -320,16 +389,15 @@ const MusicPlayerApp = (() => {
 
         switch (state.repeatMode) {
             case REPEAT_MODES.off:
-                elements.repeatButton.textContent = '↻';
+                elements.repeatButton.textContent = '🔁';
                 break;
             case REPEAT_MODES.all:
-                elements.repeatButton.textContent = '↻';
+                elements.repeatButton.textContent = '🔁';
                 elements.repeatButton.classList.add('active');
                 break;
             case REPEAT_MODES.one:
-                elements.repeatButton.textContent = '↻';
+                elements.repeatButton.textContent = '🔂';
                 elements.repeatButton.classList.add('active');
-                elements.repeatButton.dataset.one = 'true';
                 break;
         }
     }
@@ -361,6 +429,11 @@ const MusicPlayerApp = (() => {
         const progressPercent = duration > 0 ? (audio.currentTime / duration) * 100 : 0;
         elements.progress.style.width = `${progressPercent}%`;
         elements.currentTimeDisplay.textContent = formatTime(audio.currentTime);
+        
+        // 更新歌词高亮
+        if (state.showLyrics && state.currentLyrics.length > 0) {
+            updateLyricsHighlight(audio.currentTime);
+        }
     }
 
     function handleAudioMetadataLoaded() {
@@ -475,6 +548,130 @@ const MusicPlayerApp = (() => {
         const minutes = Math.floor(safeSeconds / 60);
         const remainingSeconds = safeSeconds % 60;
         return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
+    // ========== 歌词功能 ==========
+
+    function parseLRC(lrcText) {
+        const lines = lrcText.split('\n');
+        const result = [];
+
+        for (const line of lines) {
+            const match = line.match(/\[(\d{2}):(\d{2})\.(\d{2,3})\]\s*(.*)/);
+            if (match) {
+                const minutes = parseInt(match[1], 10);
+                const seconds = parseInt(match[2], 10);
+                const ms = parseInt(match[3], 10);
+                const time = minutes * 60 + seconds + ms / (match[3].length === 3 ? 1000 : 100);
+                const text = match[4].trim();
+                if (text) {
+                    result.push({ time, text });
+                }
+            }
+        }
+
+        return result.sort((a, b) => a.time - b.time);
+    }
+
+    let lyricsScript = null;
+
+    function loadLyrics(albumName, songName) {
+        state.currentLyrics = [];
+
+        // 移除上次加载的 script
+        if (lyricsScript) {
+            lyricsScript.remove();
+            lyricsScript = null;
+        }
+        delete window.LYRICS;
+
+        const jsPath = `songs/${sanitizeFileName(albumName)}/${sanitizeFileName(songName)}.js`;
+
+        const script = document.createElement('script');
+        script.src = jsPath;
+        script.onload = () => {
+            if (window.LYRICS) {
+                state.currentLyrics = parseLRC(window.LYRICS);
+                delete window.LYRICS;
+            }
+            if (state.showLyrics) {
+                renderLyrics();
+            }
+        };
+        script.onerror = () => {
+            if (state.showLyrics) {
+                renderLyrics();
+            }
+        };
+
+        lyricsScript = script;
+        document.head.appendChild(script);
+    }
+
+    function renderLyrics() {
+        if (state.currentLyrics.length === 0) {
+            elements.lyricsContent.innerHTML = '<p class="no-lyrics">暂无歌词</p>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        state.currentLyrics.forEach((line, index) => {
+            const div = document.createElement('div');
+            div.className = 'lyrics-line';
+            div.dataset.index = index;
+            div.textContent = line.text;
+            div.addEventListener('click', () => {
+                audio.currentTime = line.time;
+            });
+            fragment.appendChild(div);
+        });
+
+        elements.lyricsContent.replaceChildren(fragment);
+
+        // 高亮当前歌词
+        if (audio.currentTime) {
+            updateLyricsHighlight(audio.currentTime);
+        }
+    }
+
+    function updateLyricsHighlight(currentTime) {
+        const lines = elements.lyricsContent.querySelectorAll('.lyrics-line');
+        if (lines.length === 0) return;
+
+        let activeIndex = -1;
+        for (let i = state.currentLyrics.length - 1; i >= 0; i--) {
+            if (currentTime >= state.currentLyrics[i].time) {
+                activeIndex = i;
+                break;
+            }
+        }
+
+        lines.forEach((line, index) => {
+            const isActive = index === activeIndex;
+            line.classList.toggle('active', isActive);
+        });
+
+        // 自动滚动到当前歌词
+        if (activeIndex >= 0) {
+            const activeLine = lines[activeIndex];
+            activeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    function toggleLyricsPanel() {
+        state.showLyrics = !state.showLyrics;
+        elements.lyricsBtn.classList.toggle('active', state.showLyrics);
+        elements.lyricsPanel.classList.toggle('hidden', !state.showLyrics);
+
+        if (state.showLyrics) {
+            renderLyrics();
+        }
+    }
+
+    function closeLyricsPanel() {
+        state.showLyrics = false;
+        elements.lyricsBtn.classList.remove('active');
+        elements.lyricsPanel.classList.add('hidden');
     }
 
     return { initialize };

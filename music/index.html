@@ -10,36 +10,52 @@
 </head>
 
 <body>
-    <aside id="sidebar" aria-label="专辑导航">
-        <h2>专辑列表</h2>
-        <ul id="album-list"></ul>
-    </aside>
     <main id="main-content">
-        <section id="album-info">
-            <img id="album-cover" src="" alt="专辑封面">
-            <div>
-                <h1 id="album-title"></h1>
-                <h2 id="album-artist"></h2>
-                <button id="play-all">播放全部</button>
+        <nav id="album-nav" aria-label="专辑导航">
+            <ul id="album-list"></ul>
+        </nav>
+        <div id="content-area">
+            <div id="top-row">
+                <div id="center-panel">
+                    <section id="album-info">
+                        <img id="album-cover" src="" alt="专辑封面">
+                        <div>
+                            <h1 id="album-title"></h1>
+                            <h2 id="album-artist"></h2>
+                            <button id="play-all">播放全部</button>
+                        </div>
+                    </section>
+                    <section id="song-list" aria-label="歌曲列表"></section>
+                </div>
+                <section id="lyrics-panel">
+                    <div id="lyrics-header">
+                        <h3>歌词</h3>
+                    </div>
+                    <div id="lyrics-content"></div>
+                </section>
             </div>
-        </section>
-        <section id="song-list" aria-label="歌曲列表"></section>
+            <section id="other-albums" aria-label="其他专辑">
+                <h3>该歌手的其他专辑</h3>
+                <div id="other-albums-list"></div>
+            </section>
+        </div>
     </main>
     <footer id="player">
         <div id="now-playing">
             <img id="now-playing-cover" src="" alt="正在播放">
-            <div>
+            <div id="now-playing-info">
                 <div id="now-playing-name"></div>
                 <div id="now-playing-artist"></div>
             </div>
+            <button id="lyrics-btn" title="显示歌词">🎵</button>
         </div>
         <div id="player-right">
             <div id="controls">
-                <button id="shuffle" title="随机播放">⇄</button>
+                <button id="shuffle" title="随机播放">🔀</button>
                 <button id="previous">⏮</button>
                 <button id="play-pause"><span class="pause-icon">❚❚</span></button>
                 <button id="next">⏭</button>
-                <button id="repeat" title="循环模式">↻</button>
+                <button id="repeat" title="循环模式">🔁</button>
             </div>
             <div id="time-info">
                 <span id="current-time">0:00</span>
