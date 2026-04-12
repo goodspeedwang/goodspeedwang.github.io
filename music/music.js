@@ -2,6 +2,14 @@ const MusicPlayerApp = (() => {
     const PLAYBACK_STORAGE_KEYS = {
         albumIndex: 'currentAlbum',
         songIndex: 'currentSong',
+        shuffle: 'shuffleMode',
+        repeat: 'repeatMode',
+    };
+
+    const REPEAT_MODES = {
+        off: 'off',       // 不循环
+        all: 'all',       // 列表循环
+        one: 'one',       // 单曲循环
     };
 
     const DEFAULT_DURATION_TEXT = '--:--';
@@ -12,6 +20,9 @@ const MusicPlayerApp = (() => {
         currentAlbumIndex: -1,
         currentSongIndex: 0,
         isPlaying: false,
+        shuffleMode: false,
+        repeatMode: REPEAT_MODES.all,
+        shuffledIndices: [],
     };
 
     const elements = {
@@ -27,6 +38,8 @@ const MusicPlayerApp = (() => {
         playPauseButton: document.getElementById('play-pause'),
         previousButton: document.getElementById('previous'),
         nextButton: document.getElementById('next'),
+        shuffleButton: document.getElementById('shuffle'),
+        repeatButton: document.getElementById('repeat'),
         progress: document.getElementById('progress'),
         currentTimeDisplay: document.getElementById('current-time'),
         durationDisplay: document.getElementById('duration'),
@@ -37,6 +50,7 @@ const MusicPlayerApp = (() => {
         bindPlayerControls();
         bindAudioEvents();
         restoreLastPlaybackState();
+        restorePlaybackSettings();
     }
 
     function bindPlayerControls() {
@@ -44,6 +58,8 @@ const MusicPlayerApp = (() => {
         elements.previousButton.addEventListener('click', playPreviousSong);
         elements.nextButton.addEventListener('click', playNextSong);
         elements.playAllButton.addEventListener('click', playAlbumFromStart);
+        elements.shuffleButton.addEventListener('click', toggleShuffle);
+        elements.repeatButton.addEventListener('click', toggleRepeat);
     }
 
     function bindAudioEvents() {
@@ -71,6 +87,18 @@ const MusicPlayerApp = (() => {
         showAlbum(0);
     }
 
+    function restorePlaybackSettings() {
+        const savedShuffle = localStorage.getItem(PLAYBACK_STORAGE_KEYS.shuffle) === 'true';
+        const savedRepeat = localStorage.getItem(PLAYBACK_STORAGE_KEYS.repeat) || REPEAT_MODES.all;
+
+        state.shuffleMode = savedShuffle;
+        state.repeatMode = Object.values(REPEAT_MODES).includes(savedRepeat) ? savedRepeat : REPEAT_MODES.all;
+
+        generateShuffledIndices();
+        updateShuffleButton();
+        updateRepeatButton();
+    }
+
     function renderAlbumNavigation() {
         const albumListFragment = document.createDocumentFragment();
 
@@ -95,6 +123,10 @@ const MusicPlayerApp = (() => {
 
         state.currentAlbumIndex = albumIndex;
         state.currentSongIndex = 0;
+
+        if (state.shuffleMode) {
+            generateShuffledIndices();
+        }
 
         renderAlbumDetails();
         renderSongList();
@@ -156,24 +188,148 @@ const MusicPlayerApp = (() => {
     }
 
     function playNextSong() {
+        // 单曲循环
+        if (state.repeatMode === REPEAT_MODES.one) {
+            audio.currentTime = 0;
+            audio.play();
+            return;
+        }
+
+        // 随机模式
+        if (state.shuffleMode) {
+            const currentShuffleIndex = state.shuffledIndices.indexOf(state.currentSongIndex);
+            const nextShuffleIndex = currentShuffleIndex + 1;
+
+            if (nextShuffleIndex < state.shuffledIndices.length) {
+                playSong(state.shuffledIndices[nextShuffleIndex]);
+                return;
+            }
+
+            // 随机列表播放完毕
+            if (state.repeatMode === REPEAT_MODES.all) {
+                // 重新生成随机列表并播放
+                generateShuffledIndices();
+                playSong(state.shuffledIndices[0]);
+                return;
+            }
+
+            // 不循环则停止
+            state.isPlaying = false;
+            updatePlayPauseButton();
+            return;
+        }
+
+        // 顺序播放
         const nextSongIndex = state.currentSongIndex + 1;
         if (isValidSongIndex(state.currentAlbumIndex, nextSongIndex)) {
             playSong(nextSongIndex);
             return;
         }
 
-        const nextAlbumIndex = (state.currentAlbumIndex + 1) % ALBUM.length;
-        showAlbum(nextAlbumIndex);
-        playSong(0);
+        // 当前专辑播放完毕
+        if (state.repeatMode === REPEAT_MODES.all) {
+            const nextAlbumIndex = (state.currentAlbumIndex + 1) % ALBUM.length;
+            showAlbum(nextAlbumIndex);
+            playSong(0);
+            return;
+        }
+
+        // 不循环则停止
+        state.isPlaying = false;
+        updatePlayPauseButton();
     }
 
     function playPreviousSong() {
+        // 如果播放超过3秒，重新播放当前歌曲
+        if (audio.currentTime > 3) {
+            audio.currentTime = 0;
+            return;
+        }
+
+        // 随机模式
+        if (state.shuffleMode) {
+            const currentShuffleIndex = state.shuffledIndices.indexOf(state.currentSongIndex);
+            const prevShuffleIndex = currentShuffleIndex - 1;
+
+            if (prevShuffleIndex >= 0) {
+                playSong(state.shuffledIndices[prevShuffleIndex]);
+                return;
+            }
+
+            // 随机列表开头
+            if (state.repeatMode === REPEAT_MODES.all) {
+                playSong(state.shuffledIndices[state.shuffledIndices.length - 1]);
+                return;
+            }
+
+            playSong(state.shuffledIndices[0]);
+            return;
+        }
+
+        // 顺序播放上一首
         const previousSongIndex = (state.currentSongIndex - 1 + getCurrentAlbum().songs.length) % getCurrentAlbum().songs.length;
         playSong(previousSongIndex);
     }
 
     function playAlbumFromStart() {
         playSong(0);
+    }
+
+    function toggleShuffle() {
+        state.shuffleMode = !state.shuffleMode;
+        localStorage.setItem(PLAYBACK_STORAGE_KEYS.shuffle, state.shuffleMode);
+
+        if (state.shuffleMode) {
+            generateShuffledIndices();
+        }
+
+        updateShuffleButton();
+    }
+
+    function toggleRepeat() {
+        const modes = Object.values(REPEAT_MODES);
+        const currentIndex = modes.indexOf(state.repeatMode);
+        state.repeatMode = modes[(currentIndex + 1) % modes.length];
+
+        localStorage.setItem(PLAYBACK_STORAGE_KEYS.repeat, state.repeatMode);
+        updateRepeatButton();
+    }
+
+    function generateShuffledIndices() {
+        const album = getCurrentAlbum();
+        if (!album) return;
+
+        const indices = album.songs.map((_, i) => i);
+
+        // Fisher-Yates 洗牌算法
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+
+        state.shuffledIndices = indices;
+    }
+
+    function updateShuffleButton() {
+        elements.shuffleButton.classList.toggle('active', state.shuffleMode);
+    }
+
+    function updateRepeatButton() {
+        elements.repeatButton.classList.remove('active');
+
+        switch (state.repeatMode) {
+            case REPEAT_MODES.off:
+                elements.repeatButton.textContent = '🔁';
+                break;
+            case REPEAT_MODES.all:
+                elements.repeatButton.textContent = '🔁';
+                elements.repeatButton.classList.add('active');
+                break;
+            case REPEAT_MODES.one:
+                elements.repeatButton.textContent = '🔂';
+                elements.repeatButton.classList.add('active');
+                break;
+        }
     }
 
     function handlePlayPauseClick() {
