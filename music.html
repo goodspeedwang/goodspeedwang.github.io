@@ -10,22 +10,22 @@
 </head>
 
 <body>
-    <div id="sidebar">
+    <aside id="sidebar" aria-label="专辑导航">
         <h2>专辑列表</h2>
         <ul id="album-list"></ul>
-    </div>
-    <div id="main-content">
-        <div id="album-info">
+    </aside>
+    <main id="main-content">
+        <section id="album-info">
             <img id="album-cover" src="" alt="专辑封面">
             <div>
                 <h1 id="album-title"></h1>
                 <h2 id="album-artist"></h2>
                 <button id="play-all">播放全部</button>
             </div>
-        </div>
-        <div id="song-list"></div>
-    </div>
-    <div id="player">
+        </section>
+        <section id="song-list" aria-label="歌曲列表"></section>
+    </main>
+    <footer id="player">
         <div id="now-playing">
             <img id="now-playing-cover" src="" alt="正在播放">
             <div>
@@ -45,9 +45,10 @@
             </div>
             <span id="duration">0:00</span>
         </div>
-    </div>
-    <script src="static/js/album.js"></script>
-    <script src="static/js/music.js"></script>
+    </footer>
+    <script defer src="static/js/album.js"></script>
+    <script defer src="static/js/song-duration-data.js"></script>
+    <script defer src="static/js/music.js"></script>
 </body>
 
 </html>
