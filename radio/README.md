@@ -63,6 +63,7 @@ https://stream-url.m3u8
 - [zhibo.fm](https://zhibo.fm/)
 - [worldradiomap](https://worldradiomap.com/)
 - [蜻蜓FM](https://m.qtfm.cn/categories/5)
+- [Kimentanm](https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/radio.m3u)
 
 ## 添加新电台
 
