@@ -27,17 +27,21 @@ body {
 
 #player {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #282828;
-    padding: 20px;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 900px;
+    background: rgba(40, 40, 40, 0.75);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    padding: 16px 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
-    height: 90px;
-    /* 设置固定高度 */
+    height: 80px;
     box-sizing: border-box;
-    /* 确保padding不会增加元素的总高度 */
 }
 
 .album-item {
@@ -87,15 +91,18 @@ body {
 
 #progress-container {
     width: 100%;
-    background-color: #404040;
-    height: 5px;
-    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 4px;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
 #progress {
     width: 0;
     height: 100%;
     background-color: #1DB954;
+    border-radius: 2px;
+    transition: width 0.1s linear;
 }
 
 #album-info {
@@ -116,10 +123,24 @@ body {
     width: 30%;
 }
 
+#now-playing-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#now-playing-artist {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+}
+
 #now-playing-cover {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
+    width: 56px;
+    height: 56px;
+    margin-right: 12px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #controls {
@@ -131,17 +152,31 @@ body {
 
 #time-info {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     width: 30%;
+}
+
+#time-info span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 40px;
 }
 
 button {
     background: none;
     border: none;
     color: #fff;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 12px;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    opacity: 0.9;
+}
+
+button:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 #play-all {
