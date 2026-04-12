@@ -85,7 +85,7 @@ def parse_fit_file(filepath):
     返回值示例：
         {
             'records': [{field: value}, ...],   # 每秒/每条记录的原始数据
-            'sessions': [...],                  # 整次跑步摘要
+            'sessions': [...],                  # 整次慢跑摘要
             'laps': [...]                      # 圈（lap）数据
         }
     """
@@ -307,7 +307,7 @@ def _speed_to_pace(speed_mps):
     """
     速度 (m/s) → 配速 (min/km)。无效值返回 None。
 
-    过滤条件：只接受合理跑步配速 [5, 10] min/km，
+    过滤条件：只接受合理慢跑配速 [5, 10] min/km，
     排除 GPS 信号丢失或停止走动时的异常值。
     """
     if speed_mps <= 0:
