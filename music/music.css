@@ -97,17 +97,26 @@ body {
 }
 
 #progress-container {
-    width: 100%;
+    flex: 1;
     background-color: rgba(255, 255, 255, 0.2);
     height: 4px;
     border-radius: 2px;
     cursor: pointer;
+    position: relative;
+}
+
+#progress-container:hover {
+    height: 6px;
+}
+
+#progress-container:hover #progress {
+    background-color: #1DB954;
 }
 
 #progress {
     width: 0;
     height: 100%;
-    background-color: #1DB954;
+    background-color: #fff;
     border-radius: 2px;
     transition: width 0.1s linear;
 }
@@ -176,41 +185,74 @@ body {
     color: rgba(255, 255, 255, 0.7);
     min-width: 36px;
     text-align: center;
+    font-variant-numeric: tabular-nums;
 }
 
 button {
     background: none;
     border: none;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 18px;
     cursor: pointer;
     padding: 8px;
-    transition: transform 0.15s ease, opacity 0.15s ease, color 0.15s ease;
-    opacity: 0.7;
+    transition: transform 0.15s ease, color 0.15s ease;
     border-radius: 50%;
+    font-weight: 300;
 }
 
 button:hover {
-    transform: scale(1.1);
-    opacity: 1;
+    color: #fff;
+    transform: scale(1.05);
 }
 
 button.active {
     color: #1DB954;
-    opacity: 1;
 }
 
 #play-pause {
-    font-size: 24px;
-    padding: 10px;
+    background: #fff;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
 }
 
 #play-pause:hover {
-    transform: scale(1.15);
+    transform: scale(1.08);
+    color: #000;
+    background: #fff;
+}
+
+#play-pause .pause-icon {
+    letter-spacing: 3px;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+#play-pause:not(:has(.pause-icon)) {
+    padding-left: 4px;
 }
 
 #shuffle, #repeat {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+}
+
+#repeat[data-one="true"]::after {
+    content: '1';
+    font-size: 8px;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    color: #1DB954;
+    font-weight: bold;
 }
 
 #play-all {
