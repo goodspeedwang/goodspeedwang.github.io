@@ -1,0 +1,11 @@
+# Data files (may contain private location data)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+.DS_Store
