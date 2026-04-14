@@ -19,6 +19,7 @@ import json
 import hashlib
 import mimetypes
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from email.utils import formatdate
 from urllib.parse import unquote, quote
 
@@ -236,6 +237,11 @@ class Handler(BaseHTTPRequestHandler):
             pass
 
 
+class ThreadingHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
+
 if __name__ == '__main__':
     json_file = find_json_file()
     gallery_data, gallery_tree, source_dir = load_gallery_data(json_file)
@@ -248,4 +254,4 @@ if __name__ == '__main__':
     print(f"访问地址: http://localhost:{PORT}/photo.html")
     print("Ctrl+C 退出\n")
 
-    HTTPServer(('', PORT), Handler).serve_forever()
+    ThreadingHTTPServer(('', PORT), Handler).serve_forever()
