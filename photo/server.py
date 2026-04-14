@@ -1,71 +1,97 @@
 #!/usr/bin/env python3
 """
 用法:
-    python3 server.py [端口] [目录]
+    python3 server.py [端口] [相册目录]
 
 默认端口: 8080
-默认目录: 当前目录
+相册目录: 用于定位媒体文件（图片/视频）
 
 接口:
-    GET /            -> 目录列表 HTML（含子文件夹 + 图片/视频）
-    GET /subdir/     -> 子目录列表
-    GET /subdir/file -> 返回文件，支持 ETag / Last-Modified 304
+    GET /photo.html          -> 前端页面（从 APP_DIR 读取）
+    GET /                    -> 根目录列表（从 JSON 数据）
+    GET /subdir/             -> 子目录列表（从 JSON 数据）
+    GET /subdir/file         -> 返回媒体文件（从磁盘读取）
 """
 
 import os
 import sys
+import json
 import hashlib
 import mimetypes
-import calendar
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from email.utils import formatdate, parsedate
+from email.utils import formatdate
 from urllib.parse import unquote, quote
 
-# server.py 所在的目录（存放 photo.html 等应用文件）
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MEDIA_EXTENSIONS = {
     '.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.heic', '.tiff',
     '.mp4', '.mov', '.avi', '.mkv', '.webm', '.m4v',
-    # 应用文件也允许通过 HTTP 访问
-    '.html', '.js', '.css',
 }
 
 PORT = int(sys.argv[1] if len(sys.argv) > 1 else 8080)
 SERVE_DIR = os.path.abspath(sys.argv[2] if len(sys.argv) > 2 else '.')
 
 
-def list_dir(dirpath):
-    dirs, files = [], []
-    for name in sorted(os.listdir(dirpath)):
-        if name.startswith('.'):
-            continue
-        full = os.path.join(dirpath, name)
-        if os.path.isdir(full):
-            dirs.append(name)
-        else:
-            ext = os.path.splitext(name)[1].lower()
-            if ext in MEDIA_EXTENSIONS:
-                files.append(name)
-    return dirs, files
+# ========== 加载 JSON 数据 ==========
+
+def find_json_file():
+    """在 APP_DIR 下查找 .json 文件（优先 girl.json）"""
+    # 优先查找 girl.json
+    preferred = os.path.join(APP_DIR, 'girl.json')
+    if os.path.isfile(preferred):
+        return preferred
+    # 回退到任意 .json
+    for f in os.listdir(APP_DIR):
+        if f.endswith('.json'):
+            return os.path.join(APP_DIR, f)
+    return None
 
 
-def get_etag(stat):
-    raw = f"{stat.st_mtime}-{stat.st_size}"
-    return hashlib.md5(raw.encode()).hexdigest()
+def load_gallery_data(json_path):
+    """加载并构建路径查找树"""
+    if not json_path:
+        print("错误: 未找到 .json 数据文件")
+        sys.exit(1)
+
+    print(f"加载数据: {json_path}")
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # 构建路径 -> 节点 的查找表
+    # key: "" (根) 或 "58" 或 "58/yuyu"
+    tree = {'': data}
+    _build_index(data.get('folders', []), '', tree)
+    return data, tree, data.get('sourceDir', '')
 
 
-def build_directory_html(dirpath, url_path):
-    dirs, files = list_dir(dirpath)
+def _build_index(folders, parent_path, index):
+    """递归构建路径索引"""
+    for folder in folders:
+        rel_path = f"{parent_path}/{folder['url']}" if parent_path else folder['url']
+        index[rel_path] = folder
+        _build_index(folder.get('folders', []), rel_path, index)
+
+
+# ========== 目录 HTML 生成（兼容前端 extractItems）==========
+
+def build_dir_html(node, url_path):
+    """用 JSON 数据生成与 extractItems 兼容的目录 HTML"""
     display_name = url_path.rstrip("/").split("/")[-1] if url_path else "/"
     title = f"Directory listing for {display_name}"
     rows = []
+
     if url_path:
         rows.append('<li><a href="../">../</a></li>')
-    for name in dirs:
-        rows.append(f'<li><a href="{quote(name)}/">{name}/</a></li>')
-    for name in files:
-        rows.append(f'<li><a href="{quote(name)}">{name}</a></li>')
+
+    # 子文件夹（href 以 / 结尾）
+    for f in node.get('folders', []):
+        rows.append(f'<li><a href="{quote(f["url"])}/">{f["name"]}/</a></li>')
+
+    # 图片/视频文件（href 不以 / 结尾）
+    for img in node.get('images', []):
+        rows.append(f'<li><a href="{quote(img["url"])}">{img["name"]}</a></li>')
+
     body = f"""<!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -85,6 +111,19 @@ def build_directory_html(dirpath, url_path):
     return body.encode('utf-8')
 
 
+# ========== ETag 工具 ==========
+
+def get_etag_for_bytes(content):
+    """对 bytes 内容生成 etag"""
+    return hashlib.md5(content).hexdigest()
+
+
+def get_etag_for_file(stat):
+    """对文件 stat 生成 etag"""
+    raw = f"{stat.st_mtime}-{stat.st_size}"
+    return hashlib.md5(raw.encode()).hexdigest()
+
+
 class Handler(BaseHTTPRequestHandler):
 
     def log_message(self, fmt, *args):
@@ -100,63 +139,54 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         raw_path = self.path.split('?', 1)[0].split('#', 1)[0]
+        # 保留尾部斜杠用于区分目录和文件
+        has_trailing_slash = raw_path.endswith('/')
         url_path = unquote(raw_path).strip('/')
 
-        # 应用文件（photo.html 等）：从 server.py 同目录读取
+        # 应用文件：从 APP_DIR 读取
         if url_path == 'photo.html':
             app_file = os.path.join(APP_DIR, 'photo.html')
             if os.path.isfile(app_file):
                 self.handle_file(app_file)
                 return
 
-        filepath = os.path.realpath(os.path.join(SERVE_DIR, url_path))
+        # 目录请求（原始路径以 / 结尾，或路径在 JSON 索引中存在）
+        if has_trailing_slash or url_path in gallery_tree or url_path == '':
+            self.handle_json_dir(url_path)
+            return
 
-        # 防止路径穿越
-        if filepath != SERVE_DIR and not filepath.startswith(SERVE_DIR + os.sep):
+        # 文件请求：从磁盘读取
+        filepath = os.path.realpath(os.path.join(SERVE_DIR, url_path))
+        if not filepath.startswith(SERVE_DIR + os.sep):
             self.send_error(403)
             return
 
-        if os.path.isdir(filepath):
-            self.handle_dir(filepath, url_path)
-        elif os.path.isfile(filepath):
+        if os.path.isfile(filepath):
             self.handle_file(filepath)
         else:
             self.send_error(404)
 
-    def handle_dir(self, dirpath, url_path):
-        stat = os.stat(dirpath)
-        etag = get_etag(stat)
-        last_modified = formatdate(stat.st_mtime, usegmt=True)
+    def handle_json_dir(self, rel_path):
+        """根据 JSON 数据返回目录 HTML"""
+        if rel_path not in gallery_tree:
+            self.send_error(404)
+            return
 
+        body = build_dir_html(gallery_tree[rel_path], rel_path)
+        etag = get_etag_for_bytes(body)
+
+        # 304 检查
         if_none_match = self.headers.get('If-None-Match')
-        if_modified_since = self.headers.get('If-Modified-Since')
-
-        if if_none_match and if_none_match == etag:
+        if if_none_match == etag:
             self.send_response(304)
             self.send_header('ETag', etag)
             self.send_cors()
             self.end_headers()
             return
 
-        if if_modified_since and not if_none_match:
-            try:
-                since = parsedate(if_modified_since)
-                since_ts = calendar.timegm(since[:6])
-                # 用整数秒比较，忽略微秒差异
-                if int(stat.st_mtime) <= since_ts:
-                    self.send_response(304)
-                    self.send_header('Last-Modified', last_modified)
-                    self.send_cors()
-                    self.end_headers()
-                    return
-            except Exception:
-                pass
-
-        body = build_directory_html(dirpath, url_path)
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.send_header('Content-Length', len(body))
-        self.send_header('Last-Modified', last_modified)
         self.send_header('ETag', etag)
         self.send_header('Cache-Control', 'no-cache')
         self.send_cors()
@@ -165,62 +195,57 @@ class Handler(BaseHTTPRequestHandler):
 
     def handle_file(self, filepath):
         ext = os.path.splitext(filepath)[1].lower()
-        if ext not in MEDIA_EXTENSIONS:
+        if ext not in MEDIA_EXTENSIONS and ext != '.html':
             self.send_error(403)
             return
 
         stat = os.stat(filepath)
-        etag = get_etag(stat)
+        etag = get_etag_for_file(stat)
         last_modified = formatdate(stat.st_mtime, usegmt=True)
         mime = mimetypes.guess_type(filepath)[0] or 'application/octet-stream'
 
-        # 304 检查：ETag 优先，其次 Last-Modified
+        # 304 检查
         if_none_match = self.headers.get('If-None-Match')
-        if_modified_since = self.headers.get('If-Modified-Since')
-
-        if if_none_match and if_none_match == etag:
+        if if_none_match == etag:
             self.send_response(304)
             self.send_header('ETag', etag)
             self.send_cors()
             self.end_headers()
             return
 
-        if if_modified_since and not if_none_match:
-            try:
-                since = parsedate(if_modified_since)
-                since_ts = calendar.timegm(since[:6])
-                # 用整数秒比较，忽略微秒差异
-                if int(stat.st_mtime) <= since_ts:
-                    self.send_response(304)
-                    self.send_header('Last-Modified', last_modified)
-                    self.send_cors()
-                    self.end_headers()
-                    return
-            except Exception:
-                pass
-
         self.send_response(200)
         self.send_header('Content-Type', mime)
         self.send_header('Content-Length', stat.st_size)
         self.send_header('Last-Modified', last_modified)
         self.send_header('ETag', etag)
-        # 媒体文件缓存一年，应用文件不缓存
+
         if ext in ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.heic', '.tiff',
                     '.mp4', '.mov', '.avi', '.mkv', '.webm', '.m4v'):
             self.send_header('Cache-Control', 'max-age=31536000, immutable')
         else:
             self.send_header('Cache-Control', 'no-cache')
+
         self.send_cors()
         self.end_headers()
 
-        with open(filepath, 'rb') as f:
-            while chunk := f.read(65536):
-                self.wfile.write(chunk)
+        try:
+            with open(filepath, 'rb') as f:
+                while chunk := f.read(65536):
+                    self.wfile.write(chunk)
+        except BrokenPipeError:
+            pass
 
 
 if __name__ == '__main__':
-    print(f"服务目录: {SERVE_DIR}")
+    json_file = find_json_file()
+    gallery_data, gallery_tree, source_dir = load_gallery_data(json_file)
+
+    stats = gallery_data.get('_stats', {})
+    print(f"数据源: {source_dir}")
+    print(f"文件夹: {stats.get('totalFolders', '?')}, 媒体文件: {stats.get('totalMedia', '?')}")
+    print(f"媒体目录: {SERVE_DIR}")
     print(f"监听端口: {PORT}")
-    print(f"访问地址: http://localhost:{PORT}/")
+    print(f"访问地址: http://localhost:{PORT}/photo.html")
     print("Ctrl+C 退出\n")
+
     HTTPServer(('', PORT), Handler).serve_forever()
