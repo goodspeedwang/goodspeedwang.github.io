@@ -21,9 +21,14 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from email.utils import formatdate, parsedate
 from urllib.parse import unquote, quote
 
+# server.py 所在的目录（存放 photo.html 等应用文件）
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+
 MEDIA_EXTENSIONS = {
     '.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.heic', '.tiff',
     '.mp4', '.mov', '.avi', '.mkv', '.webm', '.m4v',
+    # 应用文件也允许通过 HTTP 访问
+    '.html', '.js', '.css',
 }
 
 PORT = int(sys.argv[1] if len(sys.argv) > 1 else 8080)
@@ -94,7 +99,16 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        url_path = unquote(self.path).strip('/')
+        raw_path = self.path.split('?', 1)[0].split('#', 1)[0]
+        url_path = unquote(raw_path).strip('/')
+
+        # 应用文件（photo.html 等）：从 server.py 同目录读取
+        if url_path == 'photo.html':
+            app_file = os.path.join(APP_DIR, 'photo.html')
+            if os.path.isfile(app_file):
+                self.handle_file(app_file)
+                return
+
         filepath = os.path.realpath(os.path.join(SERVE_DIR, url_path))
 
         # 防止路径穿越
@@ -150,9 +164,8 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def handle_file(self, filepath):
-        # 只允许访问媒体文件和 HTML
         ext = os.path.splitext(filepath)[1].lower()
-        if ext not in MEDIA_EXTENSIONS and ext != '.html':
+        if ext not in MEDIA_EXTENSIONS:
             self.send_error(403)
             return
 
@@ -191,8 +204,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', stat.st_size)
         self.send_header('Last-Modified', last_modified)
         self.send_header('ETag', etag)
-        # 媒体文件缓存一年，HTML 不缓存
-        if ext in MEDIA_EXTENSIONS:
+        # 媒体文件缓存一年，应用文件不缓存
+        if ext in ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.heic', '.tiff',
+                    '.mp4', '.mov', '.avi', '.mkv', '.webm', '.m4v'):
             self.send_header('Cache-Control', 'max-age=31536000, immutable')
         else:
             self.send_header('Cache-Control', 'no-cache')
