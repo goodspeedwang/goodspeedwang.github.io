@@ -2,3 +2,5 @@
 /iptv/test.m3u8
 .DS_Store
 cache/
+photo/*.js
+photo/config.env
