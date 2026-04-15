@@ -2,7 +2,7 @@
     "files.autoSave": "afterDelay",
     "files.exclude": {
         "**/.unotes": true,
-        //".gitignore": true,
+        ".gitignore": true,
         ".DS_Store": true,
         "CNAME": true,
         "favicon.ico": true,
