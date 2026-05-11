@@ -1504,6 +1504,18 @@
                 }
             }
             
+            // Twitter/媒体ID风格：如 HETwR_CbYAIDUBx、HETwR-_bMAAWa2l → 按最后一个 _ 前缀分组
+            // 特征：文件名含下划线，且最后一段为纯字母数字（媒体ID格式）
+            if (nameWithoutExt.includes('_')) {
+                const lastUnderscore = nameWithoutExt.lastIndexOf('_');
+                const lastPart = nameWithoutExt.substring(lastUnderscore + 1);
+                const prefix = nameWithoutExt.substring(0, lastUnderscore);
+                // 最后一段是纯字母+数字（6位以上），且前缀不为空 → 按前缀分组
+                if (lastPart.length >= 6 && /^[A-Za-z0-9\-]+$/.test(lastPart) && prefix.length > 0) {
+                    return prefix;
+                }
+            }
+            
             // 普通图片：第一个点号前的部分
             const firstDotIndex = nameWithoutExt.indexOf('.');
             if (firstDotIndex === -1) {

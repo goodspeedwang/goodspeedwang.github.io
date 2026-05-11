@@ -45,7 +45,7 @@ CORE_METRIC_DEFS = [
     {'key': 'avg_hr',             'label': '平均心率',     'fmt': '{:.0f} bpm', 'lower_is_better': True},
     {'key': 'max_hr',             'label': '最高心率',     'fmt': '{:.0f} bpm'},
     {'key': 'avg_cadence',        'label': '平均步频',     'fmt': '{:.0f} spm', 'lower_is_better': False},
-    {'key': 'avg_stride_length',  'label': '平均步幅',     'fmt': '{:.1f} cm',  'scale': 0.1},
+    {'key': 'avg_stride_length',  'label': '平均步幅',     'fmt': '{:.2f} cm',  'scale': 0.1},
     {'key': 'avg_gct',            'label': '平均触地时间', 'fmt': '{:.0f} ms',  'lower_is_better': True},
     {'key': 'avg_vertical_ratio','label': '平均垂直比例', 'fmt': '{:.1f} %',   'lower_is_better': True},
     {'key': 'elevation_gain',     'label': '累计爬升',     'fmt': '{:.1f} m'},
@@ -173,8 +173,8 @@ def _compute_field_averages(stats):
             # Garmin cadence 以半步为单位，乘 2 得 spm（steps per minute）
             stats[dest_key] = mean * 2
         elif src_key == 'stride_lengths':
-            # stride_length 单位是 mm，显示用 cm
-            stats[dest_key] = mean * 10
+            # stride_length 单位由 CORE_METRIC_DEFS 的 scale 统一处理
+            stats[dest_key] = mean
         else:
             stats[dest_key] = mean
 
@@ -982,6 +982,53 @@ def _better_class(val_a, val_b, lower_is_better):
 # 8. 入口
 # =============================================================================
 
+def update_index_html(stats_newer, date_str, output_file):
+    """
+    将最新一次跑步的核心指标插入 jogging/index.html 表格的第一行。
+
+    如果同名日期已存在则跳过，避免重复。
+    """
+    index_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
+    if not os.path.exists(index_path):
+        print("警告: jogging/index.html 不存在，跳过索引更新")
+        return
+
+    with open(index_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # 防止重复：如果该日期已在表格中则跳过
+    if f'href="{date_str}.html"' in content or f'>{date_str}<' in content:
+        print(f"索引: {date_str} 已存在于 index.html，跳过")
+        return
+
+    # 开始时间：从 session 或首条 record 的 timestamp 提取 HH:MM
+    start_time = _extract_start_time(stats_newer)
+
+    # 构建新行，字段顺序与 index.html 表头一致
+    cells = [f"<td class='date-cell'><a href='{output_file}'>{date_str}</a></td>", f"<td>{start_time}</td>"]
+    for m in CORE_METRIC_DEFS:
+        val = stats_newer.get(m['key'])
+        cells.append(f"<td>{format_metric_value(val, m)}</td>")
+
+    new_row = f"                <tr>\n                    " + ''.join(cells) + "\n                </tr>"
+    # 在 <tbody> 标签后插入新行（作为第一行）
+    content = content.replace('<tbody>', '<tbody>\n' + new_row)
+
+    with open(index_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f"已更新: {index_path}")
+
+
+def _extract_start_time(stats):
+    """从 timestamps 列表中提取开始时间 (HH:MM)，自动转为北京时间 (UTC+8)。"""
+    from datetime import timedelta
+    ts_list = stats.get('timestamps', [])
+    if not ts_list:
+        return '-'
+    t0 = ts_list[0] + timedelta(hours=8)  # UTC → 北京时间
+    return t0.strftime('%H:%M')
+
+
 def main():
     """
     CLI 入口：
@@ -989,8 +1036,10 @@ def main():
       1. 扫描 data/ 目录下的 .fit 文件（按名称排序）
       2. 取最新的两个进行对比
       3. 输出 HTML 报告（以较新日期命名）
+      4. 自动将较新的数据行插入 index.html 索引表
     """
-    data_dir = 'data'
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(script_dir, 'data')
     fit_files = sorted(f for f in os.listdir(data_dir) if f.endswith('.fit'))
 
     if len(fit_files) < 2:
@@ -1008,9 +1057,16 @@ def main():
     raw2 = parse_fit_file(path2)
 
     output_file = f"{max(name1, name2)}.html"
-    print(f"生成: {output_file}")
+    output_path = os.path.join(script_dir, output_file)
+    print(f"生成: {output_path}")
 
-    generate_report(raw1, raw2, name1, name2, output_file)
+    generate_report(raw1, raw2, name1, name2, output_path)
+
+    # 更新 index.html：用较新那次的数据
+    stats_newer = compute_run_stats(raw2['records'])
+    newer_date = max(name1, name2)  # 较新日期
+    update_index_html(stats_newer, newer_date, output_file)
+
     print("完成!")
 
 

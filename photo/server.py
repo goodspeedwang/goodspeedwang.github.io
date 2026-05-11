@@ -128,7 +128,9 @@ def get_etag_for_file(stat):
 class Handler(BaseHTTPRequestHandler):
 
     def log_message(self, fmt, *args):
-        print(f"  {self.address_string()} {fmt % args}")
+        # 解码 URL 编码的路径（%E9%92%9F → 钟欣桐）
+        decoded_args = tuple(unquote(str(a)) if isinstance(a, str) else a for a in args)
+        print(f"  {self.address_string()} {fmt % decoded_args}")
 
     def send_cors(self):
         self.send_header('Access-Control-Allow-Origin', '*')
