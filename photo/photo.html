@@ -1624,7 +1624,7 @@
                     enterFullscreen(img.url, displayName, img.originalIndex);
                 });
             } else {
-                container.innerHTML = `<img id="currentImage" src="${img.url}" alt="" class="loading">`;
+                container.innerHTML = `<a href="${img.url}" target="_blank"><img id="currentImage" src="${img.url}" alt="" class="loading"></a>`;
 
                 const imageEl = document.getElementById('currentImage');
 
