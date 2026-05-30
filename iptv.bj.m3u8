@@ -1,8 +1,7 @@
 #EXTM3U x-tvg-url="http://epg.51zmt.top:8000/e.xml.gz"
 
 # 高清|央视
-
-#EXTINF:-1 tvg-id="1" tvg-name="CCTV1" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" group-title="高清|央视" catchup-source="http://192.168.1.101:5140/rtsp/61.135.88.136/TVOD/88888892/224/3221225880/10000100000000060000000000025506_0.smil?playseek=${start:yyyyMMddHHmmss}-${end:yyyyMMddHHmmss}",CCTV-1综合[1][高清]
+#EXTINF:-1 channel-number="1" tvg-id="1" tvg-name="CCTV-1高清" tvg-logo="https://raw.githubusercontent.com/zzzz0317/beijing-unicom-iptv-playlist/refs/heads/main/img/CCTV/CCTV-1.png" group-title="央视" zz-definition="HD" catchup="default" catchup-source="http://192.168.1.101:5140/rtsp/61.135.88.136/TVOD/88888892/224/3221225880/10000100000000060000000000025506_0.smil?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}",CCTV-1高清
 http://192.168.1.101:5140/rtp/239.3.1.129:8008
 
 #EXTINF:-1 tvg-id="2" tvg-name="CCTV2" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png" group-title="高清|央视",CCTV-2财经[2][高清]
