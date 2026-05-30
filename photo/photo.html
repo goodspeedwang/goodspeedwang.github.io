@@ -907,7 +907,7 @@
                 const hasChildren = item.children !== null && item.children !== undefined && item.children.length > 0;
                 const isExpanded = item.expanded ? 'expanded' : '';
                 const hasSubfolders = item.hasSubfolders;
-                const showToggle = hasChildren || hasSubfolders;
+                const showToggle = !item.loaded || hasChildren || hasSubfolders;
                 const safePath = escapeJsString(path);
                 const safeUrl = escapeJsString(item.url);
                 const safeName = escapeJsString(item.name);
@@ -976,23 +976,43 @@
 
         async function loadFolderPreview(folder, index) {
             try {
-                const html = await fetchFolderHtml(folder.url);
-                const { images: foundImages, folders: subFolders } = extractItems(html, folder.url);
+                const previewInfo = await findPreviewImage(folder.url);
 
-                folder.hasSubfolders = subFolders && subFolders.length > 0;
-
-                if (foundImages.length > 0) {
-                    const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
-                    // 计算图片组数量（而不是图片数量）
-                    const groupCount = new Set(foundImages.map(img => getImageBaseName(img.name))).size;
-                    updateFolderPreview(index, randomImg.url, groupCount);
-                    folder.previewImage = randomImg.url;
-                    folder.imageCount = groupCount;
+                if (previewInfo.imgUrl) {
+                    updateFolderPreview(index, previewInfo.imgUrl, previewInfo.groupCount || '');
+                    folder.previewImage = previewInfo.imgUrl;
+                    if (previewInfo.groupCount) folder.imageCount = previewInfo.groupCount;
                     scheduleTreeRender();
                 }
             } catch (e) {
                 console.error('加载预览失败:', folder.name);
             }
+        }
+
+        /**
+         * 从文件夹或其子文件夹中查找一张预览图
+         * 优先使用自身图片，没有则递归子文件夹（最多2层）
+         */
+        async function findPreviewImage(url, depth = 0) {
+            const html = await fetchFolderHtml(url);
+            const { images: foundImages, folders: subFolders } = extractItems(html, url);
+
+            // 自身有图片 → 直接返回
+            if (foundImages.length > 0) {
+                const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
+                const groupCount = new Set(foundImages.map(img => getImageBaseName(img.name))).size;
+                return { imgUrl: randomImg.url, groupCount };
+            }
+
+            // 没有图片但有子文件夹，且未超过递归深度 → 递归查找
+            if (subFolders && subFolders.length > 0 && depth < 2) {
+                for (const sub of subFolders) {
+                    const result = await findPreviewImage(sub.url, depth + 1);
+                    if (result.imgUrl) return result; // 找到即返回
+                }
+            }
+
+            return { imgUrl: null, groupCount: null };
         }
 
         function updateFolderPreview(index, imgUrl, count) {
@@ -1056,15 +1076,23 @@
                 const html = await fetchFolderHtml(folder.url);
                 const { images: foundImages, folders: foundFolders } = extractItems(html, folder.url);
 
-                const hasSubfolders = foundFolders && foundFolders.length > 0;
+                folder.hasSubfolders = !!(foundFolders && foundFolders.length > 0);
 
                 if (foundImages.length > 0) {
                     const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
                     folder.previewImage = randomImg.url;
-                    // 计算图片组数量（而不是图片数量）
                     folder.imageCount = new Set(foundImages.map(img => getImageBaseName(img.name))).size;
+                } else if (folder.hasSubfolders) {
+                    // 自身无图片时，从子文件夹中找预览
+                    for (const sub of foundFolders) {
+                        const previewInfo = await findPreviewImage(sub.url, 1);
+                        if (previewInfo.imgUrl) {
+                            folder.previewImage = previewInfo.imgUrl;
+                            break;
+                        }
+                    }
                 }
-                folder.hasSubfolders = hasSubfolders;
+                scheduleTreeRender();
 
                 scheduleTreeRender();
             } catch (e) {}
@@ -1268,12 +1296,9 @@
 
         async function loadSubFolderCardPreview(folder, elementId) {
             try {
-                const html = await fetchFolderHtml(folder.url);
-                const { images: foundImages } = extractItems(html, folder.url);
-
-                if (foundImages.length > 0) {
-                    const randomImg = foundImages[Math.floor(Math.random() * foundImages.length)];
-                    updateSubFolderCardPreview(elementId, randomImg.url);
+                const previewInfo = await findPreviewImage(folder.url);
+                if (previewInfo.imgUrl) {
+                    updateSubFolderCardPreview(elementId, previewInfo.imgUrl);
                 }
             } catch (e) {}
         }
