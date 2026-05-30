@@ -907,7 +907,7 @@
                 const hasChildren = item.children !== null && item.children !== undefined && item.children.length > 0;
                 const isExpanded = item.expanded ? 'expanded' : '';
                 const hasSubfolders = item.hasSubfolders;
-                const showToggle = hasChildren || hasSubfolders || !item.loaded;
+                const showToggle = hasChildren || hasSubfolders;
                 const safePath = escapeJsString(path);
                 const safeUrl = escapeJsString(item.url);
                 const safeName = escapeJsString(item.name);
