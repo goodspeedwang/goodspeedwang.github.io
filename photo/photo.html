@@ -1523,40 +1523,42 @@
         // ========== 图片组功能 ==========
         /**
          * 提取图片基础名称（用于分组）
-         * 普通图片：第一个点号前的部分
-         * 小红书图片（包含"来自小红书"）：按用户名分组（下划线分隔的倒数第二个）
-         * 例如：享受皇帝岛的每一天🐚🫧_1_屁屁吃猪_来自小红书网页版 -> 屁屁吃猪
-         *      长发还是短发_3_一二_来自小红书网页版 -> 一二
+         *
+         * 三步流水线处理（不互斥，顺序执行）：
+         * 步骤1：小红书图片（包含"来自小红书网页版"）→ 按用户名分组（下划线分隔的倒数第二个）
+         * 步骤2：去除变体后缀（取第一个点号前的部分）
+         * 步骤3：长文件名前缀合并（步骤2结果>10位且前4位相同 → 按前4位分组）
+         *
+         * 示例：
+         *   IMG001xxxxxxx.jpg        → 步骤2: IMG001xxxxxxx → 步骤3: IMG0
+         *   IMG001xxxxxxx.bikini.jpg → 步骤2: IMG001xxxxxxx → 步骤3: IMG0
+         *   IMG001xxxxxx1.jpg        → 步骤2: IMG001xxxxxx1 → 步骤3: IMG0
+         *   IMG_001.jpg              → 步骤2: IMG_001 (7位≤10) → IMG_001
          */
         function getImageBaseName(filename) {
             const nameWithoutExt = filename.replace(/\.[^.]+$/, '');
-            
-            // 小红书图片特殊处理：按用户名分组（倒数第二个下划线分隔）
-            if (nameWithoutExt.includes('来自小红书')) {
+
+            // 步骤1：小红书图片特殊处理（命中则直接返回，跳过后续步骤）
+            if (nameWithoutExt.includes('来自小红书网页版')) {
                 const parts = nameWithoutExt.split('_');
                 if (parts.length >= 2) {
                     return parts[parts.length - 2]; // 返回倒数第二个（用户名）
                 }
             }
-            
-            // Twitter/媒体ID风格：如 HETwR_CbYAIDUBx、HETwR-_bMAAWa2l → 按最后一个 _ 前缀分组
-            // 特征：文件名含下划线，且最后一段为纯字母数字（媒体ID格式）
-            if (nameWithoutExt.includes('_')) {
-                const lastUnderscore = nameWithoutExt.lastIndexOf('_');
-                const lastPart = nameWithoutExt.substring(lastUnderscore + 1);
-                const prefix = nameWithoutExt.substring(0, lastUnderscore);
-                // 最后一段是纯字母+数字（6位以上），且前缀不为空 → 按前缀分组
-                if (lastPart.length >= 6 && /^[A-Za-z0-9\-]+$/.test(lastPart) && prefix.length > 0) {
-                    return prefix;
-                }
-            }
-            
-            // 普通图片：第一个点号前的部分
+
+            // 步骤2：去除变体后缀（取第一个点号前的部分）
+            let baseName = nameWithoutExt;
             const firstDotIndex = nameWithoutExt.indexOf('.');
-            if (firstDotIndex === -1) {
-                return nameWithoutExt;
+            if (firstDotIndex !== -1) {
+                baseName = nameWithoutExt.substring(0, firstDotIndex);
             }
-            return nameWithoutExt.substring(0, firstDotIndex);
+
+            // 步骤3：长文件名前缀合并（名称>10位且前4位相同 → 按前4位分组）
+            if (baseName.length > 10) {
+                baseName = baseName.substring(0, 4);
+            }
+
+            return baseName;
         }
 
         /**
