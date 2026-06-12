@@ -154,19 +154,21 @@ python3 server.py [端口] [媒体目录]
   - 去除 `.bikini`、`.nude`、`.remove` 等变体标记
   - 例：`IMG001xxxxxxx.bikini.jpg` → `IMG001xxxxxxx`
 
-**步骤 3**：长文件名前缀合并（文件名>10位且前4位完全相同）
-  - 经步骤2处理后的名称超过10位，且前4位相同，则按前4位归为同一组
+**步骤 3**：去除 `IMG_` 开头前缀
+  - 例：`IMG_001` → `001`
+
+**步骤 4**：长文件名前缀合并（文件名>10位且前4位完全相同）
+  - 经步骤3处理后的名称超过10位，且前4位相同，则按前4位归为同一组
   - 例：`IMG001xxxxxxx` 和 `IMG001xxxxxx1` → 前4位均为 `IMG0` → 组: `IMG0`
 
 **综合示例：**
-  IMG001xxxxxxx.jpg        → 步骤2: IMG001xxxxxxx → 步骤3: 组: IMG0
-  IMG001xxxxxxx.bikini.jpg → 步骤2: IMG001xxxxxxx → 步骤3: 组: IMG0
-  IMG001xxxxxxx.nude.png   → 步骤2: IMG001xxxxxxx → 步骤3: 组: IMG0
-  IMG001xxxxxx1.jpg        → 步骤2: IMG001xxxxxx1 → 步骤3: 组: IMG0
+  IMG001xxxxxxx.jpg        → 步骤2: IMG001xxxxxxx → 步骤3: IMG001xxxxxxx → 步骤4: 组: IMG0
+  IMG001xxxxxxx.bikini.jpg → 步骤2: IMG001xxxxxxx → 步骤3: IMG001xxxxxxx → 步骤4: 组: IMG0
+  IMG001xxxxxxx.nude.png   → 步骤2: IMG001xxxxxxx → 步骤3: IMG001xxxxxxx → 步骤4: 组: IMG0
+  IMG001xxxxxx1.jpg        → 步骤2: IMG001xxxxxx1 → 步骤3: IMG001xxxxxx1 → 步骤4: 组: IMG0
 
-  短文件名（不触发步骤3）：
-  IMG_001.jpg       → 步骤2: IMG_001 (7位≤10) → 组: IMG_001
-  IMG_001.bikini.jpg → 步骤2: IMG_001 (7位≤10) → 组: IMG_001
+  IMG_001.jpg       → 步骤2: IMG_001 → 步骤3: 001 (3位≤10) → 组: 001
+  IMG_001.bikini.jpg → 步骤2: IMG_001 → 步骤3: 001 (3位≤10) → 组: 001
 
 #### 组内排序规则
 

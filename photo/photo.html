@@ -1524,16 +1524,18 @@
         /**
          * 提取图片基础名称（用于分组）
          *
-         * 三步流水线处理（不互斥，顺序执行）：
+         * 四步流水线处理（不互斥，顺序执行）：
          * 步骤1：小红书图片（包含"来自小红书网页版"）→ 按用户名分组（下划线分隔的倒数第二个）
          * 步骤2：去除变体后缀（取第一个点号前的部分）
-         * 步骤3：长文件名前缀合并（步骤2结果>10位且前4位相同 → 按前4位分组）
+         * 步骤3：去除 IMG_ 开头前缀
+         * 步骤4：长文件名前缀合并（步骤3结果>10位且前4位相同 → 按前4位分组）
          *
          * 示例：
-         *   IMG001xxxxxxx.jpg        → 步骤2: IMG001xxxxxxx → 步骤3: IMG0
-         *   IMG001xxxxxxx.bikini.jpg → 步骤2: IMG001xxxxxxx → 步骤3: IMG0
-         *   IMG001xxxxxx1.jpg        → 步骤2: IMG001xxxxxx1 → 步骤3: IMG0
-         *   IMG_001.jpg              → 步骤2: IMG_001 (7位≤10) → IMG_001
+         *   IMG001xxxxxxx.jpg        → 步骤2: IMG001xxxxxxx → 步骤3: IMG001xxxxxxx → 步骤4: IMG0
+         *   IMG001xxxxxxx.bikini.jpg → 步骤2: IMG001xxxxxxx → 步骤3: IMG001xxxxxxx → 步骤4: IMG0
+         *   IMG001xxxxxx1.jpg        → 步骤2: IMG001xxxxxx1 → 步骤3: IMG001xxxxxx1 → 步骤4: IMG0
+         *   IMG_001.jpg              → 步骤2: IMG_001 → 步骤3: 001 → 步骤4: 001
+         *   IMG_001.bikini.jpg       → 步骤2: IMG_001 → 步骤3: 001 → 步骤4: 001
          */
         function getImageBaseName(filename) {
             const nameWithoutExt = filename.replace(/\.[^.]+$/, '');
@@ -1553,7 +1555,12 @@
                 baseName = nameWithoutExt.substring(0, firstDotIndex);
             }
 
-            // 步骤3：长文件名前缀合并（名称>10位且前4位相同 → 按前4位分组）
+            // 步骤3：去除 IMG_ 开头前缀
+            if (baseName.startsWith('IMG_')) {
+                baseName = baseName.substring(4);
+            }
+
+            // 步骤4：长文件名前缀合并（名称>10位且前4位相同 → 按前4位分组）
             if (baseName.length > 10) {
                 baseName = baseName.substring(0, 4);
             }
