@@ -9,6 +9,7 @@ photo/
 ├── photo.html            # 前端单页应用（Gallery UI）
 ├── server.py             # Python HTTP 服务器（后端）
 ├── generate_info.py       # 目录扫描 & JSON 数据生成脚本
+├── delete_file.py         # 文件删除工具（同步删除磁盘文件和 JSON 记录）
 ├── config.env             # 源目录配置（不提交 git）
 ├── start-photo-server.sh  # 一键启动脚本
 ├── girl.json              # 生成的目录数据
@@ -199,7 +200,25 @@ python3 server.py [端口] [媒体目录]
 # 默认端口 8080，媒体目录指向 /Volumes/Home1/Photo/...
 ```
 
-### 5. `config.env` — 配置文件
+### 5. `delete_file.py` — 文件删除工具
+
+从 `girl.json` 中搜索匹配的文件，确认后同时删除磁盘文件和 JSON 记录。
+
+**用法：**
+```bash
+python3 delete_file.py "_1_Yolanda颖颖吖"
+```
+
+**流程：**
+1. 读取 `girl.json`，递归遍历所有 `images` 节点
+2. 用 `sourceDir` + 相对路径构建完整文件路径
+3. 按关键字匹配文件名
+4. 多个匹配时列出选择序号
+5. 确认后删除磁盘文件
+6. 从 JSON 中移除对应记录并更新 `_stats` 统计
+7. 写回 `girl.json`
+
+### 6. `config.env` — 配置文件
 
 定义源目录列表，供 `generate_info.py` 读取。
 
