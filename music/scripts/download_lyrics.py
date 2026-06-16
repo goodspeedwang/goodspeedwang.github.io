@@ -453,7 +453,7 @@ def download_lyrics(albums, dry_run=False):
                 print(f"  [将下载] {song_name}")
                 continue
 
-            print(f"  [下载] {song_name}...", end=" ")
+            print(f"  [下载] {song_name}...", end=" ", flush=True)
 
             # 搜索歌词（依次尝试 lrclib, 网易云, lyrics.ovh）
             lyrics = search_lyrics(song_name, artist, album_name)
@@ -468,10 +468,10 @@ def download_lyrics(albums, dry_run=False):
                     source = " [lyrics.ovh]"
                 else:
                     source = " [lrclib]"
-                print(f"✓{source}")
+                print(f"✓{source}", flush=True)
                 success += 1
             else:
-                print(f"✗ (未找到)")
+                print(f"✗ (未找到)", flush=True)
                 failed += 1
 
             # 请求间隔
@@ -486,6 +486,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='下载歌词')
     parser.add_argument('--dry-run', action='store_true', help='只显示将要下载的歌词，不实际下载')
+    parser.add_argument('--album', type=str, help='指定专辑名称（支持部分匹配），不指定则处理全部专辑')
     args = parser.parse_args()
 
     print("=" * 50)
@@ -510,6 +511,15 @@ def main():
         return
 
     print(f"找到 {len(albums)} 张专辑")
+
+    # 按专辑名筛选
+    if args.album:
+        keyword = args.album
+        albums = [a for a in albums if keyword in a['name']]
+        if not albums:
+            print(f"错误: 未找到包含「{keyword}」的专辑")
+            return
+        print(f"筛选后匹配 {len(albums)} 张专辑")
 
     # 下载歌词
     print(f"\n开始{'扫描' if args.dry_run else '下载'}歌词...")
