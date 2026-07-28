@@ -1,7 +1,8 @@
 #!/bin/bash
 SERVER_PORT=8080
 TARGET_DIR="/Volumes/Home1/Photo/other/weiyun/Photo/girl"
-SERVER_DIR="/Users/goodspeedwang/Document/code/private/goodspeedwang.github.io/photo"
+SERVER_DIR="/Users/goodspeed/Documents/code/private/goodspeedwang.github.io/photo"
+
 
 echo "🚀 启动 HTTP 服务器 (端口 $SERVER_PORT)..."
 # 先杀掉占用端口的旧进程
