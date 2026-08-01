@@ -771,6 +771,8 @@
         const htmlCache = new Map();
         let pendingTreeRender = false;
         const FOLDER_LOAD_TIMEOUT_MS = 60000;
+        let pendingVideoPreload = null;
+        let pendingFullscreenPreload = null;
 
         // ========== 主题管理 ==========
         function initTheme() {
@@ -1442,6 +1444,90 @@
             return group.images.findIndex(gImg => gImg.url === img.url);
         }
 
+        // 查找与图片严格匹配的 mp4 文件（相同文件名，扩展名替换为 .mp4）
+        function getMatchingMp4(groupImages, imageFile) {
+            const mp4Name = imageFile.name.replace(/\.(jpg|jpeg|png|gif|webp|bmp|heic|tiff)$/i, '.mp4');
+            if (mp4Name === imageFile.name) return null;
+            return groupImages.find(img => img.name === mp4Name && /\.mp4$/i.test(img.name)) || null;
+        }
+
+        // 获取过滤后的组内图片列表，排除有匹配图片的 mp4 文件
+        function getFilteredGroupImages(currentImg) {
+            const group = getImageGroup(currentImg);
+            return group.filter(img => {
+                if (/\.mp4$/i.test(img.name)) {
+                    const mp4Base = img.name.replace(/\.mp4$/i, '');
+                    const hasMatching = group.some(other =>
+                        other !== img &&
+                        other.name.startsWith(mp4Base + '.') &&
+                        /\.(jpg|jpeg|png|gif|webp|bmp|heic|tiff)$/i.test(other.name)
+                    );
+                    return !hasMatching;
+                }
+                return true;
+            });
+        }
+
+        // 在容器中渲染视频 + 绑定控件事件
+        function renderVideoInContainer(container, img, displayName, skipFailed) {
+            container.innerHTML = `
+                <div class="video-wrapper">
+                    <video id="currentVideo" src="${img.url}" autoplay muted loop playsinline
+                           style="max-width: calc(100vw - 360px); max-height: calc(100vh - 150px); border-radius: 12px; box-shadow: 0 20px 60px var(--shadow-color);">
+                    </video>
+                    <div class="video-controls">
+                        <button class="video-mute-btn muted" id="videoMuteBtn">静音</button>
+                        <div class="video-progress" style="flex: 1;">
+                            <div class="video-progress-bar" id="videoProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const videoEl = document.getElementById('currentVideo');
+            const progressBar = document.getElementById('videoProgressBar');
+            const muteBtn = document.getElementById('videoMuteBtn');
+
+            videoEl.onloadeddata = () => {
+                failedCount = 0;
+            };
+
+            videoEl.onerror = () => {
+                failedCount++;
+                if (!skipFailed && failedCount < images.length) {
+                    setTimeout(() => showImage(currentIndex + 1, true), 500);
+                }
+            };
+
+            videoEl.addEventListener('timeupdate', function() {
+                if (videoEl.duration) {
+                    const progress = (videoEl.currentTime / videoEl.duration) * 100;
+                    progressBar.style.width = progress + '%';
+                }
+            });
+
+            videoEl.addEventListener('ended', function() {
+                progressBar.style.width = '0%';
+            });
+
+            muteBtn.addEventListener('click', function() {
+                videoEl.muted = !videoEl.muted;
+                if (videoEl.muted) {
+                    muteBtn.classList.remove('unmuted');
+                    muteBtn.classList.add('muted');
+                    muteBtn.textContent = '静音';
+                } else {
+                    muteBtn.classList.remove('muted');
+                    muteBtn.classList.add('unmuted');
+                    muteBtn.textContent = '有声';
+                }
+            });
+
+            videoEl.addEventListener('dblclick', function() {
+                enterFullscreen(img.url, displayName, img.originalIndex);
+            });
+        }
+
         /**
          * 构建图片组
          *
@@ -1623,65 +1709,16 @@
             const displayName = img.name.replace(/\.[^.]+$/, '').replace(/_来自小红书.*$/, '');
             const isVideo = /\.mp4$/i.test(img.name);
 
+            // 取消之前的视频预加载
+            if (pendingVideoPreload) {
+                pendingVideoPreload.cancel = true;
+                pendingVideoPreload = null;
+            }
+
             container.classList.add('centered');
 
             if (isVideo) {
-                container.innerHTML = `
-                    <div class="video-wrapper">
-                        <video id="currentVideo" src="${img.url}" autoplay muted loop playsinline
-                               style="max-width: calc(100vw - 360px); max-height: calc(100vh - 150px); border-radius: 12px; box-shadow: 0 20px 60px var(--shadow-color);">
-                        </video>
-                        <div class="video-controls">
-                            <button class="video-mute-btn muted" id="videoMuteBtn">静音</button>
-                            <div class="video-progress" style="flex: 1;">
-                                <div class="video-progress-bar" id="videoProgressBar"></div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                const videoEl = document.getElementById('currentVideo');
-                const progressBar = document.getElementById('videoProgressBar');
-                const muteBtn = document.getElementById('videoMuteBtn');
-
-                videoEl.onloadeddata = () => {
-                    failedCount = 0;
-                };
-
-                videoEl.onerror = () => {
-                    failedCount++;
-                    if (!skipFailed && failedCount < images.length) {
-                        setTimeout(() => showImage(currentIndex + 1, true), 500);
-                    }
-                };
-
-                videoEl.addEventListener('timeupdate', function() {
-                    if (videoEl.duration) {
-                        const progress = (videoEl.currentTime / videoEl.duration) * 100;
-                        progressBar.style.width = progress + '%';
-                    }
-                });
-
-                videoEl.addEventListener('ended', function() {
-                    progressBar.style.width = '0%';
-                });
-
-                muteBtn.addEventListener('click', function() {
-                    videoEl.muted = !videoEl.muted;
-                    if (videoEl.muted) {
-                        muteBtn.classList.remove('unmuted');
-                        muteBtn.classList.add('muted');
-                        muteBtn.textContent = '静音';
-                    } else {
-                        muteBtn.classList.remove('muted');
-                        muteBtn.classList.add('unmuted');
-                        muteBtn.textContent = '有声';
-                    }
-                });
-
-                videoEl.addEventListener('dblclick', function() {
-                    enterFullscreen(img.url, displayName, img.originalIndex);
-                });
+                renderVideoInContainer(container, img, displayName, skipFailed);
             } else {
                 container.innerHTML = `<a href="${img.url}" target="_blank"><img id="currentImage" src="${img.url}" alt="" class="loading"></a>`;
 
@@ -1703,6 +1740,38 @@
                 imageEl.addEventListener('dblclick', function() {
                     enterFullscreen(img.url, displayName, img.originalIndex);
                 });
+
+                // 检查是否有严格匹配的 mp4 文件，有则在后台预加载
+                const fullGroup = getImageGroup(img);
+                const matchingMp4 = getMatchingMp4(fullGroup, img);
+                if (matchingMp4) {
+                    const preloadState = { cancel: false };
+                    pendingVideoPreload = preloadState;
+
+                    const preloadVideo = document.createElement('video');
+                    preloadVideo.src = matchingMp4.url;
+                    preloadVideo.muted = true;
+                    preloadVideo.loop = true;
+                    preloadVideo.playsInline = true;
+                    preloadVideo.style.display = 'none';
+                    document.body.appendChild(preloadVideo);
+
+                    preloadVideo.oncanplaythrough = () => {
+                        if (preloadState.cancel) {
+                            preloadVideo.remove();
+                            return;
+                        }
+                        // mp4 加载完成，替换图片展示为视频
+                        renderVideoInContainer(container, matchingMp4, displayName, skipFailed);
+                        pendingVideoPreload = null;
+                        preloadVideo.remove();
+                    };
+
+                    preloadVideo.onerror = () => {
+                        preloadVideo.remove();
+                        pendingVideoPreload = null;
+                    };
+                }
             }
 
             const overlay = document.getElementById('imageOverlay');
@@ -1741,7 +1810,7 @@
             const oldPanel = document.getElementById('imageGroupPanel');
             if (oldPanel) oldPanel.remove();
 
-            const group = getImageGroup(currentImg);
+            const group = getFilteredGroupImages(currentImg);
 
             // 如果只有一张图片，不显示缩略图面板
             if (group.length <= 1) return;
@@ -1887,6 +1956,12 @@
             const overlay = document.getElementById('fullscreenOverlay');
             const isVideo = /\.mp4$/i.test(img.name);
 
+            // 取消之前的全屏视频预加载
+            if (pendingFullscreenPreload) {
+                pendingFullscreenPreload.cancel = true;
+                pendingFullscreenPreload = null;
+            }
+
             if (isVideo) {
                 overlay.innerHTML = `
                     <video id="fullscreenVideo" src="${img.url}" autoplay muted loop playsinline
@@ -1895,6 +1970,41 @@
                 `;
             } else {
                 overlay.innerHTML = `<img id="fullscreenImage" src="${img.url}" alt="" style="max-width: 100vw; max-height: 100vh; object-fit: contain;">`;
+
+                // 检查是否有严格匹配的 mp4，后台预加载后替换
+                const fullGroup = getImageGroup(img);
+                const matchingMp4 = getMatchingMp4(fullGroup, img);
+                if (matchingMp4) {
+                    const preloadState = { cancel: false };
+                    pendingFullscreenPreload = preloadState;
+
+                    const preloadVideo = document.createElement('video');
+                    preloadVideo.src = matchingMp4.url;
+                    preloadVideo.muted = true;
+                    preloadVideo.loop = true;
+                    preloadVideo.playsInline = true;
+                    preloadVideo.style.display = 'none';
+                    document.body.appendChild(preloadVideo);
+
+                    preloadVideo.oncanplaythrough = () => {
+                        if (preloadState.cancel) {
+                            preloadVideo.remove();
+                            return;
+                        }
+                        overlay.innerHTML = `
+                            <video id="fullscreenVideo" src="${matchingMp4.url}" autoplay muted loop playsinline
+                                   style="max-width: 100vw; max-height: 100vh; object-fit: contain;">
+                            </video>
+                        `;
+                        pendingFullscreenPreload = null;
+                        preloadVideo.remove();
+                    };
+
+                    preloadVideo.onerror = () => {
+                        preloadVideo.remove();
+                        pendingFullscreenPreload = null;
+                    };
+                }
             }
         }
 
@@ -1963,7 +2073,7 @@
                 e.preventDefault();
                 failedCount = 0;
                 const currentImg = images[currentIndex];
-                const group = getImageGroup(currentImg);
+                const group = getFilteredGroupImages(currentImg);
 
                 // 组内有多张图片时，切换组内图片
                 if (group.length > 1) {
