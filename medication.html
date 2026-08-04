@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>刘阿姨每日服药时间表</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f3f6;
+            color: #2c3e50;
+            line-height: 1.5;
+            padding: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 18px 12px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 12px rgba(30,60,114,0.2);
+        }
+        .header h1 { font-size: 22px; font-weight: bold; }
+        .header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+        .time-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 6px solid #1e3c72;
+        }
+        /* 时间节点个性化颜色 */
+        .card-530  { border-left-color: #e67e22; }
+        .card-600  { border-left-color: #f1c40f; }
+        .card-1100 { border-left-color: #2ecc71; }
+        .card-1200 { border-left-color: #1abc9c; }
+        .card-1400 { border-left-color: #3498db; } /* 水飞蓟宾专属卡 */
+        .card-1600 { border-left-color: #9b59b6; }
+        .card-1700 { border-left-color: #8e44ad; }
+        .card-2200 { border-left-color: #34495e; } /* 水飞蓟宾专属卡 */
+
+        .time-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f4f6f9;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+        .time-title { font-size: 18px; font-weight: bold; color: #1a252f; }
+        .time-tag {
+            font-size: 12px;
+            background: #eef2f7;
+            color: #555;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .med-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px dashed #edf2f7;
+        }
+        .med-item:last-child { border-bottom: none; }
+        .med-checkbox {
+            margin-top: 4px;
+            margin-right: 10px;
+            transform: scale(1.3);
+            accent-color: #2a5298;
+        }
+        .med-content { flex: 1; }
+        .med-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .med-name { font-size: 16px; font-weight: bold; color: #2c3e50; }
+        .med-dose {
+            font-size: 15px;
+            font-weight: bold;
+            color: #d35400;
+            background: #fff5eb;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .med-note { font-size: 13px; color: #e74c3c; margin-top: 3px; line-height: 1.35; }
+        .special-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            font-size: 11px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-right: 4px;
+        }
+        .notice-box {
+            background: #fff8f8;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+        .notice-box h3 { color: #dc2626; font-size: 16px; margin-bottom: 6px; }
+        .notice-box ul { padding-left: 18px; font-size: 13px; color: #991b1b; }
+        .notice-box li { margin-bottom: 5px; }
+        .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>💊 刘阿姨每日服药时间表</h1>
+        <p>适合早作息 · 护肝防胃 · 吃完打勾</p>
+    </div>
+
+    <!-- 05:30 早餐前 -->
+    <div class="time-card card-530">
+        <div class="time-header">
+            <div class="time-title">🌅 05:30 早餐前（晨起空腹）</div>
+            <div class="time-tag">起床准备</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">艾司奥美拉唑镁肠溶片</span>
+                    <span class="med-dose">2 片</span>
+                </div>
+                <div class="med-note"><span class="special-badge">护胃</span>整片水送服，切勿咬碎或压碎</div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">甘草酸二铵肠溶胶囊</span>
+                    <span class="med-dose">3 粒</span>
+                </div>
+                <div class="med-note">护肝药：整粒温水送服</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 06:00 早餐后 -->
+    <div class="time-card card-600">
+        <div class="time-header">
+            <div class="time-title">🥣 06:00 早餐后（吃完即服）</div>
+            <div class="time-tag">早饭后</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">醋酸泼尼松片（激素）</span>
+                    <span class="med-dose">5 片</span>
+                </div>
+                <div class="med-note"><span class="special-badge">重要</span>必须早饭后一次性吞服！（8/19起改4片，不可自行停药）</div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">水飞蓟宾葡甲胺片</span>
+                    <span class="med-dose">2 片</span>
+                </div>
+                <div class="med-note"><span class="special-badge">第1次</span>⏰ 每 8 小时服一次</div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">熊去氧胆酸胶囊</span>
+                    <span class="med-dose">1 粒</span>
+                </div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">B族维生素 / 叶酸 / 甲钴胺</span>
+                    <span class="med-dose">按原剂量</span>
+                </div>
+                <div class="med-note">营养末梢神经，缓解手发烫</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11:00 午餐前 -->
+    <div class="time-card card-1100">
+        <div class="time-header">
+            <div class="time-title">☀️ 11:00 午餐前</div>
+            <div class="time-tag">午饭前</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">甘草酸二铵肠溶胶囊</span>
+                    <span class="med-dose">3 粒</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12:00 午餐后 -->
+    <div class="time-card card-1200">
+        <div class="time-header">
+            <div class="time-title">🍱 12:00 午餐后</div>
+            <div class="time-tag">午饭后</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">熊去氧胆酸胶囊</span>
+                    <span class="med-dose">1 粒</span>
+                </div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">碳酸钙D3片（I）</span>
+                    <span class="med-dose">1 片</span>
+                </div>
+                <div class="med-note">避开早晨耐信，午餐后嚼服吸收最好！</div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">双歧杆菌三联活菌</span>
+                    <span class="med-dose">按原剂量</span>
+                </div>
+                <div class="med-note">⚠️ 必须用温水/凉开水（＜40℃），热水会烫死活菌</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14:00 下午加服（水飞蓟宾专卡） -->
+    <div class="time-card card-1400">
+        <div class="time-header">
+            <div class="time-title">⏰ 14:00 下午加服</div>
+            <div class="time-tag">间隔8小时</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">水飞蓟宾葡甲胺片</span>
+                    <span class="med-dose">2 片</span>
+                </div>
+                <div class="med-note"><span class="special-badge">第2次</span>距离第一次（06:00）已满 8 小时，吃点饼干或水送服</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16:00 晚餐前 -->
+    <div class="time-card card-1600">
+        <div class="time-header">
+            <div class="time-title">🌙 16:00 晚餐前</div>
+            <div class="time-tag">晚饭前</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">甘草酸二铵肠溶胶囊</span>
+                    <span class="med-dose">3 粒</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 17:00 晚餐后 -->
+    <div class="time-card card-1700">
+        <div class="time-header">
+            <div class="time-title">🍲 17:00 晚餐后</div>
+            <div class="time-tag">晚饭后</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">熊去氧胆酸胶囊</span>
+                    <span class="med-dose">1 粒</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 22:00 睡前加服（水飞蓟宾专卡） -->
+    <div class="time-card card-2200">
+        <div class="time-header">
+            <div class="time-title">🌙 22:00 睡前加服</div>
+            <div class="time-tag">间隔8小时</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">水飞蓟宾葡甲胺片</span>
+                    <span class="med-dose">2 片</span>
+                </div>
+                <div class="med-note"><span class="special-badge">第3次</span>距离第二次（14:00）已满 8 小时，睡前水送服</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 随时/化痰/黏膜 -->
+    <div class="time-card card-1200" style="border-left-color: #8e44ad;">
+        <div class="time-header">
+            <div class="time-title">💧 随时 / 睡前护理</div>
+            <div class="time-tag">按需/随餐间</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">乙酰半胱氨酸（化痰）</span>
+                    <span class="med-dose">按原剂量</span>
+                </div>
+                <div class="med-note">温开水冲服，上下午痰多时喝</div>
+            </div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">康复新液</span>
+                    <span class="med-dose">每日 3 次</span>
+                </div>
+                <div class="med-note">⚠️ 每次10-20ml，含漱后慢咽。<b>服药后30分钟内禁水禁食！</b></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关键提醒 -->
+    <div class="notice-box">
+        <h3>🚨 贴心注意事项</h3>
+        <ul>
+            <li><b>泼尼松（激素）：</b> 早上 06:00 吃完早餐后必须吃完，绝对不能漏服或突然停药！[cite: 2]</li>
+            <li><b>已停用药物：</b> 阿托伐他汀、褪黑素、氯化钾缓释片均已停用[cite: 2]。</li>
+            <li><b>手烫护理：</b> 睡前用凉湿毛巾敷手，双手下垫个小枕头[cite: 2]。</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        吃完一项可在前方小方框打勾标记哦 祝阿姨早日康复！
+    </div>
+
+</body>
+</html>
