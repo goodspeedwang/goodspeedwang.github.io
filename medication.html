@@ -35,14 +35,14 @@
             border-left: 6px solid #1e3c72;
         }
         /* 时间节点个性化颜色 */
-        .card-530  { border-left-color: #e67e22; }
-        .card-600  { border-left-color: #f1c40f; }
-        .card-1100 { border-left-color: #2ecc71; }
-        .card-1200 { border-left-color: #1abc9c; }
-        .card-1400 { border-left-color: #3498db; }
-        .card-1600 { border-left-color: #9b59b6; }
-        .card-1700 { border-left-color: #8e44ad; }
-        .card-2200 { border-left-color: #34495e; }
+        .card-500  { border-left-color: #e67e22; }
+        .card-530  { border-left-color: #f1c40f; }
+        .card-1030 { border-left-color: #2ecc71; }
+        .card-1130 { border-left-color: #1abc9c; }
+        .card-1330 { border-left-color: #3498db; }
+        .card-1530 { border-left-color: #9b59b6; }
+        .card-1630 { border-left-color: #8e44ad; }
+        .card-2100 { border-left-color: #34495e; }
 
         .time-header {
             display: flex;
@@ -117,13 +117,13 @@
 
     <div class="header">
         <h1>💊 刘阿姨每日服药时间表</h1>
-        <p>适合早作息 · 护肝防胃 · 吃完打勾</p>
+        <p>适合早作息（05:00起床 / 21:00前服完早睡）</p>
     </div>
 
-    <!-- 05:30 早餐前 -->
-    <div class="time-card card-530">
+    <!-- 05:00 晨起空腹 -->
+    <div class="time-card card-500">
         <div class="time-header">
-            <div class="time-title">🌅 05:30 早餐前（晨起空腹）</div>
+            <div class="time-title">🌅 05:00 早餐前（晨起空腹）</div>
             <div class="time-tag">起床准备</div>
         </div>
         <div class="med-item">
@@ -148,10 +148,10 @@
         </div>
     </div>
 
-    <!-- 06:00 早餐后 -->
-    <div class="time-card card-600">
+    <!-- 05:30 早餐后 -->
+    <div class="time-card card-530">
         <div class="time-header">
-            <div class="time-title">🥣 06:00 早餐后（吃完即服）</div>
+            <div class="time-title">🥣 05:30 早餐后（吃完即服）</div>
             <div class="time-tag">早饭后</div>
         </div>
         <div class="med-item">
@@ -171,7 +171,7 @@
                     <span class="med-name">水飞蓟宾葡甲胺片</span>
                     <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">第1次</span>⏰ 每 8 小时服一次</div>
+                <div class="med-note"><span class="special-badge">第1次</span>⏰ 每 7.5~8 小时服一次</div>
             </div>
         </div>
         <div class="med-item">
@@ -195,10 +195,10 @@
         </div>
     </div>
 
-    <!-- 11:00 午餐前 -->
-    <div class="time-card card-1100">
+    <!-- 10:30 午餐前 -->
+    <div class="time-card card-1030">
         <div class="time-header">
-            <div class="time-title">☀️ 11:00 午餐前</div>
+            <div class="time-title">☀️ 10:30 午餐前</div>
             <div class="time-tag">午饭前</div>
         </div>
         <div class="med-item">
@@ -212,10 +212,10 @@
         </div>
     </div>
 
-    <!-- 12:00 午餐后 -->
-    <div class="time-card card-1200">
+    <!-- 11:30 午餐后 -->
+    <div class="time-card card-1130">
         <div class="time-header">
-            <div class="time-title">🍱 12:00 午餐后</div>
+            <div class="time-title">🍱 11:30 午餐后</div>
             <div class="time-tag">午饭后</div>
         </div>
         <div class="med-item">
@@ -249,10 +249,10 @@
         </div>
     </div>
 
-    <!-- 14:00 下午加服（水飞蓟宾专卡） -->
-    <div class="time-card card-1400">
+    <!-- 13:30 下午加服（水飞蓟宾专卡） -->
+    <div class="time-card card-1330">
         <div class="time-header">
-            <div class="time-title">⏰ 14:00 下午加服</div>
+            <div class="time-title">⏰ 13:30 下午加服</div>
             <div class="time-tag">间隔8小时</div>
         </div>
         <div class="med-item">
@@ -262,15 +262,15 @@
                     <span class="med-name">水飞蓟宾葡甲胺片</span>
                     <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">第2次</span>距离第一次（06:00）已满 8 小时，吃点饼干或水送服</div>
+                <div class="med-note"><span class="special-badge">第2次</span>距离第一次（05:30）已满 8 小时，吃点小点心或水送服</div>
             </div>
         </div>
     </div>
 
-    <!-- 16:00 晚餐前 -->
-    <div class="time-card card-1600">
+    <!-- 15:30 晚餐前 -->
+    <div class="time-card card-1530">
         <div class="time-header">
-            <div class="time-title">🌙 16:00 晚餐前</div>
+            <div class="time-title">🌙 15:30 晚餐前</div>
             <div class="time-tag">晚饭前</div>
         </div>
         <div class="med-item">
@@ -284,10 +284,10 @@
         </div>
     </div>
 
-    <!-- 17:00 晚餐后 -->
-    <div class="time-card card-1700">
+    <!-- 16:30 晚餐后 -->
+    <div class="time-card card-1630">
         <div class="time-header">
-            <div class="time-title">🍲 17:00 晚餐后</div>
+            <div class="time-title">🍲 16:30 晚餐后</div>
             <div class="time-tag">晚饭后</div>
         </div>
         <div class="med-item">
@@ -301,11 +301,11 @@
         </div>
     </div>
 
-    <!-- 22:00 睡前加服（水飞蓟宾专卡） -->
-    <div class="time-card card-2200">
+    <!-- 21:00 睡前加服（水飞蓟宾专卡） -->
+    <div class="time-card card-2100">
         <div class="time-header">
-            <div class="time-title">🌙 22:00 睡前加服</div>
-            <div class="time-tag">间隔8小时</div>
+            <div class="time-title">🌙 21:00 睡前加服（准备休息）</div>
+            <div class="time-tag">间隔7.5小时</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -314,15 +314,15 @@
                     <span class="med-name">水飞蓟宾葡甲胺片</span>
                     <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">第3次</span>距离第二次（14:00）已满 8 小时，睡前水送服</div>
+                <div class="med-note"><span class="special-badge">第3次</span>距离第二次（13:30）已满 7.5 小时，吃完即可安心入睡</div>
             </div>
         </div>
     </div>
 
     <!-- 随时/化痰/黏膜 -->
-    <div class="time-card card-1200" style="border-left-color: #8e44ad;">
+    <div class="time-card card-1130" style="border-left-color: #8e44ad;">
         <div class="time-header">
-            <div class="time-title">💧 随时 / 睡前护理</div>
+            <div class="time-title">💧 随时 / 护理</div>
             <div class="time-tag">按需/随餐间</div>
         </div>
         <div class="med-item">
@@ -351,7 +351,7 @@
     <div class="notice-box">
         <h3>🚨 贴心注意事项</h3>
         <ul>
-            <li><b>泼尼松（激素）：</b> 早上 06:00 吃完早餐后必须吃完，绝对不能漏服或突然停药！[cite: 2]</li>
+            <li><b>泼尼松（激素）：</b> 早上 05:30 吃完早餐后必须吃完，绝对不能漏服或突然停药！[cite: 2]</li>
             <li><b>已停用药物：</b> 甲钴胺、复合维生素B、阿托伐他汀、褪黑素、氯化钾缓释片均已停用[cite: 2]。</li>
             <li><b>手烫护理：</b> 睡前用凉湿毛巾敷手，双手下垫个小枕头[cite: 2]。</li>
         </ul>
