@@ -13,17 +13,6 @@ const MusicPlayerApp = (() => {
     };
 
     const DEFAULT_DURATION_TEXT = '--:--';
-
-    // 不同歌手的歌曲存放于各自的 Vercel Blob 存储中
-    const ARTIST_BLOB_BASE = {
-        '周华健': 'https://0xlm8uqjv8qtn203.public.blob.vercel-storage.com/',
-        '刘德华': 'https://wftdocmnnhwfvneqv.public.blob.vercel-storage.com/',
-        'Beyond': 'https://85qxmlossfixattp.public.blob.vercel-storage.com/',
-        '張學友': 'https://mwx1ewcqu2vdb5ar.public.blob.vercel-storage.com/',
-        '郭富城': 'https://im4rgoab8ff5rcxf.public.blob.vercel-storage.com/',
-        '鄭智化': 'https://ouc5s8i3jx5accxl.public.blob.vercel-storage.com/',
-    };
-
     const audio = new Audio();
     const songDurations = typeof SONG_DURATIONS === 'object' && SONG_DURATIONS !== null ? SONG_DURATIONS : {};
 
@@ -242,8 +231,7 @@ const MusicPlayerApp = (() => {
 
         const currentAlbum = getCurrentAlbum();
         const currentSong = getCurrentSongName();
-        const baseUrl = getArtistBlobUrl(currentAlbum.artist);
-        audio.src = `${baseUrl}${currentAlbum.name}/${currentSong}.mp3`;
+        audio.src = `songs/${buildSongFilePath(currentAlbum.name, currentSong)}`;
 
         syncDocumentTitle();
         persistPlaybackState();
@@ -528,15 +516,6 @@ const MusicPlayerApp = (() => {
 
     function buildSongDurationElementId(songIndex) {
         return `song-duration-${songIndex}`;
-    }
-
-    function getArtistBlobUrl(artist) {
-        const url = ARTIST_BLOB_BASE[artist];
-        if (!url) {
-            console.warn(`未找到歌手 "${artist}" 对应的存储地址`);
-            return '';
-        }
-        return url;
     }
 
     function getCurrentAlbum() {
