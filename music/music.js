@@ -13,6 +13,7 @@ const MusicPlayerApp = (() => {
     };
 
     const DEFAULT_DURATION_TEXT = '--:--';
+    const REMOTE_BASE_URL = 'https://0xlm8uqjv8qtn203.public.blob.vercel-storage.com/';
     const audio = new Audio();
     const songDurations = typeof SONG_DURATIONS === 'object' && SONG_DURATIONS !== null ? SONG_DURATIONS : {};
 
@@ -73,6 +74,19 @@ const MusicPlayerApp = (() => {
         audio.ontimeupdate = handleAudioTimeUpdate;
         audio.onloadedmetadata = handleAudioMetadataLoaded;
         audio.onended = playNextSong;
+        // 安全兜底：暂停后恢复播放时，若本地文件加载失败则回退到远程
+        audio.onerror = () => {
+            const currentSrc = audio.src;
+            if (!currentSrc || currentSrc.startsWith(REMOTE_BASE_URL)) return;
+            // 从 src 中提取相对路径，构建远程 URL
+            const idx = currentSrc.indexOf('songs/');
+            if (idx === -1) return;
+            const remoteUrl = REMOTE_BASE_URL + currentSrc.substring(idx);
+            audio.src = remoteUrl;
+            if (state.isPlaying) {
+                audio.play().catch((err) => console.error('远程播放失败:', err));
+            }
+        };
     }
 
     function restoreLastPlaybackState() {
@@ -231,14 +245,28 @@ const MusicPlayerApp = (() => {
 
         const currentAlbum = getCurrentAlbum();
         const currentSong = getCurrentSongName();
-        audio.src = `songs/${buildSongFilePath(currentAlbum.name, currentSong)}`;
+        const filePath = buildSongFilePath(currentAlbum.name, currentSong);
+        const localPath = `songs/${filePath}`;
+        const remotePath = `${REMOTE_BASE_URL}songs/${filePath}`;
 
         syncDocumentTitle();
         persistPlaybackState();
         refreshNowPlayingPanel();
         updateSongSelectionHighlight();
 
-        audio.play().then(() => {
+        // 先尝试本地播放，失败则回退到远程
+        function tryPlay(url, isRetry) {
+            audio.src = url;
+            return audio.play().catch((err) => {
+                if (!isRetry) {
+                    console.warn('本地文件加载失败，尝试远程:', err.message);
+                    return tryPlay(remotePath, true);
+                }
+                throw err;
+            });
+        }
+
+        tryPlay(localPath, false).then(() => {
             state.isPlaying = true;
             updatePlayPauseButton();
         }).catch((error) => {
