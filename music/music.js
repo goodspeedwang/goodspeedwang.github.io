@@ -231,7 +231,7 @@ const MusicPlayerApp = (() => {
 
         const currentAlbum = getCurrentAlbum();
         const currentSong = getCurrentSongName();
-        audio.src = `songs/${buildSongFilePath(currentAlbum.name, currentSong)}`;
+        audio.src = `https://songs.goodspeedwang.dpdns.org/${encodeURIComponent(currentAlbum.name)}/${encodeURIComponent(currentSong)}.mp3`;
 
         syncDocumentTitle();
         persistPlaybackState();
