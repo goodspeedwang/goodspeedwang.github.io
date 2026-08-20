@@ -517,22 +517,32 @@
                         saveState(state);
                         updateProgress();
                     } else {
-                        // 取消打勾：需要确认
-                        cb.checked = true; // 先保持勾选，等确认后再决定
-                        var mask = document.getElementById("confirmMask");
-                        mask.classList.add("show");
-                        document.getElementById("btnOk").onclick = function () {
-                            state[i] = false;
-                            applyVisual(item, false);
-                            saveState(state);
-                            updateProgress();
-                            mask.classList.remove("show");
-                        };
-                        document.getElementById("btnCancel").onclick = function () {
-                            mask.classList.remove("show"); // 保留勾选
-                        };
+                        // 取消打勾：需要确认，先保持勾选，弹出确认框
+                        cb.checked = true;
+                        pendingUncheck = { cb: cb, item: item, index: i };
+                        document.getElementById("confirmMask").classList.add("show");
                     }
                 });
+            });
+
+            // 待取消的项（用闭包外的变量记录，避免多个勾选项互相覆盖事件）
+            var pendingUncheck = null;
+            var mask = document.getElementById("confirmMask");
+            document.getElementById("btnOk").addEventListener("click", function () {
+                if (pendingUncheck) {
+                    state[pendingUncheck.index] = false;
+                    pendingUncheck.cb.checked = false;
+                    applyVisual(pendingUncheck.item, false);
+                    saveState(state);
+                    updateProgress();
+                    pendingUncheck = null;
+                }
+                mask.classList.remove("show");
+            });
+            document.getElementById("btnCancel").addEventListener("click", function () {
+                // 保留勾选
+                pendingUncheck = null;
+                mask.classList.remove("show");
             });
 
             updateProgress();
