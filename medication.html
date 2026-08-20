@@ -111,6 +111,69 @@
         .notice-box ul { padding-left: 18px; font-size: 13px; color: #991b1b; }
         .notice-box li { margin-bottom: 5px; }
         .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+
+        /* 已服用（打勾）状态 */
+        .med-item.checked { background: #e8f8f0; border-radius: 10px; }
+        .med-item.checked .med-name { color: #1e824c; text-decoration: line-through; }
+        .med-item.checked .med-content::after {
+            content: "✅ 已服用";
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            background: #27ae60;
+            padding: 2px 10px;
+            border-radius: 20px;
+            vertical-align: middle;
+        }
+        /* 顶部已完成进度条 */
+        .progress-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #fff;
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+        .progress-text { font-size: 15px; font-weight: bold; color: #1a252f; display: flex; justify-content: space-between; align-items: center; }
+        .progress-date { font-size: 12px; color: #888; font-weight: normal; }
+        .progress-track { height: 12px; background: #edf2f7; border-radius: 20px; overflow: hidden; margin-top: 8px; }
+        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2ecc71, #27ae60); transition: width 0.4s ease; }
+        .progress-done { color: #27ae60; }
+        .progress-all-done { text-align: center; color: #27ae60; font-weight: bold; margin-top: 6px; font-size: 15px; }
+        /* 确认弹窗 */
+        .confirm-mask {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 100;
+            align-items: center; justify-content: center;
+        }
+        .confirm-mask.show { display: flex; }
+        .confirm-box {
+            background: #fff;
+            width: 80%; max-width: 320px;
+            border-radius: 14px;
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+        .confirm-box p { font-size: 16px; color: #2c3e50; margin-bottom: 18px; line-height: 1.5; }
+        .confirm-btns { display: flex; gap: 12px; }
+        .confirm-btns button {
+            flex: 1;
+            padding: 11px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-cancel { background: #ecf0f1; color: #555; }
+        .btn-ok { background: #e74c3c; color: #fff; }
     </style>
 </head>
 <body>
@@ -118,6 +181,16 @@
     <div class="header">
         <h1>💊 刘阿姨每日服药时间表</h1>
         <p>适合早作息（05:00起床 / 21:00前服完早睡）</p>
+    </div>
+
+    <!-- 当日完成进度 -->
+    <div class="progress-bar">
+        <div class="progress-text">
+            <span>今日服药进度 <span id="progressCount" class="progress-done">0 / 0</span></span>
+            <span class="progress-date" id="progressDate"></span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-all-done" id="progressAllDone" style="display:none;">🎉 今天的药都吃完啦，棒极了！</div>
     </div>
 
     <!-- 05:00 晨起空腹 -->
@@ -360,6 +433,125 @@
     <div class="footer">
         吃完一项可在前方小方框打勾标记哦 祝阿姨早日康复！
     </div>
+
+    <!-- 取消打勾确认弹窗 -->
+    <div class="confirm-mask" id="confirmMask">
+        <div class="confirm-box">
+            <p>确定要取消这条“已服用”吗？<br>小心别把已经吃过的药又重复吃哦。</p>
+            <div class="confirm-btns">
+                <button class="btn-cancel" id="btnCancel">不用，保留</button>
+                <button class="btn-ok" id="btnOk">确定取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var STORAGE_KEY = "medication_checked_v1";
+            var DATE_KEY = "medication_date_v1";
+
+            // 今天的日期字符串（当地时区），用于判断是否需要重置
+            function todayStr() {
+                var d = new Date();
+                return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+            }
+
+            // 读取已保存状态，跨天则自动重置
+            function loadState() {
+                var savedDate = localStorage.getItem(DATE_KEY);
+                var today = todayStr();
+                if (savedDate !== today) {
+                    // 已过 0 点，新的一天：清空勾选记录
+                    localStorage.setItem(DATE_KEY, today);
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify({}));
+                    return {};
+                }
+                try {
+                    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function saveState(state) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+                localStorage.setItem(DATE_KEY, todayStr());
+            }
+
+            // 给每个勾选项一个稳定 id（按出现顺序）
+            var checkboxes = Array.prototype.slice.call(document.querySelectorAll(".med-checkbox"));
+            var state = loadState();
+
+            function applyVisual(item, checked) {
+                if (checked) {
+                    item.classList.add("checked");
+                } else {
+                    item.classList.remove("checked");
+                }
+            }
+
+            function updateProgress() {
+                var total = checkboxes.length;
+                var done = 0;
+                checkboxes.forEach(function (cb, i) {
+                    if (state[i]) done++;
+                });
+                document.getElementById("progressCount").textContent = done + " / " + total;
+                var pct = total ? Math.round(done / total * 100) : 0;
+                document.getElementById("progressFill").style.width = pct + "%";
+                document.getElementById("progressDate").textContent = todayStr() + " 记录";
+                document.getElementById("progressAllDone").style.display = (total > 0 && done === total) ? "block" : "none";
+            }
+
+            // 初始化勾选状态
+            checkboxes.forEach(function (cb, i) {
+                var item = cb.closest(".med-item");
+                cb.checked = !!state[i];
+                applyVisual(item, !!state[i]);
+
+                cb.addEventListener("change", function () {
+                    if (cb.checked) {
+                        // 打勾：记住
+                        state[i] = true;
+                        applyVisual(item, true);
+                        saveState(state);
+                        updateProgress();
+                    } else {
+                        // 取消打勾：需要确认
+                        cb.checked = true; // 先保持勾选，等确认后再决定
+                        var mask = document.getElementById("confirmMask");
+                        mask.classList.add("show");
+                        document.getElementById("btnOk").onclick = function () {
+                            state[i] = false;
+                            applyVisual(item, false);
+                            saveState(state);
+                            updateProgress();
+                            mask.classList.remove("show");
+                        };
+                        document.getElementById("btnCancel").onclick = function () {
+                            mask.classList.remove("show"); // 保留勾选
+                        };
+                    }
+                });
+            });
+
+            updateProgress();
+
+            // 页面加载后，定位到第一个未打勾的服药项，方便患者接着吃
+            var firstUncheckedIndex = -1;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (!state[i]) { firstUncheckedIndex = i; break; }
+            }
+            if (firstUncheckedIndex !== -1) {
+                var target = checkboxes[firstUncheckedIndex].closest(".time-card");
+                // 延迟一点，确保布局完成；滚动到所属时间卡片顶部，保证时间标题露出来
+                setTimeout(function () {
+                    var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                }, 300);
+            }
+        })();
+    </script>
 
 </body>
 </html>
