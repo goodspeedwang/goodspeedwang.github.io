@@ -3,8 +3,8 @@ import re
 # 配置：基准文件 + {输出文件: 代理前缀} 的 KV 映射（可直接修改）
 BASE_FILE = "base.m3u8"
 PROXIES = {
-    "iptv.m3u8": "http://192.168.10.30:5140/",   # 南边
-    "iptv.north.m3u8": "http://192.168.1.101:5140/",  # 北边
+    "me.m3u8": "http://192.168.10.30:5140/",   # 南边
+    "parents.m3u8": "http://192.168.1.101:5140/",  # 北边
 }
 
 def convert(text, proxy):
