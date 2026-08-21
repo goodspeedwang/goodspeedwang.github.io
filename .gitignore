@@ -4,3 +4,4 @@
 cache/
 photo/*.json
 photo/config.env
+temp.*
