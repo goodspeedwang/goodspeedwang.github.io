@@ -8,14 +8,21 @@ OUT_HTML = "temp.html"                                    # 输出文件
 BASE_URL = "http://192.168.10.30:5140/rtp/"               # rtp 地址前缀（用于生成可点击链接）
 
 def build_map(text):
-    """Build dict addr -> channel name，支持 rtp/ 和 rtp:// 两种格式。text 为 m3u8 文本内容。"""
+    """Build dict addr -> channel name。
+
+    规则：
+    - 仅以 #EXTINF 开头的行（真正的指令，非注释）作为频道名。
+    - 仅非 # 开头的行（排除被 # 注释掉的行）作为 rtp 地址。
+    - 支持 rtp/ 和 rtp:// 两种格式。
+    """
     result = {}
     name = None
     for line in text.splitlines():
+        line = line.rstrip("\n")
         if line.startswith("#EXTINF"):
             m = re.search(r",(.+)$", line)
             name = m.group(1).strip() if m else "?"
-        else:
+        elif not line.startswith("#"):
             m = re.search(r"rtp[://]+(\d+\.\d+\.\d+\.\d+:\d+)", line)
             if m and name is not None:
                 result.setdefault(m.group(1), name)
@@ -65,36 +72,39 @@ html.append(".count{font-size:13px;color:#888;font-weight:normal}")
 html.append("table{width:100%;border-collapse:collapse;font-size:14px}")
 html.append("th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #f0f0f0}")
 html.append("th{color:#666;font-weight:600}")
-html.append(".addr{font-family:ui-monospace,Menlo,monospace;color:#c7254e;cursor:pointer;user-select:all}")
-html.append(".addr:hover{text-decoration:underline}")
-html.append(".addr.copied{color:#3a9c3a}")
+html.append(".addr{font-family:ui-monospace,Menlo,monospace;color:#c7254e;word-break:break-all}")
+html.append(".copy{display:inline-block;margin-left:6px;cursor:pointer;user-select:none;color:#888;font-size:13px}")
+html.append(".copy:hover{color:#3a9c3a}")
+html.append(".copy.copied{color:#3a9c3a}")
 html.append("@media(max-width:720px){.wrap{flex-direction:column}}")
 html.append("</style></head><body>")
 html.append("<script>")
-html.append("function copyAddr(el){")
-html.append("  const t=el.getAttribute('data-addr');")
+html.append("function copyUrl(btn){")
+html.append("  const t=btn.getAttribute('data-url');")
 html.append("  navigator.clipboard.writeText(t).then(()=>{")
-html.append("    const old=el.getAttribute('data-addr'); el.textContent='已复制: '+t; el.classList.add('copied');")
-html.append("    setTimeout(()=>{el.textContent=old; el.classList.remove('copied');}, 1200);")
+html.append("    const old=btn.textContent; btn.textContent='✓'; btn.classList.add('copied');")
+html.append("    setTimeout(()=>{btn.textContent=old; btn.classList.remove('copied');}, 1200);")
 html.append("  });")
 html.append("}")
 html.append("</script>")
 html.append(f"<h1>IPTV 新节目单对比：远程 vs {BASE_FILE}</h1>")
-html.append(f"<p>对比基于 rtp 地址（形如 <code>239.3.1.63:8116</code>），列出远程相对本地新出现 / 消失的电台。</p>")
+html.append(f"<p>对比基于 rtp 地址（形如 <code>239.3.1.63:8116</code>），列出远程相对本地新出现 / 消失的电台。点击 📋 复制带代理的地址。</p>")
 html.append("<div class=\"wrap\">")
 
 html.append("<div class=\"card\">")
 html.append(f"<h2>远程新出现的电台 <span class=\"count\">{len(new_addrs)} 条</span></h2>")
 html.append("<table><tr><th>#</th><th>频道</th><th>rtp 地址</th></tr>")
 for i, addr in enumerate(new_addrs, 1):
-    html.append(f"<tr><td>{i}</td><td>{remote.get(addr,'?')}</td><td class=\"addr\" data-addr=\"{addr}\" ondblclick=\"copyAddr(this)\" title=\"双击复制\">{addr}</td></tr>")
+    url = BASE_URL + addr
+    html.append(f"<tr><td>{i}</td><td>{remote.get(addr,'?')}</td><td class=\"addr\">{url}<span class=\"copy\" data-url=\"{url}\" onclick=\"copyUrl(this)\" title=\"复制\">📋</span></td></tr>")
 html.append("</table></div>")
 
 html.append("<div class=\"card\">")
 html.append(f"<h2>本地有但远程消失的 <span class=\"count\">{len(gone_addrs)} 条</span></h2>")
 html.append("<table><tr><th>#</th><th>频道</th><th>rtp 地址</th></tr>")
 for i, addr in enumerate(gone_addrs, 1):
-    html.append(f"<tr><td>{i}</td><td>{local.get(addr,'?')}</td><td class=\"addr\" data-addr=\"{addr}\" ondblclick=\"copyAddr(this)\" title=\"双击复制\">{addr}</td></tr>")
+    url = BASE_URL + addr
+    html.append(f"<tr><td>{i}</td><td>{local.get(addr,'?')}</td><td class=\"addr\">{url}<span class=\"copy\" data-url=\"{url}\" onclick=\"copyUrl(this)\" title=\"复制\">📋</span></td></tr>")
 html.append("</table></div>")
 
 html.append("</div></body></html>")
