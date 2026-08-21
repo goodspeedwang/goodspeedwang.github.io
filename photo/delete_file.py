@@ -37,19 +37,49 @@ def collect_files_from_json(node, parent_path=""):
 
 
 def remove_image_from_json(node, filename):
-    """从 JSON 树中删除指定文件名的图片记录，返回是否删除成功"""
-    # 从当前节点 images 中查找并删除
-    for i, img in enumerate(node.get("images", [])):
+    """从 JSON 树中删除所有指定文件名的图片记录，返回删除总数"""
+    removed = 0
+
+    # 从当前节点 images 中查找并删除所有同名记录
+    kept = []
+    for img in node.get("images", []):
         if img["name"] == filename:
-            node["images"].pop(i)
-            return True
+            removed += 1
+        else:
+            kept.append(img)
+    node["images"] = kept
 
     # 递归子文件夹
     for folder in node.get("folders", []):
-        if remove_image_from_json(folder, filename):
-            return True
+        removed += remove_image_from_json(folder, filename)
 
-    return False
+    return removed
+
+
+def parse_selection(text, max_count):
+    """解析用户输入的多个序号选择，支持 '1 3 5'、'1,3,5'、'1-4' 等格式，返回去重后的 0 基索引列表"""
+    selected = set()
+    for part in text.replace(',', ' ').split():
+        part = part.strip()
+        if '-' in part:
+            try:
+                start_s, end_s = part.split('-', 1)
+                start, end = int(start_s), int(end_s)
+                if start > end:
+                    start, end = end, start
+                for n in range(start, end + 1):
+                    if 1 <= n <= max_count:
+                        selected.add(n - 1)
+            except ValueError:
+                continue
+        else:
+            try:
+                n = int(part)
+                if 1 <= n <= max_count:
+                    selected.add(n - 1)
+            except ValueError:
+                continue
+    return sorted(selected)
 
 
 def update_stats(node):
@@ -113,28 +143,50 @@ def main():
             size_mb = os.path.getsize(path) / (1024 * 1024) if os.path.isfile(path) else 0
             print(f"  [{i}] {path}  ({size_mb:.1f} MB)")
         print()
+        print("可一次性删除多个: 输入序号用空格/逗号分隔，如 '1 3 5' 或 '1-4'")
+        print("输入 'all' 删除全部，输入 '0' 或留空取消")
         try:
-            choice = input("输入序号选择要删除的文件 (0 取消): ").strip()
-            idx = int(choice)
-            if idx == 0:
-                print("已取消")
-                sys.exit(0)
-            if idx < 1 or idx > len(results):
-                print("无效序号")
-                sys.exit(1)
-            target_name, target_path = results[idx - 1]
-        except (ValueError, EOFError):
+            choice = input("请选择: ").strip()
+        except EOFError:
+            choice = ''
+
+        if not choice or choice == '0':
             print("已取消")
             sys.exit(0)
+
+        if choice.lower() == 'all':
+            selected = list(range(len(results)))
+        else:
+            selected = parse_selection(choice, len(results))
+            if not selected:
+                print("无效的选择")
+                sys.exit(1)
     else:
-        target_name, target_path = results[0]
+        selected = [0]
 
-    if not os.path.isfile(target_path):
-        print(f"文件不存在: {target_path}")
-        sys.exit(1)
+    total_size = 0
+    existing = []
+    missing = []
+    for idx in selected:
+        name, path = results[idx]
+        if os.path.isfile(path):
+            total_size += os.path.getsize(path)
+            existing.append((idx, name, path))
+        else:
+            missing.append((idx, name, path))
 
-    size_mb = os.path.getsize(target_path) / (1024 * 1024)
-    print(f"\n将删除: {target_path}  ({size_mb:.1f} MB)")
+    if missing:
+        print("\n以下文件不存在，将被跳过:")
+        for idx, name, path in missing:
+            print(f"  [{idx + 1}] {path}")
+
+    if not existing:
+        print("没有可删除的文件")
+        sys.exit(0)
+
+    print(f"\n将删除 {len(existing)} 个文件，共 {total_size / (1024 * 1024):.1f} MB:")
+    for idx, name, path in existing:
+        print(f"  [{idx + 1}] {path}")
 
     try:
         confirm = input("确认删除? (y/N): ").strip().lower()
@@ -142,16 +194,24 @@ def main():
         confirm = ''
 
     if confirm == 'y':
-        # 删除磁盘文件
-        os.remove(target_path)
-        # 从 JSON 中移除记录
-        if remove_image_from_json(data, target_name):
+        removed_records = 0
+        deleted_files = 0
+        for idx, name, path in existing:
+            try:
+                os.remove(path)
+                deleted_files += 1
+            except OSError as e:
+                print(f"删除失败: {path} ({e})")
+                continue
+            # 从 JSON 中移除所有同名记录
+            removed_records += remove_image_from_json(data, name)
+
+        if removed_records > 0:
             update_stats(data)
             with open(JSON_FILE, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
-            print(f"已删除文件及 JSON 记录")
-        else:
-            print(f"已删除文件（JSON 中未找到对应记录）")
+
+        print(f"已删除 {deleted_files} 个文件，从 JSON 移除 {removed_records} 条记录")
     else:
         print("已取消")
 
