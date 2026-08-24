@@ -34,15 +34,12 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             border-left: 6px solid #1e3c72;
         }
-        /* 时间节点个性化颜色 */
         .card-500  { border-left-color: #e67e22; }
         .card-530  { border-left-color: #f1c40f; }
         .card-1030 { border-left-color: #2ecc71; }
         .card-1130 { border-left-color: #1abc9c; }
-        .card-1330 { border-left-color: #3498db; }
         .card-1530 { border-left-color: #9b59b6; }
         .card-1630 { border-left-color: #8e44ad; }
-        .card-2100 { border-left-color: #34495e; }
 
         .time-header {
             display: flex;
@@ -52,7 +49,7 @@
             padding-bottom: 8px;
             margin-bottom: 10px;
         }
-        .time-title { font-size: 18px; font-weight: bold; color: #1a252f; }
+        .time-title { font-size: 17px; font-weight: bold; color: #1a252f; }
         .time-tag {
             font-size: 12px;
             background: #eef2f7;
@@ -112,7 +109,6 @@
         .notice-box li { margin-bottom: 5px; }
         .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
 
-        /* 已服用（打勾）状态 */
         .med-item.checked { background: #e8f8f0; border-radius: 10px; }
         .med-item.checked .med-name { color: #1e824c; text-decoration: line-through; }
         .med-item.checked .med-content::after {
@@ -127,7 +123,6 @@
             border-radius: 20px;
             vertical-align: middle;
         }
-        /* 顶部已完成进度条 */
         .progress-bar {
             position: sticky;
             top: 0;
@@ -144,7 +139,7 @@
         .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2ecc71, #27ae60); transition: width 0.4s ease; }
         .progress-done { color: #27ae60; }
         .progress-all-done { text-align: center; color: #27ae60; font-weight: bold; margin-top: 6px; font-size: 15px; }
-        /* 确认弹窗 */
+
         .confirm-mask {
             display: none;
             position: fixed; inset: 0;
@@ -180,7 +175,7 @@
 
     <div class="header">
         <h1>💊 刘阿姨每日服药时间表</h1>
-        <p>适合早作息（05:00起床 / 21:00前服完早睡）</p>
+        <p>弹性作息版（随起随吃，顺延安排即可）</p>
     </div>
 
     <!-- 当日完成进度 -->
@@ -193,11 +188,11 @@
         <div class="progress-all-done" id="progressAllDone" style="display:none;">🎉 今天的药都吃完啦，棒极了！</div>
     </div>
 
-    <!-- 05:00 晨起空腹 -->
+    <!-- 晨起空腹区间 -->
     <div class="time-card card-500">
         <div class="time-header">
-            <div class="time-title">🌅 05:00 早餐前（晨起空腹）</div>
-            <div class="time-tag">起床准备</div>
+            <div class="time-title">🌅 05:00 ~ 07:30 晨起空腹</div>
+            <div class="time-tag">起床即服</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -206,7 +201,7 @@
                     <span class="med-name">艾司奥美拉唑镁肠溶片</span>
                     <span class="med-dose">1 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">护胃</span>一日一次，整片水送服，切勿咬碎</div>
+                <div class="med-note"><span class="special-badge">护胃</span>一日一次，整片水送服，吃完隔20分钟再吃早饭</div>
             </div>
         </div>
         <div class="med-item">
@@ -221,11 +216,11 @@
         </div>
     </div>
 
-    <!-- 05:30 早餐后 -->
+    <!-- 早餐后区间 -->
     <div class="time-card card-530">
         <div class="time-header">
-            <div class="time-title">🥣 05:30 早餐后（吃完即服）</div>
-            <div class="time-tag">早饭后</div>
+            <div class="time-title">🥣 05:30 ~ 08:00 早餐后</div>
+            <div class="time-tag">吃完早饭即服</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -235,16 +230,6 @@
                     <span class="med-dose">4 片</span>
                 </div>
                 <div class="med-note"><span class="special-badge">重要</span>必须早饭后一次性吞服！（不可自行停药）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">水飞蓟宾葡甲胺片</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="special-badge">第1次</span>⏰ 每 7.5~8 小时服一次</div>
             </div>
         </div>
         <div class="med-item">
@@ -268,10 +253,10 @@
         </div>
     </div>
 
-    <!-- 10:30 午餐前 -->
+    <!-- 午餐前 -->
     <div class="time-card card-1030">
         <div class="time-header">
-            <div class="time-title">☀️ 10:30 午餐前</div>
+            <div class="time-title">☀️ 10:30 ~ 11:00 午餐前 30 分钟</div>
             <div class="time-tag">午饭前</div>
         </div>
         <div class="med-item">
@@ -285,10 +270,10 @@
         </div>
     </div>
 
-    <!-- 11:30 午餐后 -->
+    <!-- 午餐后 -->
     <div class="time-card card-1130">
         <div class="time-header">
-            <div class="time-title">🍱 11:30 午餐后</div>
+            <div class="time-title">🍱 11:30 ~ 12:30 午餐后</div>
             <div class="time-tag">午饭后</div>
         </div>
         <div class="med-item">
@@ -322,28 +307,10 @@
         </div>
     </div>
 
-    <!-- 13:30 下午加服（水飞蓟宾专卡） -->
-    <div class="time-card card-1330">
-        <div class="time-header">
-            <div class="time-title">⏰ 13:30 下午加服</div>
-            <div class="time-tag">间隔8小时</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">水飞蓟宾葡甲胺片</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="special-badge">第2次</span>距离第一次（05:30）已满 8 小时，吃点小点心或水送服</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 15:30 晚餐前 -->
+    <!-- 晚餐前 -->
     <div class="time-card card-1530">
         <div class="time-header">
-            <div class="time-title">🌙 15:30 晚餐前</div>
+            <div class="time-title">🌙 16:00 ~ 17:00 晚餐前 30 分钟</div>
             <div class="time-tag">晚饭前</div>
         </div>
         <div class="med-item">
@@ -357,10 +324,10 @@
         </div>
     </div>
 
-    <!-- 16:30 晚餐后 -->
+    <!-- 晚餐后 -->
     <div class="time-card card-1630">
         <div class="time-header">
-            <div class="time-title">🍲 16:30 晚餐后</div>
+            <div class="time-title">🍲 17:00 ~ 18:30 晚餐后</div>
             <div class="time-tag">晚饭后</div>
         </div>
         <div class="med-item">
@@ -370,24 +337,6 @@
                     <span class="med-name">熊去氧胆酸胶囊</span>
                     <span class="med-dose">1 粒</span>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 21:00 睡前加服（水飞蓟宾专卡） -->
-    <div class="time-card card-2100">
-        <div class="time-header">
-            <div class="time-title">🌙 21:00 睡前加服（准备休息）</div>
-            <div class="time-tag">间隔7.5小时</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">水飞蓟宾葡甲胺片</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="special-badge">第3次</span>距离第二次（13:30）已满 7.5 小时，吃完即可安心入睡</div>
             </div>
         </div>
     </div>
@@ -424,9 +373,9 @@
     <div class="notice-box">
         <h3>🚨 贴心注意事项</h3>
         <ul>
-            <li><b>泼尼松（激素）：</b> 早上 05:30 吃完早餐后必须吃完，绝对不能漏服或突然停药！[cite: 2]</li>
-            <li><b>已停用药物：</b> 甲钴胺、复合维生素B、阿托伐他汀、褪黑素、氯化钾缓释片均已停用[cite: 2]。</li>
-            <li><b>手烫护理：</b> 睡前用凉湿毛巾敷手，双手下垫个小枕头[cite: 2]。</li>
+            <li><b>泼尼松（激素）：</b> 早上吃完早餐后必须吃完，绝对不能漏服或突然停药！</li>
+            <li><b>已停用药物：</b> 水飞蓟宾葡甲胺片、甲钴胺、复合维生素B、阿托伐他汀、褪黑素、氯化钾缓释片均已停用。</li>
+            <li><b>手烫护理：</b> 睡前用凉湿毛巾敷手，双手下垫个小枕头。</li>
         </ul>
     </div>
 
@@ -447,21 +396,18 @@
 
     <script>
         (function () {
-            var STORAGE_KEY = "medication_checked_v1";
-            var DATE_KEY = "medication_date_v1";
+            var STORAGE_KEY = "medication_checked_v3";
+            var DATE_KEY = "medication_date_v3";
 
-            // 今天的日期字符串（当地时区），用于判断是否需要重置
             function todayStr() {
                 var d = new Date();
                 return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
             }
 
-            // 读取已保存状态，跨天则自动重置
             function loadState() {
                 var savedDate = localStorage.getItem(DATE_KEY);
                 var today = todayStr();
                 if (savedDate !== today) {
-                    // 已过 0 点，新的一天：清空勾选记录
                     localStorage.setItem(DATE_KEY, today);
                     localStorage.setItem(STORAGE_KEY, JSON.stringify({}));
                     return {};
@@ -478,7 +424,6 @@
                 localStorage.setItem(DATE_KEY, todayStr());
             }
 
-            // 给每个勾选项一个稳定 id（按出现顺序）
             var checkboxes = Array.prototype.slice.call(document.querySelectorAll(".med-checkbox"));
             var state = loadState();
 
@@ -503,7 +448,6 @@
                 document.getElementById("progressAllDone").style.display = (total > 0 && done === total) ? "block" : "none";
             }
 
-            // 初始化勾选状态
             checkboxes.forEach(function (cb, i) {
                 var item = cb.closest(".med-item");
                 cb.checked = !!state[i];
@@ -511,13 +455,11 @@
 
                 cb.addEventListener("change", function () {
                     if (cb.checked) {
-                        // 打勾：记住
                         state[i] = true;
                         applyVisual(item, true);
                         saveState(state);
                         updateProgress();
                     } else {
-                        // 取消打勾：需要确认，先保持勾选，弹出确认框
                         cb.checked = true;
                         pendingUncheck = { cb: cb, item: item, index: i };
                         document.getElementById("confirmMask").classList.add("show");
@@ -525,7 +467,6 @@
                 });
             });
 
-            // 待取消的项（用闭包外的变量记录，避免多个勾选项互相覆盖事件）
             var pendingUncheck = null;
             var mask = document.getElementById("confirmMask");
             document.getElementById("btnOk").addEventListener("click", function () {
@@ -540,21 +481,18 @@
                 mask.classList.remove("show");
             });
             document.getElementById("btnCancel").addEventListener("click", function () {
-                // 保留勾选
                 pendingUncheck = null;
                 mask.classList.remove("show");
             });
 
             updateProgress();
 
-            // 页面加载后，定位到第一个未打勾的服药项，方便患者接着吃
             var firstUncheckedIndex = -1;
             for (var i = 0; i < checkboxes.length; i++) {
                 if (!state[i]) { firstUncheckedIndex = i; break; }
             }
             if (firstUncheckedIndex !== -1) {
                 var target = checkboxes[firstUncheckedIndex].closest(".time-card");
-                // 延迟一点，确保布局完成；滚动到所属时间卡片顶部，保证时间标题露出来
                 setTimeout(function () {
                     var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
                     window.scrollTo({ top: y, behavior: "smooth" });
