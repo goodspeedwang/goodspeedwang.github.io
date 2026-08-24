@@ -182,7 +182,7 @@ const MusicPlayerApp = (() => {
             songItem.className = 'song-item';
             songItem.innerHTML = `
                 <div class="song-number">${songIndex + 1}</div>
-                <div class="song-title">${songName}</div>
+                <div class="song-title">${toDisplaySongName(songName)}</div>
                 <div class="song-duration" id="${buildSongDurationElementId(songIndex)}">${getKnownSongDuration(currentAlbum.name, songName) || DEFAULT_DURATION_TEXT}</div>
             `;
             songItem.addEventListener('click', () => playSong(songIndex));
@@ -231,7 +231,7 @@ const MusicPlayerApp = (() => {
 
         const currentAlbum = getCurrentAlbum();
         const currentSong = getCurrentSongName();
-        audio.src = `https://songs.goodspeedwang.dpdns.org/${encodeURIComponent(currentAlbum.name)}/${encodeURIComponent(currentSong)}.mp3`;
+        audio.src = `https://songs.goodspeedwang.dpdns.org/${encodeURIComponent(sanitizeFileName(currentAlbum.name))}/${encodeURIComponent(sanitizeFileName(toDisplaySongName(currentSong)))}.mp3`;
 
         syncDocumentTitle();
         persistPlaybackState();
@@ -447,7 +447,7 @@ const MusicPlayerApp = (() => {
         const currentSong = getCurrentSongName();
 
         elements.nowPlayingCover.src = currentAlbum.cover;
-        elements.nowPlayingName.textContent = currentSong;
+        elements.nowPlayingName.textContent = toDisplaySongName(currentSong);
         elements.nowPlayingArtist.textContent = currentAlbum.artist;
 
         updateDurationDisplay(getKnownSongDuration(currentAlbum.name, currentSong));
@@ -503,7 +503,7 @@ const MusicPlayerApp = (() => {
 
     function syncDocumentTitle() {
         const currentAlbum = getCurrentAlbum();
-        document.title = `${getCurrentSongName()} - ${currentAlbum.artist}`;
+        document.title = `${toDisplaySongName(getCurrentSongName())} - ${currentAlbum.artist}`;
     }
 
     function buildSongFilePath(albumName, songName) {
@@ -541,6 +541,11 @@ const MusicPlayerApp = (() => {
     function sanitizeFileName(name) {
         // 音频文件目录里用下划线替代了路径分隔符，这里保持一致。
         return name.replace(/\//g, '_');
+    }
+
+    // 播放/展示时动态把歌名中的 "1/2" 规范为文件名所用的 "1_2"
+    function toDisplaySongName(songName) {
+        return songName.replace(/1\/2/g, '1_2');
     }
 
     function formatTime(seconds) {
