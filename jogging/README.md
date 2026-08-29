@@ -63,6 +63,8 @@
 
 - **心率差异一致性**：每公里 HR diff 使用 `round(new) - round(old)` 而非原始浮点差，确保与显示的整数值一致
 - **配速过滤**：速度转配速时只接受 `[5, 10] min/km]` 范围，排除 GPS 漂移/停止走动异常值
+- **配速取整**：`format_pace` 先 `min_per_km * 60` 再 `round`。若写成先取整再乘 60，
+  `6.3` 会因浮点表示误差（`6.3 - 6 = 0.2999…`）算出 `377.9999…` 秒而被截断成 `6'17"`
 - **Y 轴分位数**：图表 Y 轴基于 5%-95% 分位数计算范围，避免极端值拉偏
 - **CSS 类选择器**：累积列使用显式 `class="col-cum"` 而非 `nth-child`，避免 `rowspan=2` 表头导致的列偏移问题
 - **图表单一来源**：`<canvas>` 由 `CHART_DEFS` 遍历生成，不再硬编码。早先 canvas 是手写死在
@@ -139,6 +141,29 @@ python analyze_jogging.py
 # 生成 HTML 报告（以较新日期命名，如 20260404.html）
 ```
 
+## 测试
+
+```bash
+# 安装测试依赖
+pip install -r requirements-dev.txt
+
+# 运行（可从任意目录执行）
+python -m pytest jogging/tests/ -q
+```
+
+98 个用例，覆盖第 3/4/6 层。**不依赖真实 FIT 文件**——`tests/helpers.py` 合成跑步记录，
+`data/` 里的隐私数据不会进入测试。
+
+未安装 `fitparse` 也能跑：`tests/conftest.py` 会注入一个最小桩，只为了让模块可被导入
+（`parse_fit_file` 从不被测试调用）。
+
+### 测试守住的几条不变式
+
+- **canvas 与 Chart.js 一一对应** — 曾因 `<canvas>` 硬编码而脱节过，会导致所有图表一起失效
+- **模板无未替换占位符** — `substitute` 漏传变量时报错，而不是静默输出 `$xxx`
+- **列分组数量一致** — `KM_COLUMN_GROUPS` 与实际单元格组数不符时立即抛错，避免整列错位
+- **配速秒数不被浮点误差截断** — `format_pace(6.3)` 必须是 `6'18"` 而非 `6'17"`
+
 ## 项目结构
 
 ```
@@ -153,6 +178,13 @@ python analyze_jogging.py
 │   └── favicon.ico
 ├── data/                 # FIT 文件目录（git 忽略，含 GPS 隐私数据）
 │   └── *.fit
+├── tests/                # 单元测试（pytest）
+│   ├── conftest.py           # 导入路径、fitparse 兜底、合成数据 fixture
+│   ├── helpers.py            # 合成 FIT 记录
+│   ├── test_formatting.py    # 第 4 层：格式化
+│   ├── test_stats.py         # 第 3 层：统计计算
+│   └── test_html.py          # 第 6 层：HTML 组装
+├── requirements-dev.txt  # 开发/测试依赖（pytest）
 └── *.html                # 生成的对比报告（与 index.html 同层，URL 即路径）
 ```
 

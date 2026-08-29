@@ -1,0 +1,4 @@
+# 开发/测试依赖。
+# 只跑 analyze_jogging.py 生成报告的话，装 requirements.txt 就够了。
+-r requirements.txt
+pytest>=7.0

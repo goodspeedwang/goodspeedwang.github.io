@@ -395,8 +395,10 @@ def format_pace(min_per_km):
     """配速格式：6'18\" 表示 6 分 18 秒/公里。"""
     if min_per_km <= 0:
         return "0'00\""
-    mins = int(min_per_km)
-    secs = int((min_per_km - mins) * 60)
+    # 先乘 60 再取整。若写成 int((min_per_km - mins) * 60)，
+    # 6.3 会因浮点表示误差变成 377.9999…秒而被截断成 6'17"。
+    total_seconds = int(round(min_per_km * 60))
+    mins, secs = divmod(total_seconds, 60)
     return f"{mins}'{secs:02d}\""
 
 
