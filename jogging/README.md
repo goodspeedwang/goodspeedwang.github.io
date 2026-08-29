@@ -10,11 +10,10 @@
 ┌─────────────────────────────────────────────────────┐
 │  8. 入口 (main)                                     │  CLI 入口，扫描文件、调用 generate_report
 ├─────────────────────────────────────────────────────┤
-│  6. HTML 组装层                                     │  CSS / 表格行 / 完整文档拼接
+│  6. HTML 组装层                                     │  表格行 / 完整文档拼接
 │     generate_report → _assemble_full_html           │
 │     _build_core_metric_rows                         │  核心指标表格 <tr> 生成
 │     _build_per_km_data_rows                         │  每公里表格 <tr> 生成（含 col-cum/row-even 类）
-│     _get_css_styles                                 │  内联样式（响应式布局）
 ├─────────────────────────────────────────────────────┤
 │  5. 图表生成层                                      │  统计数据 → Chart.js JS 代码
 │     build_all_chart_scripts                         │  遍历 CHART_DEFS 生成所有图表
@@ -133,8 +132,9 @@ python analyze_jogging.py
 ## 项目结构
 
 ```
-├── analyze_jogging.py   # 主脚本（~950 行，6 层架构）
+├── analyze_jogging.py   # 主脚本（~890 行，6 层架构）
 ├── index.html           # 导航页（核心指标汇总表）
+├── compare.css          # 所有对比报告共用样式（报告页通过 <link> 外链）
 ├── requirements.txt     # Python 依赖（fitparse）
 ├── data/                # FIT 文件目录（git 忽略）
 │   ├── *.fit

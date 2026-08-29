@@ -805,8 +805,9 @@ def _assemble_full_html(date1, date2, core_rows, km_rows,
                          chart_scripts, gen_timestamp):
     """
     将所有组件拼装为完整的 HTML 文档字符串。
+
+    样式全部外链到 compare.css，与历史报告共用同一份样式表。
     """
-    css = _get_css_styles()
 
     # 表头第二行的日期子列（col-cum 用于累积列着色）
     # 顺序必须与第一行表头完全对应：公里(rowspan跳过) | 心率 | 配速 | 累积心率 | 累积配速 | 累积用时
@@ -826,7 +827,7 @@ def _assemble_full_html(date1, date2, core_rows, km_rows,
     <title>跑步数据对比 - {date1} vs {date2}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <link href="favicon.ico" rel="icon" />
-{css}
+    <link rel="stylesheet" href="compare.css">
 </head>
 <body>
     <div class="container">
@@ -882,85 +883,6 @@ def _assemble_full_html(date1, date2, core_rows, km_rows,
     <script>{''.join(chart_scripts)}</script>
 </body>
 </html>'''
-
-
-def _get_css_styles():
-    """返回完整的 <style> 块内容，包含响应式布局规则。"""
-    return '''
-    <style>
-        /* ===== 全局 ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f5f7fa; min-height: 100vh; padding: 24px; color: #2d3748;
-        }
-        .container { width: 100%; padding: 0 24px; }
-
-        h1 { font-size: 1.75rem; font-weight: 600; color: #1a202c; margin-bottom: 24px; text-align: center; }
-
-        /* ===== 主布局：左右分栏 ===== */
-        .main-layout { display: flex; gap: 24px; align-items: flex-start; }
-        .sidebar { width: 460px; flex-shrink: 0; position: sticky; top: 24px; }
-        .content { flex: 1; min-width: 0; }
-
-        /* ===== 卡片 & 表格 ===== */
-        .card { background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: auto; }
-        .card-header {
-            padding: 16px 20px; border-bottom: 1px solid #e2e8f0;
-            font-weight: 600; color: #4a5568;
-        }
-
-        table { width: 100%; border-collapse: collapse; }
-        th {
-            background: #f7fafc; padding: 12px 16px; text-align: center;
-            font-weight: 600; color: #718096; font-size: 0.875rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f0f4f8; font-size: 0.9rem; white-space: nowrap; }
-        td:first-child { text-align: left; color: #4a5568; font-weight: 500; }
-
-        .better { color: #2563eb; font-weight: 600; }
-        .diff { color: #718096; font-size: 0.8125rem; font-family: "SF Mono", Menlo, monospace; }
-
-        /* ===== 每公里表格特殊样式 ===== */
-        .km-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .km-table { border-collapse: separate; border-spacing: 0; min-width: 100%; }
-        .km-table th {
-            background: #f7fafc; padding: 8px 10px; text-align: center;
-            font-weight: 600; color: #718096; font-size: 0.75rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .km-table td { padding: 7px 10px; text-align: center; border-bottom: 1px solid #f0f4f8; font-size: 0.8125rem; }
-        .km-table td:first-child { text-align: left; color: #4a5568; font-weight: 500; }
-
-        /* 累积列（仅累积平均心率 + 累积平均配速）浅蓝底 */
-        .km-table .col-cum { background: #f0f9ff; }
-        /* 双数公里行：整行浅灰 */
-        .km-table tr.row-even td { background: #fafafa; }
-        /* 双数行中的累积列：稍深蓝 */
-        .km-table tr.row-even td.col-cum { background: #e0f2fe; }
-
-        /* ===== 图表网格 ===== */
-        .charts-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-        }
-        .chart-card {
-            background: white; border-radius: 12px; padding: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .chart-title { font-size: 0.875rem; font-weight: 600; color: #4a5568; margin-bottom: 12px; text-align: center; }
-
-        /* ===== 响应式断点 ===== */
-        @media (max-width: 1100px) {
-            .main-layout { flex-direction: column; }
-            .sidebar { width: 100%; position: static; }
-            .charts-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 1.5rem; }
-            th, td { padding: 8px 10px; font-size: 0.75rem; }
-        }
-    </style>'''
 
 
 # =============================================================================
