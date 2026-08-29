@@ -1,0 +1,17 @@
+new Chart(document.getElementById('$chart_id').getContext('2d'), {
+    type: 'line',
+    data: {
+        datasets: [
+            { label: '$label_old', data: $data_json1, borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4 },
+            { label: '$label_new', data: $data_json2, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4 }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' }, tooltip: { mode: 'index', intersect: false } },
+        scales: {
+            y: { min: $y_min, max: $y_max, reverse: $reverse_y, title: { display: true, text: '$y_label' } },
+            x: { type: 'linear', ticks: { stepSize: 1 }, min: 0, max: 16 }
+        }
+    }
+});

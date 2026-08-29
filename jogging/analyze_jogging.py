@@ -14,8 +14,20 @@ import json
 import os
 import re
 from datetime import datetime
+from string import Template
 
 from fitparse import FitFile
+
+
+# =============================================================================
+# 0. 目录布局 — 所有路径统一在此定义
+# =============================================================================
+
+# 脚本所在目录（jogging/），无论从哪个 cwd 运行都能正确定位
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, 'data')          # 输入：FIT 文件（git 忽略）
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')  # 页面 / 图表模板
+STATIC_DIR = os.path.join(BASE_DIR, 'static')      # CSS / favicon 等静态资源
 
 
 # =============================================================================
@@ -68,6 +80,16 @@ CHART_DEFS = [
     {'id': 'cadenceChart', 'title': '步频对比',      'data_key': 'cadences',
      'y_label': '步频 (spm)',
      'filter_fn': lambda x: x * 2 if x >= 75 else None},
+]
+
+# 底部每公里表格的列分组定义（每组 3 列：date1 / date2 / 差异）
+# cum=True 表示该组为累积列，单元格加 col-cum 浅蓝底色
+KM_COLUMN_GROUPS = [
+    {'label': '心率',         'cum': False},
+    {'label': '配速',         'cum': False},
+    {'label': '累积平均心率', 'cum': True},
+    {'label': '累积平均配速', 'cum': True},
+    {'label': '累积用时',     'cum': False},
 ]
 
 # 图表降采样步长（每 N 条记录取一条），减少前端渲染压力
@@ -626,30 +648,17 @@ def _build_one_comparison_chart(cfg, s1, s2, dist1, dist2, date1, date2):
 
 def _render_comparison_chart_js(chart_id, title, label_old, label_new,
                                 data_json1, data_json2, y_range, y_label, reverse_y):
-    """渲染一个标准双线对比图的 Chart.js 初始化 JS 字符串。"""
-    return (
-        f"new Chart(document.getElementById('{chart_id}').getContext('2d'), {{\n"
-        f"    type: 'line',\n"
-        f"    data: {{\n"
-        f"        datasets: [\n"
-        f"            {{ label: '{label_old}', data: {data_json1}, "
-        f"borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', "
-        f"borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4 }},\n"
-        f"            {{ label: '{label_new}', data: {data_json2}, "
-        f"borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', "
-        f"borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4 }}\n"
-        f"        ]\n"
-        f"    }},\n"
-        f"    options: {{\n"
-        f"        responsive: true,\n"
-        f"        plugins: {{ legend: {{ position: 'top' }}, tooltip: {{ mode: 'index', intersect: false }} }},\n"
-        f"        scales: {{\n"
-        f"            y: {{ min: {y_range['min']:.1f}, max: {y_range['max']:.1f}, "
-        f"reverse: {str(reverse_y).lower()}, title: {{ display: true, text: '{y_label}' }} }},\n"
-        f"            x: {{ type: 'linear', ticks: {{ stepSize: 1 }}, min: 0, max: 16 }}\n"
-        f"        }}\n"
-        f"    }}\n"
-        f"}});\n"
+    """渲染一个标准双线对比图的 Chart.js 初始化 JS 字符串（模板见 chart.js.tmpl）。"""
+    return _load_template('chart.js.tmpl').substitute(
+        chart_id=chart_id,
+        label_old=label_old,
+        label_new=label_new,
+        data_json1=data_json1,
+        data_json2=data_json2,
+        y_min=f"{y_range['min']:.1f}",
+        y_max=f"{y_range['max']:.1f}",
+        y_label=y_label,
+        reverse_y=str(reverse_y).lower(),
     )
 
 
@@ -722,13 +731,8 @@ def _build_per_km_data_rows(stats1, stats2, date1, date2):
     """
     生成底部每公里数据表格的 <tr> 行 HTML 列表。
 
-    表格列结构（共 16 列）：
-      col 1: 公里编号
-      col 2-4:   心率 (date1 / date2 / 差异)
-      col 5-7:   配速 (date1 / date2 / 差异)
-      col 8-10:  累积平均心率 (date1 / date2 / 差异) ← col-cum 高亮
-      col 11-13: 累积平均配速 (date1 / date2 / 差异) ← col-cum 高亮
-      col 14-16: 累积用时 (date1 / date2 / 差异)
+    表格列结构（共 16 列）：公里编号 + 5 个分组 × 3 列（date1 / date2 / 差异）。
+    分组定义见 KM_COLUMN_GROUPS，cum=True 的分组单元格加 col-cum 浅蓝底。
 
     双数公里行添加 .row-even 类实现隔行变色。
     """
@@ -774,31 +778,60 @@ def _build_per_km_data_rows(stats1, stats2, date1, date2):
         ctm2 = format_duration(int(ct2)) if ct2 is not None else ''
         ctm_diff = format_km_cumtime_diff(ct1, ct2) if (ct1 is not None and ct2 is not None) else ''
 
-        cum = "class='col-cum'"  # 缩写：累积列背景色标记
+        # 每组 3 个单元格（date1 / date2 / 差异），顺序必须与 KM_COLUMN_GROUPS 一致
+        group_cells = [
+            [hr1, hr2, hr_diff],
+            [p1, p2, p_diff],
+            [chr1, chr2, chr_diff],
+            [cp1, cp2, cp_diff],
+            [ctm1, ctm2, ctm_diff],
+        ]
+        assert len(group_cells) == len(KM_COLUMN_GROUPS), '列分组数量与 KM_COLUMN_GROUPS 不一致'
 
-        rows.append(
-            f"<tr{tr_attr}>"
-            f"<td>{k1['km']}km</td>"
+        cells = [f"<td>{k1['km']}km</td>"]
+        for group, vals in zip(KM_COLUMN_GROUPS, group_cells):
+            cum = " class='col-cum'" if group['cum'] else ''  # 累积列背景色标记
+            cells.append(''.join(f"<td{cum}>{v}</td>" for v in vals))
 
-            # 心率组
-            f"<td>{hr1}</td><td>{hr2}</td><td>{hr_diff}</td>"
-
-            # 配速组
-            f"<td>{p1}</td><td>{p2}</td><td>{p_diff}</td>"
-
-            # 累积平均心率组（col-cum）
-            f"<td {cum}>{chr1}</td><td {cum}>{chr2}</td><td {cum}>{chr_diff}</td>"
-
-            # 累积平均配速组（col-cum）
-            f"<td {cum}>{cp1}</td><td {cum}>{cp2}</td><td {cum}>{cp_diff}</td>"
-
-            # 累积用时组
-            f"<td>{ctm1}</td><td>{ctm2}</td><td>{ctm_diff}</td>"
-
-            f"</tr>"
-        )
+        rows.append(f"<tr{tr_attr}>" + ''.join(cells) + "</tr>")
 
     return rows
+
+
+def _build_chart_cards():
+    """由 CHART_DEFS 生成图表卡片 HTML，保证 canvas id 与 JS 侧一一对应。"""
+    cards = []
+    for cfg in CHART_DEFS:
+        cards.append(
+            f"<div class='chart-card'>"
+            f"<div class='chart-title'>{cfg['title']}</div>"
+            f"<canvas id='{cfg['id']}'></canvas></div>"
+        )
+    return '\n                    '.join(cards)
+
+
+def _build_km_group_headers():
+    """由 KM_COLUMN_GROUPS 生成每公里表头第一行的分组 <th>。"""
+    cells = []
+    for g in KM_COLUMN_GROUPS:
+        cum = " class='col-cum'" if g['cum'] else ''
+        cells.append(f"<th colspan='3'{cum}>{g['label']}</th>")
+    return '\n                        '.join(cells)
+
+
+def _build_th_date_row(date1, date2):
+    """生成每公里表头第二行的日期子列 <th>，顺序与 KM_COLUMN_GROUPS 一致。"""
+    cells = []
+    for g in KM_COLUMN_GROUPS:
+        cum = " class='col-cum'" if g['cum'] else ''
+        cells.append(f"<th{cum}>{date1}</th><th{cum}>{date2}</th><th{cum}>差异</th>")
+    return ''.join(cells)
+
+
+def _load_template(filename):
+    """读取 templates/ 下的模板文件，返回 string.Template 实例。"""
+    with open(os.path.join(TEMPLATE_DIR, filename), encoding='utf-8') as f:
+        return Template(f.read())
 
 
 def _assemble_full_html(date1, date2, core_rows, km_rows,
@@ -806,83 +839,20 @@ def _assemble_full_html(date1, date2, core_rows, km_rows,
     """
     将所有组件拼装为完整的 HTML 文档字符串。
 
-    样式全部外链到 compare.css，与历史报告共用同一份样式表。
+    页面骨架来自 report_template.html；图表卡片与每公里表头分别由
+    CHART_DEFS / KM_COLUMN_GROUPS 生成，避免与图表 JS 侧重复定义。
     """
-
-    # 表头第二行的日期子列（col-cum 用于累积列着色）
-    # 顺序必须与第一行表头完全对应：公里(rowspan跳过) | 心率 | 配速 | 累积心率 | 累积配速 | 累积用时
-    th_date_row = (
-        f"<th>{date1}</th><th>{date2}</th><th>差异</th>"
-        f"<th>{date1}</th><th>{date2}</th><th>差异</th>"
-        f"<th class='col-cum'>{date1}</th><th class='col-cum'>{date2}</th><th class='col-cum'>差异</th>"
-        f"<th class='col-cum'>{date1}</th><th class='col-cum'>{date2}</th><th class='col-cum'>差异</th>"
-        f"<th>{date1}</th><th>{date2}</th><th>差异</th>"
+    return _load_template('report_template.html').substitute(
+        date1=date1,
+        date2=date2,
+        gen_timestamp=gen_timestamp,
+        chart_cards=_build_chart_cards(),
+        core_rows=''.join(core_rows),
+        km_group_headers=_build_km_group_headers(),
+        th_date_row=_build_th_date_row(date1, date2),
+        km_rows=''.join(km_rows),
+        chart_scripts=''.join(chart_scripts),
     )
-
-    return f'''<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跑步数据对比 - {date1} vs {date2}</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-    <link href="favicon.ico" rel="icon" />
-    <link rel="stylesheet" href="compare.css">
-</head>
-<body>
-    <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-            <a href="index.html" style="color:#718096; font-size:0.8125rem; text-decoration:none;">&larr; 返回首页</a>
-            <span style="color:#a0aec0; font-size:0.75rem;">Generated: {gen_timestamp}</span>
-        </div>
-        <h1>跑步数据对比分析</h1>
-
-        <!-- 上部：核心指标（左） + 图表区（右） -->
-        <div class="main-layout">
-            <div class="sidebar">
-                <div class="card">
-                    <div class="card-header">核心指标</div>
-                    <table>
-                        <thead><tr><th>指标</th><th>{date1}</th><th>{date2}</th><th>差异</th></tr></thead>
-                        <tbody>{''.join(core_rows)}</tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="charts-grid">
-                    <div class="chart-card"><div class="chart-title">心率变化对比</div><canvas id="hrChart"></canvas></div>
-                    <div class="chart-card"><div class="chart-title">配速变化对比</div><canvas id="paceChart"></canvas></div>
-                    <div class="chart-card"><div class="chart-title">触地时间对比</div><canvas id="gctChart"></canvas></div>
-                    <div class="chart-card"><div class="chart-title">步频对比</div><canvas id="cadenceChart"></canvas></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 下部：每公里详细数据 -->
-        <div style="margin-top: 24px;" class="km-wrapper">
-            <table class="km-table">
-                <thead>
-                    <tr>
-                        <th rowspan="2">公里</th>
-                        <th colspan="3">心率</th>
-                        <th colspan="3">配速</th>
-                        <th colspan="3" class="col-cum">累积平均心率</th>
-                        <th colspan="3" class="col-cum">累积平均配速</th>
-                        <th colspan="3">累积用时</th>
-                    </tr>
-                    <tr>
-                        {th_date_row}
-                    </tr>
-                </thead>
-                <tbody>{''.join(km_rows)}</tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>{''.join(chart_scripts)}</script>
-</body>
-</html>'''
 
 
 # =============================================================================
@@ -911,7 +881,7 @@ def update_index_html(stats_newer, date_str, output_file):
 
     如果同名日期已存在则跳过，避免重复。
     """
-    index_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
+    index_path = os.path.join(BASE_DIR, 'index.html')
     if not os.path.exists(index_path):
         print("警告: jogging/index.html 不存在，跳过索引更新")
         return
@@ -961,8 +931,7 @@ def main():
       3. 输出 HTML 报告（以较新日期命名）
       4. 自动将较新的数据行插入 index.html 索引表
     """
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(script_dir, 'data')
+    data_dir = DATA_DIR
     fit_files = sorted(f for f in os.listdir(data_dir) if f.endswith('.fit'))
 
     if len(fit_files) < 2:
@@ -980,7 +949,7 @@ def main():
     raw2 = parse_fit_file(path2)
 
     output_file = f"{max(name1, name2)}.html"
-    output_path = os.path.join(script_dir, output_file)
+    output_path = os.path.join(BASE_DIR, output_file)
     print(f"生成: {output_path}")
 
     generate_report(raw1, raw2, name1, name2, output_path)

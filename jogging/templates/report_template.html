@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑步数据对比 - $date1 vs $date2</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link href="static/favicon.ico" rel="icon" />
+    <link rel="stylesheet" href="static/compare.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+            <a href="index.html" style="color:#718096; font-size:0.8125rem; text-decoration:none;">&larr; 返回首页</a>
+            <span style="color:#a0aec0; font-size:0.75rem;">Generated: $gen_timestamp</span>
+        </div>
+        <h1>跑步数据对比分析</h1>
+
+        <!-- 上部：核心指标（左） + 图表区（右） -->
+        <div class="main-layout">
+            <div class="sidebar">
+                <div class="card">
+                    <div class="card-header">核心指标</div>
+                    <table>
+                        <thead><tr><th>指标</th><th>$date1</th><th>$date2</th><th>差异</th></tr></thead>
+                        <tbody>$core_rows</tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="charts-grid">
+$chart_cards
+                </div>
+            </div>
+        </div>
+
+        <!-- 下部：每公里详细数据 -->
+        <div style="margin-top: 24px;" class="km-wrapper">
+            <table class="km-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">公里</th>
+                        $km_group_headers
+                    </tr>
+                    <tr>
+                        $th_date_row
+                    </tr>
+                </thead>
+                <tbody>$km_rows</tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>$chart_scripts</script>
+</body>
+</html>

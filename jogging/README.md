@@ -10,15 +10,17 @@
 ┌─────────────────────────────────────────────────────┐
 │  8. 入口 (main)                                     │  CLI 入口，扫描文件、调用 generate_report
 ├─────────────────────────────────────────────────────┤
-│  6. HTML 组装层                                     │  表格行 / 完整文档拼接
-│     generate_report → _assemble_full_html           │
+│  6. HTML 组装层                                     │  表格行 / 模板渲染
+│     generate_report → _assemble_full_html           │  读模板 → substitute 占位符
+│     _build_chart_cards                              │  图表卡片（由 CHART_DEFS 生成）
+│     _build_km_group_headers / _build_th_date_row    │  每公里表头（由 KM_COLUMN_GROUPS 生成）
 │     _build_core_metric_rows                         │  核心指标表格 <tr> 生成
 │     _build_per_km_data_rows                         │  每公里表格 <tr> 生成（含 col-cum/row-even 类）
 ├─────────────────────────────────────────────────────┤
 │  5. 图表生成层                                      │  统计数据 → Chart.js JS 代码
 │     build_all_chart_scripts                         │  遍历 CHART_DEFS 生成所有图表
 │     _build_one_comparison_chart                     │  单个图表：数据过滤→降采样→Y轴范围→JS
-│     _render_comparison_chart_js                     │  渲染 Chart.js new Chart(...) 字符串
+│     _render_comparison_chart_js                     │  渲染 Chart.js new Chart(...) 字符串（chart.js.tmpl）
 ├─────────────────────────────────────────────────────┤
 │  4. 格式化层                                        │  数值 → 展示字符串
 │     format_pace                                    │  配速: 6'18"
@@ -43,6 +45,7 @@
 │     RECORD_FIELD_MAP                                │  FIT 字段 → 内部变量名映射
 │     CORE_METRIC_DEFS                                │  左侧指标表格列定义（12 项）
 │     CHART_DEFS                                      │  4 个图表配置（含 filter_fn/reverse_y）
+│     KM_COLUMN_GROUPS                                │  每公里表格 5 个列分组（cum 标记累积列）
 │     DOWNSAMPLE_STEP = 10                            │  图表降采样间隔
 └─────────────────────────────────────────────────────┘
 ```
@@ -52,6 +55,8 @@
 - **每个函数只做一件事**：命名即文档，如 `format_km_hr_diff` 明确表示"每公里心率差异格式化"
 - **展示逻辑集中**：所有格式化、差异计算、高亮判断都在第 4 层格式化层
 - **配置驱动**：指标定义、图表配置均以数据结构声明，新增指标/图表只需改配置
+- **模板外置**：页面骨架与 Chart.js 代码放在 `templates/` 下，Python 只负责算数据、填占位符
+  （stdlib `string.Template`，零新增依赖）
 - **容差设计**：`get_cumulative_time_at_kms` 对终点距离略小于整数公里的情况（如 15.98km vs 16km）使用 50m 容差回退
 
 ### 关键实现细节
@@ -60,6 +65,11 @@
 - **配速过滤**：速度转配速时只接受 `[5, 10] min/km]` 范围，排除 GPS 漂移/停止走动异常值
 - **Y 轴分位数**：图表 Y 轴基于 5%-95% 分位数计算范围，避免极端值拉偏
 - **CSS 类选择器**：累积列使用显式 `class="col-cum"` 而非 `nth-child`，避免 `rowspan=2` 表头导致的列偏移问题
+- **图表单一来源**：`<canvas>` 由 `CHART_DEFS` 遍历生成，不再硬编码。早先 canvas 是手写死在
+  HTML 里的，往 `CHART_DEFS` 加图表时 JS 会生成但页面没有 canvas，`getElementById` 取到 null
+  会让整段 `<script>` 抛错、所有图表一起失效
+- **列分组单一来源**：每公里表头的分组 `<th>`、日期子列、以及每行的 `col-cum` 标记，全部读
+  `KM_COLUMN_GROUPS`；`_build_per_km_data_rows` 里加了长度断言，组数对不上会直接报错
 - **距离截断**：`max_distance_m=16000m` 截断冷却步行阶段数据
 
 ## 功能需求
@@ -132,14 +142,28 @@ python analyze_jogging.py
 ## 项目结构
 
 ```
-├── analyze_jogging.py   # 主脚本（~890 行，6 层架构）
-├── index.html           # 导航页（核心指标汇总表）
-├── compare.css          # 所有对比报告共用样式（报告页通过 <link> 外链）
-├── requirements.txt     # Python 依赖（fitparse）
-├── data/                # FIT 文件目录（git 忽略）
-│   ├── *.fit
-└── *.html               # 生成的对比报告（可提交）
+├── analyze_jogging.py    # 主脚本（~960 行，6 层架构）
+├── index.html            # 导航页（核心指标汇总表）
+├── requirements.txt      # Python 依赖（fitparse）
+├── templates/            # 模板（Python 内部读取，不发布）
+│   ├── report_template.html  # 报告页骨架（string.Template 占位符）
+│   └── chart.js.tmpl         # 单个 Chart.js 图表的 JS 模板
+├── static/               # 静态资源（随报告一起发布）
+│   ├── compare.css           # 所有报告共用样式
+│   └── favicon.ico
+├── data/                 # FIT 文件目录（git 忽略，含 GPS 隐私数据）
+│   └── *.fit
+└── *.html                # 生成的对比报告（与 index.html 同层，URL 即路径）
 ```
+
+### 目录约定
+
+- **`templates/` 不属于静态资源**：模板里含 `$placeholder`，直接访问会看到未替换的占位符，
+  所以单独放一个目录，和 `static/` 区分开——`static/` 下所有文件都可以被浏览器直接访问。
+- **报告与 `index.html` 同层**：报告里的「返回首页」是 `index.html`、静态资源是 `static/xxx`，
+  都靠相对路径。若日后要把报告挪进子目录，需同步改这两处 + `index.html` 的日期链接。
+- **路径常量集中在脚本顶部**（`BASE_DIR` / `DATA_DIR` / `TEMPLATE_DIR` / `STATIC_DIR`），
+  不散落在各个函数里。
 
 ## 隐私说明
 
