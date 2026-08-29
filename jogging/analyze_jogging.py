@@ -825,6 +825,7 @@ def _assemble_full_html(date1, date2, core_rows, km_rows,
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>跑步数据对比 - {date1} vs {date2}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link href="favicon.ico" rel="icon" />
 {css}
 </head>
 <body>
