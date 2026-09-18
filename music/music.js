@@ -573,39 +573,23 @@ const MusicPlayerApp = (() => {
         return result.sort((a, b) => a.time - b.time);
     }
 
-    let lyricsScript = null;
-
     function loadLyrics(albumName, songName) {
         state.currentLyrics = [];
 
-        // 移除上次加载的 script
-        if (lyricsScript) {
-            lyricsScript.remove();
-            lyricsScript = null;
-        }
-        delete window.LYRICS;
-
-        const jsPath = `songs/${sanitizeFileName(albumName)}/${sanitizeFileName(songName)}.js`;
-
-        const script = document.createElement('script');
-        script.src = jsPath;
-        script.onload = () => {
-            if (window.LYRICS) {
-                state.currentLyrics = parseLRC(window.LYRICS);
-                delete window.LYRICS;
-            }
-            if (state.showLyrics) {
-                renderLyrics();
-            }
-        };
-        script.onerror = () => {
-            if (state.showLyrics) {
-                renderLyrics();
-            }
-        };
-
-        lyricsScript = script;
-        document.head.appendChild(script);
+        // 直接读取 .lrc 文件，省去转换成 .js 的步骤
+        const lrcPath = `songs/${sanitizeFileName(albumName)}/${sanitizeFileName(songName)}.lrc`;
+        fetch(lrcPath)
+            .then(response => {
+                if (!response.ok) throw new Error('lyrics not found');
+                return response.text();
+            })
+            .then(text => {
+                state.currentLyrics = parseLRC(text);
+                if (state.showLyrics) renderLyrics();
+            })
+            .catch(() => {
+                if (state.showLyrics) renderLyrics();
+            });
     }
 
     function renderLyrics() {
