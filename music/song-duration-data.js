@@ -218,7 +218,7 @@ const SONG_DURATIONS = {
     "Wonderful World(Live)/一起走过的日子 (Live).mp3": "3:57",
     "Wonderful World(Live)/牧笛 (Live).mp3": "1:58",
     "Wonderful World(Live)/绝对在乎您 (Live).mp3": "3:58",
-    "Wonderful World(Live)/天怒 (Dance).mp3": "1:25",
+    "Wonderful World(Live)/天怒(Dance).mp3": "1:25",
     "Wonderful World(Live)/归宿 (Live).mp3": "3:36",
     "Wonderful World(Live)/情未鸟 (Live).mp3": "5:09",
     "Wonderful World(Live)/再会了 (Live).mp3": "3:26",

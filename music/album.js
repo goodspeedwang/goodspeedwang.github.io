@@ -65,7 +65,7 @@ const ALBUM = [
         "一起走过的日子 (Live)",
         "牧笛 (Live)",
         "绝对在乎您 (Live)",
-        "天怒 (Dance)",
+        "天怒(Dance)",
         "归宿 (Live)",
         "情未鸟 (Live)",
         "再会了 (Live)",
