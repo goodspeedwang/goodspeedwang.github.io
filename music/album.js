@@ -63,6 +63,7 @@ const ALBUM = [
         "没有人可以像你 (Live)",
         "不是我的我不要 (Live)",
         "一起走过的日子 (Live)",
+        "一起嗌 (Live)",
         "牧笛 (Live)",
         "绝对在乎您 (Live)",
         "天怒 (Dance)",
