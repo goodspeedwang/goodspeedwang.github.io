@@ -40,7 +40,6 @@
         .card-1130 { border-left-color: #1abc9c; }
         .card-1530 { border-left-color: #9b59b6; }
         .card-1630 { border-left-color: #8e44ad; }
-        .card-morning { border-left-color: #16a085; }
 
         .time-header {
             display: flex;
@@ -62,7 +61,7 @@
         .med-item {
             display: flex;
             align-items: flex-start;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px dashed #edf2f7;
         }
         .med-item:last-child { border-bottom: none; }
@@ -77,26 +76,52 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
         }
         .med-name { font-size: 16px; font-weight: bold; color: #2c3e50; }
         .med-dose {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: #d35400;
             background: #fff5eb;
             padding: 2px 8px;
             border-radius: 6px;
         }
-        .med-note { font-size: 13px; color: #e74c3c; margin-top: 3px; line-height: 1.35; }
-        .special-badge {
+        .med-note { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.4; }
+        
+        /* 标签样式 */
+        .tag-must {
             display: inline-block;
             background: #e74c3c;
             color: #fff;
             font-size: 11px;
-            padding: 1px 6px;
+            padding: 2px 6px;
             border-radius: 4px;
             margin-right: 4px;
+            font-weight: bold;
         }
+        .tag-as-needed {
+            display: inline-block;
+            background: #2980b9;
+            color: #fff;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 4px;
+            font-weight: bold;
+        }
+        .tag-protect {
+            display: inline-block;
+            background: #27ae60;
+            color: #fff;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 4px;
+            font-weight: bold;
+        }
+
         .notice-box {
             background: #fff8f8;
             border: 1px solid #fecaca;
@@ -105,9 +130,9 @@
             margin-top: 16px;
             margin-bottom: 20px;
         }
-        .notice-box h3 { color: #dc2626; font-size: 16px; margin-bottom: 6px; }
-        .notice-box ul { padding-left: 18px; font-size: 13px; color: #991b1b; }
-        .notice-box li { margin-bottom: 5px; }
+        .notice-box h3 { color: #dc2626; font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 4px; }
+        .notice-box ul { padding-left: 18px; font-size: 14px; color: #7f1d1d; line-height: 1.6; }
+        .notice-box li { margin-bottom: 6px; }
         .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
 
         .med-item.checked { background: #e8f8f0; border-radius: 10px; }
@@ -202,7 +227,7 @@
                     <span class="med-name">雷贝拉唑钠肠溶片（顺安然）</span>
                     <span class="med-dose">1 片 (10mg)</span>
                 </div>
-                <div class="med-note"><span class="special-badge">护胃</span>一日1次，整片吞服，吃完隔至少20-30分钟再进餐</div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护胃</span>一日1次，整片吞服，吃完隔至少20-30分钟再进餐</div>
             </div>
         </div>
         <div class="med-item">
@@ -212,7 +237,7 @@
                     <span class="med-name">伏立康唑片（匹纳普）- 第1次</span>
                     <span class="med-dose">4 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">抗真菌</span>每12小时1次，餐前至少1小时或餐后至少1小时服</div>
+                <div class="med-note"><span class="tag-must">必须吃</span>每12小时1次，餐前至少1小时或餐后至少1小时空腹服</div>
             </div>
         </div>
     </div>
@@ -230,27 +255,7 @@
                     <span class="med-name">叶酸片（斯利安）</span>
                     <span class="med-dose">1 片 (0.4mg)</span>
                 </div>
-                <div class="med-note">一日1次，每次1片</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">阿托伐他汀钙片</span>
-                    <span class="med-dose">1 片 (20mg)</span>
-                </div>
-                <div class="med-note"><span class="special-badge">降脂</span>早餐后固定时间服，<b>忌西柚/西柚汁、忌酒</b>。若肌肉酸痛乏力及时就医。</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">切诺® 桉柠蒎肠溶胶囊 - 第1次</span>
-                    <span class="med-dose">1 粒</span>
-                </div>
-                <div class="med-note">餐前30分钟用凉开水整粒送服（一日3次）</div>
+                <div class="med-note"><span class="tag-protect">营养补充</span>一日1次，每次1片</div>
             </div>
         </div>
         <div class="med-item">
@@ -260,7 +265,7 @@
                     <span class="med-name">ASMETON®（阿斯美）- 第1次</span>
                     <span class="med-dose">1 片</span>
                 </div>
-                <div class="med-note">止咳平喘（一日3次）</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（一日3次，没咳嗽可不吃）</div>
             </div>
         </div>
         <div class="med-item">
@@ -270,17 +275,7 @@
                     <span class="med-name">整肠生（地衣芽孢杆菌）- 第1次</span>
                     <span class="med-dose">2 粒</span>
                 </div>
-                <div class="med-note">调节肠道菌群（一日3次）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">路盖克®（氨酚双氢可待因片）- 第1次</span>
-                    <span class="med-dose">1 片</span>
-                </div>
-                <div class="med-note">镇痛（一日2次）</div>
+                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道（一日3次，用温水/凉水送服）</div>
             </div>
         </div>
     </div>
@@ -298,27 +293,7 @@
                     <span class="med-name">碳酸钙D3片(I)（钙尔奇）</span>
                     <span class="med-dose">1 片</span>
                 </div>
-                <div class="med-note">午餐后咀嚼或水送服</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">富露施® 乙酰半胱氨酸片</span>
-                    <span class="med-dose">1 片 (0.6g)</span>
-                </div>
-                <div class="med-note">化痰，温开水溶解后服用</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">切诺® 桉柠蒎肠溶胶囊 - 第2次</span>
-                    <span class="med-dose">1 粒</span>
-                </div>
-                <div class="med-note">餐前30分钟整粒送服</div>
+                <div class="med-note"><span class="tag-protect">补钙</span>午餐后咀嚼或水送服</div>
             </div>
         </div>
         <div class="med-item">
@@ -328,7 +303,7 @@
                     <span class="med-name">ASMETON®（阿斯美）- 第2次</span>
                     <span class="med-dose">1 片</span>
                 </div>
-                <div class="med-note">止咳平喘</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃</div>
             </div>
         </div>
         <div class="med-item">
@@ -338,7 +313,7 @@
                     <span class="med-name">整肠生（地衣芽孢杆菌）- 第2次</span>
                     <span class="med-dose">2 粒</span>
                 </div>
-                <div class="med-note">调节肠道菌群</div>
+                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
             </div>
         </div>
     </div>
@@ -356,17 +331,7 @@
                     <span class="med-name">伏立康唑片（匹纳普）- 第2次</span>
                     <span class="med-dose">4 片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">抗真菌</span>距上次服药隔约12小时，餐前或餐后1小时空腹服</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">切诺® 桉柠蒎肠溶胶囊 - 第3次</span>
-                    <span class="med-dose">1 粒</span>
-                </div>
-                <div class="med-note">餐前30分钟整粒送服</div>
+                <div class="med-note"><span class="tag-must">必须吃</span>距上次服药隔约12小时，餐前或餐后1小时空腹服</div>
             </div>
         </div>
         <div class="med-item">
@@ -376,7 +341,7 @@
                     <span class="med-name">ASMETON®（阿斯美）- 第3次</span>
                     <span class="med-dose">1 片</span>
                 </div>
-                <div class="med-note">止咳平喘</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃</div>
             </div>
         </div>
         <div class="med-item">
@@ -386,17 +351,7 @@
                     <span class="med-name">整肠生（地衣芽孢杆菌）- 第3次</span>
                     <span class="med-dose">2 粒</span>
                 </div>
-                <div class="med-note">调节肠道菌群</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">路盖克®（氨酚双氢可待因片）- 第2次</span>
-                    <span class="med-dose">1 片</span>
-                </div>
-                <div class="med-note">镇痛</div>
+                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
             </div>
         </div>
     </div>
@@ -414,19 +369,21 @@
                     <span class="med-name">莱博雷生</span>
                     <span class="med-dose">半片</span>
                 </div>
-                <div class="med-note"><span class="special-badge">助眠</span>睡前半小时服用，按需服用；忌西柚及饮酒。</div>
+                <div class="med-note"><span class="tag-as-needed">助眠</span>睡前睡不着时吃（睡得好不用吃）</div>
             </div>
         </div>
     </div>
 
     <!-- 关键提醒 -->
     <div class="notice-box">
-        <h3>🚨 贴心注意事项</h3>
+        <h3>💡 贴心服药小提示</h3>
         <ul>
-            <li><b>伏立康唑与阿托伐他汀：</b> 伏立康唑会显著增加阿托伐他汀血药浓度，使用期间请密切密切关注是否有肌肉酸痛、乏力或尿色变深等情况，必要时请咨询主治医师调整方案。</li>
-            <li><b>空腹说明：</b> 雷贝拉唑与伏立康唑需空腹服用（餐前至少1小时或餐后2小时）。</li>
-            <li><b>忌口：</b> 服用阿托伐他汀、伏立康唑、莱博雷生期间<b>绝对避开西柚（葡萄柚）及西柚汁，忌酒</b>。</li>
-            <li><b>整肠生：</b> 属于活菌制剂，请勿与高温水或强抗菌药物同时服用。</li>
+            <li><b>【必须吃的药】：</b> 伏立康唑、雷贝拉唑是核心药，请每天按时吃完。</li>
+            <li><b>【按需吃的药】：</b> 止咳药（阿斯美）、助眠药（莱博雷生），没咳嗽、能睡着时<b>可以不吃</b>。</li>
+            <li><b>【空腹要求】：</b> 雷贝拉唑和伏立康唑要<b>空腹吃</b>（吃药后隔半小时到1小时再吃饭）。</li>
+            <li><b>【忌口注意】：</b> 服药期间<b>绝对不能吃西柚（葡萄柚）及喝西柚汁，也不能饮酒</b>。</li>
+            <li><b>【整肠生】：</b> 属于活菌，请用<b>温水或凉开水</b>送服，不要用烫水。</li>
+            <li><b>【身体观察】：</b> 如果觉得身体不适，请及时告诉家人。</li>
         </ul>
     </div>
 
@@ -437,7 +394,7 @@
     <!-- 取消打勾确认弹窗 -->
     <div class="confirm-mask" id="confirmMask">
         <div class="confirm-box">
-            <p>确定要取消这条“已服用”吗？<br>小心别把已经吃过的药又重复吃哦。</p>
+            <p>确定要取消这条"已服用"吗？<br>小心别把已经吃过的药又重复吃哦。</p>
             <div class="confirm-btns">
                 <button class="btn-cancel" id="btnCancel">不用，保留</button>
                 <button class="btn-ok" id="btnOk">确定取消</button>
@@ -447,8 +404,8 @@
 
     <script>
         (function () {
-            var STORAGE_KEY = "medication_checked_v3";
-            var DATE_KEY = "medication_date_v3";
+            var STORAGE_KEY = "medication_checked_v5";
+            var DATE_KEY = "medication_date_v5";
 
             function todayStr() {
                 var d = new Date();
