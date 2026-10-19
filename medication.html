@@ -40,6 +40,8 @@
         .card-1130 { border-left-color: #1abc9c; }
         .card-1530 { border-left-color: #9b59b6; }
         .card-1630 { border-left-color: #8e44ad; }
+        .card-730  { border-left-color: #16a085; }
+        .card-1930 { border-left-color: #c0392b; }
 
         .time-header {
             display: flex;
@@ -201,7 +203,7 @@
 
     <div class="header">
         <h1>💊 刘阿姨每日服药时间表</h1>
-        <p>弹性作息版（随起随吃，顺延安排即可）</p>
+        <p>伏立康唑每天 7:30、19:30 准时服；其余药随餐顺延安排</p>
     </div>
 
     <!-- 当日完成进度 -->
@@ -217,8 +219,8 @@
     <!-- 晨起空腹区间 -->
     <div class="time-card card-500">
         <div class="time-header">
-            <div class="time-title">🌅 06:00 ~ 07:00 晨起空腹</div>
-            <div class="time-tag">起床即服</div>
+            <div class="time-title">🌅 起床空腹（早餐前）</div>
+            <div class="time-tag">约 5:30</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -227,17 +229,7 @@
                     <span class="med-name">雷贝拉唑钠肠溶片（顺安然）</span>
                     <span class="med-dose">1 片 (10mg)</span>
                 </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护胃</span>一日1次，整片吞服，吃完隔至少20-30分钟再进餐</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">伏立康唑片（匹纳普）- 第1次</span>
-                    <span class="med-dose">4 片</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span>每12小时1次，餐前至少1小时或餐后至少1小时空腹服</div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护胃</span>一日1次，整片吞服，早餐（6:00）前20-30分钟空腹服，吃完隔20-30分钟再进餐</div>
             </div>
         </div>
     </div>
@@ -245,7 +237,7 @@
     <!-- 早餐后区间 -->
     <div class="time-card card-530">
         <div class="time-header">
-            <div class="time-title">🥣 07:30 ~ 08:30 早餐后</div>
+            <div class="time-title">🥣 06:00 早餐后</div>
             <div class="time-tag">吃完早饭即服</div>
         </div>
         <div class="med-item">
@@ -286,6 +278,24 @@
                     <span class="med-dose">2 粒</span>
                 </div>
                 <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道（一日3次，用温水/凉水送服）</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 伏立康唑 第1次 准时 -->
+    <div class="time-card card-730">
+        <div class="time-header">
+            <div class="time-title">⏰ 07:30 准时 · 伏立康唑</div>
+            <div class="time-tag">必须空腹</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">伏立康唑片（匹纳普）- 第1次</span>
+                    <span class="med-dose">4 片</span>
+                </div>
+                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 7:30 准时服。每12小时1次，餐前1小时或餐后1小时空腹服（早餐6:00后约1.5小时，符合餐后1小时空腹要求）</div>
             </div>
         </div>
     </div>
@@ -341,8 +351,8 @@
     <!-- 晚餐/傍晚区间 -->
     <div class="time-card card-1530">
         <div class="time-header">
-            <div class="time-title">🌆 18:00 ~ 19:00 晚餐前后</div>
-            <div class="time-tag">晚饭时</div>
+            <div class="time-title">🌆 16:30 晚餐前后</div>
+            <div class="time-tag">晚饭后</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -352,16 +362,6 @@
                     <span class="med-dose">1 片 (25mg)</span>
                 </div>
                 <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝</span>保肝降酶（一日3次）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">伏立康唑片（匹纳普）- 第2次</span>
-                    <span class="med-dose">4 片</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span>距上次服药隔约12小时，餐前或餐后1小时空腹服</div>
             </div>
         </div>
         <div class="med-item">
@@ -382,6 +382,24 @@
                     <span class="med-dose">2 粒</span>
                 </div>
                 <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 伏立康唑 第2次 准时 -->
+    <div class="time-card card-1930">
+        <div class="time-header">
+            <div class="time-title">⏰ 19:30 准时 · 伏立康唑</div>
+            <div class="time-tag">必须空腹</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">伏立康唑片（匹纳普）- 第2次</span>
+                    <span class="med-dose">4 片</span>
+                </div>
+                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 19:30 准时服。距上次（7:30）约12小时，餐前1小时或餐后1小时空腹服（晚餐16:30后约3小时，符合餐后1小时空腹要求）</div>
             </div>
         </div>
     </div>
@@ -408,9 +426,9 @@
     <div class="notice-box">
         <h3>💡 贴心服药小提示</h3>
         <ul>
-            <li><b>【必须吃的药】：</b> 伏立康唑、雷贝拉唑、双环醇片是核心药，请每天按时吃完。</li>
+            <li><b>【必须吃的药】：</b> 伏立康唑（每天 7:30、19:30 准时）、雷贝拉唑、双环醇片是核心药，请每天按时吃完。</li>
             <li><b>【按需吃的药】：</b> 止咳药（阿斯美）、助眠药（莱博雷生），没咳嗽、能睡着时<b>可以不吃</b>。</li>
-            <li><b>【空腹要求】：</b> 雷贝拉唑和伏立康唑要<b>空腹吃</b>（吃药后隔半小时到1小时再吃饭）。</li>
+            <li><b>【空腹要求】：</b> 雷贝拉唑和伏立康唑要<b>空腹吃</b>。伏立康唑固定 7:30、19:30 准时服，服药前后1小时内不吃东西（早餐6:00、晚餐16:30，均满足餐后1小时空腹）；雷贝拉唑在早餐前20-30分钟空腹服。</li>
             <li><b>【忌口注意】：</b> 服药期间<b>绝对不能吃西柚（葡萄柚）及喝西柚汁，也不能饮酒</b>。</li>
             <li><b>【整肠生】：</b> 属于活菌，请用<b>温水或凉开水</b>送服，不要用烫水。</li>
             <li><b>【身体观察】：</b> 如果觉得身体不适，请及时告诉家人。</li>
