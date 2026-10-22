@@ -1,5 +1,2 @@
-# FIT 原始文件含 GPS 坐标，禁止提交（隐私）
-data/
-
 # Python 运行产物
 __pycache__/
