@@ -521,6 +521,11 @@ def format_metric_diff(old_val, new_val, metric_def):
             return ''
         return f"{diff:+.2f} m"
 
+    # 总距离：差异取整为 km，与展示的整数距离保持一致（如 13-16=-3 → -3 km）
+    if key == 'total_distance':
+        d = round(new_val * scale) - round(old_val * scale)
+        return f"{d:+d} km" if d != 0 else ''
+
     # 通用数值：从格式串推断精度阈值
     precision = _extract_format_precision(fmt)
     if abs(diff) < precision:

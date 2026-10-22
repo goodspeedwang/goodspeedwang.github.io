@@ -109,8 +109,18 @@ def test_format_metric_diff_respects_per_key_threshold():
 
 
 def test_format_metric_diff_generic_uses_fmt_precision():
-    """通用指标按格式串推断阈值：'{:.2f}' → 0.01。"""
-    assert format_metric_diff(16000, 16200, metric_def('total_distance')) == '+0.20 km'
+    """通用指标（非 total_distance）按格式串推断阈值：'{:.2f}' → 0.01。"""
+    generic = {'key': '_generic', 'fmt': '{:.2f} km', 'scale': 0.001}
+    assert format_metric_diff(16000, 16200, generic) == '+0.20 km'
+    assert format_metric_diff(16000, 16005, generic) == ''
+
+
+def test_format_metric_diff_total_distance_is_integer_km():
+    """总距离差异取整为 km，且与展示的整数距离一致（13-16=-3 → -3 km）。"""
+    assert format_metric_diff(16000, 13010, metric_def('total_distance')) == '-3 km'
+    assert format_metric_diff(13010, 16000, metric_def('total_distance')) == '+3 km'
+    # 两端四舍五入后相同 → 隐藏（如 16200 与 16000 都进位为 16 km）
+    assert format_metric_diff(16000, 16200, metric_def('total_distance')) == ''
     assert format_metric_diff(16000, 16005, metric_def('total_distance')) == ''
 
 
