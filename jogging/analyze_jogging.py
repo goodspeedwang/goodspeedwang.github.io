@@ -140,13 +140,20 @@ def compute_run_stats(raw_records, max_distance_m=16000):
     参数：
         max_distance_m: 最大分析距离（米），超出部分截断以排除冷却步行
     """
+    # 有效分析距离：不超过 max_distance_m，且去掉超出整数公里的尾巴
+    # （如 13.01km 的跑步只保留到 13.00km，丢弃停表残留的 10m 点）
+    raw_max_m = max((rec.get('distance', 0) or 0 for rec in raw_records), default=0)
+    nominal_km = round(raw_max_m / 1000) if raw_max_m else 0
+    effective_max_m = min(max_distance_m, nominal_km * 1000) if nominal_km else max_distance_m
+
     # ---- 第一步：字段提取 ----
     stats = {internal_name: [] for internal_name in RECORD_FIELD_MAP.values()}
     stats['distance_values'] = []  # 单位：km
+    stats['_nominal_km'] = round(effective_max_m / 1000)  # 完整公里数（每公里分箱上限）
 
     for rec in raw_records:
         dist_m = rec.get('distance', 0)
-        if dist_m > max_distance_m:
+        if dist_m > effective_max_m:
             break
 
         for fit_key, stat_key in RECORD_FIELD_MAP.items():
@@ -257,9 +264,21 @@ def compute_per_km_split(stats, max_km=16):
     heart_rates = stats.get('heart_rates', [])
     speeds = stats.get('speeds', [])
 
+    # 只统计完整跑完的整数公里；超出部分（停表残留点）不产生任何数据
+    valid_max_km = stats.get('_nominal_km')
+    if valid_max_km is None:
+        valid_max_km = round(max(distances)) if distances else 0
+
     results = []
 
     for km_num in range(1, max_km + 1):
+        if km_num > valid_max_km:
+            results.append({
+                'km': km_num, 'hr': None, 'pace': None,
+                'cum_avg_hr': None, 'cum_avg_pace': None,
+            })
+            continue
+
         hr_in_km = []
         pace_in_km = []      # 当前公里内
         hr_cumulative = []   # 到目前为止累积
@@ -311,8 +330,15 @@ def get_cumulative_time_at_kms(stats, max_km=20):
     if not distances or not times:
         return []
 
+    # 只产出完整公里的节点；超出部分（停表残留点）不参与
+    valid_max_km = stats.get('_nominal_km')
+    if valid_max_km is None:
+        valid_max_km = max_km
+
     nodes = []
     for target_km in range(1, max_km + 1):
+        if target_km > valid_max_km:
+            break
         found_time = _find_value_at_or_near(distances, times, target_km, tolerance_km=0.05)
         if found_time is not None:
             nodes.append({'km': target_km, 'seconds': found_time})
