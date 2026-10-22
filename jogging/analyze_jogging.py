@@ -13,6 +13,7 @@
 import json
 import os
 import re
+import sys
 from datetime import datetime
 from string import Template
 
@@ -433,6 +434,10 @@ def format_metric_value(value, metric_def):
 
     v = value * metric_def.get('scale', 1) if metric_def.get('scale') else value
     fmt = metric_def['fmt']
+
+    # 总距离：按用户约定只显示整数 km（如 13 km / 16 km），不保留小数
+    if metric_def.get('key') == 'total_distance':
+        return f"{round(v)} km"
 
     if fmt == 'duration':
         return format_duration(v)
@@ -877,11 +882,15 @@ def _better_class(val_a, val_b, lower_is_better):
 # 8. 入口
 # =============================================================================
 
-def update_index_html(stats_newer, date_str, output_file):
+def update_index_html(stats_newer, date_str, output_file, distance_k=None):
     """
-    将最新一次跑步的核心指标插入 jogging/index.html 表格的第一行。
+    将最新一次跑步的核心指标插入 jogging/index.html 对应距离组。
 
-    如果同名日期已存在则跳过，避免重复。
+    - 若 date_str 已存在则跳过，避免重复。
+    - 按距离分组（distance_k）：
+        * 该「NK」组已存在 → 插入到组标题下方（组内最新在上）；
+        * 该组不存在 → 在表格末尾新建组标题 + 数据行。
+    - 不传 distance_k 时退化为旧行为（插入 <tbody> 顶部）。
     """
     index_path = os.path.join(BASE_DIR, 'index.html')
     if not os.path.exists(index_path):
@@ -900,14 +909,21 @@ def update_index_html(stats_newer, date_str, output_file):
     start_time = _extract_start_time(stats_newer)
 
     # 构建新行，字段顺序与 index.html 表头一致
-    cells = [f"<td class='date-cell'><a href='{output_file}'>{date_str}</a></td>", f"<td>{start_time}</td>"]
+    cells = [f"<td class=\"date-cell\"><a href=\"{output_file}\">{date_str}</a></td>", f"<td>{start_time}</td>"]
     for m in CORE_METRIC_DEFS:
         val = stats_newer.get(m['key'])
         cells.append(f"<td>{format_metric_value(val, m)}</td>")
+    new_row = "                <tr>\n                    " + "\n                    ".join(cells) + "\n                </tr>"
 
-    new_row = f"                <tr>\n                    " + ''.join(cells) + "\n                </tr>"
-    # 在 <tbody> 标签后插入新行（作为第一行）
-    content = content.replace('<tbody>', '<tbody>\n' + new_row)
+    if distance_k is not None:
+        group_header = f'<tr class="group-header"><td colspan="14">{distance_k}K</td></tr>'
+        if group_header in content:
+            content = content.replace(group_header, group_header + "\n" + new_row, 1)
+        else:
+            new_group = group_header + "\n" + new_row
+            content = content.replace("</tbody>", new_group + "\n            </tbody>", 1)
+    else:
+        content = content.replace("<tbody>", "<tbody>\n" + new_row, 1)
 
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -924,43 +940,73 @@ def _extract_start_time(stats):
     return t0.strftime('%H:%M')
 
 
+def parse_fit_filename(filename):
+    """解析 `YYYYMMDD.<距离>k.<设备>.fit`，返回 (date, distance_k, device, file)。"""
+    base = filename[:-4] if filename.lower().endswith('.fit') else filename
+    parts = base.split('.')
+    date_int = int(parts[0])
+    distance_k = int(parts[1].lower().replace('k', ''))
+    device = parts[2] if len(parts) > 2 else ''
+    return {'date': date_int, 'distance_k': distance_k, 'device': device, 'file': filename}
+
+
 def main():
     """
-    CLI 入口：
+    CLI 入口（增量生成「最新一次」报告的约定）：
 
-      1. 扫描 data/ 目录下的 .fit 文件（按名称排序）
-      2. 取最新的两个进行对比
-      3. 输出 HTML 报告（以较新日期命名）
-      4. 自动将较新的数据行插入 index.html 索引表
+      1. 扫描 data/ 目录下的 .fit 文件
+      2. 取日期最新的一次作为「本次」（date2）
+      3. 配对规则：
+         - 同距离组存在更早的数据 → 与同组最近一次（date1）对比
+         - 本次是该距离组的第一次 → 与「日期最接近」的其它组数据对比
+      4. 输出 HTML 报告（以本次日期命名，如 20261022.html）
+      5. 自动把本次数据行插入 index.html 对应距离组
+
+    支持 `--dry-run`：只打印将对比的文件与输出名，不读写任何文件。
     """
-    data_dir = DATA_DIR
-    fit_files = sorted(f for f in os.listdir(data_dir) if f.endswith('.fit'))
+    dry_run = '--dry-run' in sys.argv
 
+    data_dir = DATA_DIR
+    fit_files = [f for f in os.listdir(data_dir) if f.endswith('.fit')]
     if len(fit_files) < 2:
         print("需要至少两个 FIT 文件")
         return
 
-    # 取最早和次早（排序后前两个），date1=旧 date2=新
-    name1, path1 = fit_files[0].split('.')[0], os.path.join(data_dir, fit_files[0])
-    name2, path2 = fit_files[1].split('.')[0], os.path.join(data_dir, fit_files[1])
+    infos = sorted((parse_fit_filename(f) for f in fit_files), key=lambda x: x['date'])
+    latest = infos[-1]
+    others = [i for i in infos if i['file'] != latest['file']]
 
-    print(f"解析: {path1}")
+    # 同组（同距离）中日期更早的，取最近一次作为对比基准
+    same_group = [i for i in others if i['distance_k'] == latest['distance_k']]
+    if same_group:
+        partner = max(same_group, key=lambda x: x['date'])
+        rule = f"同组({latest['distance_k']}K) 最近一次"
+    else:
+        # 其它组中，日期与本次最接近者
+        partner = min(others, key=lambda x: abs(x['date'] - latest['date']))
+        rule = f"跨组：与日期最接近的 {partner['distance_k']}K ({partner['date']}) 对比"
+
+    date1, path1 = partner['file'].split('.')[0], os.path.join(data_dir, partner['file'])
+    date2, path2 = latest['file'].split('.')[0], os.path.join(data_dir, latest['file'])
+    output_file = f"{date2}.html"
+
+    print(f"本次(date2): {path2}")
+    print(f"对比(date1): {path1}  [{rule}]")
+    print(f"输出报告:    {output_file}")
+
+    if dry_run:
+        print("（dry-run，未写入文件）")
+        return
+
     raw1 = parse_fit_file(path1)
-
-    print(f"解析: {path2}")
     raw2 = parse_fit_file(path2)
-
-    output_file = f"{max(name1, name2)}.html"
     output_path = os.path.join(BASE_DIR, output_file)
     print(f"生成: {output_path}")
+    generate_report(raw1, raw2, date1, date2, output_path)
 
-    generate_report(raw1, raw2, name1, name2, output_path)
-
-    # 更新 index.html：用较新那次的数据
+    # 更新 index.html：用本次（较新）数据，落入对应距离组
     stats_newer = compute_run_stats(raw2['records'])
-    newer_date = max(name1, name2)  # 较新日期
-    update_index_html(stats_newer, newer_date, output_file)
-
+    update_index_html(stats_newer, date2, output_file, distance_k=latest['distance_k'])
     print("完成!")
 
 
