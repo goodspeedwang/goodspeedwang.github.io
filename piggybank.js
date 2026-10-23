@@ -32,7 +32,9 @@ window.PIGGYBANK_DATA = {
     //     { date: '2027-08', holidayAllowance: 0 }     // August: back to none
     //   ]
     schedule: [
-      { date: '2026-10', monthlyAllowance: 100, annualInterestRate: 0.02, holidayAllowance: 0 }
+      { date: '2026-10', monthlyAllowance: 100, annualInterestRate: 0.02, holidayAllowance: 0 },
+      { date: '2026-11', holidayAllowance: 300 }, //游学零花
+      { date: '2026-12', holidayAllowance: 0 }, 
     ]
   }
 };

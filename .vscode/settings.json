@@ -6,7 +6,7 @@
         ".DS_Store": true,
         "CNAME": true,
         "favicon.ico": true,
-        "push.sh": true,"push.bat": true,
+        //"push.sh": true,"push.bat": true,
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
