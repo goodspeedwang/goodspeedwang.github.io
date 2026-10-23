@@ -6,7 +6,7 @@
 window.PIGGYBANK_DATA = {
   transactions: [
     { date: '2026-10-05', amount: 39.94, note: '宜家' },
-    { date: '2026-10-05', amount: 2.94, note: '' }
+    { date: '2026-10-05', amount: 2.94, note: '' },
     { date: '2026-10-23', amount: 10.87, note: '泉盛果蔬大屯店' }
   ],
 
