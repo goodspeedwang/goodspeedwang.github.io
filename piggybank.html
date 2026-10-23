@@ -126,7 +126,7 @@
     <main id="ledger"></main>
   </div>
 
-  <script src="piggybank.js?v=85969fc1"></script>
+  <script src="piggybank.js?v=b2fc56a1"></script>
   <script>
   (function () {
     var DATA = window.PIGGYBANK_DATA;
@@ -206,12 +206,17 @@
       cur = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
     }
 
-    // 手动流水（type 省略时默认为支出）
+    // 手动流水：
+    //   正数（或 type:'income' 的正数）   → 支出，余额减少
+    //   负数                          → 手动存钱（入账），余额增加其绝对值
     txns.forEach(function (t) {
+      var raw = Number(t.amount) || 0;
+      var deposit = raw < 0;                                   // 负数为存钱
+      var type = deposit ? 'income' : (t.type === 'income' ? 'income' : 'expense');
       entries.push({
         date: parseDate(t.date),
-        type: t.type === 'income' ? 'income' : 'expense',
-        amount: Number(t.amount),
+        type: type,
+        amount: Math.abs(raw),
         note: t.note || '',
         dynamic: false
       });
