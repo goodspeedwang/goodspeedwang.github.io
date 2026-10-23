@@ -20,7 +20,7 @@ window.PIGGYBANK_DATA = {
   // ---------- Settings (change as needed) ----------
   config: {
     startDate: '2026-10-05',   // account opening date (allowance starts from the 1st of this month)
-    initialBalance: 344.45,         // money already in the account when opened (use 0 if none)
+    initialBalance: 44.45,         // money already in the account when opened (use 0 if none)
 
     // Schedule: ALL settings live here. Each entry takes effect FROM its 'date'
     // (format 'YYYY-MM' or 'YYYY-MM-DD') and overrides the previous one. Between two
