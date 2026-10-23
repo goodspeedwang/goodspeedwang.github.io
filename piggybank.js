@@ -9,15 +9,16 @@ window.PIGGYBANK_DATA = {
   //   amount 为负数                        → 手动存钱 / 入账（余额增加其绝对值）
   //   例：{ date:'2026-10-23', amount:-300, note:'游学零花' } 表示存入 300
   transactions: [
+
+    { date: '2026-10-24', amount: 8.97, note: '主食厨房' },
     { date: '2026-10-23', amount: -300, note: '游学零花' },
     { date: '2026-10-23', amount: 10.87, note: '泉盛果蔬大屯店' },
     { date: '2026-10-23', amount: 26.26, note: '芯果科技' },
     { date: '2026-10-05', amount: 2.94, note: '' },
     { date: '2026-10-05', amount: 39.94, note: '宜家' },
-    
   ],
 
-  // ---------- Settings (change as needed) ----------
+  //#region ---------- Settings (change as needed) ----------
   config: {
     startDate: '2026-10-05',   // account opening date (allowance starts from the 1st of this month)
     initialBalance: 44.45,         // money already in the account when opened (use 0 if none)
@@ -40,4 +41,5 @@ window.PIGGYBANK_DATA = {
       { date: '2026-10', monthlyAllowance: 100, annualInterestRate: 0.02,holidayAllowance: 0 },
     ]
   }
+  //#endregion
 };
