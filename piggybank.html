@@ -222,11 +222,15 @@
       });
     });
 
-    // 按时间正序排序（用于正确计算运行余额）
+    // 录入序号：标记每条记录在源数据中的先后（自动项在前，手动项按文件顺序在后）
+    entries.forEach(function (e, i) { e.seq = i; });
+
+    // 按时间正序排序（用于正确计算运行余额）；同日按录入顺序 seq 排，
+    // 展示时当月/当天自下而上倒序，从而“当天的零花钱按录入顺序倒序展示”。
     entries.sort(function (a, b) {
       var d = a.date - b.date;
       if (d !== 0) return d;
-      return (ORDER[a.type] == null ? 9 : ORDER[a.type]) - (ORDER[b.type] == null ? 9 : ORDER[b.type]);
+      return a.seq - b.seq;
     });
 
     var balance = 0;
