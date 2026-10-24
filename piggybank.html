@@ -295,19 +295,28 @@
         + '</div></div>';
       html += '<ul class="rows">';
 
-      // 月内也从近到远
-      for (var j = list.length - 1; j >= 0; j--) {
-        var e = list[j];
-        var meta = TYPE_META[e.type] || { tag: e.type, cls: '' };
-        html += '<li class="row">'
-          + '<span class="meta"><span class="date">' + pad(e.date.getMonth() + 1) + '-' + pad(e.date.getDate()) + '</span>'
-          + '<span class="tag ' + meta.cls + '">' + meta.tag + '</span></span>'
-          + '<span class="note">' + escapeHtml(e.note) + '</span>'
-          + '<span class="right">'
-          + '<div class="amt">' + signAmount(e) + '</div>'
-          + '<div class="bal">Balance ' + fmtHtml(e.balance) + '</div>'
-          + '</span>'
-          + '</li>';
+      // 月内按天分组：天从近到远，同一天内按录入顺序（文件顺序）从上到下展示
+      var dayGroups = {};
+      list.forEach(function (e) {
+        var dk = e.date.getFullYear() + '-' + pad(e.date.getMonth() + 1) + '-' + pad(e.date.getDate());
+        (dayGroups[dk] = dayGroups[dk] || []).push(e);
+      });
+      var dayKeys = Object.keys(dayGroups).sort(); // 远 -> 近
+      for (var di = dayKeys.length - 1; di >= 0; di--) {   // 近 -> 远
+        var dayList = dayGroups[dayKeys[di]];
+        for (var j = 0; j < dayList.length; j++) {          // 文件顺序（正序）
+          var e = dayList[j];
+          var meta = TYPE_META[e.type] || { tag: e.type, cls: '' };
+          html += '<li class="row">'
+            + '<span class="meta"><span class="date">' + pad(e.date.getMonth() + 1) + '-' + pad(e.date.getDate()) + '</span>'
+            + '<span class="tag ' + meta.cls + '">' + meta.tag + '</span></span>'
+            + '<span class="note">' + escapeHtml(e.note) + '</span>'
+            + '<span class="right">'
+            + '<div class="amt">' + signAmount(e) + '</div>'
+            + '<div class="bal">Balance ' + fmtHtml(e.balance) + '</div>'
+            + '</span>'
+            + '</li>';
+        }
       }
       html += '</ul></section>';
     }
