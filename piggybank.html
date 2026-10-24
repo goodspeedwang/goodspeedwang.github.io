@@ -188,7 +188,7 @@
     }
 
     var entries = [];
-    entries.push({ date: start, type: 'initial', amount: cfg.initialBalance, note: 'Opening balance', dynamic: false });
+    entries.push({ date: start, type: 'initial', amount: cfg.initialBalance, note: 'Opening balance', dynamic: false, auto: true });
 
     // 自动：从开户所在月的 1 号起，到本月 1 号为止
     var cur = new Date(start.getFullYear(), start.getMonth(), 1);
@@ -197,9 +197,9 @@
       if (first >= start) {
         var m = cur.getMonth() + 1;
         var eff = getEffective(first);
-        entries.push({ date: first, type: 'allowance', amount: eff.monthlyAllowance, note: 'Monthly allowance', dynamic: false });
-        if (eff.holidayAllowance) entries.push({ date: first, type: 'holiday', amount: eff.holidayAllowance, note: MONTHS[m - 1] + ' holiday allowance', dynamic: false });
-        entries.push({ date: first, type: 'interest', amount: null, rate: eff.annualInterestRate, note: 'Interest (' + (eff.annualInterestRate * 100) + '% APR)', dynamic: true });
+        entries.push({ date: first, type: 'allowance', amount: eff.monthlyAllowance, note: 'Monthly allowance', dynamic: false, auto: true });
+        if (eff.holidayAllowance) entries.push({ date: first, type: 'holiday', amount: eff.holidayAllowance, note: MONTHS[m - 1] + ' holiday allowance', dynamic: false, auto: true });
+        entries.push({ date: first, type: 'interest', amount: null, rate: eff.annualInterestRate, note: 'Interest (' + (eff.annualInterestRate * 100) + '% APR)', dynamic: true, auto: true });
       }
       cur = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
     }
@@ -216,19 +216,23 @@
         type: type,
         amount: Math.abs(raw),
         note: t.note || '',
-        dynamic: false
+        dynamic: false,
+        auto: false
       });
     });
 
     // 录入序号：标记每条记录在源数据中的先后（自动项在前，手动项按文件顺序在后）
     entries.forEach(function (e, i) { e.seq = i; });
 
-    // 按 (日期正序, 录入顺序) 排序；运行余额依赖此顺序计算，
-    // 展示方向（月/天 近->远，天内按文件顺序）由渲染部分决定。
+    // 计算顺序：(日期正序)；同一天内：自动项（期初/津贴/利息）先算，作为当天起点，
+    // 随后手动流水按“文件逆序”（旧→新）计算，还原真实发生顺序的余额演进
+    // （文件最上面永远是最新一笔，整体与每天的录入都是“新的在上”）。
+    // 展示顺序由渲染部分决定：手动流水按文件顺序（新→旧）在上，自动项放当天最下面。
     entries.sort(function (a, b) {
       var d = a.date - b.date;
       if (d !== 0) return d;
-      return a.seq - b.seq;
+      if (a.auto !== b.auto) return a.auto ? -1 : 1;   // 自动项先算
+      return a.auto ? a.seq - b.seq : b.seq - a.seq;   // 手动项按文件逆序（旧→新）
     });
 
     var balance = 0;
@@ -303,8 +307,12 @@
 
       for (var di = dayKeys.length - 1; di >= 0; di--) {  // 天：近 -> 远
         var dayList = days[dayKeys[di]];
-        for (var j = 0; j < dayList.length; j++) {        // 条目：文件顺序（正序）
-          var e = dayList[j];
+        // 展示顺序：手动流水按文件顺序（新→旧）在上；期初/津贴/利息等自动项放最下面
+        var rows = dayList.filter(function (e) { return !e.auto; })
+          .sort(function (a, b) { return a.seq - b.seq; })
+          .concat(dayList.filter(function (e) { return e.auto; }));
+        for (var j = 0; j < rows.length; j++) {
+          var e = rows[j];
           var meta = TYPE_META[e.type] || { tag: e.type, cls: '' };
           html += '<li class="row">'
             + '<span class="meta"><span class="date">' + pad(e.date.getMonth() + 1) + '-' + pad(e.date.getDate()) + '</span>'
