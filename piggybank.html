@@ -150,7 +150,6 @@
     }
     function round2(n) { return Math.round((n + Number.EPSILON) * 100) / 100; }
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
-    function fmt(n) { return Number(n).toFixed(2); }
     function fmtHtml(n) { return Number(n).toFixed(2); }
     function escapeHtml(s) {
       return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -158,7 +157,6 @@
       });
     }
 
-    var ORDER = { initial: 0, allowance: 1, holiday: 2, interest: 3, income: 4, expense: 5 };
     var TYPE_META = {
       initial:  { tag: 'Opening', cls: 't-initial' },
       allowance:{ tag: 'Deposit', cls: 't-allowance' },
@@ -225,8 +223,8 @@
     // 录入序号：标记每条记录在源数据中的先后（自动项在前，手动项按文件顺序在后）
     entries.forEach(function (e, i) { e.seq = i; });
 
-    // 按时间正序排序（用于正确计算运行余额）；同日按录入顺序 seq 排，
-    // 展示时当月/当天自下而上倒序，从而“当天的零花钱按录入顺序倒序展示”。
+    // 按 (日期正序, 录入顺序) 排序；运行余额依赖此顺序计算，
+    // 展示方向（月/天 近->远，天内按文件顺序）由渲染部分决定。
     entries.sort(function (a, b) {
       var d = a.date - b.date;
       if (d !== 0) return d;
@@ -269,25 +267,33 @@
     document.getElementById('balance2').innerHTML = fmtHtml(lastBal);
     document.getElementById('monthSpent').innerHTML = fmtHtml(round2(monthSpent));
 
-    // 分组（月份补零，保证字符串排序正确）
-    var groups = {};
+    // ---------- 渲染数据：构建 月份 -> 天 的层级结构（entries 已按日期/录入顺序排好）----------
+    var tree = {};
     entries.forEach(function (e) {
-      var k = e.date.getFullYear() + '-' + pad(e.date.getMonth() + 1);
-      (groups[k] = groups[k] || []).push(e);
+      var mk = e.date.getFullYear() + '-' + pad(e.date.getMonth() + 1);
+      var dk = mk + '-' + pad(e.date.getDate());
+      (tree[mk] = tree[mk] || { days: {} });
+      (tree[mk].days[dk] = tree[mk].days[dk] || []).push(e);
     });
-    var keys = Object.keys(groups).sort(); // 正序
+    var monthKeys = Object.keys(tree).sort(); // 正序（远 -> 近）
 
     var html = '';
-    // 从近到远展示
-    for (var i = keys.length - 1; i >= 0; i--) {
-      var k = keys[i];
-      var list = groups[k];
-      var inc = 0, exp = 0;
-      list.forEach(function (e) { if (e.type === 'expense') exp += e.amount; else inc += e.amount; });
-      var endBal = list[list.length - 1].balance;
+    for (var i = monthKeys.length - 1; i >= 0; i--) {     // 月：近 -> 远
+      var mk = monthKeys[i];
+      var days = tree[mk].days;
+      var dayKeys = Object.keys(days).sort();             // 正序（远 -> 近）
+
+      // 月汇总
+      var inc = 0, exp = 0, endBal = 0;
+      dayKeys.forEach(function (dk) {
+        days[dk].forEach(function (e) {
+          if (e.type === 'expense') exp += e.amount; else inc += e.amount;
+          endBal = e.balance;
+        });
+      });
 
       html += '<section class="month">';
-      html += '<div class="month-head"><h2>' + monthLabel(k) + '</h2>';
+      html += '<div class="month-head"><h2>' + monthLabel(mk) + '</h2>';
       html += '<div class="month-sum">'
         + '<span><span class="lab">Credits</span><span class="cr">' + fmtHtml(round2(inc)) + '</span></span>'
         + '<span><span class="lab">Debits</span><span class="db">' + fmtHtml(round2(exp)) + '</span></span>'
@@ -295,16 +301,9 @@
         + '</div></div>';
       html += '<ul class="rows">';
 
-      // 月内按天分组：天从近到远，同一天内按录入顺序（文件顺序）从上到下展示
-      var dayGroups = {};
-      list.forEach(function (e) {
-        var dk = e.date.getFullYear() + '-' + pad(e.date.getMonth() + 1) + '-' + pad(e.date.getDate());
-        (dayGroups[dk] = dayGroups[dk] || []).push(e);
-      });
-      var dayKeys = Object.keys(dayGroups).sort(); // 远 -> 近
-      for (var di = dayKeys.length - 1; di >= 0; di--) {   // 近 -> 远
-        var dayList = dayGroups[dayKeys[di]];
-        for (var j = 0; j < dayList.length; j++) {          // 文件顺序（正序）
+      for (var di = dayKeys.length - 1; di >= 0; di--) {  // 天：近 -> 远
+        var dayList = days[dayKeys[di]];
+        for (var j = 0; j < dayList.length; j++) {        // 条目：文件顺序（正序）
           var e = dayList[j];
           var meta = TYPE_META[e.type] || { tag: e.type, cls: '' };
           html += '<li class="row">'
