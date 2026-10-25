@@ -16,7 +16,7 @@
         { "name": "Gitpod", "url": "https://gitpod.io/workspaces", "favicon": "https://gitpod.io/favicon256.png" },
         { "name": "QR", "url": "qr.html", "favicon": "static/img/qr/favicon.ico", "hot": true },
         { "name": "考试数据", "url": "https://test.k12media.cn/", "favicon": "https://test.k12media.cn/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "♕ Life",
@@ -34,7 +34,7 @@
         { "name": "海康", "url": "https://my.hiksemi.cn/", "favicon": "https://my.hiksemi.cn/web/easyconnect/favicon.svg" },
         { "name": "空气质量", "url": "https://aqicn.org/city/beijing/chaoyangaotizhongxin/", "favicon": "https://aqicn.org/images/favicon.ico" },
         { "name": "Photo", "url": "photo.html", "favicon": "https://storage.googleapis.com/gweb-mobius-cdn/photos/uploads/383ce0413fa82bcaf6de49fd7997678b21b9762e.svg" }
-      ],
+      ]
     },
     {
       "name": "♖ Media",
@@ -49,7 +49,7 @@
         { "name": "GlobalNews", "url": "https://globalnews.ca/", "favicon": "https://secure.gravatar.com/blavatar/134ef81f5668dc78080f6bd19ca2310b?s=32" },
         { "name": "SouthChina", "url": "https://www.scmp.com/", "favicon": "https://www.scmp.com/favicon.ico" },
         { "name": "Bloomberg", "url": "https://www.bloomberg.com/next-china", "favicon": "https://www.bloomberg.com/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "♘ Computer",
@@ -62,7 +62,7 @@
         { "name": "Sudoku", "url": "https://shudu.one/sudoku/printable-hard-sudoku.php", "favicon": "https://shudu.one/favicon.ico" },
         { "name": "密码生成", "url": "password.html", "favicon": "/favicon.ico" },
         { "name": "IP Info", "url": "https://ip125.com/myip/", "favicon": "https://ip125.com/images/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "♙ English",
@@ -76,7 +76,7 @@
         { "name": "Quodb", "url": "https://www.quodb.com/", "favicon": "https://www.quodb.com/images/84d8302d.favicon_quodb.png" },
         { "name": "田间小站", "url": "https://www.tjxz.cc/", "favicon": "https://www.tjxz.cc/wp-content/uploads/2020/07/cropped-tractor-icon-full-1-32x32.png" },
         { "name": "News In Levels", "url": "https://englishnewsinlevels.com/", "favicon": "https://englishnewsinlevels.com/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "♚ AI",
@@ -96,7 +96,7 @@
         { "name": "AI-generated Images", "url": "https://raphael.app", "favicon": "https://raphael.app/favicon.ico" },
         { "name": "问小白", "url": "https://www.wenxiaobai.com/", "favicon": "https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.15.12/_next/static/media/new_favicon.6d31cfe4.png" },
         { "name": "图片增强", "url": "https://picsart.com/ai-image-enhancer/", "favicon": "https://pastatic.picsart.com/cms-pastatic/897d8248-6192-4246-93e4-f99389acd13c.png" }
-      ],
+      ]
     },
     {
       "name": "♛ Book",
@@ -111,7 +111,7 @@
         { "name": "overapi", "url": "http://overapi.com/", "favicon": "https://overapi.com/favicon.ico" },
         { "name": "404文库", "url": "https://chinadigitaltimes.net/chinese/404-articles-archive", "favicon": "https://chinadigitaltimes.net/chinese/wp-content/themes/Extra-child/images/favicon.png" },
         { "name": "孔夫子", "url": "https://www.kongfz.com/", "favicon": "https://www.kongfz.com/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "♜ Stock",
@@ -124,7 +124,7 @@
         { "name": "浦发银行", "url": "https://cardsonline.spdbccc.com.cn/icard/icardlogin.do?_locale=zh_CN", "favicon": "https://cdnicard.res.spdb.com.cn/icard/images/favicon.ico" },
         { "name": "交通银行", "url": "https://pbank.95559.com.cn/personbank/logon.jsp", "favicon": "https://pbank.95559.com.cn/personbank/system/favicon.png" },
         { "name": "SimplyWall", "url": "https://simplywall.st/", "favicon": "https://cdn.prod.website-files.com/648009cb318551f1806b36b4/6487e4bd5b63a6818cb5c697_Favicon.png" }
-      ],
+      ]
     },
     {
       "name": "♝ Investment",
@@ -137,7 +137,7 @@
         { "name": "华宝添益", "url": "https://xueqiu.com/S/SH511990" },
         { "name": "国债ETF", "url": "https://xueqiu.com/S/SH511010" },
         { "name": "国债收益率曲线", "url": "http://www.worldgovernmentbonds.com/country/china/", "favicon": "https://www.worldgovernmentbonds.com/wp-content/uploads/2023/10/cropped-icon-32x32.png" }
-      ],
+      ]
     },
     {
       "name": "♞ Document",
@@ -154,7 +154,7 @@
         { "name": "写作猫", "url": "https://xiezuocat.com/", "favicon": "https://uranus-static.oss-accelerate.aliyuncs.com/xiezuocat/favicon.ico" },
         { "name": "云盘", "url": "https://goodspeed.coding.net/p/goodspeed.coding.me/files/all", "favicon": "https://goodspeed.coding.net/static/favicon.ico" },
         { "name": "Wiki", "url": "http://192.168.10.30:8080/", "favicon": "http://192.168.10.30:8080/favicon.svg" }
-      ],
+      ]
     },
     {
       "name": "♟ Entertain",
@@ -171,7 +171,7 @@
         { "name": "Music", "url": "music/", "favicon": "https://spotidown.app/img/favicon.ico", "hot": true },
         { "name": "Jogging", "url": "jogging/", "favicon": "jogging/favicon.ico", "hot": true },
         { "name": "IPTV", "url": "http://192.168.10.30:5140/player", "favicon": "https://sapi.yangshipin.cn/assets/2022/pcicon/favicon.ico" }
-      ],
+      ]
     },
     {
       "name": "❀ Travel",
