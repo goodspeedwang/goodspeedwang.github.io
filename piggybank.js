@@ -10,6 +10,7 @@ window.PIGGYBANK_DATA = {
   //   例：{ date:'2026-10-23', amount:-300, note:'游学零花' } 表示存入 300
   transactions: [
 
+    { date: '2026-10-25', amount: 5.47, note: '乐享生鲜' },
     { date: '2026-10-24', amount: 2.97, note: '泉盛果蔬大屯店' },
     { date: '2026-10-24', amount: 5.47, note: '泉盛果蔬大屯店' },
     { date: '2026-10-24', amount: 8.97, note: '主食厨房' },
