@@ -1,0 +1,186 @@
+{
+  "groups": [
+    {
+      "name": "♔ 常用链接",
+      "links": [
+        { "name": "Gmail", "url": "https://mail.google.com/", "favicon": "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico", "hot": true },
+        { "name": "Youtube", "url": "https://www.youtube.com/", "favicon": "https://www.youtube.com/favicon.ico" },
+        { "name": "News", "url": "http://news.google.com/", "favicon": "https://lh3.googleusercontent.com/-DR60l-K8vnyi99NZovm9HlXyZwQ85GMDxiwJWzoasZYCUrPuUM_P_4Rb7ei03j-0nRs0c4F=w16" },
+        { "name": "知乎", "url": "https://www.zhihu.com/", "favicon": "https://www.zhihu.com/favicon.ico" },
+        { "name": "Cambridge", "url": "https://dictionary.cambridge.org/", "favicon": "https://dictionary.cambridge.org/favicon.ico" },
+        { "name": "Dictionary", "url": "https://www.dictionary.com/", "favicon": "https://www.dictionary.com/94e56a525da4e9fe0cda.png" },
+        { "name": "有道词典", "url": "https://dict.youdao.com/", "favicon": "https://dict.youdao.com/favicon.ico" },
+        { "name": "有道写作", "url": "https://write.youdao.com/#/home", "favicon": "https://shared.ydstatic.com/ai/youdao-writing/production/v3.0.6/favicon.ico" },
+        { "name": "Translate", "url": "https://cn.bing.com/translator", "favicon": "https://cn.bing.com/th?id=OTT.7A274AA188550691D09FA80F322A58D2&pid=Trans" },
+        { "name": "Notion", "url": "https://www.notion.so/goodspeedwang/", "favicon": "https://www.notion.so/images/favicon.ico" },
+        { "name": "Gitpod", "url": "https://gitpod.io/workspaces", "favicon": "https://gitpod.io/favicon256.png" },
+        { "name": "QR", "url": "qr.html", "favicon": "static/img/qr/favicon.ico", "hot": true },
+        { "name": "考试数据", "url": "https://test.k12media.cn/", "favicon": "https://test.k12media.cn/favicon.ico" }
+      ],
+    },
+    {
+      "name": "♕ Life",
+      "links": [
+        { "name": "联通", "url": "http://www.10010.com/", "favicon": "https://www.10010.com/wt_service_web/favicon.ico" },
+        { "name": "北京电信", "url": "http://www.189.cn/bj/", "favicon": "https://www.189.cn/image/189cnv2/indexv2/images/favicon.ico" },
+        { "name": "中国石化", "url": "https://www.sinopecsales.com/", "favicon": "https://www.sinopecsales.com/favicon.ico" },
+        { "name": "阿里云盘", "url": "https://www.aliyundrive.com/", "favicon": "https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_!!6000000000236-73-tps-64-64.ico" },
+        { "name": "A姐分享", "url": "https://www.abskoop.com/", "favicon": "https://www.ahhhhfs.com/wp-content/uploads/2021/07/1625210968-d02a42d9cb3dec9.webp" },
+        { "name": "京东", "url": "https://www.jd.com/", "favicon": "https://www.jd.com/favicon.ico", "hot": true },
+        { "name": "淘宝", "url": "https://www.taobao.com/", "favicon": "https://www.taobao.com/favicon.ico", "hot": true },
+        { "name": "什么值得买", "url": "https://www.smzdm.com/", "favicon": "https://www.smzdm.com/favicon.ico", "hot": true },
+        { "name": "高德", "url": "https://www.gaode.com/", "favicon": "https://a.amap.com/pc/static/favicon.ico" },
+        { "name": "小红书", "url": "https://www.xiaohongshu.com/explore", "favicon": "https://img.ixintu.com/upload/jpg/20210522/b466594a956f6023b62f5672c59a07dd_48198_800_800.jpg!ys" },
+        { "name": "海康", "url": "https://my.hiksemi.cn/", "favicon": "https://my.hiksemi.cn/web/easyconnect/favicon.svg" },
+        { "name": "空气质量", "url": "https://aqicn.org/city/beijing/chaoyangaotizhongxin/", "favicon": "https://aqicn.org/images/favicon.ico" },
+        { "name": "Photo", "url": "photo.html", "favicon": "https://storage.googleapis.com/gweb-mobius-cdn/photos/uploads/383ce0413fa82bcaf6de49fd7997678b21b9762e.svg" }
+      ],
+    },
+    {
+      "name": "♖ Media",
+      "links": [
+        { "name": "联合早报", "url": "https://www.zaobao.com", "favicon": "https://www.zaobao.com/favicon.ico" },
+        { "name": "中国时报", "url": "https://www.chinatimes.com/", "favicon": "https://www.chinatimes.com/favicon.ico" },
+        { "name": "v2ex", "url": "https://v2ex.com/", "favicon": "https://v2ex.com/static/favicon.ico", "hot": true },
+        { "name": "少数派", "url": "https://sspai.com/", "favicon": "https://cdn-static.sspai.com/favicon/sspai.ico" },
+        { "name": "Twitter", "url": "http://twitter.com/home", "favicon": "https://abs.twimg.com/favicons/twitter.3.ico" },
+        { "name": "网易", "url": "https://www.163.com/", "favicon": "https://www.163.com/favicon.ico" },
+        { "name": "微博", "url": "https://www.weibo.com/mygroups?gid=110001308620010", "favicon": "https://www.weibo.com/favicon.ico", "hot": true },
+        { "name": "GlobalNews", "url": "https://globalnews.ca/", "favicon": "https://secure.gravatar.com/blavatar/134ef81f5668dc78080f6bd19ca2310b?s=32" },
+        { "name": "SouthChina", "url": "https://www.scmp.com/", "favicon": "https://www.scmp.com/favicon.ico" },
+        { "name": "Bloomberg", "url": "https://www.bloomberg.com/next-china", "favicon": "https://www.bloomberg.com/favicon.ico" }
+      ],
+    },
+    {
+      "name": "♘ Computer",
+      "links": [
+        { "name": "电脑之家", "url": "http://www.pchome.net/", "favicon": "https://www.pchome.net/favicon.ico" },
+        { "name": "中关村", "url": "http://www.zol.com.cn/", "favicon": "https://icon.zol-img.com.cn/favicon.ico" },
+        { "name": "pcpop", "url": "http://www.pcpop.com/", "favicon": "https://www.pcpop.com/favicon.ico" },
+        { "name": "cnbeta", "url": "https://www.cnbeta.com.tw/", "favicon": "https://static.cnbetacdn.com/favicon.ico" },
+        { "name": "时光倒转", "url": "http://web.archive.org/", "favicon": "https://web-static.archive.org/_static/images/archive.ico" },
+        { "name": "Sudoku", "url": "https://shudu.one/sudoku/printable-hard-sudoku.php", "favicon": "https://shudu.one/favicon.ico" },
+        { "name": "密码生成", "url": "password.html", "favicon": "/favicon.ico" },
+        { "name": "IP Info", "url": "https://ip125.com/myip/", "favicon": "https://ip125.com/images/favicon.ico" }
+      ],
+    },
+    {
+      "name": "♙ English",
+      "links": [
+        { "name": "中国日报", "url": "http://www.chinadaily.com.cn/", "favicon": "https://www.chinadaily.com.cn/favicon.ico" },
+        { "name": "在线词典", "url": "http://www.dict.cn/", "favicon": "https://i1.haidii.com/favicon.ico" },
+        { "name": "爱词霸", "url": "http://www.iciba.com/", "favicon": "https://cdn.iciba.com/www/img/www/favicon.ico" },
+        { "name": "Oxford", "url": "https://www.oxfordlearnersdictionaries.com/", "favicon": "https://www.oxfordlearnersdictionaries.com/external/images/favicon.ico?version=2.3.61" },
+        { "name": "VoiceTube", "url": "https://www.voicetube.com/", "favicon": "https://vt-cdn.voicetube.com/assets/img/logo/favicon/32.png" },
+        { "name": "thefreedictionary", "url": "http://www.thefreedictionary.com/", "favicon": "https://img.tfd.com/favicon.ico" },
+        { "name": "Quodb", "url": "https://www.quodb.com/", "favicon": "https://www.quodb.com/images/84d8302d.favicon_quodb.png" },
+        { "name": "田间小站", "url": "https://www.tjxz.cc/", "favicon": "https://www.tjxz.cc/wp-content/uploads/2020/07/cropped-tractor-icon-full-1-32x32.png" },
+        { "name": "News In Levels", "url": "https://englishnewsinlevels.com/", "favicon": "https://englishnewsinlevels.com/favicon.ico" }
+      ],
+    },
+    {
+      "name": "♚ AI",
+      "links": [
+        { "name": "博客园", "url": "http://www.cnblogs.com/", "favicon": "https://assets.cnblogs.com/favicon_v3_2.ico" },
+        { "name": "Gemini", "url": "https://gemini.google.com/", "favicon": "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg" },
+        { "name": "Chatgpt", "url": "https://chatgpt.com/", "favicon": "https://cdn.oaistatic.com/assets/favicon-o20kmmos.svg" },
+        { "name": "Claude", "url": "https://claude.ai/chat/", "favicon": "https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/ce67964e7-CAX1bqSh.png" },
+        { "name": "Grok", "url": "https://grok.com/", "favicon": "https://grok.com/images/favicon.ico" },
+        { "name": "元宝", "url": "https://yuanbao.tencent.com/", "favicon": "https://cdn-bot.hunyuan.tencent.com/logo.png" },
+        { "name": "Deepseek", "url": "https://chat.deepseek.com", "favicon": "https://fe-static.deepseek.com/chat/favicon.svg" },
+        { "name": "豆包", "url": "https://www.doubao.com/chat/", "favicon": "https://grok.com/images/favicon.ico" },
+        { "name": "Codebuddy", "url": "https://www.codebuddy.cn/agents", "favicon": "https://acc-1258344699.cos.accelerate.myqcloud.com/web/agents/69aa6e59b2a4bb1319e6cb0d7c49bb4722321a74/assets/favicon.svg" },
+        { "name": "POE", "url": "https://poe.com/chatgpt", "favicon": "https://psc2.cf2.poecdn.net/assets/apple-touch-icon.png" },
+        { "name": "Skype", "url": "https://web.skype.com/", "favicon": "https://secure.skypeassets.com/wcss/8-127-0-200/images/favicons/favicon.ico" },
+        { "name": "Perplexity", "url": "https://www.perplexity.ai/", "favicon": "https://www.perplexity.ai/favicon.ico" },
+        { "name": "AI-generated Images", "url": "https://raphael.app", "favicon": "https://raphael.app/favicon.ico" },
+        { "name": "问小白", "url": "https://www.wenxiaobai.com/", "favicon": "https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.15.12/_next/static/media/new_favicon.6d31cfe4.png" },
+        { "name": "图片增强", "url": "https://picsart.com/ai-image-enhancer/", "favicon": "https://pastatic.picsart.com/cms-pastatic/897d8248-6192-4246-93e4-f99389acd13c.png" }
+      ],
+    },
+    {
+      "name": "♛ Book",
+      "links": [
+        { "name": "鸠摩搜书", "url": "https://www.jiumodiary.com/", "favicon": "https://www.jiumodiary.com/images/favicon.png" },
+        { "name": "內酷网", "url": "http://neikuw.com/" },
+        { "name": "快吧", "url": "http://www.fast8.com/list/6_1.html", "favicon": "https://www.kb199.com/favicon.ico", "hot": true },
+        { "name": "小力盘", "url": "https://www.xiaolipan.com//", "favicon": "https://www.xiaolipan.com/favicon.ico" },
+        { "name": "首都图书馆", "url": "https://www.clcn.net.cn/", "favicon": "https://www.clcn.net.cn/favicon.ico" },
+        { "name": "Redis", "url": "http://redis.readthedocs.org/en/latest/", "favicon": "https://redis.readthedocs.io/favicon.ico" },
+        { "name": "Flask", "url": "http://dormousehole.readthedocs.org/en/latest/", "favicon": "https://dormousehole.readthedocs.io/en/latest/_static/shortcut-icon.png" },
+        { "name": "overapi", "url": "http://overapi.com/", "favicon": "https://overapi.com/favicon.ico" },
+        { "name": "404文库", "url": "https://chinadigitaltimes.net/chinese/404-articles-archive", "favicon": "https://chinadigitaltimes.net/chinese/wp-content/themes/Extra-child/images/favicon.png" },
+        { "name": "孔夫子", "url": "https://www.kongfz.com/", "favicon": "https://www.kongfz.com/favicon.ico" }
+      ],
+    },
+    {
+      "name": "♜ Stock",
+      "links": [
+        { "name": "汇率", "url": "https://www.kylc.com/huilv" },
+        { "name": "新股", "url": "http://data.eastmoney.com/xg/xg/default.html", "favicon": "https://data.eastmoney.com/favicon.ico" },
+        { "name": "上证", "url": "http://finance.sina.com.cn/realstock/company/sh000001/nc.shtml", "favicon": "https://finance.sina.com.cn/favicon.ico" },
+        { "name": "行权", "url": "https://www.mysmartadvisor.com/", "favicon": "https://sso.mysmartadvisor.com/favicon.ico" },
+        { "name": "招商银行", "url": "https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx", "favicon": "https://www.cmbchina.com/favicon.ico" },
+        { "name": "浦发银行", "url": "https://cardsonline.spdbccc.com.cn/icard/icardlogin.do?_locale=zh_CN", "favicon": "https://cdnicard.res.spdb.com.cn/icard/images/favicon.ico" },
+        { "name": "交通银行", "url": "https://pbank.95559.com.cn/personbank/logon.jsp", "favicon": "https://pbank.95559.com.cn/personbank/system/favicon.png" },
+        { "name": "SimplyWall", "url": "https://simplywall.st/", "favicon": "https://cdn.prod.website-files.com/648009cb318551f1806b36b4/6487e4bd5b63a6818cb5c697_Favicon.png" }
+      ],
+    },
+    {
+      "name": "♝ Investment",
+      "links": [
+        { "name": "债券大全", "url": "http://www.jisilu.cn/data/bond/", "favicon": "https://www.jisilu.cn/favicon.ico" },
+        { "name": "集思录", "url": "http://www.jisilu.cn/category/4", "favicon": "https://www.jisilu.cn/favicon.ico" },
+        { "name": "雪球", "url": "https://xueqiu.com/", "favicon": "https://xueqiu.com/favicon.ico" },
+        { "name": "中概互联", "url": "https://xueqiu.com/S/SH513050" },
+        { "name": "证券ETF", "url": "https://xueqiu.com/S/SH512880" },
+        { "name": "华宝添益", "url": "https://xueqiu.com/S/SH511990" },
+        { "name": "国债ETF", "url": "https://xueqiu.com/S/SH511010" },
+        { "name": "国债收益率曲线", "url": "http://www.worldgovernmentbonds.com/country/china/", "favicon": "https://www.worldgovernmentbonds.com/wp-content/uploads/2023/10/cropped-icon-32x32.png" }
+      ],
+    },
+    {
+      "name": "♞ Document",
+      "links": [
+        { "name": "微云", "url": "https://www.weiyun.com/", "favicon": "https://img.weiyun.com/vipstyle/nr/box/img/favicon.ico?max_age=31536000" },
+        { "name": "腾讯文档", "url": "https://docs.qq.com/desktop/", "favicon": "https://docs.gtimg.com/desktop/favicon2.ico", "hot": true },
+        { "name": "Finance", "url": "https://docs.google.com/spreadsheets/d/1oXo6f4_FM084gCaeS2LgfJKYnMu3R5Luws63gZLUJqM/edit", "favicon": "https://lf-scm-cn.feishucdn.com/ccm/pc/web/resource/bear/src/common/assets/favicons/icon_file_sheet_nor-32x32.cfc088eb79db0088ca28.png" },
+        { "name": "Health", "url": "https://docs.google.com/spreadsheets/d/1rwO-Dd4v_rVfEhqY2ax1fXCBUpKsUq_L47CwVbcIM3k/edit#gid=0", "favicon": "https://ssl.gstatic.com/docs/spreadsheets/spreadsheets_2023q4.ico", "hot": true },
+        { "name": "ToDoList", "url": "https://www.dida365.com/", "favicon": "https://www.dida365.com/favicon.ico" },
+        { "name": "云笔记", "url": "https://note.youdao.com/web/", "favicon": "https://note.youdao.com/favicon.ico" },
+        { "name": "Garmin", "url": "https://connect.garmin.cn/modern/activities", "favicon": "https://sports.garmin.cn/web/favicon.ico", "hot": true },
+        { "name": "CodeStudio", "url": "https://goodspeed.cloudstudio.net/", "favicon": "https://goodspeed.coding.net/static/favicon.ico" },
+        { "name": "Notes", "url": "https://www.icloud.com/notes/", "favicon": "https://www.icloud.com/favicon.ico" },
+        { "name": "写作猫", "url": "https://xiezuocat.com/", "favicon": "https://uranus-static.oss-accelerate.aliyuncs.com/xiezuocat/favicon.ico" },
+        { "name": "云盘", "url": "https://goodspeed.coding.net/p/goodspeed.coding.me/files/all", "favicon": "https://goodspeed.coding.net/static/favicon.ico" },
+        { "name": "Wiki", "url": "http://192.168.10.30:8080/", "favicon": "http://192.168.10.30:8080/favicon.svg" }
+      ],
+    },
+    {
+      "name": "♟ Entertain",
+      "links": [
+        { "name": "电影天堂", "url": "https://www.dygod.net/", "hot": true },
+        { "name": "80s手机电影网", "url": "https://www.80sgod.com/", "favicon": "https://www.80sgod.com/favicon.ico" },
+        { "name": "电影天堂", "url": "https://dydytt.net/index.htm", "favicon": "https://dydytt.net/favicon.ico" },
+        { "name": "电影港", "url": "https://www.dygang.tv/", "favicon": "https://www.dygang.tv/favicon.ico" },
+        { "name": "CCTV", "url": "https://www.yangshipin.cn/tv/home?pid=600001811", "favicon": "https://tv.cctv.com/favicon.ico" },
+        { "name": "西瓜", "url": "https://www.ixigua.com/", "favicon": "https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lpqpflo/ixigua_favicon.ico" },
+        { "name": "YoutubeDownload", "url": "https://v4.www-y2mate.com/", "favicon": "https://ddownr.com/favicon.svg" },
+        { "name": "天天象棋", "url": "https://h5login.qqchess.qq.com/", "favicon": "https://h5login.qqchess.qq.com/favicon.62570.ico", "hot": true },
+        { "name": "Radio", "url": "radio/", "favicon": "https://cdn.instant.audio/favicon.ico", "hot": true },
+        { "name": "Music", "url": "music/", "favicon": "https://spotidown.app/img/favicon.ico", "hot": true },
+        { "name": "Jogging", "url": "jogging/", "favicon": "jogging/favicon.ico", "hot": true },
+        { "name": "IPTV", "url": "http://192.168.10.30:5140/player", "favicon": "https://sapi.yangshipin.cn/assets/2022/pcicon/favicon.ico" }
+      ],
+    },
+    {
+      "name": "❀ Travel",
+      "links": [
+        { "name": "穷游网", "url": "https://bbs.qyer.com/forum-53-1.html?order=2#gotonav", "favicon": "https://static.qyer.com/images/favicon.ico" },
+        { "name": "E旅行网", "url": "http://www.elvxing.net/forum-2-1.html" },
+        { "name": "岛多多", "url": "http://www.daoduoduo.com/forum-24-1.html" },
+        { "name": "玛蜂窝", "url": "https://www.mafengwo.cn/travel-scenic-spot/mafengwo/11051.html", "favicon": "https://www.mafengwo.cn/favicon.ico" }
+      ]
+    }
+  ]
+}

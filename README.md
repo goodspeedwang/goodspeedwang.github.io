@@ -7,9 +7,9 @@
 - `jogging/` — 跑步记录
 - `iptv/` — IPTV 播放
 - `photo/` — 相册
-- 其它：`nav.html` / `nav.xml`（导航）、`qr.html`、`password.html`、`medication.html` 等
+- 其它：`nav.html`（导航，数据来自 `nav.json`，由 `static/js/nav.js` 渲染）、`qr.html`、`password.html`、`medication.html` 等
 
-`index.html` 为占位首页，导航内容由 `nav.xml` 定义。
+`index.html` 为占位首页，导航内容由 `nav.json` 定义。
 
 ## 音乐歌词
 
