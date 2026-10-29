@@ -126,15 +126,30 @@
     <main id="ledger"></main>
   </div>
 
-  <script src="piggybank.js?v=bf0c67f8"></script>
   <script>
   (function () {
-    var DATA = window.PIGGYBANK_DATA;
-    if (!DATA) {
-      document.getElementById('ledger').innerHTML =
-        '<p style="text-align:center;color:#c0392b">Data file piggybank.js not found. Make sure it is in the same folder as this page.</p>';
-      return;
-    }
+    // 方案 B：用 fetch 加载 JSON，并自动加时间戳避免浏览器/CDN 缓存，
+    // 以后改完 piggybank.json 直接刷新即可，无需再手动改版本号。
+    // 注意：fetch 不支持 file:// 直接双击打开，请用本地服务器或 GitHub Pages 访问。
+    fetch('piggybank.json?t=' + Date.now())
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(render)
+      .catch(function (err) {
+        document.getElementById('ledger').innerHTML =
+          '<p style="text-align:center;color:#c0392b">无法加载 piggybank.json（' + String(err.message || err) +
+          '）。<br>若是用 file:// 直接双击打开本页，请改用本地服务器：<br>' +
+          '<code>python3 -m http.server</code> 后访问 http://localhost:8000/piggybank.html</p>';
+      });
+
+    function render(DATA) {
+      if (!DATA) {
+        document.getElementById('ledger').innerHTML =
+          '<p style="text-align:center;color:#c0392b">piggybank.json 数据为空或格式有误。</p>';
+        return;
+      }
 
     var cfg = Object.assign({
       startDate: '2025-01-01',
@@ -329,6 +344,8 @@
     }
 
     document.getElementById('ledger').innerHTML = html;
+    }
+
   })();
   </script>
 </body>
