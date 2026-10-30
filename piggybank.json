@@ -1,6 +1,6 @@
 {
   "transactions": [
-    { "date": "2026-10-30", "amount": 8.77, "note": "康乐超市" },
+    { "date": "2026-10-30", "amount": 13.47, "note": "康乐超市" },
     { "date": "2026-10-30", "amount": 8.77, "note": "日月七天空浴药房" },
     { "date": "2026-10-29", "amount": 19.4, "note": "" },
     { "date": "2026-10-29", "amount": 7.96, "note": "" },
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "initialBalance": 44.45,
     "schedule": [
-      { "date": "2026-10", "monthlyAllowance": 100, "annualInterestRate": 0.02, "holidayAllowance": 0 }
+      { "date": "2026-10", "monthlyAllowance": 100, "annualInterestRate": 0.01, "holidayAllowance": 0 }
     ]
   }
 }
