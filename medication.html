@@ -36,12 +36,12 @@
         }
         .card-500  { border-left-color: #e67e22; }
         .card-530  { border-left-color: #f1c40f; }
+        .card-800  { border-left-color: #3498db; }
         .card-1030 { border-left-color: #2ecc71; }
         .card-1130 { border-left-color: #1abc9c; }
         .card-1530 { border-left-color: #9b59b6; }
         .card-1630 { border-left-color: #8e44ad; }
         .card-730  { border-left-color: #16a085; }
-        .card-1930 { border-left-color: #c0392b; }
 
         .time-header {
             display: flex;
@@ -91,8 +91,7 @@
             border-radius: 6px;
         }
         .med-note { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.4; }
-        
-        /* 标签样式 */
+
         .tag-must {
             display: inline-block;
             background: #e74c3c;
@@ -203,7 +202,7 @@
 
     <div class="header">
         <h1>💊 刘阿姨每日服药时间表</h1>
-        <p>伏立康唑每天 7:30、19:30 准时服；其余药随餐顺延安排</p>
+        <p>伏立康唑每天 7:30 准时服；水飞蓟宾 8:00 / 16:00 各一次（每次2片）；其余药随餐安排</p>
     </div>
 
     <!-- 当日完成进度 -->
@@ -247,7 +246,7 @@
                     <span class="med-name">双环醇片（百葵诺）- 第1次</span>
                     <span class="med-dose">1 片 (25mg)</span>
                 </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝</span>保肝降酶（一日3次）</div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次）。与下面的水飞蓟宾不是同一种药，别互相替代</div>
             </div>
         </div>
         <div class="med-item">
@@ -265,9 +264,9 @@
             <div class="med-content">
                 <div class="med-main">
                     <span class="med-name">ASMETON®（阿斯美）- 第1次</span>
-                    <span class="med-dose">1 片</span>
+                    <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（一日3次，没咳嗽可不吃）</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（一日3次，每次2片；没咳嗽可不吃）</div>
             </div>
         </div>
         <div class="med-item">
@@ -282,20 +281,38 @@
         </div>
     </div>
 
-    <!-- 伏立康唑 第1次 准时 -->
+    <!-- 伏立康唑 准时 -->
     <div class="time-card card-730">
         <div class="time-header">
-            <div class="time-title">⏰ 07:45 准时 · 伏立康唑</div>
+            <div class="time-title">⏰ 07:30 准时 · 伏立康唑</div>
             <div class="time-tag">必须空腹</div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
             <div class="med-content">
                 <div class="med-main">
-                    <span class="med-name">伏立康唑片（匹纳普）- 第1次</span>
+                    <span class="med-name">伏立康唑片（匹纳普）</span>
                     <span class="med-dose">4 片</span>
                 </div>
-                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 7:30 准时服。每12小时1次，餐前1小时或餐后1小时空腹服（早餐6:00后约1.5小时，符合餐后1小时空腹要求）</div>
+                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 7:30 准时服，一日1次，餐前1小时或餐后1小时空腹服（早餐6:00后约1.5小时，符合餐后1小时空腹要求）。已按医嘱停掉晚上那次</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 水飞蓟宾 第1次 8:00 -->
+    <div class="time-card card-800">
+        <div class="time-header">
+            <div class="time-title">💊 08:00 水飞蓟宾（第1次）</div>
+            <div class="time-tag">医生：日两次</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">水飞蓟宾葡甲胺片 - 第1次</span>
+                    <span class="med-dose">2 片 (0.1g×2=0.2g)</span>
+                </div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·修肝</span>医生写：口服，日两次（8:00～16:00）。规格0.1g/片，一次2片，用温凉水送服</div>
             </div>
         </div>
     </div>
@@ -313,7 +330,7 @@
                     <span class="med-name">双环醇片（百葵诺）- 第2次</span>
                     <span class="med-dose">1 片 (25mg)</span>
                 </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝</span>保肝降酶（一日3次）</div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次）</div>
             </div>
         </div>
         <div class="med-item">
@@ -331,9 +348,9 @@
             <div class="med-content">
                 <div class="med-main">
                     <span class="med-name">ASMETON®（阿斯美）- 第2次</span>
-                    <span class="med-dose">1 片</span>
+                    <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（每次2片）</div>
             </div>
         </div>
         <div class="med-item">
@@ -348,11 +365,21 @@
         </div>
     </div>
 
-    <!-- 晚餐/傍晚区间 -->
+    <!-- 水飞蓟宾 第2次 16:00 -->
     <div class="time-card card-1530">
         <div class="time-header">
-            <div class="time-title">🌆 16:30 晚餐前后</div>
-            <div class="time-tag">晚饭后</div>
+            <div class="time-title">💊 16:00 水飞蓟宾（第2次）</div>
+            <div class="time-tag">医生：日两次，到此为止</div>
+        </div>
+        <div class="med-item">
+            <input type="checkbox" class="med-checkbox">
+            <div class="med-content">
+                <div class="med-main">
+                    <span class="med-name">水飞蓟宾葡甲胺片 - 第2次</span>
+                    <span class="med-dose">2 片 (0.1g×2=0.2g)</span>
+                </div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·修肝</span>一天就这2次（8:00 + 16:00），晚上不用再吃，每次都是2片</div>
+            </div>
         </div>
         <div class="med-item">
             <input type="checkbox" class="med-checkbox">
@@ -361,7 +388,7 @@
                     <span class="med-name">双环醇片（百葵诺）- 第3次</span>
                     <span class="med-dose">1 片 (25mg)</span>
                 </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝</span>保肝降酶（一日3次）</div>
+                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次，最后一次放这儿或晚饭后都行）</div>
             </div>
         </div>
         <div class="med-item">
@@ -369,9 +396,9 @@
             <div class="med-content">
                 <div class="med-main">
                     <span class="med-name">ASMETON®（阿斯美）- 第3次</span>
-                    <span class="med-dose">1 片</span>
+                    <span class="med-dose">2 片</span>
                 </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃</div>
+                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（每次2片）</div>
             </div>
         </div>
         <div class="med-item">
@@ -382,24 +409,6 @@
                     <span class="med-dose">2 粒</span>
                 </div>
                 <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 伏立康唑 第2次 准时 -->
-    <div class="time-card card-1930">
-        <div class="time-header">
-            <div class="time-title">⏰ 19:45 准时 · 伏立康唑</div>
-            <div class="time-tag">必须空腹</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">伏立康唑片（匹纳普）- 第2次</span>
-                    <span class="med-dose">4 片</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 19:30 准时服。距上次（7:30）约12小时，餐前1小时或餐后1小时空腹服（晚餐16:30后约3小时，符合餐后1小时空腹要求）</div>
             </div>
         </div>
     </div>
@@ -426,12 +435,13 @@
     <div class="notice-box">
         <h3>💡 贴心服药小提示</h3>
         <ul>
-            <li><b>【必须吃的药】：</b> 伏立康唑（每天 7:30、19:30 准时）、雷贝拉唑、双环醇片是核心药，请每天按时吃完。</li>
-            <li><b>【按需吃的药】：</b> 止咳药（阿斯美）、助眠药（莱博雷生），没咳嗽、能睡着时<b>可以不吃</b>。</li>
-            <li><b>【空腹要求】：</b> 雷贝拉唑和伏立康唑要<b>空腹吃</b>。伏立康唑固定 7:30、19:30 准时服，服药前后1小时内不吃东西（早餐6:00、晚餐16:30，均满足餐后1小时空腹）；雷贝拉唑在早餐前20-30分钟空腹服。</li>
-            <li><b>【忌口注意】：</b> 服药期间<b>绝对不能吃西柚（葡萄柚）及喝西柚汁，也不能饮酒</b>。</li>
+            <li><b>【必须吃的药】：</b> 伏立康唑（每天 7:30 准时，已停晚上那次）、雷贝拉唑、双环醇片（一日3次）、水飞蓟宾葡甲胺片（一日2次，8:00 + 16:00，每次2片）。</li>
+            <li><b>【两种护肝药别混也别互相替】：</b> 双环醇是<b>降酶</b>的（一日3次），水飞蓟宾是<b>修护肝细胞</b>的（一日2次）。医生让加的水飞蓟宾是"再加一种"，不是"换掉双环醇"，双环醇照常吃，别自行停。</li>
+            <li><b>【按需吃的药】：</b> 止咳药（阿斯美，每次2片）、助眠药（莱博雷生），没咳嗽、能睡着时<b>可以不吃</b>。</li>
+            <li><b>【空腹要求】：</b> 雷贝拉唑、伏立康唑要<b>空腹吃</b>。伏立康唑固定 7:30 服，服药前后1小时内不吃东西；雷贝拉唑在早餐前20-30分钟空腹服。</li>
+            <li><b>【忌口注意】：</b> 服药期间<b>绝对不能吃西柚（葡萄柚）及喝西柚汁，也不能饮酒</b>；西柚会显著抬高伏立康唑血药浓度。</li>
             <li><b>【整肠生】：</b> 属于活菌，请用<b>温水或凉开水</b>送服，不要用烫水。</li>
-            <li><b>【身体观察】：</b> 如果觉得身体不适，请及时告诉家人。</li>
+            <li><b>【身体观察】：</b> 伏立康唑、双环醇、水飞蓟宾都和肝功能相关，若出现皮肤或眼睛发黄、尿色变深、明显乏力，或看东西发花、怕光、皮疹，及时告诉医生和家人。</li>
         </ul>
     </div>
 
@@ -452,8 +462,8 @@
 
     <script>
         (function () {
-            var STORAGE_KEY = "medication_checked_v7";
-            var DATE_KEY = "medication_date_v7";
+            var STORAGE_KEY = "medication_checked_v10";
+            var DATE_KEY = "medication_date_v10";
 
             function todayStr() {
                 var d = new Date();
