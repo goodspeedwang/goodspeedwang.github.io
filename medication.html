@@ -322,6 +322,25 @@
                 return "tag-protect";
             }
 
+            // 由规格(如 0.1g/片) 与每次用量(如 2片 / 半片) 推算单位与总量：0.1g×2=0.2g
+            function computeDetail(spec, perTime) {
+                if (!spec) return "";
+                var am = spec.match(/([\d.]+)\s*([a-zA-Zμ]+)/);
+                if (!am) return "";
+                var unitAmt = parseFloat(am[1]);
+                var unit = am[2];
+                var count;
+                if (perTime.indexOf("半") !== -1) {
+                    count = 0.5;
+                } else {
+                    var cm = perTime.match(/([\d.]+)/);
+                    if (!cm) return "";
+                    count = parseFloat(cm[1]);
+                }
+                var total = Math.round(unitAmt * count * 1000) / 1000;
+                return unitAmt + unit + "×" + count + "=" + total + unit;
+            }
+
             // 生成单个 med-item
             function buildMedItem(drug, occurrence) {
                 var item = document.createElement("div");
@@ -347,7 +366,10 @@
 
                 var dose = document.createElement("span");
                 dose.className = "med-dose";
-                dose.textContent = drug.dosage.per_time;
+                var doseText = drug.dosage.per_time;
+                var detail = computeDetail(drug.specification, drug.dosage.per_time);
+                if (detail) doseText += " (" + detail + ")";
+                dose.textContent = doseText;
 
                 main.appendChild(name);
                 main.appendChild(dose);

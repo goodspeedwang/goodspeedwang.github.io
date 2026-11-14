@@ -73,7 +73,7 @@
   {
     "drug_name": "伏立康唑片（匹纳普）",
     "generic_name": "伏立康唑",
-    "specification": "片",
+    "specification": "200mg/片",
     "dosage": {
       "per_time": "1片",
       "times": [
@@ -100,7 +100,7 @@
   {
     "drug_name": "碳酸钙D3片(I)（钙尔奇）",
     "generic_name": "碳酸钙D3",
-    "specification": "片",
+    "specification": "1.5g/片",
     "dosage": {
       "per_time": "1片",
       "times": [
@@ -113,7 +113,7 @@
   {
     "drug_name": "莱博雷生",
     "generic_name": "莱博雷生",
-    "specification": "片",
+    "specification": "5mg/片",
     "dosage": {
       "per_time": "半片",
       "times": [
