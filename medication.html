@@ -215,220 +215,65 @@
         <div class="progress-all-done" id="progressAllDone" style="display:none;">🎉 今天的药都吃完啦，棒极了！</div>
     </div>
 
-    <!-- 晨起空腹区间 -->
-    <div class="time-card card-500">
-        <div class="time-header">
-            <div class="time-title">🌅 起床空腹（早餐前）</div>
-            <div class="time-tag">约 5:30</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">雷贝拉唑钠肠溶片（顺安然）</span>
-                    <span class="med-dose">1 片 (10mg)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护胃</span>一日1次，整片吞服，早餐（6:00）前20-30分钟空腹服，吃完隔20-30分钟再进餐</div>
-            </div>
-        </div>
-    </div>
+    <!-- 服药卡片：卡片标题固定，med-item 由 medication.json 动态生成 -->
+    <div id="cardsContainer">
 
-    <!-- 早餐后区间 -->
-    <div class="time-card card-530">
-        <div class="time-header">
-            <div class="time-title">🥣 06:00 早餐后</div>
-            <div class="time-tag">吃完早饭即服</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">双环醇片（百葵诺）- 第1次</span>
-                    <span class="med-dose">1 片 (25mg)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次）。与下面的水飞蓟宾不是同一种药，别互相替代</div>
+        <!-- 晨起空腹区间 -->
+        <div class="time-card card-500" data-time="05:30">
+            <div class="time-header">
+                <div class="time-title">🌅 起床空腹（早餐前）</div>
+                <div class="time-tag">约 5:30</div>
             </div>
         </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">叶酸片（斯利安）</span>
-                    <span class="med-dose">1 片 (0.4mg)</span>
-                </div>
-                <div class="med-note"><span class="tag-protect">营养补充</span>一日1次，每次1片</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">ASMETON®（阿斯美）- 第1次</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（一日3次，每次2片；没咳嗽可不吃）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">整肠生（地衣芽孢杆菌）- 第1次</span>
-                    <span class="med-dose">2 粒</span>
-                </div>
-                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道（一日3次，用温水/凉水送服）</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 伏立康唑 准时 -->
-    <div class="time-card card-730">
-        <div class="time-header">
-            <div class="time-title">⏰ 07:30</div>
-            <div class="time-tag">必须空腹</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">伏立康唑片（匹纳普）</span>
-                    <span class="med-dose">1 片</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须准时吃</span>医生要求每天 7:30 准时服，一日1次，餐前1小时或餐后1小时空腹服（早餐6:00后约1.5小时，符合餐后1小时空腹要求）。已按医嘱停掉晚上那次</div>
+        <!-- 早餐后区间 -->
+        <div class="time-card card-530" data-time="06:00">
+            <div class="time-header">
+                <div class="time-title">🥣 06:00 早餐后</div>
+                <div class="time-tag">吃完早饭即服</div>
             </div>
         </div>
-    </div>
 
-    <!-- 水飞蓟宾 第1次 8:00 -->
-    <div class="time-card card-800">
-        <div class="time-header">
-            <div class="time-title">💊 08:00</div>
-            <div class="time-tag">医生：日两次</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">水飞蓟宾葡甲胺片 - 第1次</span>
-                    <span class="med-dose">2 片 (0.1g×2=0.2g)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·修肝</span>医生写：口服，日两次（8:00～16:00）。规格0.1g/片，一次2片，用温凉水送服</div>
+        <!-- 伏立康唑 准时 -->
+        <div class="time-card card-730" data-time="07:30">
+            <div class="time-header">
+                <div class="time-title">⏰ 07:30</div>
+                <div class="time-tag">必须空腹</div>
             </div>
         </div>
-    </div>
 
-    <!-- 午餐后区间 -->
-    <div class="time-card card-1130">
-        <div class="time-header">
-            <div class="time-title">🍱 12:00 ~ 13:00 午餐后</div>
-            <div class="time-tag">午饭后</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">双环醇片（百葵诺）- 第2次</span>
-                    <span class="med-dose">1 片 (25mg)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次）</div>
+        <!-- 水飞蓟宾 第1次 8:00 -->
+        <div class="time-card card-800" data-time="08:00">
+            <div class="time-header">
+                <div class="time-title">💊 08:00</div>
+                <div class="time-tag">医生：日两次</div>
             </div>
         </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">碳酸钙D3片(I)（钙尔奇）</span>
-                    <span class="med-dose">1 片</span>
-                </div>
-                <div class="med-note"><span class="tag-protect">补钙</span>午餐后咀嚼或水送服</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">ASMETON®（阿斯美）- 第2次</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（每次2片）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">整肠生（地衣芽孢杆菌）- 第2次</span>
-                    <span class="med-dose">2 粒</span>
-                </div>
-                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 水飞蓟宾 第2次 16:00 -->
-    <div class="time-card card-1530">
-        <div class="time-header">
-            <div class="time-title">💊 16:00</div>
-            <div class="time-tag">医生：日两次，到此为止</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">水飞蓟宾葡甲胺片 - 第2次</span>
-                    <span class="med-dose">2 片 (0.1g×2=0.2g)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·修肝</span>一天就这2次（8:00 + 16:00），晚上不用再吃，每次都是2片</div>
+        <!-- 午餐后区间 -->
+        <div class="time-card card-1130" data-time="12:00">
+            <div class="time-header">
+                <div class="time-title">🍱 12:00 ~ 13:00 午餐后</div>
+                <div class="time-tag">午饭后</div>
             </div>
         </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">双环醇片（百葵诺）- 第3次</span>
-                    <span class="med-dose">1 片 (25mg)</span>
-                </div>
-                <div class="med-note"><span class="tag-must">必须吃</span><span class="tag-protect">护肝·降酶</span>保肝降酶（一日3次，最后一次放这儿或晚饭后都行）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">ASMETON®（阿斯美）- 第3次</span>
-                    <span class="med-dose">2 片</span>
-                </div>
-                <div class="med-note"><span class="tag-as-needed">止咳平喘</span>咳嗽喘时吃（每次2片）</div>
-            </div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">整肠生（地衣芽孢杆菌）- 第3次</span>
-                    <span class="med-dose">2 粒</span>
-                </div>
-                <div class="med-note"><span class="tag-protect">护肠道</span>调节肠道菌群</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 睡前区间 -->
-    <div class="time-card card-1630">
-        <div class="time-header">
-            <div class="time-title">🌙 21:30 左右 睡前</div>
-            <div class="time-tag">按需/睡前</div>
-        </div>
-        <div class="med-item">
-            <input type="checkbox" class="med-checkbox">
-            <div class="med-content">
-                <div class="med-main">
-                    <span class="med-name">莱博雷生</span>
-                    <span class="med-dose">半片</span>
-                </div>
-                <div class="med-note"><span class="tag-as-needed">助眠</span>睡前睡不着时吃（睡得好不用吃）</div>
+        <!-- 水飞蓟宾 第2次 16:00 -->
+        <div class="time-card card-1530" data-time="16:00">
+            <div class="time-header">
+                <div class="time-title">💊 16:00</div>
+                <div class="time-tag">医生：日两次，到此为止</div>
             </div>
         </div>
+
+        <!-- 睡前区间 -->
+        <div class="time-card card-1630" data-time="21:30">
+            <div class="time-header">
+                <div class="time-title">🌙 21:30 左右 睡前</div>
+                <div class="time-tag">按需/睡前</div>
+            </div>
+        </div>
+
     </div>
 
     <!-- 关键提醒 -->
@@ -470,6 +315,104 @@
                 return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
             }
 
+            // 根据标签文字映射原 HTML 的彩色样式
+            function tagClass(tag) {
+                if (tag.indexOf("必须") !== -1) return "tag-must";
+                if (tag.indexOf("止咳") !== -1 || tag.indexOf("助眠") !== -1 || tag.indexOf("平喘") !== -1) return "tag-as-needed";
+                return "tag-protect";
+            }
+
+            // 生成单个 med-item
+            function buildMedItem(drug, occurrence) {
+                var item = document.createElement("div");
+                item.className = "med-item";
+
+                var cb = document.createElement("input");
+                cb.type = "checkbox";
+                cb.className = "med-checkbox";
+
+                var content = document.createElement("div");
+                content.className = "med-content";
+
+                var main = document.createElement("div");
+                main.className = "med-main";
+
+                var name = document.createElement("span");
+                name.className = "med-name";
+                var nameText = drug.drug_name;
+                if (drug.dosage.times.length > 1) {
+                    nameText += " - 第" + occurrence + "次";
+                }
+                name.textContent = nameText;
+
+                var dose = document.createElement("span");
+                dose.className = "med-dose";
+                dose.textContent = drug.dosage.per_time;
+
+                main.appendChild(name);
+                main.appendChild(dose);
+
+                var note = document.createElement("div");
+                note.className = "med-note";
+                (drug.tags || []).forEach(function (t) {
+                    var span = document.createElement("span");
+                    span.className = tagClass(t);
+                    span.textContent = t;
+                    note.appendChild(span);
+                });
+                note.appendChild(document.createTextNode(drug.notes || ""));
+
+                content.appendChild(main);
+                content.appendChild(note);
+                item.appendChild(cb);
+                item.appendChild(content);
+                return item;
+            }
+
+            // 按时间顺序把新生成的卡片插入容器
+            function insertCardSorted(container, card) {
+                var t = card.getAttribute("data-time");
+                var siblings = container.querySelectorAll(".time-card");
+                var inserted = false;
+                for (var i = 0; i < siblings.length; i++) {
+                    if (t < siblings[i].getAttribute("data-time")) {
+                        container.insertBefore(card, siblings[i]);
+                        inserted = true;
+                        break;
+                    }
+                }
+                if (!inserted) container.appendChild(card);
+            }
+
+            // 根据 JSON 动态生成全部 med-item
+            function buildCards(data) {
+                var container = document.getElementById("cardsContainer");
+                data.forEach(function (drug) {
+                    var times = (drug.dosage && drug.dosage.times) || [];
+                    times.forEach(function (time, idx) {
+                        var card = container.querySelector('.time-card[data-time="' + time + '"]');
+                        if (!card) {
+                            card = document.createElement("div");
+                            card.className = "time-card";
+                            card.setAttribute("data-time", time);
+                            var th = document.createElement("div");
+                            th.className = "time-header";
+                            var tt = document.createElement("div");
+                            tt.className = "time-title";
+                            tt.textContent = "⏰ " + time;
+                            var tg = document.createElement("div");
+                            tg.className = "time-tag";
+                            tg.textContent = "按 JSON 新增";
+                            th.appendChild(tt);
+                            th.appendChild(tg);
+                            card.appendChild(th);
+                            insertCardSorted(container, card);
+                        }
+                        card.appendChild(buildMedItem(drug, idx + 1));
+                    });
+                });
+            }
+
             function loadState() {
                 var savedDate = localStorage.getItem(DATE_KEY);
                 var today = todayStr();
@@ -489,9 +432,6 @@
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
                 localStorage.setItem(DATE_KEY, todayStr());
             }
-
-            var checkboxes = Array.prototype.slice.call(document.querySelectorAll(".med-checkbox"));
-            var state = loadState();
 
             function applyVisual(item, checked) {
                 if (checked) {
@@ -514,56 +454,79 @@
                 document.getElementById("progressAllDone").style.display = (total > 0 && done === total) ? "block" : "none";
             }
 
-            checkboxes.forEach(function (cb, i) {
-                var item = cb.closest(".med-item");
-                cb.checked = !!state[i];
-                applyVisual(item, !!state[i]);
+            var checkboxes, state, pendingUncheck;
 
-                cb.addEventListener("change", function () {
-                    if (cb.checked) {
-                        state[i] = true;
-                        applyVisual(item, true);
+            function setupApp() {
+                checkboxes = Array.prototype.slice.call(document.querySelectorAll(".med-checkbox"));
+                state = loadState();
+
+                checkboxes.forEach(function (cb, i) {
+                    var item = cb.closest(".med-item");
+                    cb.checked = !!state[i];
+                    applyVisual(item, !!state[i]);
+
+                    cb.addEventListener("change", function () {
+                        if (cb.checked) {
+                            state[i] = true;
+                            applyVisual(item, true);
+                            saveState(state);
+                            updateProgress();
+                        } else {
+                            cb.checked = true;
+                            pendingUncheck = { cb: cb, item: item, index: i };
+                            document.getElementById("confirmMask").classList.add("show");
+                        }
+                    });
+                });
+
+                var mask = document.getElementById("confirmMask");
+                document.getElementById("btnOk").addEventListener("click", function () {
+                    if (pendingUncheck) {
+                        state[pendingUncheck.index] = false;
+                        pendingUncheck.cb.checked = false;
+                        applyVisual(pendingUncheck.item, false);
                         saveState(state);
                         updateProgress();
-                    } else {
-                        cb.checked = true;
-                        pendingUncheck = { cb: cb, item: item, index: i };
-                        document.getElementById("confirmMask").classList.add("show");
+                        pendingUncheck = null;
                     }
+                    mask.classList.remove("show");
                 });
-            });
-
-            var pendingUncheck = null;
-            var mask = document.getElementById("confirmMask");
-            document.getElementById("btnOk").addEventListener("click", function () {
-                if (pendingUncheck) {
-                    state[pendingUncheck.index] = false;
-                    pendingUncheck.cb.checked = false;
-                    applyVisual(pendingUncheck.item, false);
-                    saveState(state);
-                    updateProgress();
+                document.getElementById("btnCancel").addEventListener("click", function () {
                     pendingUncheck = null;
+                    mask.classList.remove("show");
+                });
+
+                updateProgress();
+
+                var firstUncheckedIndex = -1;
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (!state[i]) { firstUncheckedIndex = i; break; }
                 }
-                mask.classList.remove("show");
-            });
-            document.getElementById("btnCancel").addEventListener("click", function () {
-                pendingUncheck = null;
-                mask.classList.remove("show");
-            });
-
-            updateProgress();
-
-            var firstUncheckedIndex = -1;
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (!state[i]) { firstUncheckedIndex = i; break; }
+                if (firstUncheckedIndex !== -1) {
+                    var target = checkboxes[firstUncheckedIndex].closest(".time-card");
+                    setTimeout(function () {
+                        var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                    }, 300);
+                }
             }
-            if (firstUncheckedIndex !== -1) {
-                var target = checkboxes[firstUncheckedIndex].closest(".time-card");
-                setTimeout(function () {
-                    var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                }, 300);
-            }
+
+            fetch("medication.json")
+                .then(function (r) {
+                    if (!r.ok) throw new Error("HTTP " + r.status);
+                    return r.json();
+                })
+                .then(function (data) {
+                    buildCards(data);
+                    setupApp();
+                })
+                .catch(function (e) {
+                    console.error("加载 medication.json 失败：", e);
+                    var warn = document.createElement("div");
+                    warn.className = "notice-box";
+                    warn.innerHTML = '<h3>⚠️ 加载失败</h3><ul><li>无法读取 medication.json，请确认该文件与本网页在同一目录，并通过 http（如 GitHub Pages）访问，不要直接双击用 file:// 打开本地文件。</li></ul>';
+                    document.getElementById("cardsContainer").appendChild(warn);
+                });
         })();
     </script>
 

@@ -1,0 +1,126 @@
+[
+  {
+    "drug_name": "雷贝拉唑钠肠溶片（顺安然）",
+    "generic_name": "雷贝拉唑钠",
+    "specification": "10mg/片",
+    "dosage": {
+      "per_time": "1片",
+      "times": [
+        "05:30"
+      ]
+    },
+    "tags": ["必须吃", "护胃"],
+    "notes": "一日1次，整片吞服，早餐（6:00）前20-30分钟空腹服，吃完隔20-30分钟再进餐"
+  },
+  {
+    "drug_name": "双环醇片（百葵诺）",
+    "generic_name": "双环醇",
+    "specification": "25mg/片",
+    "dosage": {
+      "per_time": "1片",
+      "times": [
+        "06:00",
+        "12:00",
+        "16:00"
+      ]
+    },
+    "tags": ["必须吃", "护肝·降酶"],
+    "notes": "保肝降酶（一日3次）。与水飞蓟宾不是同一种药，别互相替代"
+  },
+  {
+    "drug_name": "叶酸片（斯利安）",
+    "generic_name": "叶酸",
+    "specification": "0.4mg/片",
+    "dosage": {
+      "per_time": "1片",
+      "times": [
+        "06:00"
+      ]
+    },
+    "tags": ["营养补充"],
+    "notes": "一日1次，每次1片"
+  },
+  {
+    "drug_name": "ASMETON®（阿斯美）",
+    "generic_name": "阿斯美",
+    "specification": "片",
+    "dosage": {
+      "per_time": "2片",
+      "times": [
+        "06:00",
+        "12:00",
+        "16:00"
+      ]
+    },
+    "tags": ["止咳平喘"],
+    "notes": "咳嗽喘时吃（一日3次，每次2片；没咳嗽可不吃）"
+  },
+  {
+    "drug_name": "整肠生（地衣芽孢杆菌）",
+    "generic_name": "地衣芽孢杆菌",
+    "specification": "0.25g/粒",
+    "dosage": {
+      "per_time": "2粒",
+      "times": [
+        "06:00",
+        "12:00",
+        "16:00"
+      ]
+    },
+    "tags": ["护肠道"],
+    "notes": "调节肠道菌群（一日3次，用温水/凉水送服）"
+  },
+  {
+    "drug_name": "伏立康唑片（匹纳普）",
+    "generic_name": "伏立康唑",
+    "specification": "片",
+    "dosage": {
+      "per_time": "1片",
+      "times": [
+        "07:30"
+      ]
+    },
+    "tags": ["必须准时吃"],
+    "notes": "医生要求每天 7:30 准时服，一日1次，餐前1小时或餐后1小时空腹服（早餐6:00后约1.5小时，符合餐后1小时空腹要求）。已按医嘱停掉晚上那次"
+  },
+  {
+    "drug_name": "水飞蓟宾葡甲胺片",
+    "generic_name": "水飞蓟宾",
+    "specification": "0.1g/片",
+    "dosage": {
+      "per_time": "2片",
+      "times": [
+        "08:00",
+        "16:00"
+      ]
+    },
+    "tags": ["必须吃", "护肝·修肝"],
+    "notes": "医生写：口服，日两次（8:00～16:00）。规格0.1g/片，一次2片，用温凉水送服"
+  },
+  {
+    "drug_name": "碳酸钙D3片(I)（钙尔奇）",
+    "generic_name": "碳酸钙D3",
+    "specification": "片",
+    "dosage": {
+      "per_time": "1片",
+      "times": [
+        "12:00"
+      ]
+    },
+    "tags": ["补钙"],
+    "notes": "午餐后咀嚼或水送服"
+  },
+  {
+    "drug_name": "莱博雷生",
+    "generic_name": "莱博雷生",
+    "specification": "片",
+    "dosage": {
+      "per_time": "半片",
+      "times": [
+        "21:30"
+      ]
+    },
+    "tags": ["助眠"],
+    "notes": "睡前睡不着时吃（睡得好不用吃）"
+  }
+]
