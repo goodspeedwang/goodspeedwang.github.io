@@ -337,6 +337,7 @@
                     if (!cm) return "";
                     count = parseFloat(cm[1]);
                 }
+                if (count === 1) return unitAmt + unit;
                 var total = Math.round(unitAmt * count * 1000) / 1000;
                 return unitAmt + unit + "×" + count + "=" + total + unit;
             }
