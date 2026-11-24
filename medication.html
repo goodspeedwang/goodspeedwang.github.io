@@ -410,6 +410,7 @@
             function buildCards(data) {
                 var container = document.getElementById("cardsContainer");
                 data.forEach(function (drug) {
+                    if (!(drug.enable === true || drug.enable === "true")) return;
                     var times = (drug.dosage && drug.dosage.times) || [];
                     times.forEach(function (time, idx) {
                         var card = container.querySelector('.time-card[data-time="' + time + '"]');
@@ -432,6 +433,9 @@
                         }
                         card.appendChild(buildMedItem(drug, idx + 1));
                     });
+                });
+                Array.prototype.slice.call(container.querySelectorAll(".time-card")).forEach(function (card) {
+                    if (!card.querySelector(".med-item")) card.parentNode.removeChild(card);
                 });
             }
 
