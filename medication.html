@@ -91,6 +91,13 @@
             border-radius: 6px;
         }
         .med-note { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.4; }
+        .med-summary {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-right: 6px;
+        }
 
         .tag-must {
             display: inline-block;
@@ -376,6 +383,13 @@
 
                 var note = document.createElement("div");
                 note.className = "med-note";
+                var times = (drug.dosage && drug.dosage.times) || [];
+                if (times.length && drug.dosage.per_time) {
+                    var summary = document.createElement("span");
+                    summary.className = "med-summary";
+                    summary.textContent = "一日" + times.length + "次，每次" + drug.dosage.per_time;
+                    note.appendChild(summary);
+                }
                 (drug.tags || []).forEach(function (t) {
                     var span = document.createElement("span");
                     span.className = tagClass(t);
