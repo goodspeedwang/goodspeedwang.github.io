@@ -4,7 +4,7 @@
     "tags": ["必须吃", "护胃"],"notes": "一日1次，整片吞服，早餐（6:00）前20-30分钟空腹服，吃完隔20-30分钟再进餐"
   },{
     "drug_name": "双环醇片（百葵诺）","generic_name": "双环醇",
-    "specification": "25mg/片","dosage": {"per_time": "1片","times": ["06:00","12:00","16:00"]},
+    "specification": "25mg/片","dosage": {"per_time": "1片","times": ["06:00","16:00"]},
     "tags": ["必须吃", "护肝·降酶"],"notes": "保肝降酶（一日3次）。与水飞蓟宾不是同一种药，别互相替代"
   },{
     "drug_name": "叶酸片（斯利安）","generic_name": "叶酸",
@@ -34,5 +34,9 @@
     "drug_name": "莱博雷生","generic_name": "莱博雷生",
     "specification": "5mg/片","dosage": {"per_time": "半片","times": ["21:30"]},
     "tags": ["助眠"],"notes": "睡前睡不着时吃（睡得好不用吃）"
+  },{
+    "drug_name": "熊去氧胆酸胶囊","generic_name": "俐璟舒",
+    "specification": "250mg/片","dosage": {"per_time": "1片","times": ["06:00","12:00","16:00"]},
+    "tags": ["必须吃", "护胆"],"notes": "保护胆囊、（一日3次）"
   }
 ]
