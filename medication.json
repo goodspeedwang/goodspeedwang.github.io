@@ -31,8 +31,8 @@
   },{
     "enable": true,
     "drug_name": "水飞蓟宾葡甲胺片","generic_name": "水飞蓟宾",
-    "specification": "0.1g/片","dosage": {"per_time": "2片","times": ["08:00","16:00"]},
-    "tags": ["必须吃", "护肝·修肝"],"notes": "医生写：口服，日两次（8:00～16:00）。规格0.1g/片，一次2片，用温凉水送服",
+    "specification": "50mg/片","dosage": {"per_time": "4片","times": ["08:00","16:00"]},
+    "tags": ["必须吃", "护肝·修肝"],"notes": "医生写：口服，日两次（8:00～16:00）。规格50mg/片，一次4片，用温凉水送服",
     "purchase": {"price": 32.3,"quantity": 72,"specification": "50mg","date": "2026-11-24","from": "京东"}
   },{
     "enable": true,
