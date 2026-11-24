@@ -7,7 +7,7 @@
     "enable": true,
     "drug_name": "双环醇片（百葵诺）","generic_name": "双环醇",
     "specification": "25mg/片","dosage": {"per_time": "1片","times": ["06:00","16:00"]},
-    "tags": ["必须吃", "护肝·降酶"],"notes": "保肝降酶（一日3次）。与水飞蓟宾不是同一种药，别互相替代"
+    "tags": ["必须吃", "护肝·降酶"],"notes": "保肝降酶（一日2次）。与水飞蓟宾不是同一种药，别互相替代"
   },{
     "enable": true,
     "drug_name": "叶酸片（斯利安）","generic_name": "叶酸",
