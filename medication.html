@@ -98,6 +98,7 @@
             color: #1e3c72;
             margin-right: 6px;
         }
+        .med-stock { font-size: 11px; color: #94a3b8; }
 
         .tag-must {
             display: inline-block;
@@ -348,6 +349,32 @@
                 return unitAmt + unit + "×" + count + "=" + total + unit;
             }
 
+            // 根据 purchase 与每日用量推算预计吃完日期
+            function buildStockHint(drug) {
+                var p = drug.purchase;
+                if (!p || !p.date || !p.quantity) return "";
+                var times = (drug.dosage && drug.dosage.times) || [];
+                var perTime = drug.dosage && drug.dosage.per_time;
+                if (!times.length || !perTime) return "";
+                var count;
+                if (perTime.indexOf("半") !== -1) {
+                    count = 0.5;
+                } else {
+                    var cm = perTime.match(/([\d.]+)/);
+                    if (!cm) return "";
+                    count = parseFloat(cm[1]);
+                }
+                var daily = count * times.length;
+                if (!daily) return "";
+                var days = Math.ceil(p.quantity / daily);
+                var dm = p.date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+                if (!dm) return "";
+                var d = new Date(parseInt(dm[1], 10), parseInt(dm[2], 10) - 1, parseInt(dm[3], 10));
+                d.setDate(d.getDate() + days - 1);
+                var unit = perTime.replace(/[\d.半]/g, "") || "片";
+                return "备货" + p.quantity + unit + "，约" + days + "天 · " + (d.getMonth() + 1) + "月" + d.getDate() + "日吃完";
+            }
+
             // 生成单个 med-item
             function buildMedItem(drug, occurrence) {
                 var item = document.createElement("div");
@@ -397,6 +424,13 @@
                     note.appendChild(span);
                 });
                 note.appendChild(document.createTextNode(drug.notes || ""));
+                var stockHint = buildStockHint(drug);
+                if (stockHint) {
+                    var stock = document.createElement("span");
+                    stock.className = "med-stock";
+                    stock.textContent = " · " + stockHint;
+                    note.appendChild(stock);
+                }
 
                 content.appendChild(main);
                 content.appendChild(note);
