@@ -99,6 +99,18 @@
             margin-right: 6px;
         }
         .med-stock { font-size: 11px; color: #94a3b8; }
+        .med-stock.urgent {
+            color: #e74c3c;
+            font-weight: bold;
+            animation: stockBlink 1s ease-in-out infinite;
+        }
+        @keyframes stockBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .med-stock.urgent { animation: none; }
+        }
 
         .tag-must {
             display: inline-block;
@@ -352,27 +364,33 @@
             // 根据 purchase 与每日用量推算预计吃完日期
             function buildStockHint(drug) {
                 var p = drug.purchase;
-                if (!p || !p.date || !p.quantity) return "";
+                if (!p || !p.date || !p.quantity) return null;
                 var times = (drug.dosage && drug.dosage.times) || [];
                 var perTime = drug.dosage && drug.dosage.per_time;
-                if (!times.length || !perTime) return "";
+                if (!times.length || !perTime) return null;
                 var count;
                 if (perTime.indexOf("半") !== -1) {
                     count = 0.5;
                 } else {
                     var cm = perTime.match(/([\d.]+)/);
-                    if (!cm) return "";
+                    if (!cm) return null;
                     count = parseFloat(cm[1]);
                 }
                 var daily = count * times.length;
-                if (!daily) return "";
+                if (!daily) return null;
                 var days = Math.ceil(p.quantity / daily);
                 var dm = p.date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-                if (!dm) return "";
+                if (!dm) return null;
                 var d = new Date(parseInt(dm[1], 10), parseInt(dm[2], 10) - 1, parseInt(dm[3], 10));
                 d.setDate(d.getDate() + days - 1);
+                var now = new Date();
+                var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                var daysLeft = Math.round((d - today) / 86400000);
                 var unit = perTime.replace(/[\d.半]/g, "") || "片";
-                return "备货" + p.quantity + unit + "，约" + days + "天 · " + (d.getMonth() + 1) + "月" + d.getDate() + "日吃完";
+                return {
+                    text: "备货" + p.quantity + unit + "，约" + days + "天 · " + (d.getMonth() + 1) + "月" + d.getDate() + "日吃完",
+                    urgent: daysLeft < 3
+                };
             }
 
             // 生成单个 med-item
@@ -424,11 +442,11 @@
                     note.appendChild(span);
                 });
                 note.appendChild(document.createTextNode(drug.notes || ""));
-                var stockHint = buildStockHint(drug);
+                var stockHint = occurrence === 1 ? buildStockHint(drug) : null;
                 if (stockHint) {
                     var stock = document.createElement("span");
-                    stock.className = "med-stock";
-                    stock.textContent = " · " + stockHint;
+                    stock.className = "med-stock" + (stockHint.urgent ? " urgent" : "");
+                    stock.textContent = " · " + stockHint.text;
                     note.appendChild(stock);
                 }
 
