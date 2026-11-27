@@ -17,7 +17,8 @@
     "enable": true,
     "drug_name": "ASMETON®（阿斯美）","generic_name": "阿斯美",
     "specification": "片","dosage": {"per_time": "2片","times": ["06:00","12:00","16:00"]},
-    "tags": ["止咳平喘"],"notes": "咳嗽喘时吃（没咳嗽可不吃）"
+    "tags": ["止咳平喘"],"notes": "咳嗽喘时吃（没咳嗽可不吃）",
+    "purchase": {"price": 31,"quantity": 60,"specification": "片","date": "2026-11-27","from": "美团"}
   },{
     "enable": true,
     "drug_name": "整肠生（地衣芽孢杆菌）","generic_name": "地衣芽孢杆菌",
@@ -48,6 +49,7 @@
     "enable": true,
     "drug_name": "熊去氧胆酸胶囊","generic_name": "俐璟舒",
     "specification": "250mg/片","dosage": {"per_time": "1片","times": ["06:00","12:00","16:00"]},
-    "tags": ["必须吃", "护胆"],"notes": "改善胆汁淤积，防止胆汁淤积引起的肝损伤。饭后服用，温水送服"
+    "tags": ["必须吃", "护胆"],"notes": "改善胆汁淤积，防止胆汁淤积引起的肝损伤。饭后服用，温水送服",
+    "purchase": {"price": 60.17,"quantity": 48,"specification": "250mg","date": "2026-11-27","from": "京东"}
   }
 ]
